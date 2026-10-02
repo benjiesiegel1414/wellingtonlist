@@ -20,6 +20,29 @@
  *   GitHub repo variables SHEET_BUSINESSES_CSV and SHEET_EVENTS_CSV.
  */
 var MODEL = "claude-sonnet-5-5";
+var HEADERS = {
+  Businesses: ["timestamp","approved","ai_review","business_name","category","subcategory","address","phone","website","description","email","claim_listing","interested_in_featured","page"],
+  Events: ["timestamp","approved","ai_review","event_name","start_date","end_date","start_time","venue","address","link","description","email","page"],
+  Advertisers: ["timestamp","approved","ai_review","name","business_name","email","phone","interest","message","page"]
+};
+
+/** Run once: creates the tabs, headers and the public (approved-only, no emails) tabs used by the website. */
+function setup() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  ss.rename("WellingtonList Submissions");
+  Object.keys(HEADERS).forEach(function (t) {
+    var sh = ss.getSheetByName(t) || ss.insertSheet(t);
+    sh.getRange(1, 1, 1, HEADERS[t].length).setValues([HEADERS[t]]).setFontWeight("bold");
+    sh.setFrozenRows(1);
+  });
+  var pub = { "Businesses Public": "=QUERY(Businesses!A:J,\"select D,E,F,G,H,I,J,B where B = 'yes'\",1)",
+              "Events Public": "=QUERY(Events!A:K,\"select D,E,F,G,H,I,J,K,B where B = 'yes'\",1)" };
+  Object.keys(pub).forEach(function (t) {
+    var sh = ss.getSheetByName(t) || ss.insertSheet(t);
+    sh.getRange("A1").setFormula(pub[t]);
+  });
+  var s1 = ss.getSheetByName("Sheet1"); if (s1 && ss.getSheets().length > 1) ss.deleteSheet(s1);
+}
 
 function doPost(e) {
   var p = e.parameter || {};
@@ -31,7 +54,7 @@ function doPost(e) {
   var header = sh.getLastRow() ? sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0] : [];
   if (!header.length) { header = ["timestamp", "approved", "ai_review"].concat(keys); sh.appendRow(header); }
   keys.concat(["ai_review"]).forEach(function (k) { if (header.indexOf(k) === -1) { header.push(k); sh.getRange(1, header.length).setValue(k); } });
-  var row = header.map(function (h) { return h === "timestamp" ? new Date() : (h === "approved" || h === "ai_review") ? "" : (p[h] || ""); });
+  var row = header.map(function (h) { var v = p[h] || ""; if (/_date$/.test(h) && v) v = "'" + v; return h === "timestamp" ? new Date() : (h === "approved" || h === "ai_review") ? "" : v; });
   sh.appendRow(row);
   var r = sh.getLastRow();
 

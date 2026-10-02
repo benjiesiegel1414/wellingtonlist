@@ -48,7 +48,7 @@ async function sheet(url) {
     return parseCSV(await res.text()).filter(r => /^(y|yes|true|1)$/i.test(r.approved || ""));
   } catch (e) { console.warn("Sheet fetch failed:", url, e.message); return []; }
 }
-const CAT_MAP = { restaurant: "restaurants", restaurants: "restaurants", "home services": "home", health: "health", "health and medical": "health", equestrian: "equestrian", "real estate": "realestate", shopping: "shopping", pets: "pets", "kids and schools": "kids", "fitness": "fitness", "things to do": "things-to-do", "professional services": "services", "beauty and wellness": "beauty" };
+const CAT_MAP = { "pets and vets": "pets", pets: "pets", restaurant: "restaurants", restaurants: "restaurants", "home services": "home", health: "health", "health and medical": "health", equestrian: "equestrian", "real estate": "realestate", shopping: "shopping", pets: "pets", "kids and schools": "kids", "fitness": "fitness", "things to do": "things-to-do", "professional services": "services", "beauty and wellness": "beauty" };
 const sheetBiz = await sheet(process.env.SHEET_BUSINESSES_CSV);
 for (const r of sheetBiz) {
   const name = r.business_name || r.name; if (!name) continue;
@@ -76,6 +76,7 @@ const CATS = [
   { id: "home", label: "Home services", blurb: "Pool, HVAC, roofing, lawn" },
   { id: "health", label: "Health and medical", blurb: "Doctors, dentists, urgent care" },
   { id: "realestate", label: "Real estate", blurb: "Agents, lenders, title" },
+  { id: "pets", label: "Pets and vets", blurb: "Veterinarians and pet care" },
   { id: "services", label: "Local services", blurb: "Everything else" }
 ];
 const catLabel = (id) => (CATS.find(c => c.id === id) || { label: "Local" }).label;
@@ -89,7 +90,7 @@ const horseSymbol = read("assets/horse-symbol.svg");
 const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true">${horseSymbol}</svg>`;
 const logo = (light) => `<a class="brand" href="/" aria-label="Wellington List home"><span class="logo-tile${light ? " logo-tile-light" : ""}"><svg width="30" height="38"><use href="#horse"/></svg></span><span class="brand-name">Wellington List<span>Wellington, Florida</span></span></a>`;
 
-const NAV = [["/blog/", "News"], ["/directory/", "Directory"], ["/restaurants/", "Eat and Drink"], ["/things-to-do/", "Things to Do"], ["/events/", "Events"], ["/equestrian/", "Equestrian"]];
+const NAV = [["/blog/", "News"], ["/directory/", "Directory"], ["/restaurants/", "Eat and Drink"], ["/services/", "Services"], ["/things-to-do/", "Things to Do"], ["/events/", "Events"], ["/equestrian/", "Equestrian"]];
 
 const sponsor = (variant = "leader") => `
 <div class="sponsor sponsor-${variant}"><small>Advertisement</small>
@@ -328,6 +329,15 @@ directoryPage({
   intro: listIntro(`<p>Wellington is best known as the winter equestrian capital of the world, but there is a lot more here for families and visitors. Start with the free boardwalk at <a href="/places/peaceful-waters-sanctuary/">Peaceful Waters Sanctuary</a>, catch a free show at the <a href="/places/wellington-amphitheater/">Wellington Amphitheater</a>, spend a winter Sunday at the <a href="/places/national-polo-center/">National Polo Center</a>, or climb the observation tower at the <a href="/places/wellington-environmental-preserve/">Wellington Environmental Preserve</a>. For more ideas, see our <a href="/events/">events calendar</a>.</p>`)
 });
 
+directoryPage({
+  urlPath: "/services/", crumbs: [["Home", "/"], ["Local services", "/services/"]],
+  h1: "Local services in Wellington, FL", sub: "AC and plumbing, pool service, dentists, doctors, veterinarians and real estate, serving Wellington and the western communities.",
+  title: "Wellington, FL Local Services: AC, Plumbers, Pool Service, Dentists, Vets and More",
+  description: "Find local services in Wellington, Florida: air conditioning repair, plumbers, pool service, dentists, pediatricians, urgent care, veterinarians and real estate offices.",
+  list: places.filter(p => ["home", "health", "pets", "realestate", "services"].includes(p.cat)),
+  intro: listIntro(`<p>From AC repair in the middle of August to a pediatrician on a Saturday morning, these are local providers in and around Wellington. Listings include the business address and phone where available. Own a Wellington business? <a href="/add-your-business/">Add it free</a>, and providers can claim their listing to add hours, photos and services.</p>`)
+});
+
 // ---------- Equestrian guide ----------
 {
   const eq = places.filter(p => p.cat === "equestrian");
@@ -349,40 +359,95 @@ directoryPage({
 }
 
 // ---------- Place pages ----------
+const AREA_TEXT = {
+  "Wellington Trace": "in the Wellington Trace shopping area, a cluster of local restaurants and shops in central Wellington near the Courtyard Shops",
+  "Forest Hill Blvd": "on Forest Hill Boulevard, Wellington's main east-west corridor lined with the village's busiest plazas",
+  "State Road 7": "along the State Road 7 corridor on Wellington's eastern edge, near The Mall at Wellington Green",
+  "Wellington Green": "in the Wellington Green area beside The Mall at Wellington Green on State Road 7",
+  "South Shore Blvd": "on South Shore Boulevard, close to the equestrian district and the Wellington International showgrounds",
+  "Polo Club Rd": "near Polo Club Road in the heart of Wellington's equestrian and polo community",
+  "Fairlane Farms": "on Fairlane Farms Road near Wellington's commerce and business park area",
+  "Town Center": "at Wellington Town Center on Forest Hill Boulevard, next to Lake Wellington",
+  "Equestrian Preserve": "in Wellington's Equestrian Preserve, the heart of the village's horse country",
+  "Pierson Road": "on Pierson Road in the western part of the village",
+  "K-Park": "on the K-Park site at State Road 7 and Stribling Way",
+  "National Polo Center": "at the National Polo Center on 120th Avenue South"
+};
+const CAT_TIPS = {
+  restaurants: ["Hours and menus change, so check the restaurant's website or call ahead before you go", "Weekend evenings and the winter equestrian season are the busiest times", "Many Wellington restaurants offer takeout and delivery through their own sites"],
+  home: ["Ask whether the company is licensed and insured in Florida before work begins", "Get a written estimate, and compare at least two quotes for bigger jobs", "Ask about maintenance plans, which can lower costs over time"],
+  health: ["Call ahead to confirm they accept your insurance", "Ask about new patient availability and wait times", "For emergencies, call 911 or go to the nearest emergency room"],
+  pets: ["Call ahead to confirm new patient availability", "Bring your pet's vaccination and medical records to the first visit", "Ask about after-hours and emergency options"],
+  realestate: ["Ask which Wellington neighborhoods the agent knows best", "Equestrian and seasonal rental properties often need a specialist", "Ask for recent comparable sales before pricing or making an offer"]
+};
+const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
 for (const p of places) {
-  const crumbs = [["Home", "/"], [catLabel(p.cat), p.cat === "restaurants" ? "/restaurants/" : `/directory/?cat=${p.cat}`], [p.name, `/places/${p.slug}/`]];
-  const related = places.filter(x => x.cat === p.cat && x.slug !== p.slug).slice(0, 3);
+  const listUrl = p.cat === "restaurants" ? "/restaurants/" : `/directory/?cat=${p.cat}`;
+  const crumbs = [["Home", "/"], [catLabel(p.cat), listUrl], [p.name, `/places/${p.slug}/`]];
+  const sameType = places.filter(x => x.slug !== p.slug && x.cat === p.cat && (p.cuisine ? x.cuisine === p.cuisine : x.type === p.type)).slice(0, 4);
+  const nearby = places.filter(x => x.slug !== p.slug && p.area && x.area === p.area && !sameType.includes(x)).slice(0, 4);
+  const more = sameType.length + nearby.length < 4 ? places.filter(x => x.slug !== p.slug && x.cat === p.cat && !sameType.includes(x) && !nearby.includes(x)).slice(0, 4 - sameType.length - nearby.length) : [];
   const street = p.address && /^\d/.test(p.address) ? p.address : "";
   const addrParts = street.match(/^(.*),\s*([^,]+),\s*FL\s*(\d{5})$/);
+  const isNearby = (p.area || "").includes("nearby");
+  const city = isNearby && p.address ? p.address.split(",").slice(-2, -1)[0].trim() : "Wellington";
+  const areaText = AREA_TEXT[p.area] || (isNearby ? `a short drive from Wellington in ${city}` : "in Wellington, Florida");
+  const kind = p.cat === "restaurants" ? (p.cuisine ? p.cuisine.toLowerCase() + " " : "") + (/(bar|tavern|saloon|lounge)/i.test(p.type) ? "spot" : "restaurant") : p.type.toLowerCase();
+  const tips = (p.tips && p.tips.length ? p.tips : CAT_TIPS[p.cat] || []);
+  const faq = [
+    { q: `Where is ${p.name} located?`, a: p.address ? `${p.name} is located at ${p.address}, ${areaText}.` : `${p.name} is ${areaText}. Use the directions button for the exact location.` },
+    ...(p.cat === "restaurants" ? [{ q: `What kind of food does ${p.name} serve?`, a: `${p.name} is a ${p.type.toLowerCase()} spot in ${city}. ${p.desc}` }] : [{ q: `What does ${p.name} offer?`, a: `${p.name} is listed under ${catLabel(p.cat).toLowerCase()} (${p.type.toLowerCase()}). ${p.desc}` }]),
+    { q: `What are ${p.name}'s hours?`, a: p.website ? `Hours can change seasonally, so check ${hostOf(p.website)} or call ahead before visiting.` : `Hours can change seasonally, so call ahead or check the business's official listing before visiting.` },
+    ...(p.phone ? [{ q: `What is the phone number for ${p.name}?`, a: `You can reach ${p.name} at ${p.phone}.` }] : [])
+  ];
   const ldPlace = {
     "@context": "https://schema.org", "@type": p.schema || "LocalBusiness", name: p.name, description: p.desc, url: `${SITE}/places/${p.slug}/`,
-    ...(addrParts ? { address: { "@type": "PostalAddress", streetAddress: addrParts[1], addressLocality: addrParts[2], addressRegion: "FL", postalCode: addrParts[3], addressCountry: "US" } } : { address: { "@type": "PostalAddress", addressLocality: (p.area || "").includes("nearby") ? undefined : "Wellington", addressRegion: "FL", addressCountry: "US" } }),
-    ...(p.cuisine ? { servesCuisine: p.cuisine } : {}), ...(p.website ? { sameAs: [p.website] } : {})
+    ...(addrParts ? { address: { "@type": "PostalAddress", streetAddress: addrParts[1], addressLocality: addrParts[2], addressRegion: "FL", postalCode: addrParts[3], addressCountry: "US" } } : { address: { "@type": "PostalAddress", addressLocality: isNearby ? city : "Wellington", addressRegion: "FL", addressCountry: "US" } }),
+    ...(p.phone ? { telephone: p.phone } : {}), ...(p.cuisine ? { servesCuisine: p.cuisine } : {}), ...(p.website ? { sameAs: [p.website] } : {})
   };
-  const title = p.cat === "restaurants" ? `${p.name}, Wellington FL: ${p.type} Restaurant` : `${p.name} (${p.area && p.area.includes("nearby") ? p.address.split(",").slice(-2, -1)[0].trim() : "Wellington"}, FL): ${p.type} Guide`;
-  const body = pageHead(crumbs, esc(p.name), esc(p.type) + (p.area ? " &middot; " + esc(p.area) : "")) + `<div class="wrap">${sponsor()}</div>
-<div class="wrap place-grid">
-  <article class="prose">
-    <p class="lede">${esc(p.desc)}</p>
-    ${p.tips && p.tips.length ? `<h2>Good to know</h2><ul class="tips">${p.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
-    ${p.link ? `<p><a href="${p.link}">Read our full guide</a></p>` : ""}
-    <div class="claim">Is this your business? <a href="/add-your-business/?claim=${p.slug}">Claim this listing</a> to add photos, hours and a link to your website, or <a href="/add-your-business/?claim=${p.slug}">suggest an edit</a>.</div>
-    ${related.length ? `<div class="related"><h2>More ${esc(catLabel(p.cat).toLowerCase())} in Wellington</h2><div class="listings" style="grid-template-columns:1fr">${related.map(listingCard).join("")}</div></div>` : ""}
+  const ldFaq = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
+  const telHref = p.phone ? "tel:+1" + p.phone.replace(/\D/g, "").replace(/^1/, "") : "";
+  const actions = `<div class="pl-actions"><a class="btn btn-primary" href="${mapsLink(p)}" rel="noopener" target="_blank">Get directions</a>${p.phone ? `<a class="btn btn-ghost" href="${telHref}">Call ${esc(p.phone)}</a>` : ""}${p.website ? `<a class="btn btn-ghost" href="${esc(p.website)}" rel="noopener nofollow" target="_blank">Visit website</a>` : ""}</div>`;
+  const facts = `<dl class="pl-facts">
+      <div><dt>Category</dt><dd><a href="${listUrl}">${esc(catLabel(p.cat))}</a></dd></div>
+      <div><dt>Type</dt><dd>${esc(p.type)}</dd></div>
+      <div><dt>${p.address ? "Address" : "Area"}</dt><dd>${esc(p.address || p.area || "Wellington, FL")}</dd></div>
+      ${p.phone ? `<div><dt>Phone</dt><dd><a href="${telHref}">${esc(p.phone)}</a></dd></div>` : ""}
+      ${p.website ? `<div><dt>Website</dt><dd><a href="${esc(p.website)}" rel="noopener nofollow" target="_blank">${esc(hostOf(p.website))}</a></dd></div>` : ""}
+    </dl>`;
+  const miniList = (title, list) => list.length ? `<section class="pl-section"><h2>${title}</h2><ul class="pl-mini">${list.map(x => `<li><a href="/places/${x.slug}/"><strong>${esc(x.name)}</strong><span>${esc(x.type)}${x.area ? " &middot; " + esc(x.area) : ""}</span></a></li>`).join("")}</ul></section>` : "";
+  const title = p.cat === "restaurants" ? `${p.name}, Wellington FL: ${p.type}${p.address ? ", " + p.address.split(",")[0] : ""}` : `${p.name} (${city}, FL): ${p.type}`;
+  const body = `
+<section class="pl-head"><div class="wrap">
+  ${crumbsHTML(crumbs)}
+  <div class="pl-title"><div><span class="pill ver" style="background:rgba(255,255,255,.14);color:#fff">${esc(catLabel(p.cat))}</span><h1>${esc(p.name)}</h1><p>${esc(p.type)}${p.area ? " &middot; " + esc(p.area) : ""}</p></div></div>
+  ${actions}
+</div></section>
+<div class="wrap">${sponsor()}</div>
+<div class="wrap pl-grid">
+  <article class="pl-main">
+    <section class="pl-section"><h2>About ${esc(p.name)}</h2>
+      <p class="pl-lede">${esc(p.desc)}</p>
+      <p>${esc(p.name)} is ${areaText}. ${p.cat === "restaurants" ? `It is one of ${places.filter(x => x.cat === "restaurants").length} places to eat and drink in our <a href="/restaurants/">Wellington restaurant guide</a>${p.cuisine ? `, and part of the village's ${esc(p.cuisine)} dining scene` : ""}.` : `Browse more ${esc(catLabel(p.cat).toLowerCase())} in our <a href="${listUrl}">Wellington directory</a>.`}</p>
+      ${p.link ? `<p><a href="${p.link}">Read our full guide</a></p>` : ""}
+    </section>
+    ${tips.length ? `<section class="pl-section"><h2>Good to know</h2><ul class="tips">${tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></section>` : ""}
+    <section class="pl-section"><h2>Frequently asked questions</h2><div class="faq" style="margin-top:0">${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</div></section>
+    ${miniList(p.cuisine ? `More ${esc(p.cuisine)} spots in Wellington` : `Similar ${esc(catLabel(p.cat).toLowerCase())}`, sameType.concat(more))}
+    ${miniList(`Also ${p.area && !isNearby ? "on " + esc(p.area) : "nearby"}`, nearby)}
+    <div class="claim">Own or manage ${esc(p.name)}? <a href="/add-your-business/?claim=${p.slug}">Claim this listing</a> to add photos, hours and your menu or services, or <a href="/add-your-business/?claim=${p.slug}">suggest an edit</a>.</div>
   </article>
   <aside><div class="sticky-rail">
-    <dl class="info-card">
-      <dt>Category</dt><dd>${esc(catLabel(p.cat))}</dd>
-      <dt>Type</dt><dd>${esc(p.type)}</dd>
-      ${p.address ? `<dt>Address</dt><dd>${esc(p.address)}</dd>` : `<dt>Area</dt><dd>${esc(p.area || "Wellington, FL")}</dd>`}
-      ${p.phone ? `<dt>Phone</dt><dd>${esc(p.phone)}</dd>` : ""}
-      ${p.website ? `<dt>Website</dt><dd><a href="${esc(p.website)}" rel="noopener nofollow" target="_blank">Visit website</a></dd>` : ""}
-      <dd><a class="btn btn-primary" href="${mapsLink(p)}" rel="noopener" target="_blank">Get directions</a></dd>
-    </dl>
-    ${sponsor("rect")}
+    <div class="pl-card">
+      <h2>At a glance</h2>
+      ${facts}
+      <a class="btn btn-primary" style="width:100%" href="${mapsLink(p)}" rel="noopener" target="_blank">Get directions</a>
+    </div>
   </div></aside>
 </div>
 <div class="wrap">${sponsor()}</div>${newsletter}`;
-  add(`/places/${p.slug}/`, layout({ title, description: p.desc.slice(0, 155).replace(/\s+\S*$/, "") + ".", urlPath: `/places/${p.slug}/`, body, jsonld: [crumbsLD(crumbs), ldPlace] }), "0.6");
+  const desc = (p.desc + (p.address ? ` Located at ${p.address}.` : ` Located in ${city}, FL.`)).slice(0, 158);
+  add(`/places/${p.slug}/`, layout({ title, description: desc, urlPath: `/places/${p.slug}/`, body, jsonld: [crumbsLD(crumbs), ldPlace, ldFaq] }), "0.6");
 }
 
 // ---------- Events ----------

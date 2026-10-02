@@ -123,3 +123,31 @@
   .post-card .thumb img,.lead-story .img img{width:100%;height:100%;object-fit:cover;display:block}
   .cover{margin:0 0 28px;border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:var(--green-50)}
   .cover img{width:100%;height:100%;object-fit:cover;display:block}
+  /* Place page v2 */
+  .pl-head{background:var(--mesh);color:#fff}
+  .pl-head .wrap{padding-top:40px;padding-bottom:36px}
+  .pl-title h1{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.2vw,50px);line-height:1.08;margin:12px 0 6px}
+  .pl-title p{margin:0;color:#D7E8DD;font-size:17px}
+  .pl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pl-actions .btn-ghost{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:#fff}
+  .pl-actions .btn-ghost:hover{background:rgba(255,255,255,.18)}
+  .pl-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;padding-top:36px;padding-bottom:40px}
+  .pl-main{max-width:720px}
+  .pl-section{padding:0 0 28px;margin:0 0 28px;border-bottom:1px solid var(--line)}
+  .pl-section h2{font-family:var(--serif);font-weight:500;font-size:26px;margin:0 0 12px}
+  .pl-section p{font-size:17px;line-height:1.7;margin:0 0 12px}
+  .pl-section a{color:var(--green-700);font-weight:600}
+  .pl-lede{font-size:20px!important;color:var(--ink)}
+  .pl-card{border:1px solid var(--line);border-radius:12px;padding:24px;background:#fff;box-shadow:0 12px 30px -24px rgba(10,40,18,.5)}
+  .pl-card h2{font-size:15px;font-weight:700;margin:0 0 14px}
+  .pl-facts{margin:0 0 18px;display:grid;gap:12px}
+  .pl-facts div{display:grid;gap:2px}
+  .pl-facts dt{font-size:12.5px;color:var(--muted)}
+  .pl-facts dd{margin:0;font-weight:500;font-size:15px;word-break:break-word}
+  .pl-facts a{color:var(--green-700)}
+  .pl-mini{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pl-mini a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 14px;text-decoration:none!important}
+  .pl-mini a:hover{border-color:var(--green-500)}
+  .pl-mini strong{display:block;font-size:15px;color:var(--ink)}
+  .pl-mini span{font-size:13px;color:var(--muted);font-weight:400}
+  @media (max-width:900px){.pl-grid{grid-template-columns:1fr}.pl-grid aside{order:-1}.pl-mini{grid-template-columns:1fr}}
