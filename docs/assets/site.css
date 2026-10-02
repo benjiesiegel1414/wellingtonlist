@@ -348,6 +348,9 @@
   .event-item p{margin:8px 0 0;color:var(--muted)}
   .hoods li{padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
   .prose-narrow{max-width:760px}
+  .post-card .thumb img,.lead-story .img img{width:100%;height:100%;object-fit:cover;display:block}
+  .cover{margin:0 0 28px;border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:var(--green-50)}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block}
 
 .foot-h{font-size:14px;color:#fff;margin:0 0 14px;font-weight:600;font-family:var(--sans)}
 .h4{font-family:var(--serif);font-weight:500;font-size:22px;margin:2px 0 0;line-height:1.2}

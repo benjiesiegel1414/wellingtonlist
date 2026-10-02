@@ -99,21 +99,7 @@ const sponsor = (variant = "leader") => `
   </a>
 </div>`;
 
-const newsletter = `
-<section class="block newsletter">
-  <div class="wrap nl">
-    <div><h2>The Wellington morning email</h2><p>Local news, new openings and the weekend's events. Free, every weekday.</p></div>
-    <div>
-      <form data-wl-form="Newsletter" data-success="You're on the list. Look for the first email soon.">
-        <label class="sr" for="nl-email">Email address</label>
-        <input id="nl-email" name="email" type="email" placeholder="you@email.com" required autocomplete="email">
-        <span class="hp"><input name="website_url_hp" tabindex="-1" autocomplete="off"></span>
-        <button class="btn btn-primary" type="submit">Subscribe</button>
-      </form>
-      <div class="ok status" role="status"></div>
-    </div>
-  </div>
-</section>`;
+const newsletter = ""; // email signup removed for now
 
 const footer = `
 <footer>
@@ -128,7 +114,8 @@ const footer = `
   </div>
 </footer>`;
 
-function layout({ title, description, urlPath, body, jsonld = [], ogType = "website", noindex = false, article = null }) {
+function layout({ title, description, urlPath, body, jsonld = [], ogType = "website", noindex = false, article = null, image = "" }) {
+  const ogImg = image ? SITE + image : SITE + "/assets/og.jpg";
   const canonical = SITE + urlPath;
   const org = { "@context": "https://schema.org", "@type": "Organization", "@id": SITE + "/#org", name: "Wellington List", url: SITE + "/", logo: SITE + "/assets/icon-512.png", areaServed: { "@type": "City", name: "Wellington, Florida" } };
   const ld = [org, ...jsonld].map(o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n");
@@ -146,12 +133,12 @@ ${noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots" cont
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${SITE}/assets/og.jpg">
+<meta property="og:image" content="${ogImg}">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
-<meta name="twitter:image" content="${SITE}/assets/og.jpg">
+<meta name="twitter:image" content="${ogImg}">
 ${article ? `<meta property="article:published_time" content="${article.published}">\n<meta property="article:modified_time" content="${article.updated}">` : ""}
 <meta name="theme-color" content="#1D5631">
 <meta name="geo.region" content="US-FL">
@@ -169,8 +156,6 @@ ${ld}
 <body>
 ${sprite}
 <a class="sr" href="#main">Skip to content</a>
-<div class="util"><div class="wrap"><span id="today">Wellington, Florida</span>
-  <nav aria-label="Utility"><a href="/submit-event/">Submit an event</a><a href="/add-your-business/">Add your business</a><a href="/advertise/">Advertise</a></nav></div></div>
 <header class="site"><div class="wrap">
   ${logo(false)}
   <nav class="main" id="mainnav" aria-label="Main">${NAV.map(([h, l]) => `<a href="${h}"${urlPath.startsWith(h) ? ' aria-current="page"' : ""}>${l}</a>`).join("")}</nav>
@@ -204,10 +189,12 @@ const listingCard = (p) => `
 
 const postCard = (p) => `
 <article class="post-card">
-  <a class="thumb" href="/blog/${p.slug}/" aria-label="${esc(p.h1)}"><svg viewBox="5 2 52 63" aria-hidden="true"><use href="#horse"/></svg></a>
+  <a class="thumb" href="/blog/${p.slug}/" aria-label="${esc(p.h1)}">${coverImg(p) || '<svg viewBox="5 2 52 63" aria-hidden="true"><use href="#horse"/></svg>'}</a>
   <div class="pad"><div class="tag">${esc(p.category)}</div><h3><a href="/blog/${p.slug}/">${esc(p.h1)}</a></h3><p>${esc(p.description)}</p><div class="byline">${fmtDate(p.published)} &middot; ${p.readMins} min read</div></div>
 </article>`;
 
+const coverFile = (p) => fs.existsSync(path.join(SRC, "covers", p.slug + ".jpg")) ? `/assets/covers/${p.slug}.jpg` : "";
+const coverImg = (p, eager) => coverFile(p) ? `<img src="${coverFile(p)}" alt="${esc(p.coverAlt || p.h1)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} width="1600" height="900">` : "";
 const pages = []; // for sitemap: [path, lastmod, priority]
 const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(urlPath === "/" ? "index.html" : urlPath.replace(/^\//, "") + "index.html", html); pages.push([urlPath, lastmod, priority]); };
 
@@ -235,7 +222,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
   <div class="sec-head"><h2>Wellington news</h2><a href="/blog/">All news</a></div>
   <div class="news-grid"><div class="news-main">
     <article class="lead-story">
-      <a class="img" href="/blog/${lead.slug}/" style="display:grid;place-items:center" aria-label="${esc(lead.h1)}"><svg viewBox="5 2 52 63" width="34%" style="color:#fff" aria-hidden="true"><use href="#horse"/></svg></a>
+      <a class="img" href="/blog/${lead.slug}/" style="display:grid;place-items:center" aria-label="${esc(lead.h1)}">${coverImg(lead, true) || '<svg viewBox="5 2 52 63" width="34%" style="color:#fff" aria-hidden="true"><use href="#horse"/></svg>'}</a>
       <div class="tag">${esc(lead.category)}</div>
       <h3><a href="/blog/${lead.slug}/">${esc(lead.h1)}</a></h3>
       <p>${esc(lead.description)}</p><div class="byline">${fmtDate(lead.published)} &middot; ${lead.readMins} min read</div>
@@ -431,6 +418,7 @@ for (const p of places) {
     const body = pageHead(crumbsP, esc(p.h1), "", `<div class="article-meta"><span>By Wellington List staff</span><span>Published <time datetime="${p.published}">${fmtDate(p.published)}</time></span>${p.updated !== p.published ? `<span>Updated <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>` : ""}<span>${p.readMins} min read</span></div>`) + `<div class="wrap">${sponsor()}</div>
 <div class="wrap body-grid">
   <article class="prose">
+    ${coverFile(p) ? `<figure class="cover">${coverImg(p, true)}</figure>` : ""}
     ${content}
     <section class="faq" id="faq"><h2>Frequently asked questions</h2>${p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</section>
     <section class="sources"><h2 style="font-size:20px">Sources</h2><ul>${p.sources.map(s => `<li><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.name)}</a></li>`).join("")}</ul>
@@ -445,10 +433,10 @@ for (const p of places) {
 </div>
 <div class="wrap">${sponsor()}</div>${newsletter}`;
     const ld = [crumbsLD(crumbsP),
-      { "@context": "https://schema.org", "@type": "NewsArticle", headline: p.title.slice(0, 110), description: p.description, datePublished: p.published, dateModified: p.updated, mainEntityOfPage: SITE + urlPath, image: [SITE + "/assets/og.jpg"],
+      { "@context": "https://schema.org", "@type": "NewsArticle", headline: p.title.slice(0, 110), description: p.description, datePublished: p.published, dateModified: p.updated, mainEntityOfPage: SITE + urlPath, image: [SITE + (coverFile(p) || "/assets/og.jpg")],
         author: { "@type": "Organization", name: "Wellington List", url: SITE + "/about/" }, publisher: { "@id": SITE + "/#org" }, about: { "@type": "Place", name: "Wellington, Florida" } },
       { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: p.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }];
-    add(urlPath, layout({ title: p.seoTitle, description: p.description, urlPath, body, jsonld: ld, ogType: "article", article: p }), "0.8", p.updated);
+    add(urlPath, layout({ title: p.seoTitle, description: p.description, urlPath, body, jsonld: ld, ogType: "article", article: p, image: coverFile(p) }), "0.8", p.updated);
   }
 }
 
@@ -545,6 +533,7 @@ fs.writeFileSync(path.join(OUT, "assets/site.css"), read("assets/base.css") + re
 for (const f of ["main.js", "config.js"]) fs.copyFileSync(path.join(SRC, "assets", f), path.join(OUT, "assets", f));
 for (const f of fs.readdirSync(path.join(SRC, "static"))) fs.copyFileSync(path.join(SRC, "static", f), path.join(OUT, f.startsWith("asset-") ? "assets/" + f.slice(6) : f));
 
+if (fs.existsSync(path.join(SRC, "covers"))) { fs.mkdirSync(path.join(OUT, "assets/covers"), { recursive: true }); for (const f of fs.readdirSync(path.join(SRC, "covers"))) fs.copyFileSync(path.join(SRC, "covers", f), path.join(OUT, "assets/covers", f)); }
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(([u, m, pr]) => `  <url><loc>${SITE}${u}</loc><lastmod>${m}</lastmod><priority>${pr}</priority></url>`).join("\n")}

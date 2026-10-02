@@ -1,16 +1,26 @@
 /**
- * WellingtonList.com form receiver (Google Apps Script).
- * Setup (about 2 minutes):
- * 1. Create a Google Sheet named "WellingtonList Submissions".
- * 2. Extensions > Apps Script, paste this file, save.
- * 3. Deploy > New deployment > Web app. Execute as: Me. Who has access: Anyone.
- * 4. Copy the web app URL into docs/assets/config.js (formEndpoint) and src/assets/config.js.
- * Every form creates/uses its own tab: Businesses, Events, Newsletter, Advertisers.
- * To publish a business or event, type "yes" in its Approved column.
- * Then File > Share > Publish to web > choose the Businesses tab > CSV, and do the same for Events.
- * Save those two CSV links as GitHub repository variables SHEET_BUSINESSES_CSV and SHEET_EVENTS_CSV.
- * The nightly GitHub Action adds approved rows to the site automatically.
+ * WellingtonList.com form receiver + Claude review (Google Apps Script).
+ *
+ * Where submissions live: a Google Sheet ("WellingtonList Submissions"), one tab per form:
+ * Businesses, Events, Advertisers.
+ *
+ * What happens on each submission:
+ * 1. The row is saved to the right tab.
+ * 2. Business and event submissions are reviewed by Claude (with web search) to check they are real,
+ *    in or near Wellington, FL, and not spam. Claude writes "yes", "no" or "review" in the Approved column
+ *    and a short reason in the ai_review column.
+ * 3. You get an email for anything marked "review" or "no" (and for every advertiser inquiry).
+ * 4. Every morning the GitHub Action publishes rows with Approved = yes. You can override any row by hand.
+ *
+ * Setup:
+ * - Extensions > Apps Script, paste this file, save.
+ * - Project Settings > Script properties: add ANTHROPIC_API_KEY (and optionally NOTIFY_EMAIL).
+ * - Deploy > New deployment > Web app. Execute as: Me. Who has access: Anyone. Copy the URL into assets/config.js (formEndpoint).
+ * - File > Share > Publish to web: publish the Businesses and Events tabs as CSV and save those links as
+ *   GitHub repo variables SHEET_BUSINESSES_CSV and SHEET_EVENTS_CSV.
  */
+var MODEL = "claude-sonnet-5-5";
+
 function doPost(e) {
   var p = e.parameter || {};
   if (p.website_url_hp) return ContentService.createTextOutput("ok"); // spam trap
@@ -19,10 +29,48 @@ function doPost(e) {
   var sh = ss.getSheetByName(tab) || ss.insertSheet(tab);
   var keys = Object.keys(p).filter(function (k) { return k !== "form_type" && k !== "website_url_hp"; });
   var header = sh.getLastRow() ? sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0] : [];
-  if (!header.length) { header = ["timestamp", "approved"].concat(keys); sh.appendRow(header); }
-  keys.forEach(function (k) { if (header.indexOf(k) === -1) { header.push(k); sh.getRange(1, header.length).setValue(k); } });
-  var row = header.map(function (h) { return h === "timestamp" ? new Date() : h === "approved" ? "" : (p[h] || ""); });
+  if (!header.length) { header = ["timestamp", "approved", "ai_review"].concat(keys); sh.appendRow(header); }
+  keys.concat(["ai_review"]).forEach(function (k) { if (header.indexOf(k) === -1) { header.push(k); sh.getRange(1, header.length).setValue(k); } });
+  var row = header.map(function (h) { return h === "timestamp" ? new Date() : (h === "approved" || h === "ai_review") ? "" : (p[h] || ""); });
   sh.appendRow(row);
-  try { MailApp.sendEmail(Session.getActiveUser().getEmail(), "New WellingtonList " + tab + " submission", JSON.stringify(p, null, 2)); } catch (err) {}
+  var r = sh.getLastRow();
+
+  var verdict = { decision: "review", reason: "Not auto-reviewed" };
+  if (tab === "Businesses" || tab === "Events") {
+    try { verdict = review(tab, p); } catch (err) { verdict = { decision: "review", reason: "Review failed: " + err }; }
+    sh.getRange(r, header.indexOf("approved") + 1).setValue(verdict.decision);
+    sh.getRange(r, header.indexOf("ai_review") + 1).setValue(verdict.reason);
+  }
+  if (tab === "Advertisers" || verdict.decision !== "yes") notify(tab, p, verdict);
   return ContentService.createTextOutput("ok");
+}
+
+function review(tab, p) {
+  var key = PropertiesService.getScriptProperties().getProperty("ANTHROPIC_API_KEY");
+  if (!key) return { decision: "review", reason: "No ANTHROPIC_API_KEY set" };
+  var rules = tab === "Businesses"
+    ? "Approve only if this is a real, currently operating business located in or serving Wellington, Florida or the immediate western Palm Beach County area (Royal Palm Beach, Loxahatchee, Lake Worth west). Reject spam, adult content, illegal services, obvious fakes, MLM recruiting, or businesses far from Wellington."
+    : "Approve only if this is a real, upcoming, family-appropriate event taking place in or near Wellington, Florida. Reject spam, past events, adult content, scams or events far from Wellington.";
+  var prompt = "You moderate submissions for WellingtonList.com, a local directory for Wellington, FL.\n" + rules +
+    "\nUse web search to verify when helpful. If you cannot verify but nothing looks wrong, answer review.\n" +
+    "Submission:\n" + JSON.stringify(p, null, 2) +
+    "\n\nReply with ONLY a JSON object: {\"decision\":\"yes\"|\"no\"|\"review\",\"reason\":\"one short sentence\"}";
+  var res = UrlFetchApp.fetch("https://api.anthropic.com/v1/messages", {
+    method: "post", contentType: "application/json", muteHttpExceptions: true,
+    headers: { "x-api-key": key, "anthropic-version": "2023-06-01" },
+    payload: JSON.stringify({ model: MODEL, max_tokens: 800,
+      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 3 }],
+      messages: [{ role: "user", content: prompt }] })
+  });
+  var data = JSON.parse(res.getContentText());
+  var text = (data.content || []).filter(function (b) { return b.type === "text"; }).map(function (b) { return b.text; }).join("");
+  var m = text.match(/\{[\s\S]*\}/);
+  var v = m ? JSON.parse(m[0]) : { decision: "review", reason: "Unreadable response" };
+  if (["yes", "no", "review"].indexOf(v.decision) === -1) v.decision = "review";
+  return v;
+}
+
+function notify(tab, p, v) {
+  var to = PropertiesService.getScriptProperties().getProperty("NOTIFY_EMAIL") || Session.getActiveUser().getEmail();
+  try { MailApp.sendEmail(to, "WellingtonList " + tab + ": " + v.decision, v.reason + "\n\n" + JSON.stringify(p, null, 2)); } catch (err) {}
 }
