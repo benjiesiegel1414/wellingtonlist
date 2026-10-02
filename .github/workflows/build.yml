@@ -24,6 +24,50 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Rename manually uploaded covers
+        run: |
+          mkdir -p src/covers
+          if [ -f src/covers/rename.txt ]; then
+            while read -r from to; do
+              if [ -n "$from" ] && [ -f "src/covers/$from" ]; then mv "src/covers/$from" "src/covers/$to"; fi
+            done < src/covers/rename.txt
+            rm src/covers/rename.txt
+          fi
+      - name: Generate missing covers (Pollinations.ai)
+        run: |
+          node --input-type=module <<'JS'
+          import fs from "fs";
+          const posts = JSON.parse(fs.readFileSync("src/data/posts.json", "utf8"));
+          for (const p of posts) {
+            const out = `src/covers/${p.slug}.jpg`;
+            if (!p.coverPrompt || fs.existsSync(out)) continue;
+            const seed = [...p.slug].reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 1000000, 7);
+            const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(p.coverPrompt)}?width=1600&height=900&nologo=true&seed=${seed}&model=flux`;
+            for (let attempt = 1; attempt <= 3; attempt++) {
+              try {
+                const res = await fetch(url, { signal: AbortSignal.timeout(180000) });
+                const type = res.headers.get("content-type") || "";
+                if (!res.ok || !type.startsWith("image/")) throw new Error(`HTTP ${res.status} ${type}`);
+                const buf = Buffer.from(await res.arrayBuffer());
+                if (buf.length < 20000) throw new Error("image too small");
+                fs.writeFileSync(out, buf);
+                console.log("Generated cover:", out, buf.length, "bytes");
+                break;
+              } catch (e) {
+                console.warn(`Cover attempt ${attempt} failed for ${p.slug}: ${e.message}`);
+                await new Promise(r => setTimeout(r, 15000));
+              }
+            }
+          }
+          JS
+      - name: Compress covers
+        run: |
+          command -v mogrify >/dev/null || (sudo apt-get update && sudo apt-get install -y imagemagick)
+          for f in src/covers/*; do
+            [ -f "$f" ] || continue
+            case "$f" in *.jpg) ;; *) continue ;; esac
+            if [ "$(stat -c%s "$f")" -gt 350000 ]; then mogrify -resize '1600x>' -strip -quality 78 "$f"; fi
+          done
       - name: Generate images (first run only)
         run: |
           if [ ! -f src/static/asset-og.jpg ]; then
