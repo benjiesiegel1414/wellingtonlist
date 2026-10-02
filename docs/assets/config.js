@@ -6,5 +6,5 @@ window.WL_CONFIG = {
   // Temporary inbox used by the email fallback until formEndpoint is set.
   fallbackEmail: "business@topdividendetfs.com",
   // GA4 measurement ID, for example "G-XXXXXXXXXX". Leave empty to disable analytics.
-  ga4: ""
+  ga4: "G-HR8E5LRNKC"
 };
