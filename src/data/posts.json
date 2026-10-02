@@ -1,5 +1,121 @@
 [
   {
+    "slug": "living-in-wellington-fl-pros-cons",
+    "title": "Living in Wellington, FL: Honest Pros and Cons for 2026",
+    "h1": "Living in Wellington, FL: The Honest Pros and Cons",
+    "seoTitle": "Living in Wellington FL: Pros and Cons of Moving to Wellington, Florida",
+    "description": "Thinking about moving to Wellington, Florida? An honest look at the pros and cons: schools, parks, the equestrian lifestyle, cost of living, traffic, hurricanes and who Wellington is best for.",
+    "category": "Living in Wellington",
+    "published": "2026-10-03",
+    "updated": "2026-10-03",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic golden-hour aerial view of an upscale South Florida suburban neighborhood in Wellington Florida, Mediterranean-style homes with terracotta roofs around a calm lake, palm-lined streets, families biking on a path, lush green landscaping, warm light, no text, no logos",
+    "faq": [
+      {
+        "q": "Is Wellington, FL a good place to live?",
+        "a": "Wellington is popular with families for its highly rated schools, parks, safe neighborhoods and community events, and it is world famous for equestrian sports. The main trade-offs are winter season traffic, higher home prices than the county average, HOAs, and a 30 to 45 minute drive to the beach."
+      },
+      {
+        "q": "How far is Wellington, FL from the beach?",
+        "a": "Wellington is inland in western Palm Beach County. Most residents drive 30 to 45 minutes to reach the beach in Palm Beach or Lake Worth Beach, depending on traffic."
+      },
+      {
+        "q": "What is the population of Wellington, FL?",
+        "a": "Wellington had 61,637 residents at the 2020 Census."
+      },
+      {
+        "q": "When is traffic worst in Wellington?",
+        "a": "Traffic is heaviest from January through April, during the equestrian season, especially around South Shore Blvd, Pierson Road, Forest Hill Blvd and State Road 7."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Wellington, Florida (Wikipedia, 2020 Census figures)",
+        "url": "https://en.wikipedia.org/wiki/Wellington,_Florida"
+      },
+      {
+        "name": "Village of Wellington",
+        "url": "https://www.wellingtonfl.gov"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-fl-zip-codes",
+    "title": "Wellington, FL ZIP Codes: 33414, 33449, 33467 and 33411 Explained",
+    "h1": "Wellington, FL ZIP Codes Explained",
+    "seoTitle": "Wellington FL ZIP Codes: 33414, 33449, 33467 and 33411 Explained",
+    "description": "What ZIP code is Wellington, FL? A simple guide to 33414, 33449, 33467 and 33411, which areas each covers, why some Wellington addresses say Lake Worth, and what it means for schools and home searches.",
+    "category": "Living in Wellington",
+    "published": "2026-10-03",
+    "updated": "2026-10-03",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic aerial view of a tidy South Florida suburb in Wellington Florida at midday, winding palm-lined streets, homes around blue lakes and canals, a horse farm with white fences on one side, clear sky, no text, no logos",
+    "faq": [
+      {
+        "q": "What is the main ZIP code for Wellington, FL?",
+        "a": "33414 is the main Wellington ZIP code and covers most of the village, including Town Center, the Mall at Wellington Green area and the equestrian district."
+      },
+      {
+        "q": "What ZIP codes are in Wellington, FL?",
+        "a": "Wellington is served mainly by 33414, plus parts of 33449, 33467 and 33411."
+      },
+      {
+        "q": "Why does my Wellington address say Lake Worth?",
+        "a": "Parts of southern Wellington use the 33449 and 33467 ZIP codes, where Lake Worth is a common mailing city name. A Lake Worth mailing address can still be inside the Village of Wellington."
+      },
+      {
+        "q": "Does my ZIP code determine my school in Wellington?",
+        "a": "No. Public school zones in Palm Beach County are based on your exact address, not your ZIP code. Check your address with the school district's boundary locator."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Wellington, Florida (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Wellington,_Florida"
+      },
+      {
+        "name": "ZIP Code 33414 profile (Zip-Codes.com)",
+        "url": "https://zip-codes.com/zip-code/33414/zip-code-33414.asp"
+      },
+      {
+        "name": "NCES public school directory, Wellington FL",
+        "url": "https://nces.ed.gov/ccd/schoolsearch/school_list.asp?Search=1&City=Wellington&State=12"
+      }
+    ]
+  },
+  {
+    "slug": "best-parks-wellington-fl",
+    "title": "The Best Parks and Nature Spots in Wellington, FL",
+    "h1": "The Best Parks and Nature Spots in Wellington, FL",
+    "seoTitle": "Best Parks in Wellington FL: Village Park, Peaceful Waters and More",
+    "description": "The best parks in Wellington, FL: Village Park, Peaceful Waters Sanctuary, the Wellington Environmental Preserve, Town Center and the Amphitheater, plus great parks a short drive away.",
+    "category": "Things to Do",
+    "published": "2026-10-03",
+    "updated": "2026-10-03",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic early morning view of a wooden boardwalk winding through a lush South Florida wetland sanctuary, great egrets and herons in the water, cypress and palm trees, soft golden light and light mist, no people, no text, no logos",
+    "faq": [
+      {
+        "q": "What is the biggest park in Wellington, FL?",
+        "a": "Village Park on Pierson Road is Wellington's largest sports and recreation park, with fields, courts, a gym, walking paths and playgrounds."
+      },
+      {
+        "q": "Where can you see wildlife in Wellington, FL?",
+        "a": "Peaceful Waters Sanctuary, with its boardwalk over a restored wetland, and the Wellington Environmental Preserve on Flying Cow Ranch Road are the best spots for birds and other wildlife."
+      },
+      {
+        "q": "Are there free events at Wellington parks?",
+        "a": "Yes. The Wellington Amphitheater at Town Center hosts free concerts, movie nights and food truck events throughout the year."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington Parks and Recreation",
+        "url": "https://www.wellingtonfl.gov"
+      }
+    ]
+  },
+  {
     "slug": "schools-in-wellington-fl-guide",
     "title": "Schools in Wellington, FL: A Parent's Guide to Public, Charter and Private Options",
     "h1": "Schools in Wellington, FL: A Parent's Guide to Public, Charter and Private Options",
