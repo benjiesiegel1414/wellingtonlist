@@ -111,7 +111,7 @@ const footer = `
       <div><h2 class="foot-h">Find</h2><ul><li><a href="/restaurants/">Restaurants</a></li><li><a href="/directory/?cat=parks">Parks</a></li><li><a href="/directory/?cat=shopping">Shopping</a></li><li><a href="/directory/">Full directory</a></li></ul></div>
       <div><h2 class="foot-h">Work with us</h2><ul><li><a href="/add-your-business/">Add your business</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/submit-event/">Submit an event</a></li><li><a href="/about/">About</a></li></ul></div>
     </div>
-    <div class="legal"><span>&copy; <span id="yr">${new Date().getFullYear()}</span> Wellington List. Independent and not affiliated with the Village of Wellington.</span><span><a href="/privacy/">Privacy</a> &nbsp; <a href="/about/">About</a></span></div>
+    <div class="legal"><span>&copy; <span id="yr">${new Date().getFullYear()}</span> Wellington List. Independent and not affiliated with the Village of Wellington.</span><span><a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a> &nbsp; <a href="/privacy/">Privacy</a> &nbsp; <a href="/about/">About</a></span></div>
   </div>
 </footer>`;
 
@@ -553,10 +553,11 @@ formPage({
   <div class="prose prose-narrow"><p class="lede">Wellington List is the independent local guide built for Wellington, Florida. Sponsors get premium, clearly labeled placements next to the local news, restaurant guides and directory pages residents use to make decisions.</p></div>
   <div class="tiers">
     <div class="tier"><span class="cat-label">Directory</span><h3>Featured listing</h3><ul><li>Top placement in your category</li><li>"Sponsored" badge and expanded listing</li><li>Photos, hours and website link</li></ul></div>
-    <div class="tier best"><span class="cat-label">Most popular</span><h3>Site sponsor</h3><ul><li>Banner placements at the top and bottom of pages</li><li>Sidebar placement on news articles</li><li>Monthly newsletter mention</li></ul></div>
+    <div class="tier best"><span class="cat-label">Most popular</span><h3>Site sponsor</h3><ul><li>Banner placements at the top and bottom of pages</li><li>Sidebar placement on news articles</li><li>Featured spot on the homepage</li></ul></div>
     <div class="tier"><span class="cat-label">Category</span><h3>Exclusive sponsorship</h3><ul><li>Own a category such as real estate or restaurants</li><li>"Featured agent" or "Presented by" placement</li><li>Limited to one business per category</li></ul></div>
   </div>
   <h2 class="prose" style="font-family:var(--serif);font-weight:500;font-size:30px">Request a media kit</h2>
+  <p class="prose" style="margin:-6px 0 18px">Prefer email? Write to <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</p>
   <form class="form" data-wl-form="Advertisers" data-success="Thanks! We'll be in touch with rates and availability.">
     <div class="row"><label>Your name<input name="name" required autocomplete="name"></label><label>Business<input name="business_name" required></label></div>
     <div class="row"><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
@@ -565,7 +566,7 @@ formPage({
     ${hp}<button class="btn btn-primary" type="submit">Request media kit</button><div class="status" role="status"></div>
   </form>
 </div>`;
-  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List Sponsorships", description: "Reach Wellington, Florida residents with sponsored listings, banner placements, newsletter mentions and exclusive category sponsorships on Wellington List.", urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)] }), "0.6");
+  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List Sponsorships", description: "Reach Wellington, Florida residents with sponsored listings, banner placements, homepage placements and exclusive category sponsorships on Wellington List.", urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)] }), "0.6");
 }
 
 // ---------- About, privacy, 404 ----------
@@ -577,17 +578,22 @@ formPage({
     <p>Wellington has world class equestrian venues, beautiful parks and a growing list of places to eat, but there has never been one place that brings it all together. That is what we are building: local news in plain English, honest guides, an events calendar and a directory of the businesses that make Wellington work.</p>
     <h2>Our standards</h2><p>We link to our sources, label sponsored content clearly and update our guides when facts change. Sponsors never pay for coverage in our news and guides.</p>
     <h2>Get in touch</h2><p>Have a news tip, an event or a correction? <a href="/submit-event/">Send it here</a>. Own a business? <a href="/add-your-business/">Add your listing</a>. Interested in sponsoring? <a href="/advertise/">See advertising options</a>.</p>
+    <p>Prefer email? Reach us anytime at <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</p>
     <p>Wellington List is independent and is not affiliated with the Village of Wellington.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.4");
 }
 {
   const crumbs = [["Home", "/"], ["Privacy", "/privacy/"]];
   add("/privacy/", layout({ title: "Privacy Policy | Wellington List", description: "How Wellington List handles information submitted through our forms and analytics.", urlPath: "/privacy/",
     body: pageHead(crumbs, "Privacy policy", "") + `<div class="wrap" style="padding:44px 0"><div class="prose prose-narrow">
-    <p>Last updated ${fmtDate(BUILD_DATE)}.</p>
-    <h2>What we collect</h2><p>When you submit a form (newsletter, business listing, event or advertising inquiry), we collect the information you enter so we can respond, publish your listing or event, or send the newsletter you asked for. We may use privacy-respecting analytics to understand which pages are popular.</p>
-    <h2>What we publish</h2><p>Business and event details you submit for publication may appear on the site. Your email address is never published.</p>
-    <h2>What we never do</h2><p>We do not sell your personal information. You can unsubscribe from emails at any time.</p>
-    <h2>Questions</h2><p>Contact us through our <a href="/submit-event/">contact form</a>.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.2");
+    <p>Last updated ${fmtDate(BUILD_DATE)}. This policy explains what information WellingtonList.com ("Wellington List," "we") collects, how we use it, and your choices. Wellington List is an independent local publication and is not affiliated with the Village of Wellington.</p>
+    <h2>Information you give us</h2><p>When you submit a form on this site, such as adding a business, submitting an event, or asking about advertising, we collect what you enter: for example your name, email address, phone number, business or event details, and any message. We use it to review and publish your listing or event, respond to you, and run the site.</p>
+    <h2>How submissions are processed</h2><p>Form submissions are stored in a private Google Sheet operated with Google Workspace tools. To keep the directory accurate and free of spam, business and event submissions may be reviewed automatically using an AI service (Anthropic's Claude), which may check publicly available information on the web. A person may also review any submission. Only approved business and event details are published.</p>
+    <h2>What we publish</h2><p>Business and event details you submit for publication (such as name, address, phone, website and description) may appear on the site and in search engines. We never publish the contact email address you give us on a submission form.</p>
+    <h2>Analytics and cookies</h2><p>We use Google Analytics to understand how visitors use the site, such as which pages are viewed, how long visits last, the general location (city or region) and the type of device and browser. Google Analytics uses cookies and similar technologies, and Google may process this data under its own privacy policy. We do not use this data to identify you personally. You can block cookies in your browser settings or use the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener nofollow">Google Analytics opt-out browser add-on</a>. We do not sell your personal information and we do not use third-party advertising networks.</p>
+    <h2>Sponsors and links</h2><p>Some placements on the site are paid sponsorships and are labeled as advertisements. This site links to other websites, including businesses we list. We are not responsible for the privacy practices of other sites.</p>
+    <h2>How long we keep information</h2><p>We keep submissions as long as needed to operate the directory and respond to you. You can ask us to update or delete a listing or your submission at any time.</p>
+    <h2>Children</h2><p>This site is intended for a general audience and is not directed to children under 13. We do not knowingly collect personal information from children.</p>
+    <h2>Your choices and contact</h2><p>To correct or remove a listing, or to ask about the information we hold about you, email <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>. We may update this policy from time to time, and the date at the top shows the latest version.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.2");
 }
 write("404.html", layout({ title: "Page not found | Wellington List", description: "This page could not be found.", urlPath: "/404.html", noindex: true,
   body: pageHead([["Home", "/"], ["Not found", "/404.html"]], "We couldn't find that page", "Try the directory, the latest news, or head back home.") + `<div class="wrap" style="padding:44px 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-primary" href="/">Home</a><a class="btn btn-ghost" href="/directory/">Directory</a><a class="btn btn-ghost" href="/blog/">News</a></div>` }));
