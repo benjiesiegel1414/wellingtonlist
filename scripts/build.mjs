@@ -79,6 +79,7 @@ const CATS = [
   { id: "pets", label: "Pets and vets", blurb: "Veterinarians and pet care" },
   { id: "fitness", label: "Fitness and gyms", blurb: "Gyms, Pilates, studios" },
   { id: "beauty", label: "Beauty and spas", blurb: "Salons, nails, med spas" },
+  { id: "schools", label: "Schools", blurb: "Public, charter and private" },
   { id: "services", label: "Local services", blurb: "Everything else" }
 ];
 const catLabel = (id) => (CATS.find(c => c.id === id) || { label: "Local" }).label;
@@ -336,7 +337,7 @@ directoryPage({
   h1: "Local services in Wellington, FL", sub: "AC and plumbing, pool service, dentists, doctors, veterinarians and real estate, serving Wellington and the western communities.",
   title: "Wellington, FL Local Services: AC, Plumbers, Pool Service, Dentists, Vets and More",
   description: "Find local services in Wellington, Florida: air conditioning repair, plumbers, pool service, dentists, pediatricians, urgent care, veterinarians and real estate offices.",
-  list: places.filter(p => ["home", "health", "pets", "realestate", "fitness", "beauty", "services"].includes(p.cat)),
+  list: places.filter(p => ["home", "health", "pets", "realestate", "fitness", "beauty", "schools", "services"].includes(p.cat)),
   intro: listIntro(`<p>From AC repair in the middle of August to a pediatrician on a Saturday morning, these are local providers in and around Wellington. Listings include the business address and phone where available. Own a Wellington business? <a href="/add-your-business/">Add it free</a>, and providers can claim their listing to add hours, photos and services.</p>`)
 });
 
