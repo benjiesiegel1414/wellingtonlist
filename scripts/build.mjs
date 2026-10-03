@@ -332,13 +332,55 @@ directoryPage({
   intro: listIntro(`<p>Wellington is best known as the winter equestrian capital of the world, but there is a lot more here for families and visitors. Start with the free boardwalk at <a href="/places/peaceful-waters-sanctuary/">Peaceful Waters Sanctuary</a>, catch a free show at the <a href="/places/wellington-amphitheater/">Wellington Amphitheater</a>, spend a winter Sunday at the <a href="/places/national-polo-center/">National Polo Center</a>, or climb the observation tower at the <a href="/places/wellington-environmental-preserve/">Wellington Environmental Preserve</a>. For more ideas, see our <a href="/events/">events calendar</a>.</p>`)
 });
 
+
+const SERVICE_PAGES = [
+  { slug: "plumbers", noun: "Plumbers", re: /plumb|rooter/i, blurb: "drain cleaning, leaks, water heaters, backflow testing and emergency repairs", tips: ["Confirm the plumber is licensed in Florida and carries insurance", "Ask whether they charge a trip fee and whether emergency or after-hours rates apply", "For older Wellington homes, ask about repiping and water heater replacement options"] },
+  { slug: "ac-repair", noun: "AC Repair Companies", re: /\bac\b|air condition|hvac|duct/i, blurb: "AC repair, new system installation, duct cleaning and maintenance plans", tips: ["Book maintenance in spring before the summer rush", "Ask about maintenance plans, which often include priority service", "Get a written quote and ask about SEER ratings and FPL rebates on new systems"] },
+  { slug: "roofers", noun: "Roofers", re: /roof/i, blurb: "tile, shingle and metal roofs, repairs, replacements and storm damage", tips: ["Check the contractor's Florida roofing license and insurance", "Ask who handles the permit and your HOA approval", "Get photos of any damage and a written scope before work starts, especially for insurance claims"] },
+  { slug: "pest-control", noun: "Pest Control Companies", re: /pest|critter|wildlife/i, blurb: "ants, termites, roaches, rodents, mosquitoes and wildlife removal", tips: ["Ask whether treatments are pet and child friendly", "Compare one-time treatments with quarterly plans", "Termite inspections are worth scheduling before buying a home"] },
+  { slug: "electricians", noun: "Electricians", re: /electric/i, blurb: "electrical repairs, panel upgrades, lighting, generators and EV chargers", tips: ["Hire a licensed Florida electrical contractor for anything beyond basic fixtures", "Ask about whole-home generators and surge protection before hurricane season", "Get permits pulled for panel upgrades and new circuits"] },
+  { slug: "pool-service", noun: "Pool Service Companies", re: /pool/i, blurb: "weekly pool cleaning, equipment repair, supplies and renovations", tips: ["Ask what weekly service includes, such as chemicals and filter cleaning", "Get equipment checked before summer", "Ask about storm prep for pools during hurricane season"] },
+  { slug: "landscaping", noun: "Landscaping and Lawn Care Companies", re: /landscap|lawn/i, blurb: "lawn mowing, landscape design, tree and palm trimming and irrigation", tips: ["Check your HOA's landscaping rules before major changes", "Ask about irrigation checks, especially during the dry season", "Schedule tree and palm trimming before hurricane season"] },
+  { slug: "dentists", noun: "Dentists", re: /dent|orthodont|endodont/i, blurb: "family, pediatric and cosmetic dentistry, orthodontics and root canals", tips: ["Call ahead to confirm your dental insurance is accepted", "Ask about new patient specials and emergency appointments", "Pediatric dentists are a good first stop for young kids"] },
+  { slug: "doctors-urgent-care", noun: "Doctors, Hospitals and Urgent Care", re: /hospital|urgent|pediatrician|pediatric care|pediatrics|imaging|medical center/i, cats: ["health"], blurb: "hospitals, urgent care, pediatricians and diagnostic imaging", tips: ["For emergencies, call 911 or go to the nearest emergency room", "Urgent care is a good option for minor injuries and illnesses after hours", "Confirm insurance acceptance before your visit"] },
+  { slug: "veterinarians", noun: "Veterinarians", re: /veterin|vet\b|animal/i, cats: ["pets", "equestrian"], blurb: "vets, animal hospitals and equine care", tips: ["Ask about after-hours and emergency options", "Bring vaccination and medical records to your first visit", "Wellington horse owners should keep an equine vet's number handy"] },
+  { slug: "real-estate-agents", noun: "Real Estate Agents", re: /real estate|realty/i, blurb: "agents and brokerages who know Wellington neighborhoods, equestrian properties and seasonal rentals", tips: ["Ask which Wellington communities the agent knows best", "Equestrian and seasonal rental properties often need a specialist", "Ask for recent comparable sales before pricing or making an offer"] },
+  { slug: "insurance-agents", noun: "Insurance Agents", re: /insurance/i, blurb: "home, auto, flood, life and business insurance agents", tips: ["Compare quotes from more than one agent, since Florida home insurance rates vary widely", "Ask about wind mitigation inspections, which can lower premiums", "Review your flood and hurricane coverage before June 1"] },
+  { slug: "auto-repair", noun: "Auto Repair Shops and Tire Stores", re: /auto|tire|car dealer/i, blurb: "auto repair, tires, maintenance and dealer service", tips: ["Ask for a written estimate before repairs begin", "Ask whether the shop works on your make, including classic or European cars", "Horse trailer owners should ask about trailer repair and maintenance"] },
+  { slug: "gyms", noun: "Gyms and Fitness Studios", re: /gym|fitness|pilates|kickbox|wellness/i, blurb: "gyms, Pilates, kickboxing and boutique fitness studios", tips: ["Most gyms offer a free trial class or day pass", "Ask about contract length and cancellation terms", "Season brings more crowds, so check off-peak hours"] },
+  { slug: "hair-salons", noun: "Hair Salons", re: /hair|salon suites|beauty salon/i, blurb: "haircuts, color, styling and blowouts", tips: ["Book color and big appointments a few weeks ahead in season", "Ask for a consultation before major color changes", "Salon suites are a good way to find independent stylists"] },
+  { slug: "nail-salons", noun: "Nail Salons", re: /nail/i, blurb: "manicures, pedicures, gel and lashes", tips: ["Walk-ins are easier on weekday mornings", "Ask about sanitation practices and tool sterilization", "Book ahead before holidays and events"] },
+  { slug: "med-spas", noun: "Med Spas and Beauty Spas", re: /med spa|beauty spa/i, blurb: "facials, injectables, laser treatments and skin care", tips: ["Ask who performs injectables and their credentials", "Book a consultation before committing to a treatment plan", "Ask about package pricing for laser treatments"] }
+];
+const SVC_CATS = ["home", "health", "pets", "realestate", "fitness", "beauty", "services", "equestrian"];
+const servicePagesBuilt = [];
+for (const sp of SERVICE_PAGES) {
+  const list = places.filter(p => (sp.cats || SVC_CATS).includes(p.cat) && sp.re.test(p.type + " " + p.name));
+  if (list.length < 2) continue;
+  servicePagesBuilt.push({ ...sp, count: list.length });
+  const url = `/services/${sp.slug}/`;
+  const faqs = [
+    { q: `How do I find the best ${sp.noun.toLowerCase()} in Wellington, FL?`, a: `Start with providers based in or regularly serving Wellington, check licensing and reviews, and get more than one quote for bigger jobs. This page lists ${list.length} options for ${sp.blurb}.` },
+    { q: `Do these ${sp.noun.toLowerCase()} serve all of Wellington?`, a: `Most serve all Wellington ZIP codes, including 33414, 33449 and 33467, plus nearby Royal Palm Beach, Loxahatchee and Lake Worth. Call to confirm they cover your address.` }
+  ];
+  const intro = listIntro(`<p>Looking for the best ${sp.noun.toLowerCase()} in Wellington, Florida? Here are ${list.length} local providers for ${sp.blurb} in and around Wellington, with addresses and phone numbers where available.</p><h2 style="font-family:var(--serif);font-weight:500;font-size:24px;margin:22px 0 8px">Tips for hiring ${sp.noun.toLowerCase()} in Wellington</h2><ul>${sp.tips.map(t => `<li>${t}</li>`).join("")}</ul><p>Own one of these businesses? <a href="/add-your-business/">Claim or add your listing</a> for free. Want to be the featured provider on this page? <a href="/advertise/">See sponsorship options</a>.</p>`)
+    + `<div class="prose prose-narrow" style="margin:28px 0"><h2 style="font-family:var(--serif);font-weight:500;font-size:24px">Frequently asked questions</h2>${faqs.map(f => `<h3 style="font-size:17px;margin:16px 0 4px">${f.q}</h3><p>${f.a}</p>`).join("")}</div>`;
+  directoryPage({
+    urlPath: url, crumbs: [["Home", "/"], ["Local services", "/services/"], [sp.noun, url]],
+    h1: `Best ${sp.noun} in Wellington, FL`, sub: `Local ${sp.noun.toLowerCase()} serving Wellington and the western communities: ${sp.blurb}.`,
+    title: `Best ${sp.noun} in Wellington, FL (${new Date(BUILD_DATE).getFullYear()} Guide)`,
+    description: `Find the best ${sp.noun.toLowerCase()} in Wellington, Florida: ${list.length} local options for ${sp.blurb}, with addresses, phone numbers and hiring tips.`,
+    list, showFilters: false, intro
+  });
+}
+const serviceLinks = `<div class="prose prose-narrow" style="margin-bottom:24px"><h2 style="font-family:var(--serif);font-weight:500;font-size:24px">Browse by service</h2><p>${SERVICE_PAGES.filter(sp => places.filter(p => (sp.cats || SVC_CATS).includes(p.cat) && sp.re.test(p.type + " " + p.name)).length >= 2).map(sp => `<a href="/services/${sp.slug}/">${sp.noun}</a>`).join(" &middot; ")}</p></div>`;
 directoryPage({
   urlPath: "/services/", crumbs: [["Home", "/"], ["Local services", "/services/"]],
   h1: "Local services in Wellington, FL", sub: "AC and plumbing, pool service, dentists, doctors, veterinarians and real estate, serving Wellington and the western communities.",
   title: "Wellington, FL Local Services: AC, Plumbers, Pool Service, Dentists, Vets and More",
   description: "Find local services in Wellington, Florida: air conditioning repair, plumbers, pool service, dentists, pediatricians, urgent care, veterinarians and real estate offices.",
   list: places.filter(p => ["home", "health", "pets", "realestate", "fitness", "beauty", "schools", "services"].includes(p.cat)),
-  intro: listIntro(`<p>From AC repair in the middle of August to a pediatrician on a Saturday morning, these are local providers in and around Wellington. Listings include the business address and phone where available. Own a Wellington business? <a href="/add-your-business/">Add it free</a>, and providers can claim their listing to add hours, photos and services.</p>`)
+  intro: listIntro(`<p>From AC repair in the middle of August to a pediatrician on a Saturday morning, these are local providers in and around Wellington. Listings include the business address and phone where available. Own a Wellington business? <a href="/add-your-business/">Add it free</a>, and providers can claim their listing to add hours, photos and services.</p>`) + serviceLinks
 });
 
 // ---------- Equestrian guide ----------
