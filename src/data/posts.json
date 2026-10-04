@@ -1,5 +1,153 @@
 [
   {
+    "slug": "best-coffee-shops-wellington-fl",
+    "title": "The Best Coffee Shops in Wellington, FL",
+    "h1": "The Best Coffee Shops in Wellington, FL",
+    "seoTitle": "Best Coffee Shops in Wellington FL: Local Cafes and Where to Work",
+    "description": "The best coffee shops in Wellington, FL: Candid Coffee & Anna Bakes, Carmela Coffee, Foxtail Coffee at Lotis, plus cafes for working remotely and quick stops.",
+    "category": "Food and Drink",
+    "published": "2026-10-04",
+    "updated": "2026-10-04",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic cozy modern coffee shop interior in Wellington Florida, barista pouring latte art at a marble counter, pastries in a glass case, large windows with palm trees outside, warm morning light, no text, no logos",
+    "faq": [
+      {
+        "q": "What are the best coffee shops in Wellington, FL?",
+        "a": "Local favorites include Candid Coffee & Anna Bakes on Forest Hill Blvd, Carmela Coffee near Wellington Green and Foxtail Coffee at Lotis Wellington, along with Starbucks, Dunkin' and Panera for quick stops."
+      },
+      {
+        "q": "Where can I work remotely with coffee in Wellington?",
+        "a": "Panera Bread on Forest Hill Blvd and the larger cafes near Wellington Green have the most seating and are best on weekday mornings."
+      },
+      {
+        "q": "Is there a local coffee roaster in Wellington?",
+        "a": "Yes. Candid Coffee serves locally roasted coffee, and smaller roasters such as Premier Cafe and Roasters and Cumbres Coffee Roasters also operate in the area."
+      }
+    ],
+    "sources": [
+      {
+        "name": "The Palm Beaches: coffee shops in The Palm Beaches",
+        "url": "https://www.thepalmbeaches.com/blogs/ultimate-guide-hottest-coffee-shops-palm-beaches"
+      },
+      {
+        "name": "My Coffee Explorer: coffee shops in Wellington, FL",
+        "url": "https://mycoffeeexplorer.com/guides/wellington-fl"
+      }
+    ]
+  },
+  {
+    "slug": "hospitals-urgent-care-wellington-fl",
+    "title": "Hospitals, ERs and Urgent Care in Wellington, FL (With Hours)",
+    "h1": "Hospitals, ERs and Urgent Care in Wellington, FL",
+    "seoTitle": "Hospitals and Urgent Care in Wellington FL: ER, Hours and Where to Go",
+    "description": "Where to go for medical care in Wellington, FL: Wellington Regional Medical Center's 24/7 ER, Palms West Hospital, Nicklaus Children's, and urgent care hours at Baptist Health and Premier Family Health.",
+    "category": "Health",
+    "published": "2026-10-04",
+    "updated": "2026-10-04",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic exterior of a modern hospital and medical campus in suburban South Florida, clean white buildings with glass entrances, palm trees and landscaping, clear blue sky, calm and reassuring, no text, no logos, no ambulances",
+    "faq": [
+      {
+        "q": "What hospital is in Wellington, FL?",
+        "a": "Wellington Regional Medical Center at 10101 Forest Hill Blvd is Wellington's full-service hospital, with a 24-hour emergency room. HCA Florida Palms West Hospital in nearby Loxahatchee also has a 24-hour ER."
+      },
+      {
+        "q": "What urgent care is open late in Wellington, FL?",
+        "a": "Baptist Health Urgent Care Express on Forest Hill Blvd lists hours of 9 a.m. to 9 p.m., seven days a week. Premier Family Health on State Road 7 lists 8 a.m. to 8 p.m. weekdays and 9 a.m. to 4 p.m. Saturdays. Call to confirm current hours."
+      },
+      {
+        "q": "Should I go to urgent care or the ER?",
+        "a": "Use the ER or call 911 for chest pain, trouble breathing, stroke symptoms, severe bleeding or serious injuries. Urgent care is a good fit for colds, flu, minor cuts, sprains and other non-emergencies."
+      },
+      {
+        "q": "Where should I take my child for emergency care near Wellington?",
+        "a": "For emergencies call 911 or go to the nearest ER. Many Wellington parents choose HCA Florida Palms West Hospital in Loxahatchee for its pediatric services."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Baptist Health Urgent Care Express Wellington",
+        "url": "https://baptisthealth.net/locations/urgent-care-express/wellington-urgent-care"
+      },
+      {
+        "name": "Premier Family Health Urgent Care (InnovaCare Health)",
+        "url": "https://innovacarehealth.com/location/premier-health-urgent-care/"
+      }
+    ]
+  },
+  {
+    "slug": "best-dentists-wellington-fl",
+    "title": "Best Dentists in Wellington, FL: Family, Kids, Cosmetic and Orthodontics",
+    "h1": "The Best Dentists in Wellington, FL",
+    "seoTitle": "Best Dentists in Wellington FL: Family, Pediatric and Cosmetic Dentists",
+    "description": "A guide to the best dentists in Wellington, FL: family dentists, pediatric dentists, cosmetic dentistry, orthodontists and root canal specialists, with addresses, phone numbers and tips for choosing.",
+    "category": "Health",
+    "published": "2026-10-04",
+    "updated": "2026-10-04",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic bright modern dental office in South Florida, friendly dentist and smiling patient in a clean treatment room, large window with palm trees outside, soft natural light, calm and welcoming, no text, no logos",
+    "faq": [
+      {
+        "q": "Who are the best dentists in Wellington, FL?",
+        "a": "Popular Wellington practices include Molar Bear Dental, Green Village Dental Care and Wellington Smiles for family dentistry, Pediatric Dentistry of Wellington for kids, Florida Center for Aesthetic Dentistry for cosmetic work and Dr. Daniel Bass Orthodontics for braces."
+      },
+      {
+        "q": "Is there a pediatric dentist in Wellington, FL?",
+        "a": "Yes. Pediatric Dentistry of Wellington at 10200 Forest Hill Blvd focuses only on children."
+      },
+      {
+        "q": "When should my child first see a dentist?",
+        "a": "The American Academy of Pediatric Dentistry recommends a first visit by a child's first birthday or when the first tooth appears."
+      },
+      {
+        "q": "What should I do in a dental emergency in Wellington?",
+        "a": "Call your dentist right away, since many have after-hours lines. For facial swelling with fever or trouble breathing or swallowing, go to the emergency room."
+      }
+    ],
+    "sources": [
+      {
+        "name": "American Academy of Pediatric Dentistry",
+        "url": "https://www.aapd.org"
+      }
+    ]
+  },
+  {
+    "slug": "private-christian-catholic-schools-wellington-fl",
+    "title": "Private, Christian and Catholic Schools In and Near Wellington, FL",
+    "h1": "Private, Christian and Catholic Schools Near Wellington, FL",
+    "seoTitle": "Private, Christian and Catholic Schools in Wellington FL",
+    "description": "Private, Christian and Catholic schools in and near Wellington, FL: St. David's-in-the-Pines, The King's Academy, Berean Christian, Rosarian Academy, Cardinal Newman and how Florida scholarships help with tuition.",
+    "category": "Schools",
+    "published": "2026-10-04",
+    "updated": "2026-10-04",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic exterior of a classic private school campus in South Florida, elegant buildings with a small chapel, students in uniforms walking on a palm-lined path, green lawns, warm morning light, no text, no logos",
+    "faq": [
+      {
+        "q": "Are there Catholic schools in Wellington, FL?",
+        "a": "Most Catholic schools serving Wellington families are in West Palm Beach, including Rosarian Academy, St. Juliana School and Cardinal Newman High School, part of the Diocese of Palm Beach."
+      },
+      {
+        "q": "What Christian schools are near Wellington, FL?",
+        "a": "The King's Academy and Berean Christian School in West Palm Beach are the largest Christian PreK-12 schools near Wellington, and St. David's-in-the-Pines Episcopal School is in Wellington itself."
+      },
+      {
+        "q": "Can I use a Florida scholarship for private school?",
+        "a": "Yes. Every Florida K-12 student can apply for a state-funded scholarship that can be used at participating private schools, including most Christian and Catholic schools."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Berean Christian School",
+        "url": "https://www.bereanchristianschool.org/private-christian-school-near-wellington-florida.cfm"
+      },
+      {
+        "name": "Niche: best private schools in Wellington",
+        "url": "https://www.niche.com/k12/search/best-private-schools/t/wellington-palm-beach-fl/"
+      }
+    ]
+  },
+  {
     "slug": "things-to-do-with-kids-wellington-fl",
     "title": "Things to Do with Kids in Wellington, FL: A Local Parent's Guide",
     "h1": "Things to Do with Kids in Wellington, FL",
