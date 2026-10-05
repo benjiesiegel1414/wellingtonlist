@@ -499,7 +499,11 @@ for (const p of places) {
 {
   const crumbs = [["Home", "/"], ["Events", "/events/"]];
   const evLD = events.map(e => ({ "@context": "https://schema.org", "@type": "Event", name: e.title, startDate: e.start, endDate: e.end || e.start, eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode", description: e.desc,
-    location: { "@type": "Place", name: e.venue, address: e.address || "Wellington, FL" }, ...(e.url ? { url: e.url } : {}) }));
+    location: { "@type": "Place", name: e.venue, address: e.address || "Wellington, FL" }, ...(e.url ? { url: e.url } : {}),
+    image: [e.image ? SITE + e.image : SITE + "/assets/og.jpg"],
+    organizer: { "@type": "Organization", name: e.organizer || e.venue, url: e.organizerUrl || e.url || SITE + "/events/" },
+    performer: { "@type": "PerformingGroup", name: e.performer || e.title },
+    offers: { "@type": "Offer", url: e.url || SITE + "/events/#" + e.slug, availability: "https://schema.org/InStock", validFrom: e.start, ...(e.price !== undefined ? { price: String(e.price), priceCurrency: "USD" } : {}) } }));
   const body = pageHead(crumbs, "Events in Wellington, FL", "Horse shows, polo, festivals and community events happening in and around Wellington.") + `<div class="wrap">${sponsor()}</div>
 <div class="wrap body-grid"><div>
   <ul class="event-list">${events.map(e => `<li class="event-item" id="${e.slug}"><div class="date">${dateChip(e, true)}</div>
