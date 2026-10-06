@@ -1,5 +1,19 @@
 [
  {
+  "slug": "wellington-fall-festival-2026",
+  "title": "Wellington Fall Festival 2026",
+  "start": "2026-10-17",
+  "end": "2026-10-17",
+  "venue": "Village Park",
+  "venueSlug": "village-park",
+  "address": "11700 Pierson Rd, Wellington, FL 33414",
+  "desc": "The village's free fall festival with bounce houses, hay rides, a petting zoo, laser tag, costume contests, food trucks and the one-night-only Haunted Hallways. Activity bracelets required; free shuttle from The Mall at Wellington Green.",
+  "organizer": "Village of Wellington",
+  "price": "0",
+  "url": "https://www.wellingtonfl.gov/660/Fall-Festival",
+  "dateNote": "Saturday, October 17, 2026, 3 to 10 p.m."
+ },
+ {
   "slug": "palm-beach-polo-season-2027",
   "title": "Palm Beach Polo Season 2026 to 2027",
   "start": "2026-12-27",
@@ -11,6 +25,22 @@
   "image": "/assets/covers/palm-beach-polo-season-2027-national-polo-center.jpg"
  },
  {
+  "slug": "global-dressage-festival-2027",
+  "title": "Adequan Global Dressage Festival 2027",
+  "start": "2027-01-13",
+  "end": "2027-03-21",
+  "dateNote": "January 13 to March 21, 2027 (competition weeks; see our guide for dates)",
+  "venue": "Equestrian Village",
+  "venueSlug": "global-dressage-festival",
+  "address": "South Shore Blvd, Wellington, FL 33414",
+  "desc": "International dressage competition at Wellington International with CDI5* classes, World Cup qualifiers and Friday Night Stars freestyles under the lights. Free daytime admission. Full week-by-week dates in our 2027 dressage guide.",
+  "image": "/assets/covers/winter-equestrian-festival-2027-guide.jpg",
+  "url": "https://wellingtonlist.com/blog/global-dressage-festival-2027-guide/",
+  "organizer": "Wellington International",
+  "organizerUrl": "https://www.wellingtoninternational.com/",
+  "price": "0"
+ },
+ {
   "slug": "winter-equestrian-festival-2027",
   "title": "Winter Equestrian Festival 2027",
   "start": "2027-01-06",
@@ -19,18 +49,6 @@
   "venueSlug": "wellington-international",
   "address": "3400 Equestrian Club Dr, Wellington, FL 33414",
   "desc": "Thirteen weeks of international show jumping, hunters and equitation, one of the largest horse shows in the world.",
-  "image": "/assets/covers/winter-equestrian-festival-2027-guide.jpg"
- },
- {
-  "slug": "global-dressage-festival-2027",
-  "title": "Adequan Global Dressage Festival 2027",
-  "start": "2027-01-01",
-  "end": "2027-03-31",
-  "dateNote": "January to March 2027, see official schedule for exact dates",
-  "venue": "Equestrian Village",
-  "venueSlug": "global-dressage-festival",
-  "address": "South Shore Blvd, Wellington, FL 33414",
-  "desc": "International dressage competition in Wellington, including evening musical freestyle performances.",
   "image": "/assets/covers/winter-equestrian-festival-2027-guide.jpg"
  }
 ]
