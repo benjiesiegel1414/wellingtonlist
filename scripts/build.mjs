@@ -339,10 +339,11 @@ const SERVICE_PAGES = [
   { slug: "roofers", noun: "Roofers", re: /roof/i, blurb: "tile, shingle and metal roofs, repairs, replacements and storm damage", tips: ["Check the contractor's Florida roofing license and insurance", "Ask who handles the permit and your HOA approval", "Get photos of any damage and a written scope before work starts, especially for insurance claims"] },
   { slug: "pest-control", noun: "Pest Control Companies", re: /pest|critter|wildlife/i, blurb: "ants, termites, roaches, rodents, mosquitoes and wildlife removal", tips: ["Ask whether treatments are pet and child friendly", "Compare one-time treatments with quarterly plans", "Termite inspections are worth scheduling before buying a home"] },
   { slug: "electricians", noun: "Electricians", re: /electric/i, blurb: "electrical repairs, panel upgrades, lighting, generators and EV chargers", tips: ["Hire a licensed Florida electrical contractor for anything beyond basic fixtures", "Ask about whole-home generators and surge protection before hurricane season", "Get permits pulled for panel upgrades and new circuits"] },
-  { slug: "pool-service", noun: "Pool Service Companies", re: /pool/i, blurb: "weekly pool cleaning, equipment repair, supplies and renovations", tips: ["Ask what weekly service includes, such as chemicals and filter cleaning", "Get equipment checked before summer", "Ask about storm prep for pools during hurricane season"] },
+  { slug: "pool-service", noun: "Pool Service Companies", re: /pool/i, blurb: "weekly pool cleaning, equipment repair, pool resurfacing, supplies and renovations", tips: ["Ask what weekly service includes, such as chemicals and filter cleaning", "Get equipment checked before summer", "Ask about storm prep for pools during hurricane season", "Pool resurfacing (plaster, pebble or quartz finishes) is typically needed every 10 to 15 years; get at least two quotes and ask about tile and coping work at the same time"] },
   { slug: "landscaping", noun: "Landscaping and Lawn Care Companies", re: /landscap|lawn/i, blurb: "lawn mowing, landscape design, tree and palm trimming and irrigation", tips: ["Check your HOA's landscaping rules before major changes", "Ask about irrigation checks, especially during the dry season", "Schedule tree and palm trimming before hurricane season"] },
   { slug: "dentists", noun: "Dentists", re: /dent|orthodont|endodont/i, blurb: "family, pediatric and cosmetic dentistry, orthodontics and root canals", tips: ["Call ahead to confirm your dental insurance is accepted", "Ask about new patient specials and emergency appointments", "Pediatric dentists are a good first stop for young kids"] },
   { slug: "doctors-urgent-care", noun: "Doctors, Hospitals and Urgent Care", re: /hospital|urgent|pediatrician|pediatric care|pediatrics|imaging|medical center/i, cats: ["health"], blurb: "hospitals, urgent care, pediatricians and diagnostic imaging", tips: ["For emergencies, call 911 or go to the nearest emergency room", "Urgent care is a good option for minor injuries and illnesses after hours", "Confirm insurance acceptance before your visit"] },
+  { slug: "pediatricians", noun: "Pediatricians", re: /pediatrician/i, cats: ["health"], blurb: "well-child visits, vaccines, sick visits and sports physicals for babies, kids and teens", tips: ["Call ahead to confirm the practice is accepting new patients and takes your insurance", "Ask about same-day sick visits and after-hours phone lines", "Schedule back-to-school and sports physicals early in the summer", "For after-hours illness, Wellington has several urgent care centers; for emergencies call 911"] },
   { slug: "veterinarians", noun: "Veterinarians", re: /veterin|vet\b|animal/i, cats: ["pets", "equestrian"], blurb: "vets, animal hospitals and equine care", tips: ["Ask about after-hours and emergency options", "Bring vaccination and medical records to your first visit", "Wellington horse owners should keep an equine vet's number handy"] },
   { slug: "real-estate-agents", noun: "Real Estate Agents", re: /real estate|realty/i, blurb: "agents and brokerages who know Wellington neighborhoods, equestrian properties and seasonal rentals", tips: ["Ask which Wellington communities the agent knows best", "Equestrian and seasonal rental properties often need a specialist", "Ask for recent comparable sales before pricing or making an offer"] },
   { slug: "insurance-agents", noun: "Insurance Agents", re: /insurance/i, blurb: "home, auto, flood, life and business insurance agents", tips: ["Compare quotes from more than one agent, since Florida home insurance rates vary widely", "Ask about wind mitigation inspections, which can lower premiums", "Review your flood and hurricane coverage before June 1"] },
@@ -442,13 +443,13 @@ for (const p of places) {
   const faq = [
     { q: `Where is ${p.name} located?`, a: p.address ? `${p.name} is located at ${p.address}, ${areaText}.` : `${p.name} is ${areaText}. Use the directions button for the exact location.` },
     ...(p.cat === "restaurants" ? [{ q: `What kind of food does ${p.name} serve?`, a: `${p.name} is a ${p.type.toLowerCase()} spot in ${city}. ${p.desc}` }] : [{ q: `What does ${p.name} offer?`, a: `${p.name} is listed under ${catLabel(p.cat).toLowerCase()} (${p.type.toLowerCase()}). ${p.desc}` }]),
-    { q: `What are ${p.name}'s hours?`, a: p.website ? `Hours can change seasonally, so check ${hostOf(p.website)} or call ahead before visiting.` : `Hours can change seasonally, so call ahead or check the business's official listing before visiting.` },
+    { q: `What are ${p.name}'s hours?`, a: p.hours ? `${p.name} hours: ${p.hours}. Hours can change on holidays and during season, so ${p.phone ? "call " + p.phone : "check ahead"} to confirm.` : p.website ? `Hours can change seasonally, so check ${hostOf(p.website)} or call ahead before visiting.` : `Hours can change seasonally, so call ahead or check the business's official listing before visiting.` },
     ...(p.phone ? [{ q: `What is the phone number for ${p.name}?`, a: `You can reach ${p.name} at ${p.phone}.` }] : [])
   ];
   const ldPlace = {
     "@context": "https://schema.org", "@type": p.schema || "LocalBusiness", name: p.name, description: p.desc, url: `${SITE}/places/${p.slug}/`,
     ...(addrParts ? { address: { "@type": "PostalAddress", streetAddress: addrParts[1], addressLocality: addrParts[2], addressRegion: "FL", postalCode: addrParts[3], addressCountry: "US" } } : { address: { "@type": "PostalAddress", addressLocality: isNearby ? city : "Wellington", addressRegion: "FL", addressCountry: "US" } }),
-    ...(p.phone ? { telephone: p.phone } : {}), ...(p.cuisine ? { servesCuisine: p.cuisine } : {}), ...(p.website ? { sameAs: [p.website] } : {})
+    ...(p.phone ? { telephone: p.phone } : {}), ...(p.openingHours ? { openingHours: p.openingHours } : {}), ...(p.priceRange ? { priceRange: p.priceRange } : {}), ...(p.cuisine ? { servesCuisine: p.cuisine } : {}), ...(p.website ? { sameAs: [p.website] } : {})
   };
   const ldFaq = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
   const telHref = p.phone ? "tel:+1" + p.phone.replace(/\D/g, "").replace(/^1/, "") : "";
@@ -457,11 +458,15 @@ for (const p of places) {
       <div><dt>Category</dt><dd><a href="${listUrl}">${esc(catLabel(p.cat))}</a></dd></div>
       <div><dt>Type</dt><dd>${esc(p.type)}</dd></div>
       <div><dt>${p.address ? "Address" : "Area"}</dt><dd>${esc(p.address || p.area || "Wellington, FL")}</dd></div>
+      ${p.hours ? `<div><dt>Hours</dt><dd>${esc(p.hours)}</dd></div>` : ""}
       ${p.phone ? `<div><dt>Phone</dt><dd><a href="${telHref}">${esc(p.phone)}</a></dd></div>` : ""}
       ${p.website ? `<div><dt>Website</dt><dd><a href="${esc(p.website)}" rel="noopener nofollow" target="_blank">${esc(hostOf(p.website))}</a></dd></div>` : ""}
     </dl>`;
   const miniList = (title, list) => list.length ? `<section class="pl-section"><h2>${title}</h2><ul class="pl-mini">${list.map(x => `<li><a href="/places/${x.slug}/"><strong>${esc(x.name)}</strong><span>${esc(x.type)}${x.area ? " &middot; " + esc(x.area) : ""}</span></a></li>`).join("")}</ul></section>` : "";
-  const title = p.cat === "restaurants" ? `${p.name}, Wellington FL: ${p.type}${p.address ? ", " + p.address.split(",")[0] : ""}` : `${p.name} (${city}, FL): ${p.type}`;
+  const extras = [p.hours ? "Hours" : "", p.phone ? "Phone" : "", p.cat === "restaurants" ? "Menu" : "", street ? "Address" : ""].filter(Boolean).slice(0, 3);
+  const nameHasCity = new RegExp(city, "i").test(p.name);
+  const lead = nameHasCity ? `${p.name} in ${city}, FL` : `${p.name} ${city}, FL`;
+  const title = p.title || ((p.hours || p.phone) && p.cat !== "coming-soon" ? `${lead}: ${extras.join(", ").replace(/, ([^,]*)$/, " & $1")}` : `${p.name}, ${city} FL: ${p.type}${p.cat === "restaurants" && street ? ", " + street.split(",")[0] : ""}`);
   const body = `
 <section class="pl-head"><div class="wrap">
   ${crumbsHTML(crumbs)}
@@ -472,6 +477,7 @@ for (const p of places) {
 <div class="wrap pl-grid">
   <article class="pl-main">
     <section class="pl-section"><h2>About ${esc(p.name)}</h2>
+      ${p.status ? `<p class="pl-lede" style="border-left:4px solid #c9a227;padding-left:12px"><strong>Status:</strong> ${esc(p.status)}</p>` : ""}
       <p class="pl-lede">${esc(p.desc)}</p>
       <p>${esc(p.name)} is ${areaText}. ${p.cat === "restaurants" ? `It is one of ${places.filter(x => x.cat === "restaurants").length} places to eat and drink in our <a href="/restaurants/">Wellington restaurant guide</a>${p.cuisine ? `, and part of the village's ${esc(p.cuisine)} dining scene` : ""}.` : `Browse more ${esc(catLabel(p.cat).toLowerCase())} in our <a href="${listUrl}">Wellington directory</a>.`}</p>
       ${p.link ? `<p><a href="${p.link}">Read our full guide</a></p>` : ""}
@@ -491,7 +497,14 @@ for (const p of places) {
   </div></aside>
 </div>
 <div class="wrap">${sponsor()}</div>${newsletter}`;
-  const desc = (p.desc + (p.address ? ` Located at ${p.address}.` : ` Located in ${city}, FL.`)).slice(0, 158);
+  const firstSentence = p.desc.split(/(?<=[a-z]{3}\.)\s/)[0];
+  const cut = (t, n) => t.length <= n ? t : t.slice(0, n - 3).replace(/[\s,;:]+\S*$/, "") + "...";
+  let tail = [street ? `${street.split(",")[0]}, ${city}.` : "", p.phone ? `Call ${p.phone}.` : ""].filter(Boolean).join(" ");
+  if (p.hours && (tail + p.hours).length < 75) tail = `${tail} Hours: ${p.hours.replace(/\.$/, "")}.`.trim();
+  const budget = Math.max(80, 158 - tail.length - 1);
+  let desc = cut(firstSentence, budget);
+  if ((desc + " " + tail).length <= 160) desc = (desc + " " + tail).trim();
+  if (p.meta) desc = p.meta;
   add(`/places/${p.slug}/`, layout({ title, description: desc, urlPath: `/places/${p.slug}/`, body, jsonld: [crumbsLD(crumbs), ldPlace, ldFaq] }), "0.6");
 }
 

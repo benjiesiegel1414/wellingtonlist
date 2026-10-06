@@ -1,5 +1,153 @@
 [
   {
+    "slug": "lotis-wellington-restaurants-guide",
+    "title": "Lotis Wellington Restaurants: What's Open and What's Coming",
+    "h1": "Lotis Wellington Restaurants: What's Open Now and What's Coming",
+    "seoTitle": "Lotis Wellington Restaurants 2026: What's Open, Hours & What's Coming",
+    "description": "Every restaurant at Lotis Wellington on State Road 7: Cooper's Hawk, Turning Point, MOOYAH, Kura and Foxtail are open; Lazy Dog, Frank Pepe and Naked Taco are coming.",
+    "category": "Food and Drink",
+    "published": "2026-10-06",
+    "updated": "2026-10-06",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic modern outdoor dining plaza in South Florida at golden hour, restaurant patios with string lights, palm trees, people dining outdoors, new contemporary architecture, no text, no logos, no readable signs",
+    "faq": [
+      {
+        "q": "What restaurants are open at Lotis Wellington?",
+        "a": "As of fall 2026, Cooper's Hawk Winery and Restaurant, Turning Point, MOOYAH Burgers, Kura Revolving Sushi Bar and Foxtail Coffee are open at Lotis Wellington on State Road 7."
+      },
+      {
+        "q": "Is Lazy Dog open in Wellington, FL?",
+        "a": "Not yet. Lazy Dog has signed for Lotis Wellington but was not open as of mid-2026. The closest open Lazy Dog is at 9636 Glades Rd in Boca Raton."
+      },
+      {
+        "q": "Where is Lotis Wellington?",
+        "a": "Lotis Wellington is on the west side of State Road 7 in Wellington, FL 33414, just north of Wellington Regional Medical Center. Restaurant addresses include 1347, 1349, 1385 and 1387 S State Road 7."
+      },
+      {
+        "q": "What are Turning Point's hours in Wellington?",
+        "a": "Turning Point at 1385 S State Road 7 is open daily from 7:30 a.m. to 3 p.m. for breakfast, brunch and lunch."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Palms West Journal: Restaurant lineup released for Wellington's Lotis development",
+        "url": "https://www.palmswestjournal.com/post/restaurant-lineup-released-for-wellington-s-lotis-development"
+      },
+      {
+        "name": "Turning Point Restaurants: Locations",
+        "url": "https://turningpointrestaurants.com/locations/"
+      },
+      {
+        "name": "Cooper's Hawk: Wellington, FL",
+        "url": "https://chwinery.com/locations/wellington-fl"
+      },
+      {
+        "name": "Foxtail Coffee: Wellington, FL",
+        "url": "https://www.foxtailcoffee.com/locations/foxtail-coffee-wellington%2C-fl"
+      },
+      {
+        "name": "Discover South Florida: Lotis Wellington liens and delays (July 2026)",
+        "url": "https://www.discoversouthflorida.com/blog/5m-in-liens-and-a-partner-war-are-choking-lotis-wellington"
+      },
+      {
+        "name": "Matt Sells: New restaurants in Wellington FL in 2026",
+        "url": "https://mattsells.com/blog/what-actually-opened-in-wellington-this-off-season"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-amphitheater-events-guide",
+    "title": "Wellington Amphitheater Guide: Free Concerts, Food Trucks and Movie Nights",
+    "h1": "Wellington Amphitheater Guide: Free Concerts, Food Trucks, Movies and Parking",
+    "seoTitle": "Wellington Amphitheater Events: Free Concerts, Food Trucks & Parking Guide",
+    "description": "Your guide to the Wellington Amphitheater at 12100 Forest Hill Blvd: free tribute concerts, food truck nights, movie nights, parking, what to bring and the schedule.",
+    "category": "Things to Do",
+    "published": "2026-10-06",
+    "updated": "2026-10-06",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic outdoor amphitheater stage at dusk beside a lake in South Florida, families on blankets and lawn chairs on the grass, food trucks with string lights in the background, palm trees, warm purple sunset sky, no text, no logos",
+    "faq": [
+      {
+        "q": "Are Wellington Amphitheater concerts free?",
+        "a": "Most village events at the Wellington Amphitheater, including the tribute band concert series, food truck nights and movie nights, are free, and parking is free."
+      },
+      {
+        "q": "Where is the Wellington Amphitheater?",
+        "a": "The Wellington Amphitheater is at 12100 Forest Hill Blvd, Wellington, FL 33414, at Wellington Town Center beside Lake Wellington and Scott's Place playground."
+      },
+      {
+        "q": "Where do I park for the Wellington Amphitheater?",
+        "a": "Park for free in the Town Center lots near the amphitheater and aquatics complex. Avoid the neighboring Publix lot, where visitors report towing on event nights."
+      },
+      {
+        "q": "Can I bring chairs to the Wellington Amphitheater?",
+        "a": "Yes. Seating is on the lawn, so bring lawn chairs or a blanket."
+      },
+      {
+        "q": "How do I find out if an amphitheater event is canceled?",
+        "a": "Check the Village of Wellington calendar at wellingtonfl.gov or call the event line at (561) 753-2484 for rain-out updates."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Amphitheater",
+        "url": "https://www.wellingtonfl.gov/603/Amphitheater"
+      },
+      {
+        "name": "Village of Wellington: Amphitheater calendar",
+        "url": "https://www.wellingtonfl.gov/calendar.aspx?CID=28"
+      },
+      {
+        "name": "Miami on the Cheap: Free live entertainment at Wellington Amphitheater",
+        "url": "https://miamionthecheap.com/free-live-entertainment-at-wellington-amphitheater/"
+      },
+      {
+        "name": "Tripadvisor: Wellington Amphitheater reviews",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g34727-d12563676-Reviews-Wellington_Amphitheater-Wellington_Florida.html"
+      }
+    ]
+  },
+  {
+    "slug": "pediatricians-wellington-fl",
+    "title": "Pediatricians in Wellington, FL: A Local Guide for Parents",
+    "h1": "Pediatricians in Wellington, FL: A Local Guide for Parents",
+    "seoTitle": "Pediatricians in Wellington FL: Local Practices, Phones & After-Hours Care",
+    "description": "Pediatricians in Wellington, FL: Wellington Pediatrics, The Pediatric Center, SOMA Pediatrics and nearby Royal Palm Beach practices, plus after-hours care for kids.",
+    "category": "Health",
+    "published": "2026-10-06",
+    "updated": "2026-10-06",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic bright friendly pediatrician office exam room, colorful but clean modern decor, a doctor with a stethoscope smiling with a young child and parent, large window with palm trees outside, soft natural light, no text, no logos",
+    "faq": [
+      {
+        "q": "What pediatricians are in Wellington, FL?",
+        "a": "Pediatric practices in Wellington include Wellington Pediatrics and SOMA Medical Center Pediatrics on Forest Hill Blvd and The Pediatric Center on Medical Park Blvd, with Royal Palm Pediatrics and My Way Pediatrics nearby in Royal Palm Beach."
+      },
+      {
+        "q": "Where can I take my child after hours in Wellington?",
+        "a": "Call your pediatrician's after-hours line first. For minor illness or injury, Wellington urgent care centers such as Baptist Health Urgent Care Express see children. For emergencies, call 911 or go to Wellington Regional Medical Center."
+      },
+      {
+        "q": "Is there a children's hospital in Wellington, FL?",
+        "a": "Wellington does not have a full children's hospital, but the Nicklaus Children's Wellington Outpatient Center on Forest Hill Blvd offers pediatric specialty care, and Wellington Regional Medical Center has an emergency room."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Palm Beach Moms: Pediatricians and children's healthcare",
+        "url": "https://thepbmoms.com/resources/doctors/"
+      },
+      {
+        "name": "WebMD: The Pediatric Center, Wellington",
+        "url": "https://doctor.webmd.com/practice/the-pediatric-center-fc948af8-f126-e311-a62b-001f29e3eb44"
+      },
+      {
+        "name": "SOMA Medical Center: Wellington Pediatrics",
+        "url": "https://somamedicalcenter.com/12/location/wellington---pediatrics-"
+      }
+    ]
+  },
+  {
     "slug": "best-coffee-shops-wellington-fl",
     "title": "The Best Coffee Shops in Wellington, FL",
     "h1": "The Best Coffee Shops in Wellington, FL",
@@ -151,11 +299,11 @@
     "slug": "things-to-do-with-kids-wellington-fl",
     "title": "Things to Do with Kids in Wellington, FL: A Local Parent's Guide",
     "h1": "Things to Do with Kids in Wellington, FL",
-    "seoTitle": "Things to Do with Kids in Wellington FL: Playgrounds, Indoor Fun and More",
-    "description": "The best things to do with kids in Wellington, FL: free playgrounds like Scott's Place and Tiger Shark Cove, pools, nature walks, indoor rainy-day fun, birthday party ideas, youth sports and easy day trips.",
+    "seoTitle": "Things to Do with Kids & Toddlers in Wellington FL: Playgrounds and More",
+    "description": "The best things to do with kids and toddlers in Wellington, FL: free playgrounds like Scott's Place, toddler story times, pools, nature walks, rainy-day fun and birthday ideas.",
     "category": "Family",
     "published": "2026-10-03",
-    "updated": "2026-10-03",
+    "updated": "2026-10-06",
     "readMins": 7,
     "coverPrompt": "Photorealistic sunny morning at a colorful, shaded children's playground in a lush South Florida park in Wellington Florida, happy kids climbing and sliding, parents watching from benches, palm trees and a calm lake in the background, bright blue sky, warm natural light, no text, no logos",
     "faq": [
@@ -174,6 +322,10 @@
       {
         "q": "Are there free things to do with kids in Wellington?",
         "a": "Yes. Village playgrounds like Scott's Place and Tiger Shark Cove, Peaceful Waters Sanctuary, the Wellington Environmental Preserve, library programs and many Wellington Amphitheater events are free."
+      },
+      {
+        "q": "What can I do with a toddler in Wellington, FL?",
+        "a": "Toddler favorites in Wellington include Scott's Place barrier-free playground, free story times at the Wellington Branch Library, the stroller-friendly boardwalk at Peaceful Waters Sanctuary and free evening events at the Wellington Amphitheater."
       }
     ],
     "sources": [
