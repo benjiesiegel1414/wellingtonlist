@@ -89,9 +89,9 @@ const dateChip = (e, yr) => { const d = new Date(e.start + "T12:00:00"); const m
 const mapsLink = (p) => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(p.name + " " + (p.address || "Wellington, FL"));
 
 // ---------- Shared chrome ----------
-const horseSymbol = read("assets/horse-symbol.svg");
-const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true">${horseSymbol}</svg>`;
-const logo = (light) => `<a class="brand" href="/" aria-label="Wellington List home"><span class="logo-tile${light ? " logo-tile-light" : ""}"><svg width="30" height="38"><use href="#horse"/></svg></span><span class="brand-name">Wellington List<span>Wellington, Florida</span></span></a>`;
+const logoSymbol = read("assets/logo-symbol.svg");
+const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true">${logoSymbol}</svg>`;
+const logo = (light) => `<a class="brand" href="/" aria-label="Wellington List home"><span class="logo-tile${light ? " logo-tile-light" : ""}"><svg width="36" height="36" viewBox="0 0 64 64"><use href="#logo"/></svg></span><span class="brand-name">Wellington List<span>Wellington, Florida</span></span></a>`;
 
 const NAV = [["/blog/", "News"], ["/directory/", "Directory"], ["/restaurants/", "Eat and Drink"], ["/services/", "Services"], ["/things-to-do/", "Things to Do"], ["/events/", "Events"], ["/equestrian/", "Equestrian"]];
 
@@ -179,7 +179,7 @@ ${footer}
 const crumbsHTML = (items) => `<nav class="crumbs" aria-label="Breadcrumb">${items.map((it, i) => (i < items.length - 1 ? `<a href="${it[1]}">${esc(it[0])}</a><span aria-hidden="true">/</span>` : `<span aria-current="page">${esc(it[0])}</span>`)).join("")}</nav>`;
 const crumbsLD = (items) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it[0], item: SITE + it[1] })) });
 const pageHead = (crumbs, h1, sub, extra = "") => `
-<section class="page-head"><svg class="hero-mark" viewBox="5 2 52 63" aria-hidden="true"><use href="#horse"/></svg>
+<section class="page-head"><svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
   <div class="wrap">${crumbsHTML(crumbs)}<h1>${h1}</h1>${sub ? `<p>${sub}</p>` : ""}${extra}</div>
 </section>`;
 
@@ -193,7 +193,7 @@ const listingCard = (p) => `
 
 const postCard = (p) => `
 <article class="post-card">
-  <a class="thumb" href="/blog/${p.slug}/" aria-label="${esc(p.h1)}">${coverImg(p) || '<svg viewBox="5 2 52 63" aria-hidden="true"><use href="#horse"/></svg>'}</a>
+  <a class="thumb" href="/blog/${p.slug}/" aria-label="${esc(p.h1)}">${coverImg(p) || '<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>'}</a>
   <div class="pad"><div class="tag">${esc(p.category)}</div><h3><a href="/blog/${p.slug}/">${esc(p.h1)}</a></h3><p>${esc(p.description)}</p><div class="byline">${fmtDate(p.published)} &middot; ${p.readMins} min read</div></div>
 </article>`;
 
@@ -208,7 +208,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
   const counts = Object.fromEntries(CATS.map(c => [c.id, places.filter(p => p.cat === c.id).length]));
   const lead = posts[0], rest = posts.slice(1);
   const body = `
-<section class="hero"><svg class="hero-mark" viewBox="5 2 52 63" aria-hidden="true"><use href="#horse"/></svg>
+<section class="hero"><svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
   <div class="wrap">
     <h1>Everything happening in Wellington, in one place.</h1>
     <p class="lede">Local news, trusted businesses, restaurants, events and the equestrian season, covered by people who live here.</p>
@@ -226,7 +226,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
   <div class="sec-head"><h2>Wellington news</h2><a href="/blog/">All news</a></div>
   <div class="news-grid"><div class="news-main">
     <article class="lead-story">
-      <a class="img" href="/blog/${lead.slug}/" style="display:grid;place-items:center" aria-label="${esc(lead.h1)}">${coverImg(lead, true) || '<svg viewBox="5 2 52 63" width="34%" style="color:#fff" aria-hidden="true"><use href="#horse"/></svg>'}</a>
+      <a class="img" href="/blog/${lead.slug}/" style="display:grid;place-items:center" aria-label="${esc(lead.h1)}">${coverImg(lead, true) || '<svg viewBox="0 0 64 64" width="34%" style="color:#fff" aria-hidden="true"><use href="#logo"/></svg>'}</a>
       <div class="tag">${esc(lead.category)}</div>
       <h3><a href="/blog/${lead.slug}/">${esc(lead.h1)}</a></h3>
       <p>${esc(lead.description)}</p><div class="byline">${fmtDate(lead.published)} &middot; ${lead.readMins} min read</div>
@@ -247,7 +247,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
 
 <section class="block" id="directory"><div class="wrap">
   <div class="sec-head"><h2>The Wellington directory</h2><a href="/directory/">Browse everything</a></div>
-  <div class="cats">${CATS.filter(c => counts[c.id]).slice(0, 7).map(c => `<a class="cat" href="/directory/?cat=${c.id}"><svg viewBox="5 2 52 63"><use href="#horse"/></svg><div><strong>${c.label}</strong><span>${counts[c.id]} places</span></div></a>`).join("")}<a class="cat" href="/add-your-business/"><svg viewBox="5 2 52 63"><use href="#horse"/></svg><div><strong>Add your business</strong><span>Free listing</span></div></a></div>
+  <div class="cats">${CATS.filter(c => counts[c.id]).slice(0, 7).map(c => `<a class="cat" href="/directory/?cat=${c.id}"><svg viewBox="0 0 64 64"><use href="#logo"/></svg><div><strong>${c.label}</strong><span>${counts[c.id]} places</span></div></a>`).join("")}<a class="cat" href="/add-your-business/"><svg viewBox="0 0 64 64"><use href="#logo"/></svg><div><strong>Add your business</strong><span>Free listing</span></div></a></div>
   <div class="sec-head" style="margin-top:48px"><h2 style="font-size:26px">Local favorites</h2><a href="/add-your-business/">Add your business</a></div>
   <div class="listings">${featured.map(listingCard).join("")}</div>
 </div></section>
@@ -550,7 +550,7 @@ for (const p of places) {
     <section class="faq" id="faq"><h2>Frequently asked questions</h2>${p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</section>
     <section class="sources"><h2 style="font-size:20px">Sources</h2><ul>${p.sources.map(s => `<li><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.name)}</a></li>`).join("")}</ul>
     <p>Details on developments and schools can change. We update this guide as new information is announced. Spot something out of date? <a href="/submit-event/">Send us a tip</a>.</p></section>
-    <div class="author-box"><span class="logo-tile"><svg width="30" height="38"><use href="#horse"/></svg></span><span>Written by the Wellington List team, an independent local guide covering Wellington, Florida.</span></div>
+    <div class="author-box"><span class="logo-tile"><svg width="36" height="36" viewBox="0 0 64 64"><use href="#logo"/></svg></span><span>Written by the Wellington List team, an independent local guide covering Wellington, Florida.</span></div>
     ${others.length ? `<div class="related"><h2>Keep reading</h2><div class="post-grid">${others.map(postCard).join("")}</div></div>` : ""}
   </article>
   <aside><div class="sticky-rail">
