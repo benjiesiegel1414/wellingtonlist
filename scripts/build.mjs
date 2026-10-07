@@ -619,7 +619,7 @@ formPage({
     <div class="tier"><span class="cat-label">Category</span><h3>Exclusive sponsorship</h3><ul><li>Own a category such as real estate or restaurants</li><li>"Featured agent" or "Presented by" placement</li><li>Limited to one business per category</li></ul></div>
   </div>
   <h2 class="prose" style="font-family:var(--serif);font-weight:500;font-size:30px">Request a media kit</h2>
-  <p class="prose" style="margin:-6px 0 18px">Prefer email? Write to <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</p>
+  <p class="prose" style="margin:-6px 0 18px">Prefer email? Write to <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
   <form class="form" data-wl-form="Advertisers" data-success="Thanks! We'll be in touch with rates and availability.">
     <div class="row"><label>Your name<input name="name" required autocomplete="name"></label><label>Business<input name="business_name" required></label></div>
     <div class="row"><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
@@ -640,7 +640,7 @@ formPage({
     <p>Wellington has world class equestrian venues, beautiful parks and a growing list of places to eat, but there has never been one place that brings it all together. That is what we are building: local news in plain English, honest guides, an events calendar and a directory of the businesses that make Wellington work.</p>
     <h2>Our standards</h2><p>We link to our sources, label sponsored content clearly and update our guides when facts change. Sponsors never pay for coverage in our news and guides.</p>
     <h2>Get in touch</h2><p>Have a news tip, an event or a correction? <a href="/submit-event/">Send it here</a>. Own a business? <a href="/add-your-business/">Add your listing</a>. Interested in sponsoring? <a href="/advertise/">See advertising options</a>.</p>
-    <p>Prefer email? Reach us anytime at <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</p>
+    <p>Prefer email? Reach us anytime at <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
     <p>Wellington List is independent and is not affiliated with the Village of Wellington.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.4");
 }
 {
@@ -655,7 +655,7 @@ formPage({
     <h2>Sponsors and links</h2><p>Some placements on the site are paid sponsorships and are labeled as advertisements. This site links to other websites, including businesses we list. We are not responsible for the privacy practices of other sites.</p>
     <h2>How long we keep information</h2><p>We keep submissions as long as needed to operate the directory and respond to you. You can ask us to update or delete a listing or your submission at any time.</p>
     <h2>Children</h2><p>This site is intended for a general audience and is not directed to children under 13. We do not knowingly collect personal information from children.</p>
-    <h2>Your choices and contact</h2><p>To correct or remove a listing, or to ask about the information we hold about you, email <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>. We may update this policy from time to time, and the date at the top shows the latest version.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.2");
+    <h2>Your choices and contact</h2><p>To correct or remove a listing, or to ask about the information we hold about you, email <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a> We may update this policy from time to time, and the date at the top shows the latest version.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.2");
 }
 write("404.html", layout({ title: "Page not found | Wellington List", description: "This page could not be found.", urlPath: "/404.html", noindex: true,
   body: pageHead([["Home", "/"], ["Not found", "/404.html"]], "We couldn't find that page", "Try the directory, the latest news, or head back home.") + `<div class="wrap" style="padding:44px 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-primary" href="/">Home</a><a class="btn btn-ghost" href="/directory/">Directory</a><a class="btn btn-ghost" href="/blog/">News</a></div>` }));
