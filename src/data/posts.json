@@ -244,24 +244,28 @@
     "title": "The Best Coffee Shops in Wellington, FL",
     "h1": "The Best Coffee Shops in Wellington, FL",
     "seoTitle": "Best Coffee Shops in Wellington FL: Local Cafes and Where to Work",
-    "description": "The best coffee shops in Wellington, FL: Candid Coffee & Anna Bakes, Carmela Coffee, Foxtail Coffee at Lotis, plus cafes for working remotely and quick stops.",
+    "description": "The best coffee shops in Wellington, FL: Candid Coffee & Anna Bakes, Carmela Toast & Coffee Bar, Foxtail at Lotis, Cumbres Coffee Roasters and more, with hours and addresses.",
     "category": "Food and Drink",
     "published": "2026-10-04",
-    "updated": "2026-10-04",
-    "readMins": 4,
+    "updated": "2026-10-08",
+    "readMins": 6,
     "coverPrompt": "Photorealistic cozy modern coffee shop interior in Wellington Florida, barista pouring latte art at a marble counter, pastries in a glass case, large windows with palm trees outside, warm morning light, no text, no logos",
     "faq": [
       {
         "q": "What are the best coffee shops in Wellington, FL?",
-        "a": "Local favorites include Candid Coffee & Anna Bakes on Forest Hill Blvd, Carmela Coffee near Wellington Green and Foxtail Coffee at Lotis Wellington, along with Starbucks, Dunkin' and Panera for quick stops."
+        "a": "Local favorites include Candid Coffee & Anna Bakes and Cumbres Coffee Roasters at The Pointe at Wellington Green, Carmela Toast & Coffee Bar in Wellington Green Square and Foxtail Coffee at Lotis Wellington."
+      },
+      {
+        "q": "Is there a coffee roaster in Wellington, FL?",
+        "a": "Yes. Candid Coffee roasts its beans on site at 10120 Forest Hill Blvd, and Cumbres Coffee Roasters sells freshly roasted Colombian coffee at The Pointe at Wellington Green."
+      },
+      {
+        "q": "Which Wellington coffee shop is open latest?",
+        "a": "Foxtail Coffee at 1385 S State Road 7 is open daily from 6 a.m. to 9 p.m., the longest hours of any local coffee shop."
       },
       {
         "q": "Where can I work remotely with coffee in Wellington?",
-        "a": "Panera Bread on Forest Hill Blvd and the larger cafes near Wellington Green have the most seating and are best on weekday mornings."
-      },
-      {
-        "q": "Is there a local coffee roaster in Wellington?",
-        "a": "Yes. Candid Coffee serves locally roasted coffee, and smaller roasters such as Premier Cafe and Roasters and Cumbres Coffee Roasters also operate in the area."
+        "a": "Foxtail Coffee at Lotis and Panera Bread on Forest Hill Blvd have the most seating and longest hours. Weekday mornings are quietest."
       }
     ],
     "sources": [
@@ -272,6 +276,18 @@
       {
         "name": "My Coffee Explorer: coffee shops in Wellington, FL",
         "url": "https://mycoffeeexplorer.com/guides/wellington-fl"
+      },
+      {
+        "name": "Wellington The Magazine: Candid Coffee and Anna Bakes",
+        "url": "https://www.blog.wellingtonthemagazine.com/?p=9308"
+      },
+      {
+        "name": "Wellington The Magazine: Carmela Toast & Coffee Bar now open",
+        "url": "https://www.blog.wellingtonthemagazine.com/?p=9658"
+      },
+      {
+        "name": "Foxtail Coffee: Wellington",
+        "url": "https://www.foxtailcoffee.com/locations/foxtail-coffee-wellington%2C-fl"
       }
     ]
   },
