@@ -13,6 +13,7 @@
   <url><loc>https://wellingtonlist.com/services/dentists/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
   <url><loc>https://wellingtonlist.com/services/doctors-urgent-care/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
   <url><loc>https://wellingtonlist.com/services/pediatricians/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://wellingtonlist.com/services/pharmacies/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
   <url><loc>https://wellingtonlist.com/services/veterinarians/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
   <url><loc>https://wellingtonlist.com/services/real-estate-agents/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
   <url><loc>https://wellingtonlist.com/services/insurance-agents/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
@@ -299,22 +300,59 @@
   <url><loc>https://wellingtonlist.com/places/cumbres-coffee-roasters/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
   <url><loc>https://wellingtonlist.com/places/premier-cafe-and-roasters/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
   <url><loc>https://wellingtonlist.com/places/lemon-drop-play-cafe/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/sage-dental-of-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/city-dental-of-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/care-dental-dr-michael-eisenband/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/soft-hands-dental/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/mohip-dental-and-associates/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/diamond-dentistry-and-aesthetics/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/premier-general-and-cosmetic-dentistry/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/wellington-center-for-laser-dentistry/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/dental-house-of-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/children-and-pediatric-dentistry-of-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/premier-orthodontic-and-pediatric-dentistry-pop-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/pediatric-dentistry-and-family-orthodontics-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/palm-beach-childrens-dentistry/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/orthomike-orthodontics-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/elite-oral-surgery-of-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/wellington-oral-surgery/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/profiles-oral-and-facial-surgery-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/aspen-dental-royal-palm-beach/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/dental-center-of-wellington-bussell-dental/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/ka-dental-royal-palm-beach/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/walgreens-greenview-shores/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/cvs-pharmacy-forest-hill-blvd/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/cvs-pharmacy-state-road-7/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/publix-pharmacy-courtyard-shops/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/publix-pharmacy-wellington-green-square/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/walgreens-24-hour-boca-raton-sr-7/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/access-specialty-animal-hospital-palm-beach/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/vca-palm-beach-veterinary-specialists/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/veterinary-emergency-group-boynton-beach/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/petfolk-veterinary-and-urgent-care/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/er-at-westlake-wellington-regional/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/md-now-urgent-care-wellington/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/planet-fitness-royal-palm-beach/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://wellingtonlist.com/places/dennys-royal-palm-beach/</loc><lastmod>2026-10-09</lastmod><priority>0.6</priority></url>
   <url><loc>https://wellingtonlist.com/events/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
   <url><loc>https://wellingtonlist.com/blog/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://wellingtonlist.com/blog/emergency-24-hour-dentists-wellington-fl/</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://wellingtonlist.com/blog/24-hour-pharmacies-wellington-fl/</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://wellingtonlist.com/blog/24-hour-emergency-vets-wellington-fl/</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/halloween-fall-events-wellington-fl-2026/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/global-dressage-festival-2027-guide/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/lotis-wellington-restaurants-guide/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/wellington-amphitheater-events-guide/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/pediatricians-wellington-fl/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/best-coffee-shops-wellington-fl/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://wellingtonlist.com/blog/hospitals-urgent-care-wellington-fl/</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
-  <url><loc>https://wellingtonlist.com/blog/best-dentists-wellington-fl/</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
+  <url><loc>https://wellingtonlist.com/blog/hospitals-urgent-care-wellington-fl/</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://wellingtonlist.com/blog/best-dentists-wellington-fl/</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/private-christian-catholic-schools-wellington-fl/</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/things-to-do-with-kids-wellington-fl/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/living-in-wellington-fl-pros-cons/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/wellington-fl-zip-codes/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/best-parks-wellington-fl/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
-  <url><loc>https://wellingtonlist.com/blog/schools-in-wellington-fl-guide/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://wellingtonlist.com/blog/schools-in-wellington-fl-guide/</loc><lastmod>2026-10-09</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/mall-at-wellington-green-nordstrom-apartments/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/winter-equestrian-festival-2027-guide/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://wellingtonlist.com/blog/palm-beach-polo-season-2027-national-polo-center/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
