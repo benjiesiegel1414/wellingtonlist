@@ -7,6 +7,9 @@ import path from "node:path";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SRC = path.join(ROOT, "src");
 const OUT = path.join(ROOT, "docs");
+// Safety check: refuse to build if the live settings were blanked (this once switched off analytics and forms).
+{ const cfgText = fs.readFileSync(path.join(SRC, "assets/config.js"), "utf8");
+  if (!/ga4:\s*"G-[A-Z0-9]+"/.test(cfgText) || !/formEndpoint:\s*"https:\/\/script\.google\.com/.test(cfgText)) { throw new Error("src/assets/config.js is missing the GA4 ID or form endpoint. Restore them before building."); } }
 const SITE = "https://wellingtonlist.com";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
