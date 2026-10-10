@@ -1,5 +1,20 @@
 [
  {
+  "slug": "copper-blues-wellington-opening",
+  "title": "Copper Blues Rock Pub & Kitchen Opening Day",
+  "start": "2026-10-16",
+  "end": "2026-10-16",
+  "dateNote": "Friday, October 16, 2026 (doors listed at 4 p.m.)",
+  "venue": "Copper Blues, The Mall at Wellington Green",
+  "venueSlug": "copper-blues-wellington",
+  "address": "10300 Forest Hill Blvd, Wellington, FL 33414",
+  "desc": "The new live music pub and kitchen opens on the mall's upper level next to CMX Cinemas and Palm Beach Improv. Opening date per local social media posts; confirm with the restaurant.",
+  "organizer": "Copper Blues Rock Pub & Kitchen",
+  "organizerUrl": "https://copperblueslive.com/locations/palmbeach/",
+  "url": "https://wellingtonlist.com/blog/copper-blues-wellington-green-opening/",
+  "image": "/assets/covers/copper-blues-wellington-green-opening.jpg"
+ },
+ {
   "slug": "wellington-fall-festival-2026",
   "title": "Wellington Fall Festival 2026",
   "start": "2026-10-17",
@@ -26,6 +41,17 @@
   "image": "/assets/covers/palm-beach-polo-season-2027-national-polo-center.jpg"
  },
  {
+  "slug": "winter-equestrian-festival-2027",
+  "title": "Winter Equestrian Festival 2027",
+  "start": "2027-01-06",
+  "end": "2027-04-04",
+  "venue": "Wellington International",
+  "venueSlug": "wellington-international",
+  "address": "3400 Equestrian Club Dr, Wellington, FL 33414",
+  "desc": "Thirteen weeks of international show jumping, hunters and equitation, one of the largest horse shows in the world.",
+  "image": "/assets/covers/winter-equestrian-festival-2027-guide.jpg"
+ },
+ {
   "slug": "global-dressage-festival-2027",
   "title": "Adequan Global Dressage Festival 2027",
   "start": "2027-01-13",
@@ -40,16 +66,5 @@
   "organizer": "Wellington International",
   "organizerUrl": "https://www.wellingtoninternational.com/",
   "price": "0"
- },
- {
-  "slug": "winter-equestrian-festival-2027",
-  "title": "Winter Equestrian Festival 2027",
-  "start": "2027-01-06",
-  "end": "2027-04-04",
-  "venue": "Wellington International",
-  "venueSlug": "wellington-international",
-  "address": "3400 Equestrian Club Dr, Wellington, FL 33414",
-  "desc": "Thirteen weeks of international show jumping, hunters and equitation, one of the largest horse shows in the world.",
-  "image": "/assets/covers/winter-equestrian-festival-2027-guide.jpg"
  }
 ]
