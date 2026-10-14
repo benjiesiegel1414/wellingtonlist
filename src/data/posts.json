@@ -303,7 +303,7 @@
     "description": "Every restaurant at Lotis Wellington on State Road 7: Cooper's Hawk, Turning Point, MOOYAH, Kura and Foxtail are open; Lazy Dog, Frank Pepe and Naked Taco are coming.",
     "category": "Food and Drink",
     "published": "2026-10-06",
-    "updated": "2026-10-06",
+    "updated": "2026-10-14",
     "readMins": 5,
     "coverPrompt": "Photorealistic modern outdoor dining plaza in South Florida at golden hour, restaurant patios with string lights, palm trees, people dining outdoors, new contemporary architecture, no text, no logos, no readable signs",
     "faq": [
@@ -322,6 +322,10 @@
       {
         "q": "What are Turning Point's hours in Wellington?",
         "a": "Turning Point at 1385 S State Road 7 is open daily from 7:30 a.m. to 3 p.m. for breakfast, brunch and lunch."
+      },
+      {
+        "q": "When does Cluck Face open in Wellington?",
+        "a": "Cluck Face Nashville Hot Chicken is coming to The Square at Lotis Wellington at 1347 S State Road 7, Unit 3-105. As of late September 2026, the franchisee was targeting a mid-November 2026 opening, with planned hours of 11 a.m. to 1 a.m. daily."
       }
     ],
     "sources": [
@@ -348,6 +352,14 @@
       {
         "name": "Matt Sells: New restaurants in Wellington FL in 2026",
         "url": "https://mattsells.com/blog/what-actually-opened-in-wellington-this-off-season"
+      },
+      {
+        "name": "What Now Miami: Cluck Face Nashville Hot Chicken opening in Wellington (Jan. 2026)",
+        "url": "https://whatnow.com/miami/restaurants/cluck-face-nashville-hot-chicken-opening-in-wellington/"
+      },
+      {
+        "name": "Business Debut: Cluck Face Nashville Hot Chicken opening soon (Sept. 2026)",
+        "url": "https://www.businessdebut.com/new-in-palm-beach-county-cluck-face-nashville-hot-chicken-opening-soon/"
       }
     ]
   },
