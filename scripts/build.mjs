@@ -27,7 +27,8 @@ const write = (rel, html) => {
 // ---------- Data ----------
 let places = json("data/places.json");
 let events = json("data/events.json");
-const posts = json("data/posts.json");
+// Newest first: sort by published date, and for posts published the same day, the one added to posts.json last comes first.
+const posts = json("data/posts.json").map((p, i) => [p, i]).sort((x, y) => (y[0].published || "").localeCompare(x[0].published || "") || y[1] - x[1]).map(x => x[0]);
 
 function parseCSV(text) {
   const rows = []; let row = [], cell = "", q = false;
@@ -209,7 +210,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
 {
   const featured = places.filter(p => p.featured).slice(0, 9);
   const counts = Object.fromEntries(CATS.map(c => [c.id, places.filter(p => p.cat === c.id).length]));
-  const lead = posts[0], rest = posts.slice(1);
+  const lead = posts[0], rest = posts.slice(1, 10);
   const body = `
 <section class="hero"><svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
   <div class="wrap">
