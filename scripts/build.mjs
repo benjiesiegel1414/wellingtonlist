@@ -29,6 +29,23 @@ let places = json("data/places.json");
 let events = json("data/events.json");
 // Newest first: sort by published date, and for posts published the same day, the one added to posts.json last comes first.
 const posts = json("data/posts.json").map((p, i) => [p, i]).sort((x, y) => (y[0].published || "").localeCompare(x[0].published || "") || y[1] - x[1]).map(x => x[0]);
+// Internal linking: which places each post links to, and which posts mention each place.
+const postPlaceLinks = {};
+const postsByPlace = {};
+for (const p of posts) {
+  let html = "";
+  try { html = fs.readFileSync(path.join(SRC, "content/blog", p.slug + ".html"), "utf8"); } catch (e) {}
+  const slugs = [...new Set([...html.matchAll(/href="\/places\/([^"\/]+)\/"/g)].map(m => m[1]))];
+  postPlaceLinks[p.slug] = slugs;
+  for (const sl of slugs) (postsByPlace[sl] = postsByPlace[sl] || []).push(p);
+}
+function relatedPosts(p, n = 6) {
+  const mine = new Set(postPlaceLinks[p.slug] || []);
+  return posts.filter(x => x.slug !== p.slug).map((x, i) => {
+    const shared = (postPlaceLinks[x.slug] || []).filter(sl => mine.has(sl)).length;
+    return [x, shared * 3 + (x.category === p.category ? 4 : 0) + Math.max(0, 3 - i / 5)];
+  }).sort((a, b) => b[1] - a[1]).slice(0, n).map(x => x[0]);
+}
 
 function parseCSV(text) {
   const rows = []; let row = [], cell = "", q = false;
@@ -116,6 +133,7 @@ const footer = `
       <div class="foot-brand">${logo(true)}<p>An independent local guide to Wellington, Florida, serving 33414, 33449 and 33467.</p></div>
       <div><h2 class="foot-h">Read</h2><ul><li><a href="/blog/">News and guides</a></li><li><a href="/events/">Events</a></li><li><a href="/equestrian/">Equestrian</a></li><li><a href="/things-to-do/">Things to do</a></li></ul></div>
       <div><h2 class="foot-h">Find</h2><ul><li><a href="/restaurants/">Restaurants</a></li><li><a href="/directory/?cat=parks">Parks</a></li><li><a href="/directory/?cat=shopping">Shopping</a></li><li><a href="/directory/">Full directory</a></li></ul></div>
+      <div><h2 class="foot-h">Popular guides</h2><ul><li><a href="/blog/best-dentists-wellington-fl/">Best dentists</a></li><li><a href="/blog/schools-in-wellington-fl-guide/">Schools and grades</a></li><li><a href="/blog/hospitals-urgent-care-wellington-fl/">ER and urgent care</a></li><li><a href="/blog/best-coffee-shops-wellington-fl/">Coffee shops</a></li><li><a href="/blog/lotis-wellington-restaurants-guide/">Lotis restaurants</a></li><li><a href="/blog/winter-equestrian-festival-2027-guide/">WEF 2027 dates</a></li></ul></div>
       <div><h2 class="foot-h">Work with us</h2><ul><li><a href="/add-your-business/">Add your business</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/submit-event/">Submit an event</a></li><li><a href="/about/">About</a></li></ul></div>
     </div>
     <div class="legal"><span>&copy; <span id="yr">${new Date().getFullYear()}</span> Wellington List. Independent and not affiliated with the Village of Wellington.</span><span><a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a> &nbsp; <a href="/privacy/">Privacy</a> &nbsp; <a href="/about/">About</a></span></div>
@@ -490,6 +508,7 @@ for (const p of places) {
       <p>${esc(p.name)} is ${areaText}. ${p.cat === "restaurants" ? `It is one of ${places.filter(x => x.cat === "restaurants").length} places to eat and drink in our <a href="/restaurants/">Wellington restaurant guide</a>${p.cuisine ? `, and part of the village's ${esc(p.cuisine)} dining scene` : ""}.` : `Browse more ${esc(catLabel(p.cat).toLowerCase())} in our <a href="${listUrl}">Wellington directory</a>.`}</p>
       ${p.link ? `<p><a href="${p.link}">Read our full guide</a></p>` : ""}
     </section>
+    ${(postsByPlace[p.slug] || []).length ? `<section class="pl-section"><h2>Featured in our Wellington guides</h2><ul class="tips">${postsByPlace[p.slug].slice(0, 6).map(x => `<li><a href="/blog/${x.slug}/">${esc(x.h1)}</a></li>`).join("")}</ul></section>` : ""}
     ${tips.length ? `<section class="pl-section"><h2>Good to know</h2><ul class="tips">${tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></section>` : ""}
     <section class="pl-section"><h2>Frequently asked questions</h2><div class="faq" style="margin-top:0">${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</div></section>
     ${miniList(p.cuisine ? `More ${esc(p.cuisine)} spots in Wellington` : `Similar ${esc(catLabel(p.cat).toLowerCase())}`, sameType.concat(more))}
@@ -549,7 +568,7 @@ for (const p of places) {
     const crumbsP = [["Home", "/"], ["News", "/blog/"], [p.h1, urlPath]];
     const content = read(`content/blog/${p.slug}.html`);
     const toc = [...content.matchAll(/<h2 id="([^"]+)">(.*?)<\/h2>/g)];
-    const others = posts.filter(x => x.slug !== p.slug);
+    const others = relatedPosts(p, 6);
     const body = pageHead(crumbsP, esc(p.h1), "", `<div class="article-meta"><span>By Wellington List staff</span><span>Published <time datetime="${p.published}">${fmtDate(p.published)}</time></span>${p.updated !== p.published ? `<span>Updated <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>` : ""}<span>${p.readMins} min read</span></div>`) + `<div class="wrap">${sponsor()}</div>
 <div class="wrap body-grid">
   <article class="prose">
