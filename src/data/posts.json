@@ -1766,5 +1766,93 @@
         "url": "https://www.palmbeachcounty.com/wellington-mall-redevelopment-plan-draws-mixed-reactions-from-residents-palm-beach-county-news/"
       }
     ]
+  },
+  {
+    "slug": "lyons-road-extension-wellington-why-it-dead-ends",
+    "title": "The Road Wellington Was Promised: Why Lyons Road Still Dead-Ends",
+    "h1": "The Road Wellington Was Promised: Why Lyons Road Still Dead-Ends",
+    "seoTitle": "Lyons Road Extension Wellington: Why It Dead-Ends at Lake Worth Road",
+    "description": "Why doesn't Lyons Road go through in Wellington? The county's State Road 7 traffic trigger, the Ranchettes debate, and what new development along 441 could change.",
+    "category": "Development",
+    "published": "2026-10-19",
+    "updated": "2026-10-19",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic suburban South Florida two-lane road that ends at a dead end with a guardrail and tall grass, a rural horse property with white fencing and oak trees beyond, palm trees, warm afternoon light, no people, no text, no signs, no logos",
+    "faq": [
+      {
+        "q": "Why doesn't Lyons Road go through in Wellington?",
+        "a": "Palm Beach County only builds the extension when State Road 7 (US 441) between Lake Worth Road and Stribling Way reaches capacity, about 3,590 vehicles in the busiest hour. The road currently carries just under 2,860, according to WFLX."
+      },
+      {
+        "q": "Where does Lyons Road end in Wellington?",
+        "a": "Lyons Road ends at Lake Worth Road. Drivers heading north detour via State Road 7 and Stribling Way to reach Forest Hill Boulevard."
+      },
+      {
+        "q": "Who opposes the Lyons Road extension?",
+        "a": "Some residents of the Ranchettes, a rural area of horse properties the extension would run through, oppose it because of its impact on the area's rural character, horses and wildlife."
+      },
+      {
+        "q": "Will Lyons Road ever be extended?",
+        "a": "It depends on traffic. If growth along State Road 7 from projects like Lotis and Village Landing pushes the road past the county's capacity trigger, the extension could move forward."
+      }
+    ],
+    "sources": [
+      {
+        "name": "WFLX: A 30-year promise: What's behind the holdup of Lyons Road extension in Wellington? (Apr. 2026)",
+        "url": "https://www.wflx.com/2026/04/06/30-year-promise-whats-behind-holdup-lyons-road-extension-wellington/"
+      },
+      {
+        "name": "WPTV: A 30-year promise: the Lyons Road extension",
+        "url": "https://www.wptv.com/traffic/traffic-news/a-30-year-promise-whats-behind-the-holdup-of-lyons-road-extension-in-wellington"
+      }
+    ]
+  },
+  {
+    "slug": "k-park-village-landing-did-wellington-make-the-right-call",
+    "title": "K-Park Becomes Village Landing: Did Wellington Make the Right Call?",
+    "h1": "K-Park Becomes Village Landing: Did Wellington Make the Right Call?",
+    "seoTitle": "K-Park Wellington Sale: Why the Village Chose Related Ross Over a $54M Bid",
+    "description": "Wellington sold K-Park for about $47 million to Related Ross and Wingrove Academy's founders, passing on a $54 million offer. The history, the debate over green space and traffic, and what's next.",
+    "category": "Development",
+    "published": "2026-10-19",
+    "updated": "2026-10-19",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic aerial view of a large open farm field with rows of vegetables beside a busy suburban South Florida road, a shopping center and palm trees at the edge, construction equipment staged at one corner, golden hour, no people, no text, no logos",
+    "faq": [
+      {
+        "q": "What is K-Park in Wellington?",
+        "a": "K-Park is about 70 acres on State Road 7 at Stribling Way that the Village of Wellington bought in 2003 for $8.5 million. It is becoming Village Landing and Wingrove Academy."
+      },
+      {
+        "q": "Who bought K-Park?",
+        "a": "Related Ross bought about 32 acres for $28.3 million for Village Landing, and the western portion is set aside for Wingrove Academy. The total deal was about $47 million."
+      },
+      {
+        "q": "Did Wellington turn down a higher offer for K-Park?",
+        "a": "Yes. The Palm Beach Post reported a $54 million offer for all of K-Park from the Ward family's W & W VIII LLC. The Village chose Related Ross, citing in part its experience, and counted the school as a plus."
+      },
+      {
+        "q": "When will Village Landing open?",
+        "a": "Construction is expected to begin in fall 2026, with an opening targeted for 2028."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Palm Beach Post via Yahoo: Five things to know about the K-Park site in Wellington",
+        "url": "https://www.yahoo.com/news/related-ross-latest-project-five-100523073.html"
+      },
+      {
+        "name": "WFLX: Wellington to sell land for mixed-use development at K-Park (Jan. 2025)",
+        "url": "https://www.wflx.com/2025/01/16/wellington-sell-land-multi-million-dollar-mixed-use-development-k-park"
+      },
+      {
+        "name": "WFLX: 'Concrete jungle': Wellington group vows to fight K-Park development (Aug. 2024)",
+        "url": "https://www.wflx.com/2024/08/30/concrete-jungle-wellington-group-vows-fight-land-development-k-park/"
+      },
+      {
+        "name": "Commercial Observer: Related Ross buys land for Village Landing (Sept. 2026)",
+        "url": "https://commercialobserver.com/2026/09/stephen-ross-related-village-landing-wellington/"
+      }
+    ]
   }
 ]
