@@ -14,16 +14,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Unpack uploaded source bundle (if present)
         run: |
           if [ -f bundle.txt ]; then
             base64 -d bundle.txt | tar -xJf -
             rm bundle.txt
           fi
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
       - name: Rename manually uploaded covers
         run: |
           mkdir -p src/covers
