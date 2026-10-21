@@ -1958,5 +1958,105 @@
         "url": "https://www.floridatrend.com/articles/2026/09/29/calculator-allows-individuals-see-fiscal-effects-their-areas-if-amendment-3-passes/"
       }
     ]
+  },
+  {
+    "slug": "wellington-international-expansion-what-it-means-for-neighbors",
+    "title": "Wellington International Is Getting Bigger: What the Showgrounds Expansion Means for Neighbors",
+    "h1": "Wellington International Is Getting Bigger: What the Showgrounds Expansion Means for Neighbors",
+    "seoTitle": "Wellington International South Expansion: New Arenas, 215 Acres and the Debate",
+    "description": "Wellington International South adds 98 acres, a 3,000-seat arena, a covered arena and new barns, bringing dressage next to WEF. How the deal works, the Equestrian Preserve trade-off and what both sides say.",
+    "category": "Equestrian",
+    "published": "2026-10-21",
+    "updated": "2026-10-21",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic aerial view of a large new equestrian showground under construction in South Florida, fresh sand riding arenas, a large covered arena with a steel roof, white horse barns, green grass derby field, palm trees and a lake, clear blue sky, no people, no text, no logos",
+    "faq": [
+      {
+        "q": "What is Wellington International South?",
+        "a": "A 98-acre addition to Wellington International that brings the venue to 215 acres. It will be the future home of the Global Dressage Festival and also host show jumping and hunter derbies."
+      },
+      {
+        "q": "When does the Wellington International expansion open?",
+        "a": "Wellington International announced a soft launch in fall 2026 and a full debut for the 2027 competition season."
+      },
+      {
+        "q": "What is being built at Wellington International South?",
+        "a": "A 3,000-seat international arena, an 84,000-square-foot covered arena, new hunter/jumper and dressage rings, a grass derby field, five permanent barns and a 1,500-seat covered grandstand."
+      },
+      {
+        "q": "Why was the Wellington International expansion controversial?",
+        "a": "The deal removed about 96 acres at Equestrian Village from the Equestrian Preserve for a residential community. Supporters said it keeps Wellington's horse show competitive. Critics worried about the preserve, traffic and the area's character."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Jumper News: Wellington International Expands to 215 Acres with the Launch of Wellington International South (June 2026)",
+        "url": "https://jumpernews.com/2026/06/26/wellington-international-expands-to-215-acres-with-the-launch-of-wellington-international-south/"
+      },
+      {
+        "name": "Dressage News: Fifth Barn, Permanent Spectator Seating Underway (May 2026)",
+        "url": "https://dressage-news.com/2026/05/26/fifth-barn-permanent-spectator-seating-underway-in-expansion-of-wellington-international-for-dressage/"
+      },
+      {
+        "name": "Chronicle of the Horse: Wellington International Gets Green Light To Expand From Village Council (Feb. 2024)",
+        "url": "https://chronofhorse.com/en/news/wellington-international-gets-green-light-to-expand-from-village-council/"
+      },
+      {
+        "name": "Town-Crier: Wellington Council OKs Plan For Expanded Showgrounds (March 2024)",
+        "url": "https://gotowncrier.com/?p=818103"
+      },
+      {
+        "name": "Wellington International: Venue updates and expansion",
+        "url": "https://wellingtoninternational.com/venue/venue-updates-and-expansion"
+      }
+    ]
+  },
+  {
+    "slug": "live-local-act-affordable-apartments-wellington",
+    "title": "Affordable Apartments Are Coming to Wellington Under the Live Local Act",
+    "h1": "Affordable Apartments Are Coming to Wellington Under the Live Local Act",
+    "seoTitle": "Live Local Act Apartments in Wellington FL: Rents, Location and the Debate",
+    "description": "Wellington's first Live Local Act apartments are planned on Van Gogh Road and Velazquez Blvd near Southern and Seminole Pratt, with rents of about $1,249 to $2,310. How the state law works and the fee-waiver debate.",
+    "category": "Development",
+    "published": "2026-10-21",
+    "updated": "2026-10-21",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic newly built three-story garden-style apartment buildings in suburban South Florida, light stucco with tile roofs, palm trees, a landscaped courtyard and parking lot, open land in the distance, late afternoon light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the Live Local Act?",
+        "a": "A 2023 Florida law that requires cities and counties to allow qualifying affordable multifamily and mixed-use housing on commercial or industrial land, even without local approval."
+      },
+      {
+        "q": "Where are the Live Local apartments in Wellington?",
+        "a": "On Van Gogh Road and Velazquez Blvd. in Entrada Acres, near Southern Blvd. and Seminole Pratt Whitney Road, on land Wellington annexed in 2024."
+      },
+      {
+        "q": "How much will rent be at the Wellington Live Local apartments?",
+        "a": "The Town-Crier reported expected rents of about $1,249 to $2,310 a month with utilities included."
+      },
+      {
+        "q": "Can Wellington stop Live Local Act projects?",
+        "a": "No. Eligible projects don't need council approval, but the Village can decide whether to waive certain impact and permit fees. The council postponed that decision on Sept. 22, 2026."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Live Local Act Will Bring Apartments To Recently Annexed Wellington Land (July 10, 2026)",
+        "url": "https://gotowncrier.com/2026/07/live-local-act-will-bring-apartments-to-recently-annexed-wellington-land/"
+      },
+      {
+        "name": "Town-Crier: Wellington Village Council May Lower Tax Rate, But Not This Year (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/wellington-village-council-may-lower-tax-rate-but-not-this-year/"
+      },
+      {
+        "name": "WCTV: New Florida housing law draws support and criticism (March 2026)",
+        "url": "https://www.wctv.tv/2026/03/30/new-florida-housing-law-draws-support-criticism/"
+      },
+      {
+        "name": "WGCU: Former Senate President Kathleen Passidomo keeps eye on housing",
+        "url": "https://news.wgcu.org/government-politics/2024-12-12/former-senate-president-kathleen-passidomo-keeps-eye-on-housing"
+      }
+    ]
   }
 ]
