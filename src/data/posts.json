@@ -2058,5 +2058,101 @@
         "url": "https://news.wgcu.org/government-politics/2024-12-12/former-senate-president-kathleen-passidomo-keeps-eye-on-housing"
       }
     ]
+  },
+  {
+    "slug": "rustic-ranches-rvs-grooms-housing-wellington-debate",
+    "title": "More RVs in Rustic Ranches? Wellington's Latest Neighborhood Debate",
+    "h1": "More RVs in Rustic Ranches? Wellington's Latest Neighborhood Debate",
+    "seoTitle": "Rustic Ranches RV Rules in Wellington FL: Grooms' Housing Plan Explained",
+    "description": "Wellington's Equestrian Preserve Committee backed letting Rustic Ranches owners keep up to four RVs as grooms' housing. What's proposed, the rules, and both sides of the debate.",
+    "category": "Equestrian",
+    "published": "2026-10-22",
+    "updated": "2026-10-22",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic South Florida equestrian property at golden hour, a modern horse barn with paddocks and white fencing, a travel trailer RV parked discreetly behind a hedge near the barn, palm trees and open pasture, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the Rustic Ranches RV proposal?",
+        "a": "A proposed Wellington ordinance that would let property owners in the Rustic Ranches Overlay Zoning District use one RV per four permanent stalls, up to four per property, as housing for grooms."
+      },
+      {
+        "q": "Where is Rustic Ranches in Wellington?",
+        "a": "Rustic Ranches is an equestrian neighborhood off Flying Cow Ranch Road in western Wellington. It was annexed into Wellington in 2004."
+      },
+      {
+        "q": "Has the Rustic Ranches RV ordinance been approved?",
+        "a": "Not yet. The Equestrian Preserve Committee unanimously recommended it on Oct. 7, 2026. The Wellington Village Council will vote on it at a later date."
+      },
+      {
+        "q": "How much is an RV permit in Rustic Ranches?",
+        "a": "The permit costs $600 and must be renewed every year, according to the Town-Crier."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Wellington Committee OKs Plan For More RVs In Rustic Ranches (Oct. 16, 2026)",
+        "url": "https://gotowncrier.com/2026/10/wellington-committee-oks-plan-for-more-rvs-in-rustic-ranches/"
+      },
+      {
+        "name": "Town-Crier: Wellington Allows Longer RV Stays In Rustic Ranches (Dec. 12, 2025)",
+        "url": "https://gotowncrier.com/2025/12/wellington-allows-longer-rv-stays-in-rustic-ranches/"
+      },
+      {
+        "name": "Town-Crier: Expanded Grooms' Quarters Concern Wellington Zoners (Nov. 8, 2013)",
+        "url": "https://gotowncrier.com/2013/11/expanded-grooms-quarters-concern-wellington-zoners/"
+      }
+    ]
+  },
+  {
+    "slug": "polo-west-golf-course-homes-infill-redevelopment-act",
+    "title": "Could Polo West Become Homes? What a New State Law Means",
+    "h1": "Could Polo West Become Homes? What a New State Law Means",
+    "seoTitle": "Polo West Golf Course Wellington: New Homes Plan and the Infill Law",
+    "description": "BH Group bought Wellington's shuttered 150-acre Polo West Golf Course and plans luxury homes. How Florida's Infill Redevelopment Act could skip public hearings, and both sides of the debate.",
+    "category": "Development",
+    "published": "2026-10-22",
+    "updated": "2026-10-22",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic aerial view of an overgrown former golf course in suburban South Florida, faded fairways and a pond, surrounded by single-family homes with tile roofs and palm trees, soft morning light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Who owns the Polo West Golf Course in Wellington?",
+        "a": "Miami-based developer BH Group, which acquired the roughly 150-acre property for $20.8 million after settling a lawsuit with the prior owner in May 2026, according to the Town-Crier."
+      },
+      {
+        "q": "What is planned for Polo West?",
+        "a": "BH Group has said it intends to build a luxury single-family community. No detailed plan has been made public yet."
+      },
+      {
+        "q": "What is Florida's Infill Redevelopment Act?",
+        "a": "A 2026 state law (SB 1434) for Miami-Dade, Broward and Palm Beach counties that requires administrative approval of qualifying residential projects on certain vacant or underused land, including some closed golf courses, without commission votes or public hearings."
+      },
+      {
+        "q": "Will there be a public hearing on Polo West?",
+        "a": "If the developer uses the Infill Redevelopment Act, the project likely won't go through Wellington's full public hearing process, though Village staff will still review it. A traditional land-use change would require public hearings."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: New State Law Could Bring Homes To Polo West Land (July 24, 2026)",
+        "url": "https://gotowncrier.com/2026/07/new-state-law-could-bring-homes-to-polo-west-land/"
+      },
+      {
+        "name": "Town-Crier: Landowner Submits Plan For Homes On Polo West Golf Course (Nov. 4, 2022)",
+        "url": "https://gotowncrier.com/2022/11/landowner-submits-plan-for-homes-on-polo-west-golf-course/"
+      },
+      {
+        "name": "Town-Crier: New State Law Could Bring Homes To RPB Golf Course (Oct. 16, 2026)",
+        "url": "https://gotowncrier.com/2026/10/new-state-law-could-bring-homes-to-rpb-golf-course/"
+      },
+      {
+        "name": "Holland & Knight: Florida's Infill Redevelopment Act: What South Florida Developers Need to Know (July 2026)",
+        "url": "https://hklaw.com/en/insights/publications/2026/07/floridas-infill-redevelopment-act-what-south-florida-developers"
+      },
+      {
+        "name": "Florida Senate: SB 1434 (2026)",
+        "url": "https://www.flsenate.gov/Session/Bill/2026/1434/BillText/Filed/HTML"
+      }
+    ]
   }
 ]
