@@ -12,6 +12,9 @@ const OUT = path.join(ROOT, "docs");
   if (!/ga4:\s*"G-[A-Z0-9]+"/.test(cfgText) || !/formEndpoint:\s*"https:\/\/script\.google\.com/.test(cfgText)) { throw new Error("src/assets/config.js is missing the GA4 ID or form endpoint. Restore them before building."); } }
 const SITE = "https://wellingtonlist.com";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
+// Cache-busting version for CSS/JS: changes whenever their source changes.
+const ASSET_V = (() => { const h = (str) => { let x = 5381; for (let i = 0; i < str.length; i++) x = ((x * 33) ^ str.charCodeAt(i)) >>> 0; return x.toString(36); };
+  return h(["assets/base.css", "assets/extra.css", "assets/sponsors.css", "assets/main.js", "assets/config.js"].map(f => fs.readFileSync(path.join(SRC, f), "utf8")).join("")); })();
 
 const read = (p) => fs.readFileSync(path.join(SRC, p), "utf8");
 const json = (p) => JSON.parse(read(p));
@@ -198,7 +201,7 @@ ${article ? `<meta property="article:published_time" content="${article.publishe
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=${BUILD_DATE}">
+<link rel="stylesheet" href="/assets/site.css?v=${ASSET_V}">
 ${ld}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ""}>
@@ -216,8 +219,8 @@ ${body}
 </main>
 ${sponsors ? sponsorShowcase : ""}
 ${footer}
-<script src="/assets/config.js?v=${BUILD_DATE}"></script>
-<script src="/assets/main.js?v=${BUILD_DATE}" defer></script>
+<script src="/assets/config.js?v=${ASSET_V}"></script>
+<script src="/assets/main.js?v=${ASSET_V}" defer></script>
 </body>
 </html>`;
 }
