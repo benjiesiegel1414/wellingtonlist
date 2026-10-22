@@ -184,3 +184,7 @@
 .adv-sticky .adv-btn-sm{box-shadow:0 0 0 2px #F5C518;animation:advGlow 1.8s ease-out infinite}
 @keyframes advGlow{0%{box-shadow:0 0 0 2px #F5C518,0 0 0 2px rgba(245,197,24,.7)}70%{box-shadow:0 0 0 2px #F5C518,0 0 0 11px rgba(245,197,24,0)}100%{box-shadow:0 0 0 2px #F5C518,0 0 0 2px rgba(245,197,24,0)}}
 @media (prefers-reduced-motion:reduce){.adv-sticky .adv-btn-sm{animation:none}}
+/* Every Claim button on the Advertise page gets the pulsing yellow outline */
+.adv-page [data-checkout]{animation:advGlow 1.8s ease-out infinite;box-shadow:0 0 0 2px #F5C518}
+.adv-page [data-checkout]:hover{box-shadow:0 0 0 2px #F5C518,0 18px 34px -14px rgba(0,0,0,.6)}
+@media (prefers-reduced-motion:reduce){.adv-page [data-checkout]{animation:none}}
