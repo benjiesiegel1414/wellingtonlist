@@ -564,6 +564,10 @@
 .adv-btn{white-space:nowrap}
 .adv-short{display:none}
 @media (max-width:560px){.adv-long{display:none}.adv-short{display:inline}.adv-sticky .wrap{height:64px}.adv-btn-sm{padding:12px 16px;font-size:14.5px}}
+/* Sticky bar button: pulsing yellow outline */
+.adv-sticky .adv-btn-sm{box-shadow:0 0 0 2px #F5C518;animation:advGlow 1.8s ease-out infinite}
+@keyframes advGlow{0%{box-shadow:0 0 0 2px #F5C518,0 0 0 2px rgba(245,197,24,.7)}70%{box-shadow:0 0 0 2px #F5C518,0 0 0 11px rgba(245,197,24,0)}100%{box-shadow:0 0 0 2px #F5C518,0 0 0 2px rgba(245,197,24,0)}}
+@media (prefers-reduced-motion:reduce){.adv-sticky .adv-btn-sm{animation:none}}
 
 .foot-h{font-size:14px;color:#fff;margin:0 0 14px;font-weight:600;font-family:var(--sans)}
 .h4{font-family:var(--serif);font-weight:500;font-size:22px;margin:2px 0 0;line-height:1.2}
