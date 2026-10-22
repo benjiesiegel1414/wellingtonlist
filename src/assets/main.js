@@ -96,4 +96,31 @@
   var claim = new URLSearchParams(location.search).get("claim");
   var claimField = document.querySelector("[name=claim_listing]");
   if (claim && claimField) claimField.value = claim;
+
+  // Local sponsor bar: rotate through sponsors every 6 seconds
+  var barItems = document.querySelectorAll(".sp-bar-item");
+  if (barItems.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var bi = 0;
+    setInterval(function(){
+      barItems[bi].classList.remove("on");
+      bi = (bi + 1) % barItems.length;
+      barItems[bi].classList.add("on");
+    }, 6000);
+  }
+
+  // Desktop sponsor rails: fade out when the footer sponsor section or footer is on screen
+  var rails = document.querySelectorAll(".sp-rail");
+  var endZone = document.querySelector(".sp-show") || document.querySelector("footer");
+  if (rails.length && endZone && "IntersectionObserver" in window) {
+    new IntersectionObserver(function(entries){
+      var vis = entries[0].isIntersecting;
+      rails.forEach(function(r){ r.classList.toggle("hide", vis); });
+    }).observe(endZone);
+  }
+
+  // Track sponsor clicks in analytics
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest(".sp-card,.sp-bar-item");
+    if (a && window.gtag) gtag("event", "sponsor_click", { link_url: a.href, open_spot: a.classList.contains("open") || /advertise/.test(a.href) });
+  });
 })();

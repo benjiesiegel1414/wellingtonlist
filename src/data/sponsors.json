@@ -1,0 +1,16 @@
+{
+  "price": 49,
+  "slots": [
+    { "slot": 1 },
+    { "slot": 2 },
+    { "slot": 3 },
+    { "slot": 4 },
+    { "slot": 5 },
+    { "slot": 6 },
+    { "slot": 7 },
+    { "slot": 8 },
+    { "slot": 9 },
+    { "slot": 10 }
+  ],
+  "_howto": "To fill a slot, add: name, category (e.g. Dentist), tagline (one short line), url, and optionally logo (path like /assets/sponsors/name.png) and since (YYYY-MM-DD). Empty slots show a 'Your business here' card."
+}
