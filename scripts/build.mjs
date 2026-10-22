@@ -162,7 +162,7 @@ const footer = `
   </div>
 </footer>`;
 
-function layout({ title, description, urlPath, body, jsonld = [], ogType = "website", noindex = false, article = null, image = "" }) {
+function layout({ title, description, urlPath, body, jsonld = [], ogType = "website", noindex = false, article = null, image = "", sponsors = true, bodyClass = "" }) {
   const ogImg = image ? SITE + image : SITE + "/assets/og.jpg";
   const canonical = SITE + urlPath;
   const org = { "@context": "https://schema.org", "@type": "Organization", "@id": SITE + "/#org", name: "Wellington List", url: SITE + "/", logo: SITE + "/assets/icon-512.png", areaServed: { "@type": "City", name: "Wellington, Florida" } };
@@ -201,7 +201,7 @@ ${article ? `<meta property="article:published_time" content="${article.publishe
 <link rel="stylesheet" href="/assets/site.css?v=${BUILD_DATE}">
 ${ld}
 </head>
-<body>
+<body${bodyClass ? ` class="${bodyClass}"` : ""}>
 ${sprite}
 <a class="sr" href="#main">Skip to content</a>
 <header class="site"><div class="wrap">
@@ -210,12 +210,11 @@ ${sprite}
   <a class="btn btn-primary header-cta" href="/add-your-business/">Add your business</a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
 </div></header>
-${sponsorBar}
-${sponsorRails}
+${sponsors ? sponsorBar + "\n" + sponsorRails : ""}
 <main id="main">
 ${body}
 </main>
-${sponsorShowcase}
+${sponsors ? sponsorShowcase : ""}
 ${footer}
 <script src="/assets/config.js?v=${BUILD_DATE}"></script>
 <script src="/assets/main.js?v=${BUILD_DATE}" defer></script>
@@ -663,66 +662,65 @@ formPage({
 {
   const crumbs = [["Home", "/"], ["Advertise", "/advertise/"]];
   const st = SP.stats || {};
-  const checkoutBtn = (label) => SP_OPEN
-    ? `<a class="btn btn-primary btn-lg" href="${esc(SP_CHECKOUT)}" rel="noopener">${label}</a>`
-    : `<a class="btn btn-primary btn-lg" href="#claim">Join the waitlist</a>`;
-  const body = pageHead(crumbs, "Advertise on Wellington List", "Put your business in front of Wellington residents on every page of the site, starting at $49 a month.") + `
-<div class="wrap" style="padding:44px 0">
-  <div class="sp-hero" id="sponsor-spots">
-    <div class="sp-hero-copy">
-      <span class="sp-scarce"><span class="sp-bar-dot" aria-hidden="true"></span>${SP_OPEN} of ${SP_TOTAL} founding spots left</span>
-      <h2>Become a founding sponsor of Wellington List</h2>
-      <p>Wellington List is the independent local guide residents use to find restaurants, services, events and local news. Sponsors get a spot on <strong>every page</strong> of the site, and we keep it to just ${SP_TOTAL} businesses at a time.</p>
-      <p class="big">$${SP_PRICE}<small> / month</small></p>
-      <p class="sp-lock"><strong>Founding rate.</strong> As traffic grows, the price for new sponsors will go up. Founding sponsors keep $${SP_PRICE}/month for as long as they stay.</p>
-      ${checkoutBtn(`Claim my spot for $${SP_PRICE}/month`)}
-      <p class="sp-fine">Secure checkout by Stripe. Month to month, cancel anytime.</p>
+  const href = SP_OPEN ? esc(SP_CHECKOUT) : "mailto:hello@wellingtonlist.com?subject=Sponsor%20waitlist";
+  const cta = (label, cls = "adv-btn") => `<a class="${cls}" href="${href}" rel="noopener" data-checkout>${SP_OPEN ? label : "Join the waitlist"}<span aria-hidden="true">&rarr;</span></a>`;
+  const left = SP_OPEN ? `${SP_OPEN} of ${SP_TOTAL} founding spots left` : "All spots taken";
+  const body = `
+<section class="adv-hero"><svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
+  <div class="wrap adv-hero-grid">
+    <div>
+      ${crumbsHTML(crumbs)}
+      <span class="adv-pill"><span class="sp-bar-dot" aria-hidden="true"></span>${left}</span>
+      <h1>Put your business on every page of Wellington List</h1>
+      <p class="adv-sub">Reach Wellington residents every day for <strong>$${SP_PRICE}/month</strong>. Only ${SP_TOTAL} local sponsors at a time.</p>
+      ${cta(`Claim my spot for $${SP_PRICE}/month`)}
+      <p class="adv-fine">Secure checkout with Stripe &middot; Month to month &middot; Cancel anytime</p>
     </div>
-    <div class="sp-mini" aria-label="Sponsor spot preview">${SP_SLOTS.slice(0, 3).map(spCard).join("")}${spAdCard}</div>
+    <div class="adv-preview" aria-hidden="true">
+      <span class="adv-preview-label">Your sponsor card</span>
+      <div class="sp-card adv-demo"><span class="sp-logo">Y</span><span class="sp-cat">Your category</span><span class="sp-name">Your Business Name</span><span class="sp-tag">Your one-line tagline goes here</span></div>
+      <span class="adv-preview-note">Shown on every page, linked to your website</span>
+    </div>
   </div>
+</section>
 
-  <h2 class="sp-h">Wellington is finding us on Google</h2>
-  <div class="sp-stats">
+<section class="adv-sec"><div class="wrap">
+  <h2 class="adv-h">Wellington is finding us on Google</h2>
+  <div class="adv-stats">
     <div><b>${esc(st.impressions28 || "")}</b><span>Google search impressions in the last 28 days</span></div>
-    <div><b>${esc(st.impressions7 || "")}</b><span>impressions in the last 7 days alone, and climbing</span></div>
+    <div><b>${esc(st.impressions7 || "")}</b><span>in the last 7 days alone, and climbing</span></div>
     <div><b>${places.length}</b><span>Wellington businesses and places listed</span></div>
     <div><b>${posts.length}</b><span>local news stories and guides, with new ones every day</span></div>
   </div>
-  <p class="sp-src">Search data from Google Search Console as of ${esc(st.asOf || "")}. Wellington List launched in October 2026.</p>
+  <p class="adv-src">Search data from Google Search Console as of ${esc(st.asOf || "")}</p>
+</div></section>
 
-  <h2 class="sp-h">What you get</h2>
-  <div class="sp-gets">
-    <div><b>Every page, every day</b><span>Your card appears in the sidebars on desktop, the rotating sponsor bar on phones and the "Wellington's local sponsors" section on every page.</span></div>
-    <div><b>Only ${SP_TOTAL} sponsors</b><span>No crowded ad wall. You share the spotlight with at most ${SP_TOTAL - 1} other local businesses.</span></div>
-    <div><b>Your brand, linked</b><span>Logo, business name, category and a one-line tagline, linked straight to your website.</span></div>
-    <div><b>Locked-in founding price</b><span>$${SP_PRICE}/month for as long as you stay, even after prices go up. Cancel anytime.</span></div>
+<section class="adv-sec adv-alt"><div class="wrap">
+  <h2 class="adv-h">What you get for $${SP_PRICE}/month</h2>
+  <div class="adv-gets">
+    <div><span class="adv-ico">1</span><b>Your card on every page</b><p>Logo, name, category and tagline, linked to your website, in the sidebars on desktop and the sponsor bar on phones.</p></div>
+    <div><span class="adv-ico">2</span><b>Only ${SP_TOTAL} sponsors</b><p>No crowded ad wall. You share the spotlight with just a few other local businesses.</p></div>
+    <div><span class="adv-ico">3</span><b>Founding price, locked in</b><p>The price for new sponsors goes up as traffic grows. Founding sponsors keep $${SP_PRICE}/month for as long as they stay.</p></div>
   </div>
+</div></section>
 
-  <h2 class="sp-h">How it works</h2>
-  <ol class="sp-steps">
-    <li><b>Claim your spot</b><span>Check out securely with Stripe for $${SP_PRICE}/month.</span></li>
-    <li><b>Send your details</b><span>Email your logo, tagline and website to <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</span></li>
-    <li><b>Go live</b><span>Your spot goes live across the site, usually within one business day.</span></li>
+<section class="adv-sec"><div class="wrap">
+  <h2 class="adv-h">Live in three steps</h2>
+  <ol class="adv-steps">
+    <li><b>Claim your spot</b><span>Check out with Stripe in about a minute</span></li>
+    <li><b>Send your logo and tagline</b><span>Email them to hello@wellingtonlist.com</span></li>
+    <li><b>Go live</b><span>Your card goes up across the site, usually within one business day</span></li>
   </ol>
-  <div class="sp-cta-band"><div><b>${SP_OPEN ? `Only ${SP_OPEN} of ${SP_TOTAL} spots left at the founding rate.` : "All spots are taken."}</b><span>When they're gone, new sponsors join a waitlist at the higher rate.</span></div>${checkoutBtn("Claim my spot")}</div>
-
-  <div class="tiers" style="margin-top:48px">
-    <div class="tier best"><span class="cat-label">Most popular</span><h3>Local sponsor spot</h3><ul><li>$${SP_PRICE}/month, ${SP_TOTAL} spots only</li><li>Your card on every page of the site</li><li>Cancel anytime</li></ul></div>
-    <div class="tier"><span class="cat-label">Directory</span><h3>Featured listing</h3><ul><li>Top placement in your category</li><li>"Sponsored" badge and expanded listing</li><li>Ask us for pricing</li></ul></div>
-    <div class="tier"><span class="cat-label">Category</span><h3>Exclusive sponsorship</h3><ul><li>Own a category such as real estate or restaurants</li><li>"Featured agent" or "Presented by" placement</li><li>Ask us for pricing</li></ul></div>
+  <div class="adv-final">
+    <span class="adv-pill adv-pill-light"><span class="sp-bar-dot" aria-hidden="true"></span>${left}</span>
+    <h2>Lock in $${SP_PRICE}/month before the price goes up</h2>
+    ${cta("Claim my spot", "adv-btn adv-btn-white")}
   </div>
-  <h2 class="prose" id="claim" style="font-family:var(--serif);font-weight:500;font-size:30px">Questions first?</h2>
-  <p class="prose" style="margin:-6px 0 18px">Send us a note and we'll get back to you within a day, or email <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</p>
-  <form class="form" data-wl-form="Advertisers" data-success="Thanks! We'll email you within a day.">
-    <div class="row"><label>Your name<input name="name" required autocomplete="name"></label><label>Business<input name="business_name" required></label></div>
-    <div class="row"><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
-    <label>Interested in<select name="interest"><option>Local sponsor spot ($${SP_PRICE}/month)</option><option>Featured listing</option><option>Exclusive category sponsorship</option><option>Not sure yet</option></select></label>
-    <label>Website<input name="website" type="url" placeholder="https://"></label>
-    <label>Your question<textarea name="message"></textarea></label>
-    ${hp}<button class="btn btn-primary" type="submit">Send</button><div class="status" role="status"></div>
-  </form>
-</div>`;
-  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List Sponsorships", description: `Become a founding sponsor of Wellington List: your business on every page of the site for $${SP_PRICE}/month. Only ${SP_TOTAL} spots.`, urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)] }), "0.6");
+  <p class="adv-q">Questions first? Email us at <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
+</div></section>
+
+<div class="adv-sticky" aria-hidden="true"><div class="wrap"><span class="adv-sticky-txt"><span class="sp-bar-dot"></span><b class="adv-long">${left}</b><b class="adv-short">${SP_OPEN ? `${SP_OPEN} of ${SP_TOTAL} spots left` : "All spots taken"}</b><span class="adv-sticky-price"> &middot; $${SP_PRICE}/month</span></span>${cta("Claim my spot", "adv-btn adv-btn-sm")}</div></div>`;
+  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List Sponsorships", description: `Become a founding sponsor of Wellington List: your business on every page of the site for $${SP_PRICE}/month. Only ${SP_TOTAL} spots.`, urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)], sponsors: false, bodyClass: "adv-page" }), "0.6");
 
   // Post-checkout thank-you page (Stripe redirects here). Not in the sitemap.
   const tcrumbs = [["Home", "/"], ["Advertise", "/advertise/"], ["Thank you", "/advertise/thanks/"]];
@@ -735,7 +733,7 @@ formPage({
   <p>We'll have your spot live across the site, usually within one business day, and send you a link when it's up. You can manage or cancel your subscription anytime from your Stripe receipt email.</p>
   <p><a class="btn btn-primary" href="/">Back to Wellington List</a></p>
 </div></div>`;
-  write("advertise/thanks/index.html", layout({ title: "Thank you | Wellington List Sponsors", description: "Thank you for sponsoring Wellington List.", urlPath: "/advertise/thanks/", body: tbody, noindex: true }));
+  write("advertise/thanks/index.html", layout({ title: "Thank you | Wellington List Sponsors", description: "Thank you for sponsoring Wellington List.", urlPath: "/advertise/thanks/", body: tbody, noindex: true, sponsors: false }));
 }
 
 // ---------- About, privacy, 404 ----------

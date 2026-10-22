@@ -123,4 +123,16 @@
     var a = e.target.closest && e.target.closest(".sp-card,.sp-bar-item");
     if (a && window.gtag) gtag("event", "sponsor_click", { link_url: a.href, open_spot: a.classList.contains("open") || /advertise/.test(a.href) });
   });
+  // Advertise page: sticky "Claim my spot" bar once the hero button scrolls away
+  var sticky = document.querySelector(".adv-sticky"), heroBtn = document.querySelector(".adv-hero .adv-btn"), finalBox = document.querySelector(".adv-final");
+  if (sticky && heroBtn && "IntersectionObserver" in window) {
+    var heroGone = false, finalVis = false;
+    var upd = function(){ var on = heroGone && !finalVis; sticky.classList.toggle("show", on); sticky.setAttribute("aria-hidden", on ? "false" : "true"); };
+    new IntersectionObserver(function(e){ heroGone = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(heroBtn);
+    if (finalBox) new IntersectionObserver(function(e){ finalVis = e[0].isIntersecting; upd(); }).observe(finalBox);
+  }
+  document.addEventListener("click", function(e){
+    var c = e.target.closest && e.target.closest("[data-checkout]");
+    if (c && window.gtag) gtag("event", "sponsor_checkout_click", { link_url: c.href });
+  });
 })();
