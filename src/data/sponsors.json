@@ -1,0 +1,21 @@
+{
+  "price": 49,
+  "checkout": "https://buy.stripe.com/3cI14obUNe4SdanbsY1Fe09",
+  "stats": {
+    "asOf": "October 21, 2026",
+    "impressions28": "13,000+",
+    "impressions7": "7,700+"
+  },
+  "slots": [
+    { "slot": 1 },
+    { "slot": 2 },
+    { "slot": 3 },
+    { "slot": 4 },
+    { "slot": 5 },
+    { "slot": 6 },
+    { "slot": 7 },
+    { "slot": 8 },
+    { "slot": 9 }
+  ],
+  "_howto": "9 paid spots; the 10th position is always the Advertise card. To fill a slot, add: name, category (e.g. Dentist), tagline (one short line), url, and optionally logo (path like /assets/sponsors/name.png) and since (YYYY-MM-DD). Stats come from Google Search Console; update them with the date when refreshed."
+}

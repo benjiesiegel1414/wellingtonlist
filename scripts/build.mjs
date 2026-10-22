@@ -116,14 +116,36 @@ const logo = (light) => `<a class="brand" href="/" aria-label="Wellington List h
 
 const NAV = [["/blog/", "News"], ["/directory/", "Directory"], ["/restaurants/", "Eat and Drink"], ["/services/", "Services"], ["/things-to-do/", "Things to Do"], ["/events/", "Events"], ["/equestrian/", "Equestrian"]];
 
-const sponsor = (variant = "leader") => `
-<div class="sponsor sponsor-${variant}"><small>Advertisement</small>
-  <a class="sponsor-card" href="/advertise/">
-    <span><strong>Sponsor WellingtonList.com</strong><span>Promote your local business or service here, in front of Wellington residents every day.</span></span>
-    <span class="cta">Become a sponsor</span>
-  </a>
-</div>`;
-
+// ---------- Local sponsor spots (9 paid + 1 Advertise card, data in src/data/sponsors.json) ----------
+const SP = json("data/sponsors.json");
+const SP_PRICE = SP.price || 49;
+const SP_CHECKOUT = SP.checkout || "/advertise/#claim";
+const SP_SLOTS = SP.slots.slice(0, 9);
+const SP_TOTAL = SP_SLOTS.length;
+const SP_OPEN = SP_SLOTS.filter(s => !s.name).length;
+const spInitial = (n) => esc(String(n).trim().charAt(0).toUpperCase());
+const spLeft = SP_OPEN ? `${SP_OPEN} of ${SP_TOTAL} spots left` : "Join the waitlist";
+const spCard = (s) => s.name
+  ? `<a class="sp-card" href="${esc(s.url || "/advertise/")}" target="_blank" rel="sponsored noopener" data-sp="${s.slot}"><span class="sp-logo">${s.logo ? `<img src="${esc(s.logo)}" alt="" loading="lazy">` : spInitial(s.name)}</span>${s.category ? `<span class="sp-cat">${esc(s.category)}</span>` : ""}<span class="sp-name">${esc(s.name)}</span>${s.tagline ? `<span class="sp-tag">${esc(s.tagline)}</span>` : ""}</a>`
+  : `<a class="sp-card open" href="/advertise/" data-sp="${s.slot}"><span class="sp-logo" aria-hidden="true">+</span><span class="sp-name">Your business here</span><span class="sp-tag">Sponsor spot ${s.slot}</span></a>`;
+const spAdCard = `<a class="sp-card sp-ad" href="/advertise/"><span class="sp-ad-ring" aria-hidden="true"></span><span class="sp-ad-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span><span class="sp-name">Advertise here</span><span class="sp-ad-left">${spLeft}</span><span class="sp-ad-price">$${SP_PRICE}/month</span></a>`;
+const sponsorRails = `
+<aside class="sp-rail left" aria-label="Local sponsors"><div class="sp-rail-label">Local sponsors</div>${SP_SLOTS.slice(0, 5).map(spCard).join("")}</aside>
+<aside class="sp-rail right" aria-label="Local sponsors"><div class="sp-rail-label">Local sponsors</div>${SP_SLOTS.slice(5, 9).map(spCard).join("")}${spAdCard}</aside>`;
+const spBarItems = (() => {
+  const items = SP_SLOTS.filter(s => s.name).map(s => `<a class="sp-bar-item" href="${esc(s.url || "/advertise/")}" target="_blank" rel="sponsored noopener"><span class="sp-logo">${s.logo ? `<img src="${esc(s.logo)}" alt="" loading="lazy">` : spInitial(s.name)}</span><b>${esc(s.name)}</b>${s.tagline ? `<span class="t">${esc(s.tagline)}</span>` : ""}</a>`);
+  items.push(`<a class="sp-bar-item sp-bar-ad" href="/advertise/"><span class="sp-bar-dot" aria-hidden="true"></span><b>Advertise here</b><span class="t">${spLeft}</span><span class="sp-ad-price">$${SP_PRICE}/mo</span></a>`);
+  items[0] = items[0].replace("sp-bar-item", "sp-bar-item on");
+  return items.join("");
+})();
+const sponsorBar = `<div class="sp-bar"><div class="wrap"><span class="sp-bar-label">Local sponsor</span>${spBarItems}</div></div>`;
+const sponsorShowcase = `
+<section class="sp-show" aria-labelledby="sp-show-h"><div class="wrap">
+  <div class="sp-show-head"><div><h2 id="sp-show-h">Wellington's local sponsors</h2><p>The local businesses that help keep Wellington List free.</p></div><a class="sp-count" href="/advertise/">${spLeft} &middot; $${SP_PRICE}/month &rarr;</a></div>
+  <div class="sp-grid">${SP_SLOTS.map(spCard).join("")}${spAdCard}</div>
+</div></section>`;
+// In-page sponsor placements: the wide banners are retired; sidebars show the Advertise card.
+const sponsor = (variant = "leader") => variant === "rect" ? `<div class="sp-side">${spAdCard}</div>` : "";
 const newsletter = ""; // email signup removed for now
 
 const footer = `
@@ -188,9 +210,12 @@ ${sprite}
   <a class="btn btn-primary header-cta" href="/add-your-business/">Add your business</a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
 </div></header>
+${sponsorBar}
+${sponsorRails}
 <main id="main">
 ${body}
 </main>
+${sponsorShowcase}
 ${footer}
 <script src="/assets/config.js?v=${BUILD_DATE}"></script>
 <script src="/assets/main.js?v=${BUILD_DATE}" defer></script>
@@ -296,7 +321,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
     <div>
       <div class="agent"><span class="pill spons">Featured agent</span><div class="avatar">You</div>
         <div><h3 class="h4" style="font-family:var(--serif);font-weight:500;font-size:24px;margin:0">Your name here</h3><p>The featured agent spot appears across Wellington List's real estate and neighborhood coverage.</p><a class="btn btn-ghost" href="/advertise/">Claim this spot</a></div></div>
-      <p class="advert-note">Local business? Reach Wellington residents with sponsored listings, newsletter placements and neighborhood sponsorships. <a href="/advertise/">See advertising options</a></p>
+      <p class="advert-note">Local business? Reach Wellington residents with a founding sponsor spot on every page for $${SP_PRICE}/month. <a href="/advertise/">See advertising options</a></p>
     </div>
   </div>
 </div></section>
@@ -637,25 +662,80 @@ formPage({
 // ---------- Advertise ----------
 {
   const crumbs = [["Home", "/"], ["Advertise", "/advertise/"]];
-  const body = pageHead(crumbs, "Advertise on Wellington List", "Put your business in front of Wellington residents, homeowners and families every day.") + `
+  const st = SP.stats || {};
+  const checkoutBtn = (label) => SP_OPEN
+    ? `<a class="btn btn-primary btn-lg" href="${esc(SP_CHECKOUT)}" rel="noopener">${label}</a>`
+    : `<a class="btn btn-primary btn-lg" href="#claim">Join the waitlist</a>`;
+  const body = pageHead(crumbs, "Advertise on Wellington List", "Put your business in front of Wellington residents on every page of the site, starting at $49 a month.") + `
 <div class="wrap" style="padding:44px 0">
-  <div class="prose prose-narrow"><p class="lede">Wellington List is the independent local guide built for Wellington, Florida. Sponsors get premium, clearly labeled placements next to the local news, restaurant guides and directory pages residents use to make decisions.</p></div>
-  <div class="tiers">
-    <div class="tier"><span class="cat-label">Directory</span><h3>Featured listing</h3><ul><li>Top placement in your category</li><li>"Sponsored" badge and expanded listing</li><li>Photos, hours and website link</li></ul></div>
-    <div class="tier best"><span class="cat-label">Most popular</span><h3>Site sponsor</h3><ul><li>Banner placements at the top and bottom of pages</li><li>Sidebar placement on news articles</li><li>Featured spot on the homepage</li></ul></div>
-    <div class="tier"><span class="cat-label">Category</span><h3>Exclusive sponsorship</h3><ul><li>Own a category such as real estate or restaurants</li><li>"Featured agent" or "Presented by" placement</li><li>Limited to one business per category</li></ul></div>
+  <div class="sp-hero" id="sponsor-spots">
+    <div class="sp-hero-copy">
+      <span class="sp-scarce"><span class="sp-bar-dot" aria-hidden="true"></span>${SP_OPEN} of ${SP_TOTAL} founding spots left</span>
+      <h2>Become a founding sponsor of Wellington List</h2>
+      <p>Wellington List is the independent local guide residents use to find restaurants, services, events and local news. Sponsors get a spot on <strong>every page</strong> of the site, and we keep it to just ${SP_TOTAL} businesses at a time.</p>
+      <p class="big">$${SP_PRICE}<small> / month</small></p>
+      <p class="sp-lock"><strong>Founding rate.</strong> As traffic grows, the price for new sponsors will go up. Founding sponsors keep $${SP_PRICE}/month for as long as they stay.</p>
+      ${checkoutBtn(`Claim my spot for $${SP_PRICE}/month`)}
+      <p class="sp-fine">Secure checkout by Stripe. Month to month, cancel anytime.</p>
+    </div>
+    <div class="sp-mini" aria-label="Sponsor spot preview">${SP_SLOTS.slice(0, 3).map(spCard).join("")}${spAdCard}</div>
   </div>
-  <h2 class="prose" style="font-family:var(--serif);font-weight:500;font-size:30px">Request a media kit</h2>
-  <p class="prose" style="margin:-6px 0 18px">Prefer email? Write to <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
-  <form class="form" data-wl-form="Advertisers" data-success="Thanks! We'll be in touch with rates and availability.">
+
+  <h2 class="sp-h">Wellington is finding us on Google</h2>
+  <div class="sp-stats">
+    <div><b>${esc(st.impressions28 || "")}</b><span>Google search impressions in the last 28 days</span></div>
+    <div><b>${esc(st.impressions7 || "")}</b><span>impressions in the last 7 days alone, and climbing</span></div>
+    <div><b>${places.length}</b><span>Wellington businesses and places listed</span></div>
+    <div><b>${posts.length}</b><span>local news stories and guides, with new ones every day</span></div>
+  </div>
+  <p class="sp-src">Search data from Google Search Console as of ${esc(st.asOf || "")}. Wellington List launched in October 2026.</p>
+
+  <h2 class="sp-h">What you get</h2>
+  <div class="sp-gets">
+    <div><b>Every page, every day</b><span>Your card appears in the sidebars on desktop, the rotating sponsor bar on phones and the "Wellington's local sponsors" section on every page.</span></div>
+    <div><b>Only ${SP_TOTAL} sponsors</b><span>No crowded ad wall. You share the spotlight with at most ${SP_TOTAL - 1} other local businesses.</span></div>
+    <div><b>Your brand, linked</b><span>Logo, business name, category and a one-line tagline, linked straight to your website.</span></div>
+    <div><b>Locked-in founding price</b><span>$${SP_PRICE}/month for as long as you stay, even after prices go up. Cancel anytime.</span></div>
+  </div>
+
+  <h2 class="sp-h">How it works</h2>
+  <ol class="sp-steps">
+    <li><b>Claim your spot</b><span>Check out securely with Stripe for $${SP_PRICE}/month.</span></li>
+    <li><b>Send your details</b><span>Email your logo, tagline and website to <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</span></li>
+    <li><b>Go live</b><span>Your spot goes live across the site, usually within one business day.</span></li>
+  </ol>
+  <div class="sp-cta-band"><div><b>${SP_OPEN ? `Only ${SP_OPEN} of ${SP_TOTAL} spots left at the founding rate.` : "All spots are taken."}</b><span>When they're gone, new sponsors join a waitlist at the higher rate.</span></div>${checkoutBtn("Claim my spot")}</div>
+
+  <div class="tiers" style="margin-top:48px">
+    <div class="tier best"><span class="cat-label">Most popular</span><h3>Local sponsor spot</h3><ul><li>$${SP_PRICE}/month, ${SP_TOTAL} spots only</li><li>Your card on every page of the site</li><li>Cancel anytime</li></ul></div>
+    <div class="tier"><span class="cat-label">Directory</span><h3>Featured listing</h3><ul><li>Top placement in your category</li><li>"Sponsored" badge and expanded listing</li><li>Ask us for pricing</li></ul></div>
+    <div class="tier"><span class="cat-label">Category</span><h3>Exclusive sponsorship</h3><ul><li>Own a category such as real estate or restaurants</li><li>"Featured agent" or "Presented by" placement</li><li>Ask us for pricing</li></ul></div>
+  </div>
+  <h2 class="prose" id="claim" style="font-family:var(--serif);font-weight:500;font-size:30px">Questions first?</h2>
+  <p class="prose" style="margin:-6px 0 18px">Send us a note and we'll get back to you within a day, or email <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a>.</p>
+  <form class="form" data-wl-form="Advertisers" data-success="Thanks! We'll email you within a day.">
     <div class="row"><label>Your name<input name="name" required autocomplete="name"></label><label>Business<input name="business_name" required></label></div>
     <div class="row"><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
-    <label>Interested in<select name="interest"><option>Site sponsor</option><option>Featured listing</option><option>Exclusive category sponsorship</option><option>Newsletter</option><option>Not sure yet</option></select></label>
-    <label>Anything else?<textarea name="message"></textarea></label>
-    ${hp}<button class="btn btn-primary" type="submit">Request media kit</button><div class="status" role="status"></div>
+    <label>Interested in<select name="interest"><option>Local sponsor spot ($${SP_PRICE}/month)</option><option>Featured listing</option><option>Exclusive category sponsorship</option><option>Not sure yet</option></select></label>
+    <label>Website<input name="website" type="url" placeholder="https://"></label>
+    <label>Your question<textarea name="message"></textarea></label>
+    ${hp}<button class="btn btn-primary" type="submit">Send</button><div class="status" role="status"></div>
   </form>
 </div>`;
-  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List Sponsorships", description: "Reach Wellington, Florida residents with sponsored listings, banner placements, homepage placements and exclusive category sponsorships on Wellington List.", urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)] }), "0.6");
+  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List Sponsorships", description: `Become a founding sponsor of Wellington List: your business on every page of the site for $${SP_PRICE}/month. Only ${SP_TOTAL} spots.`, urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)] }), "0.6");
+
+  // Post-checkout thank-you page (Stripe redirects here). Not in the sitemap.
+  const tcrumbs = [["Home", "/"], ["Advertise", "/advertise/"], ["Thank you", "/advertise/thanks/"]];
+  const tbody = pageHead(tcrumbs, "You're a Wellington List sponsor!", "Thank you for supporting independent local news in Wellington.") + `
+<div class="wrap" style="padding:44px 0"><div class="prose prose-narrow">
+  <p class="lede">Your sponsor spot is reserved. One more step and it goes live.</p>
+  <h2>Send us your details</h2>
+  <p>Email <a href="mailto:hello@wellingtonlist.com?subject=My%20Wellington%20List%20sponsor%20spot">hello@wellingtonlist.com</a> with:</p>
+  <ul><li>Your logo (a square image works best)</li><li>A one-line tagline, up to about 40 characters</li><li>Your business category, such as Dentist or AC repair</li><li>The website address your card should link to</li></ul>
+  <p>We'll have your spot live across the site, usually within one business day, and send you a link when it's up. You can manage or cancel your subscription anytime from your Stripe receipt email.</p>
+  <p><a class="btn btn-primary" href="/">Back to Wellington List</a></p>
+</div></div>`;
+  write("advertise/thanks/index.html", layout({ title: "Thank you | Wellington List Sponsors", description: "Thank you for sponsoring Wellington List.", urlPath: "/advertise/thanks/", body: tbody, noindex: true }));
 }
 
 // ---------- About, privacy, 404 ----------
@@ -689,7 +769,7 @@ write("404.html", layout({ title: "Page not found | Wellington List", descriptio
 
 // ---------- Assets, sitemap, robots, feed ----------
 fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
-fs.writeFileSync(path.join(OUT, "assets/site.css"), read("assets/base.css") + read("assets/extra.css") + "\n.foot-h{font-size:14px;color:#fff;margin:0 0 14px;font-weight:600;font-family:var(--sans)}\n.h4{font-family:var(--serif);font-weight:500;font-size:22px;margin:2px 0 0;line-height:1.2}\n");
+fs.writeFileSync(path.join(OUT, "assets/site.css"), read("assets/base.css") + read("assets/extra.css") + read("assets/sponsors.css") +"\n.foot-h{font-size:14px;color:#fff;margin:0 0 14px;font-weight:600;font-family:var(--sans)}\n.h4{font-family:var(--serif);font-weight:500;font-size:22px;margin:2px 0 0;line-height:1.2}\n");
 for (const f of ["main.js", "config.js"]) fs.copyFileSync(path.join(SRC, "assets", f), path.join(OUT, "assets", f));
 for (const f of fs.readdirSync(path.join(SRC, "static"))) fs.copyFileSync(path.join(SRC, "static", f), path.join(OUT, f.startsWith("asset-") ? "assets/" + f.slice(6) : f));
 
