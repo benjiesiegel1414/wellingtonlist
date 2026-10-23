@@ -2154,5 +2154,109 @@
         "url": "https://www.flsenate.gov/Session/Bill/2026/1434/BillText/Filed/HTML"
       }
     ]
+  },
+  {
+    "slug": "palm-beach-county-data-center-moratorium-project-tango",
+    "title": "Data Centers Near Wellington? Palm Beach County's Moratorium Explained",
+    "h1": "Data Centers Near Wellington? Palm Beach County's Moratorium Explained",
+    "seoTitle": "Palm Beach County Data Center Moratorium and Project Tango Explained",
+    "description": "Palm Beach County approved a one-year moratorium on large AI data centers after the Project Tango fight near 20-Mile Bend and Arden. What it covers, what's still possible on the Tango site, and both sides.",
+    "category": "Development",
+    "published": "2026-10-23",
+    "updated": "2026-10-23",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic large modern windowless data center campus at dusk on flat open land in rural South Florida, rows of cooling units on the roof, power lines and a substation nearby, palm trees and a distant suburban neighborhood, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the Palm Beach County data center moratorium?",
+        "a": "A one-year pause, approved unanimously by the County Commission on Sept. 24, 2026, on new applications for large-scale data centers with an anticipated monthly peak load of 50 megawatts or more. It lasts until September 2027."
+      },
+      {
+        "q": "What is Project Tango?",
+        "a": "Project Tango, formally the Central Park Commerce Center, is a 202-acre site off Southern Blvd. near 20-Mile Bend, next to the Arden community, where the owner proposed a hyperscale AI data center."
+      },
+      {
+        "q": "Was Project Tango approved?",
+        "a": "No. County commissioners voted 5-1 on July 15, 2026 to deny the expansion request, without prejudice. However, approvals from 2016 still allow warehouses and a data center on the site, and administrative applications based on those rights are pending."
+      },
+      {
+        "q": "Does the moratorium stop Project Tango?",
+        "a": "Not entirely. The moratorium applies only to new applications, not to applications already submitted or rights the county approved in 2016."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: County Commission Finalizes Moratorium On Data Centers (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/county-commission-finalizes-moratorium-on-data-centers/"
+      },
+      {
+        "name": "Town-Crier: County Commissioners Support Data Center Moratorium Plan (Sept. 4, 2026)",
+        "url": "https://gotowncrier.com/2026/09/county-commissioners-support-data-center-moratorium-plan/"
+      },
+      {
+        "name": "Town-Crier: County Board Urges Stricter Limits In Data Center Moratorium (Aug. 21, 2026)",
+        "url": "https://gotowncrier.com/2026/08/county-board-urges-stricter-limits-in-data-center-moratorium/"
+      },
+      {
+        "name": "Town-Crier: Tango Expansion Tamed For The Moment After County Vote (July 24, 2026)",
+        "url": "https://gotowncrier.com/2026/07/tango-expansion-tamed-for-the-moment-after-county-vote/"
+      },
+      {
+        "name": "Town-Crier: Project Tango Heads Toward July 15 Showdown Despite County Moratorium (July 10, 2026)",
+        "url": "https://gotowncrier.com/2026/07/project-tango-heads-toward-july-15-showdown-despite-county-moratorium/"
+      },
+      {
+        "name": "Town-Crier: Tango Developers Will Scale Back, But Remain Committed To Site (March 6, 2026)",
+        "url": "https://gotowncrier.com/2026/03/tango-developers-will-scale-back-but-remain-committed-to-site/"
+      },
+      {
+        "name": "WPTV: Palm Beach County commissioners reject Project Tango, but data center development still approved for site",
+        "url": "https://www.wptv.com/news/region-c-palm-beach-county/loxahatchee-acreage/palm-beach-county-commissioners-reject-project-tango-but-data-center-development-still-approved-for-site"
+      }
+    ]
+  },
+  {
+    "slug": "golf-courses-to-homes-infill-law-western-communities",
+    "title": "Golf Courses to Homes: How the Infill Law Is Hitting the Western Communities",
+    "h1": "Golf Courses to Homes: How the Infill Law Is Hitting the Western Communities",
+    "seoTitle": "Golf Courses to Homes in Wellington and Royal Palm Beach: The Infill Law",
+    "description": "Florida's Infill Redevelopment Act could turn closed golf courses like Wellington's Polo West into homes without public hearings, and Royal Palm Beach's Village Golf Club is next in line. How it works and both sides.",
+    "category": "Development",
+    "published": "2026-10-23",
+    "updated": "2026-10-23",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic golf course fairway in suburban South Florida with a row of new single-family homes under construction along its edge, palm trees, a lake, construction fencing, bright midday light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Can golf courses in Palm Beach County be turned into homes?",
+        "a": "Under Florida's 2026 Infill Redevelopment Act, closed golf courses surrounded by homes in Miami-Dade, Broward and Palm Beach counties can qualify for residential redevelopment after being out of operation for at least 12 straight months, with administrative approval and no public hearings."
+      },
+      {
+        "q": "Which local golf courses could be affected?",
+        "a": "The Town-Crier has reported on two: the shuttered Polo West Golf Course in Wellington, whose new owner BH Group is exploring luxury homes, and the Village Golf Club in Royal Palm Beach, where developer 13th Floor Homes met with village staff."
+      },
+      {
+        "q": "Do neighbors get any say under the Infill Redevelopment Act?",
+        "a": "There are no public hearings for qualifying projects, but for closed recreation sites, adjacent owners get 90 days to buy the land and keep it as open space, and projects next to single-family homes need at least a 20-foot open-space buffer."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: New State Law Could Bring Homes To RPB Golf Course (Oct. 16, 2026)",
+        "url": "https://gotowncrier.com/2026/10/new-state-law-could-bring-homes-to-rpb-golf-course/"
+      },
+      {
+        "name": "Town-Crier: New State Law Could Bring Homes To Polo West Land (July 24, 2026)",
+        "url": "https://gotowncrier.com/2026/07/new-state-law-could-bring-homes-to-polo-west-land/"
+      },
+      {
+        "name": "Holland & Knight: Florida's Infill Redevelopment Act: What South Florida Developers Need to Know (July 2026)",
+        "url": "https://hklaw.com/en/insights/publications/2026/07/floridas-infill-redevelopment-act-what-south-florida-developers"
+      },
+      {
+        "name": "Florida Senate: SB 1434 (2026), bill text",
+        "url": "https://www.flsenate.gov/Session/Bill/2026/1434/BillText/Filed/HTML"
+      }
+    ]
   }
 ]
