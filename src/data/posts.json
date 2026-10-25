@@ -2366,5 +2366,97 @@
         "url": "https://thecapitolist.com/fdot-revokes-permits-for-license-plate-readers-on-state-highways/"
       }
     ]
+  },
+  {
+    "slug": "loxahatchee-groves-equestrian-crossings-okeechobee-blvd",
+    "title": "Equestrian Crossings on Okeechobee Blvd.: Safer Trails, but Who Controls the Road?",
+    "h1": "Equestrian Crossings on Okeechobee Blvd.: Safer Trails, but Who Controls the Road?",
+    "seoTitle": "Loxahatchee Groves Equestrian Crossings on Okeechobee Blvd. Explained",
+    "description": "Palm Beach County plans six equestrian crossings with flashing beacons on Okeechobee Blvd. in Loxahatchee Groves at no cost to the town. What's proposed, the timeline, and the debate over maintenance and local traffic control.",
+    "category": "Equestrian",
+    "published": "2026-10-25",
+    "updated": "2026-10-25",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic rural two-lane road in Loxahatchee with a striped equestrian crosswalk and a flashing beacon, a rider on a bay horse waiting on the grassy shoulder, fences and pasture, morning light, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Where are the new Loxahatchee Groves equestrian crossings?",
+        "a": "On Okeechobee Blvd., one at each intersection from A Road to F Road, for six crossings in all."
+      },
+      {
+        "q": "Who is paying for the Okeechobee Blvd. equestrian crossings?",
+        "a": "Palm Beach County would install them at no cost to the Town of Loxahatchee Groves. The town still has to decide whether to maintain them itself or sign an interlocal agreement for the county to do it."
+      },
+      {
+        "q": "When will the equestrian crossings be installed?",
+        "a": "County officials said they expect installation to start in early December 2026 and be completed in January 2027."
+      },
+      {
+        "q": "What will each crossing include?",
+        "a": "Pavement striping, two solar rectangular rapid flashing beacons, two equestrian push buttons and two advance warning signs."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Lox Groves Working With County On Equestrian Crossings (Oct. 16, 2026)",
+        "url": "https://gotowncrier.com/2026/10/lox-groves-working-with-county-on-equestrian-crossings/"
+      },
+      {
+        "name": "Town-Crier: Equestrian Panel Discusses Trail Safety, Crossing Improvements (Feb. 20, 2026)",
+        "url": "https://gotowncrier.com/2026/02/equestrian-panel-discusses-trail-safety-crossing-improvements/"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-school-zone-speed-cameras-one-year-results",
+    "title": "Wellington's School Zone Speed Cameras, One Year In: Safer Streets or a Money Maker?",
+    "h1": "Wellington's School Zone Speed Cameras, One Year In: Safer Streets or a Money Maker?",
+    "seoTitle": "Wellington School Zone Speed Cameras: Results, Fines and Legal Challenge",
+    "description": "Wellington's school zone speed cameras cut speeding violations 58 percent and crashes by two-thirds, and brought in more than $1 million in fines. The results, both sides of the debate, and the court challenge that has Palm Beach County waiting.",
+    "category": "Traffic",
+    "published": "2026-10-25",
+    "updated": "2026-10-25",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic suburban South Florida school zone street with a flashing yellow school zone beacon and a pole-mounted speed camera, palm trees and a school building in the background, afternoon light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Does Wellington have school zone speed cameras?",
+        "a": "Yes. Wellington launched cameras in 11 school zones in August 2025 with vendor Jenoptik Smart Mobility Solutions. Drivers going 11 mph or more over the limit while school is in session can be fined $100."
+      },
+      {
+        "q": "Have Wellington's school zone cameras reduced speeding?",
+        "a": "According to village data presented in May 2026, speed violations fell 58 percent from October 2025 to April 2026, and school zone crashes were down 66.7 percent compared with 2025."
+      },
+      {
+        "q": "How much money have Wellington's speed cameras brought in?",
+        "a": "From September 2025 to March 2026, fine collections totaled more than $1.05 million, with Wellington receiving $588,105, the Town-Crier reported."
+      },
+      {
+        "q": "Are school zone speed cameras legal in Florida?",
+        "a": "A 2023 state law allows them, but a 2026 Broward County court ruling questioned camera enforcement and is under appeal. Palm Beach County paused its own program while the issue is resolved; Wellington's program continues."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Wellington Data: Cameras Led To Drop In Speeding Near Schools (July 24, 2026)",
+        "url": "https://gotowncrier.com/2026/07/wellington-data-cameras-led-to-drop-in-speeding-near-schools/"
+      },
+      {
+        "name": "Town-Crier: County Commissioners Hit The Brakes On School Zone Speed Camera Plan (May 15, 2026)",
+        "url": "https://gotowncrier.com/2026/05/county-commissioners-hit-the-brakes-on-school-zone-speed-camera-plan/"
+      },
+      {
+        "name": "Town-Crier: Court Ruling Complicates County Plan For School Speed Cameras (April 17, 2026)",
+        "url": "https://gotowncrier.com/2026/04/court-ruling-complicates-county-plan-for-school-speed-cameras/"
+      },
+      {
+        "name": "CBS12: South Florida court dismisses speed camera cases",
+        "url": "https://cbs12.com/news/local/broward-judge-dismisses-speed-camera-cases-could-palm-beach-county-be-next-questions-residents-broward-county-traffic-judge-school-zone-speed-camera-case-enforcement-tool-kissimmee-100-dollar-civil-penalty"
+      },
+      {
+        "name": "Tallahassee Reports: Leon County Commission Rejects School-Zone Speed Camera Program (Sept. 16, 2026)",
+        "url": "https://tallahasseereports.com/2026/09/16/leon-county-commission-rejects-school-zone-speed-camera-program/"
+      }
+    ]
   }
 ]
