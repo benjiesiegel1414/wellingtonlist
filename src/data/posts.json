@@ -2458,5 +2458,93 @@
         "url": "https://tallahasseereports.com/2026/09/16/leon-county-commission-rejects-school-zone-speed-camera-program/"
       }
     ]
+  },
+  {
+    "slug": "artistry-lakes-annexation-wellington-county-dispute",
+    "title": "Artistry Lakes: Wellington and the County Clash Over a 446-Acre Annexation",
+    "h1": "Artistry Lakes: Wellington and the County Clash Over a 446-Acre Annexation",
+    "seoTitle": "Artistry Lakes Annexation: Wellington vs. Palm Beach County Explained",
+    "description": "Wellington annexed the 446-acre Artistry Lakes site on Southern Blvd., where Kolter Homes plans 579 homes. Palm Beach County objects and rejected a settlement. What happened, both sides, and what's next.",
+    "category": "Development",
+    "published": "2026-10-26",
+    "updated": "2026-10-26",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic aerial view of flat undeveloped South Florida land with a lake, scattered pines and a highway along the edge, suburban homes in the distance, soft morning light, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is Artistry Lakes in Wellington?",
+        "a": "A 446-acre undeveloped property on the north side of Southern Blvd. where Kolter Homes plans a gated community of 579 single-family homes. Wellington annexed it in March 2026."
+      },
+      {
+        "q": "Why does Palm Beach County object to the Artistry Lakes annexation?",
+        "a": "County officials argue the land isn't developed for urban purposes and doesn't properly share a border with Wellington, as Florida law requires. They also objected to losing the workforce housing in the county-approved plan."
+      },
+      {
+        "q": "What is the Wellington ISBA?",
+        "a": "An Interlocal Service Boundary Agreement negotiated by village and county staff to settle the dispute and set rules for future annexations in a corridor that includes Arden. Wellington approved it 4-1, but the County Commission rejected it unanimously on Aug. 26, 2026."
+      },
+      {
+        "q": "Could Arden be annexed into Wellington?",
+        "a": "Only with a vote. Areas with residents, like Arden, would need a referendum with majority approval to join Wellington."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: County Rejects Annexation Settlement With Wellington (Sept. 4, 2026)",
+        "url": "https://gotowncrier.com/2026/09/county-rejects-annexation-settlement-with-wellington/"
+      },
+      {
+        "name": "Town-Crier: Wellington OKs Boundary Agreement With County (Aug. 21, 2026)",
+        "url": "https://gotowncrier.com/2026/08/wellington-oks-boundary-agreement-with-county/"
+      },
+      {
+        "name": "Town-Crier: Wellington Completes Annexation Of Artistry Lakes Parcel (March 20, 2026)",
+        "url": "https://gotowncrier.com/2026/03/wellington-completes-annexation-of-artistry-lakes-parcel/"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-water-trash-rate-increases-2026",
+    "title": "Why Your Wellington Water and Trash Bills Are Going Up",
+    "h1": "Why Your Wellington Water and Trash Bills Are Going Up",
+    "seoTitle": "Wellington Water and Trash Rate Increases 2026-27 Explained",
+    "description": "Wellington raised its solid waste assessment by $5 per unit and water and sewer bills by an average $4.79 a month for 2026-27. Why, what the money pays for, and what council members said for and against.",
+    "category": "Government",
+    "published": "2026-10-26",
+    "updated": "2026-10-26",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic modern municipal water treatment plant in South Florida with clean tanks and pipes, palm trees, blue sky, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How much did Wellington water bills go up?",
+        "a": "Water and wastewater bills rose by an average of $4.79 a month for the 2026-27 fiscal year, approved by the Village Council on Aug. 11, 2026."
+      },
+      {
+        "q": "Did Wellington raise its trash assessment?",
+        "a": "Yes. The solid waste assessment went up $5 per curbside unit and per containerized unit to fully fund the village's contract with FCC Environmental Services, which rose 4.44 percent."
+      },
+      {
+        "q": "What will the water rate increase pay for?",
+        "a": "An $11.5 million utility capital plan, including $4.3 million for water supply, $3.4 million for water treatment, $2.05 million for the water reclamation facility and $1.75 million for wastewater force mains."
+      },
+      {
+        "q": "Did the Acme Improvement District assessment change?",
+        "a": "No. The Acme Improvement District assessment stayed at $275 per unit."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Wellington Council Finalizes Assessment Hikes For Solid Waste And Water Services (Aug. 21, 2026)",
+        "url": "https://gotowncrier.com/2026/08/wellington-council-finalizes-assessment-hikes-for-solid-waste-and-water-services/"
+      },
+      {
+        "name": "Town-Crier: Wellington Begins Water Meter Replacement Program (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/wellington-begins-water-meter-replacement-program-2/"
+      },
+      {
+        "name": "Village of Wellington Utilities",
+        "url": "https://www.wellingtonfl.gov/utilities"
+      }
+    ]
   }
 ]
