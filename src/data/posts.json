@@ -2554,5 +2554,97 @@
         "url": "https://www.wellingtonfl.gov/utilities"
       }
     ]
+  },
+  {
+    "slug": "palm-beach-county-transportation-master-plan-traffic",
+    "title": "Palm Beach County's $1.1 Million Transportation Plan: Blueprint or Busywork?",
+    "h1": "Palm Beach County's $1.1 Million Transportation Plan: Blueprint or Busywork?",
+    "seoTitle": "Palm Beach County Transportation Master Plan: What It Means for Traffic Near Wellington",
+    "description": "Palm Beach County's Countywide Transportation Master Plan lists nearly 2,000 projects and 21 priority corridors, including State Road 7 and Okeechobee Blvd., but commissioners refused to adopt it. What's in it and both sides.",
+    "category": "Traffic",
+    "published": "2026-10-27",
+    "updated": "2026-10-27",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic aerial view of a busy six-lane suburban South Florida boulevard at golden hour with a signalized intersection, palm-lined median, plazas and neighborhoods, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the Palm Beach County Countywide Transportation Master Plan?",
+        "a": "A framework, built with consultant WSP, to coordinate transportation projects across the county and its 39 municipalities through 2050. It includes a database of nearly 2,000 projects and 21 priority corridors, including State Road 7 and Okeechobee Blvd."
+      },
+      {
+        "q": "How much did the Palm Beach County transportation plan cost?",
+        "a": "The county's contract with WSP has grown to about $1.1 million, the Town-Crier reported."
+      },
+      {
+        "q": "Did Palm Beach County adopt the transportation master plan?",
+        "a": "No. On Aug. 26, 2026, commissioners declined to adopt or even receive the plan and asked staff to return with specific projects and how much congestion each would relieve."
+      },
+      {
+        "q": "Where can I see the Palm Beach County transportation plan?",
+        "a": "The plan and its project database are available at pbcmoves.com."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Commissioners Unimpressed By Transportation Plan's Progress (Sept. 4, 2026)",
+        "url": "https://gotowncrier.com/2026/09/commissioners-unimpressed-by-transportation-plans-progress/"
+      },
+      {
+        "name": "Town-Crier: Officials Unveil Latest Version Of Transportation Master Plan (July 10, 2026)",
+        "url": "https://gotowncrier.com/2026/07/officials-unveil-latest-version-of-transportation-master-plan/"
+      },
+      {
+        "name": "PBC Moves: Countywide Transportation Master Plan",
+        "url": "https://www.pbcmoves.com"
+      }
+    ]
+  },
+  {
+    "slug": "home-based-business-rules-wellington-florida-law",
+    "title": "Can You Run a Business From Your Wellington Home? What Florida Law Allows",
+    "h1": "Can You Run a Business From Your Wellington Home? What Florida Law Allows",
+    "seoTitle": "Home-Based Business Rules in Wellington, FL: Florida Law Explained",
+    "description": "Florida's 2021 home-based business law limits how cities can restrict businesses run from homes. What it allows (employees, parking, appearance), how HOAs fit in, a recent Royal Palm Beach example, and both sides of the debate.",
+    "category": "Living in Wellington",
+    "published": "2026-10-27",
+    "updated": "2026-10-27",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic bright home office in a South Florida house with a laptop on a desk by a window overlooking a palm-lined residential street, morning light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Can I run a business from my home in Wellington, Florida?",
+        "a": "Generally yes. Under Section 559.955, Florida Statutes, home-based businesses may operate in residential zones and local governments can't regulate them more strictly than other businesses, as long as the business meets the law's conditions. HOA declarations and covenants can still restrict it."
+      },
+      {
+        "q": "How many employees can a Florida home-based business have?",
+        "a": "Anyone working at the home must live there, except up to two non-resident employees or independent contractors. Additional employees may work remotely."
+      },
+      {
+        "q": "Can my HOA stop me from running a home business in Florida?",
+        "a": "Possibly. The state law does not supersede condo, cooperative or HOA declarations and covenants, so check your community's governing documents."
+      },
+      {
+        "q": "Do I need a license to run a home-based business in Florida?",
+        "a": "Home-based businesses are still subject to local business tax receipts. Check with the Village of Wellington and Palm Beach County for current requirements."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Florida Senate: CS/CS/HB 403 (2021) enrolled text",
+        "url": "https://flsenate.gov/Session/Bill/2021/403/BillText/er/PDF"
+      },
+      {
+        "name": "Town-Crier: RPB Council Discusses Regulations On Home-Based Businesses (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/rpb-council-discusses-regulations-on-home-based-businesses/"
+      },
+      {
+        "name": "The Capitolist: DeSantis signs home-based business bill into law",
+        "url": "https://thecapitolist.com/desantis-signs-home-based-business-bill-into-law"
+      },
+      {
+        "name": "HOA Management: Florida HB403 and HOAs",
+        "url": "https://www.hoamanagement.com/florida-hb403/"
+      }
+    ]
   }
 ]
