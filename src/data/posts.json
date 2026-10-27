@@ -379,14 +379,18 @@
     "slug": "wellington-amphitheater-events-guide",
     "title": "Wellington Amphitheater Guide: Free Concerts, Food Trucks and Movie Nights",
     "h1": "Wellington Amphitheater Guide: Free Concerts, Food Trucks, Movies and Parking",
-    "seoTitle": "Wellington Amphitheater Events: Free Concerts, Food Trucks & Parking Guide",
-    "description": "Your guide to the Wellington Amphitheater at 12100 Forest Hill Blvd: free tribute concerts, food truck nights, movie nights, parking, what to bring and the schedule.",
+    "seoTitle": "Wellington Amphitheater Schedule Nov 2026: Free Concerts, Food Trucks & Parking",
+    "description": "Wellington Amphitheater schedule: ELO tribute Oct 29, Eagles tribute Nov 14, Tribute to The Cure Nov 21 and Thursday night concerts at 12100 Forest Hill Blvd. Times, parking and what to bring.",
     "category": "Things to Do",
     "published": "2026-10-06",
-    "updated": "2026-10-06",
+    "updated": "2026-10-27",
     "readMins": 4,
     "coverPrompt": "Photorealistic outdoor amphitheater stage at dusk beside a lake in South Florida, families on blankets and lawn chairs on the grass, food trucks with string lights in the background, palm trees, warm purple sunset sky, no text, no logos",
     "faq": [
+      {
+        "q": "What's on at the Wellington Amphitheater in November 2026?",
+        "a": "Thursday Nights in Wellington concerts run 5 to 9 p.m. on Nov 5 (The Derek Mack Band), Nov 12 (Magic Ann, a Heart tribute) and Nov 19 (Vinyl Highway). The Weekend Concert Series plays 6 to 9:30 p.m. on Saturday, Nov 14 (The Long Run, an Eagles tribute) and Saturday, Nov 21 (Love Cats, a Tribute to The Cure)."
+      },
       {
         "q": "Are Wellington Amphitheater concerts free?",
         "a": "Most village events at the Wellington Amphitheater, including the tribute band concert series, food truck nights and movie nights, are free, and parking is free."
@@ -424,6 +428,10 @@
       {
         "name": "Tripadvisor: Wellington Amphitheater reviews",
         "url": "https://www.tripadvisor.com/Attraction_Review-g34727-d12563676-Reviews-Wellington_Amphitheater-Wellington_Florida.html"
+      },
+      {
+        "name": "Village of Wellington: Amphitheater calendar, November 2026",
+        "url": "https://www.wellingtonfl.gov/calendar.aspx?CID=28&month=11&year=2026&view=list"
       }
     ]
   },
