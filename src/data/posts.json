@@ -2646,5 +2646,81 @@
         "url": "https://www.hoamanagement.com/florida-hb403/"
       }
     ]
+  },
+  {
+    "slug": "acreage-flooding-indian-trail-drainage-rain",
+    "title": "After 20 Inches of Rain, Is The Acreage's Drainage Keeping Up?",
+    "h1": "After 20 Inches of Rain, Is The Acreage's Drainage Keeping Up?",
+    "seoTitle": "Acreage Flooding and Indian Trail Drainage After 20 Inches of Rain",
+    "description": "About 20 inches of rain left water in Acreage yards and streets this fall. Indian Trail Improvement District says the drainage system worked, but growth, a canal dispute and a road funding gap raise hard questions. Both sides.",
+    "category": "Home",
+    "published": "2026-10-28",
+    "updated": "2026-10-28",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic rural South Florida neighborhood after heavy rain with a full roadside swale and drainage canal beside a two-lane road, ranch homes on wooded lots, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How much rain fell in The Acreage in September 2026?",
+        "a": "About 20 inches over several days, including more than nine inches on Sept. 17 alone, according to ITID and local meteorologists cited by the Town-Crier."
+      },
+      {
+        "q": "Did homes flood in The Acreage?",
+        "a": "ITID Executive Director Burgess Hanson said that as far as he knew, no houses got water in them, though water stood in yards, swales and some roads."
+      },
+      {
+        "q": "What is the M-2 Canal dispute?",
+        "a": "ITID sued the Seminole Improvement District in March 2026 to protect what it says are longstanding rights to use the M-2 Canal, which drains much of ITID's west side. SID has asked for about $3 million in outfall work and about $300,000 a year."
+      },
+      {
+        "q": "What can Acreage residents do to reduce yard flooding?",
+        "a": "ITID officials say residents should keep their own swales and culverts clear so the drainage system can move water."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: ITID Braces For More Rain After Water Fills Some Yards And Streets (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/itid-braces-for-more-rain-after-water-fills-some-yards-and-streets/"
+      }
+    ]
+  },
+  {
+    "slug": "loxahatchee-groves-budget-tax-rate-2026",
+    "title": "Loxahatchee Groves Keeps Its Tax Rate After a Tense Budget Fight",
+    "h1": "Loxahatchee Groves Keeps Its Tax Rate After a Tense Budget Fight",
+    "seoTitle": "Loxahatchee Groves 2026-27 Budget and Tax Rate Explained",
+    "description": "Loxahatchee Groves kept its tax rate at 3.2564 mills, 9.52 percent above rollback, in a 4-1 vote after a long hearing. What the budget funds, how the deal came together, and both sides.",
+    "category": "Government",
+    "published": "2026-10-28",
+    "updated": "2026-10-28",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic small-town rural Florida town hall with a gravel parking area, oak trees and pasture fences, late afternoon light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the Loxahatchee Groves tax rate for 2026-27?",
+        "a": "3.2564 mills, unchanged from the prior year and 9.52 percent above the rollback rate. The council approved it 4-1 on Sept. 23, 2026."
+      },
+      {
+        "q": "What is a rollback rate?",
+        "a": "The tax rate that would bring in the same property tax revenue as the prior year, not counting new construction. Keeping a rate above rollback means the government collects more as property values rise."
+      },
+      {
+        "q": "How much extra revenue will Loxahatchee Groves collect?",
+        "a": "About $231,000 more in general fund revenue, with $207,652 set aside for law enforcement."
+      },
+      {
+        "q": "What happens to Loxahatchee Groves' excess reserves?",
+        "a": "Under the deal that passed the budget, money above 25 percent in the town's two reserve funds goes toward capital improvements."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: At Contentious Meeting, Groves Council Passes Budget With Unchanged Tax Rate (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/at-contentious-meeting-groves-council-passes-budget-with-unchanged-tax-rate/"
+      },
+      {
+        "name": "Town-Crier: Loxahatchee Groves Council Wrangles Over Budget Details At First Hearing (Sept. 2026)",
+        "url": "https://gotowncrier.com/2026/09/loxahatchee-groves-council-wrangles-over-budget-details-at-first-hearing/"
+      }
+    ]
   }
 ]
