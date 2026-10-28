@@ -165,7 +165,7 @@ const footer = `
   </div>
 </footer>`;
 
-function layout({ title, description, urlPath, body, jsonld = [], ogType = "website", noindex = false, article = null, image = "", sponsors = true, bodyClass = "" }) {
+function layout({ title, description, urlPath, body, jsonld = [], ogType = "website", noindex = false, article = null, image = "", sponsors = true, bodyClass = "", ads = false }) {
   const ogImg = image ? SITE + image : SITE + "/assets/og.jpg";
   const canonical = SITE + urlPath;
   const org = { "@context": "https://schema.org", "@type": "Organization", "@id": SITE + "/#org", name: "Wellington List", url: SITE + "/", logo: SITE + "/assets/icon-512.png", areaServed: { "@type": "City", name: "Wellington, Florida" } };
@@ -203,6 +203,7 @@ ${article ? `<meta property="article:published_time" content="${article.publishe
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=${ASSET_V}">
 ${ld}
+${ads ? '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9929351005136304" crossorigin="anonymous"></script>' : ""}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ""}>
 ${sprite}
@@ -329,7 +330,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
 </div></section>
 <div class="wrap">${sponsor()}</div>
 ${newsletter}`;
-  add("/", layout({
+  add("/", layout({ ads: true,
     title: "Wellington List | Wellington, FL News, Restaurants, Events and Local Directory",
     description: "Wellington List is the local guide to Wellington, Florida: news, restaurants, things to do, equestrian events, Village Landing updates and a directory of local businesses.",
     urlPath: "/", body,
@@ -617,7 +618,7 @@ for (const p of places) {
       { "@context": "https://schema.org", "@type": "NewsArticle", headline: p.title.slice(0, 110), description: p.description, datePublished: p.published, dateModified: p.updated, mainEntityOfPage: SITE + urlPath, image: [SITE + (coverFile(p) || "/assets/og.jpg")],
         author: { "@type": "Organization", name: "Wellington List", url: SITE + "/about/" }, publisher: { "@id": SITE + "/#org" }, about: { "@type": "Place", name: "Wellington, Florida" } },
       { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: p.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }];
-    add(urlPath, layout({ title: p.seoTitle, description: p.description, urlPath, body, jsonld: ld, ogType: "article", article: p, image: coverFile(p) }), "0.8", p.updated);
+    add(urlPath, layout({ title: p.seoTitle, description: p.description, urlPath, body, jsonld: ld, ogType: "article", article: p, image: coverFile(p), ads: true }), "0.8", p.updated);
   }
 }
 
@@ -759,7 +760,8 @@ formPage({
     <h2>Information you give us</h2><p>When you submit a form on this site, such as adding a business, submitting an event, or asking about advertising, we collect what you enter: for example your name, email address, phone number, business or event details, and any message. We use it to review and publish your listing or event, respond to you, and run the site.</p>
     <h2>How submissions are processed</h2><p>Form submissions are stored in a private Google Sheet operated with Google Workspace tools. To keep the directory accurate and free of spam, business and event submissions may be reviewed automatically using an AI service (Anthropic's Claude), which may check publicly available information on the web. A person may also review any submission. Only approved business and event details are published.</p>
     <h2>What we publish</h2><p>Business and event details you submit for publication (such as name, address, phone, website and description) may appear on the site and in search engines. We never publish the contact email address you give us on a submission form.</p>
-    <h2>Analytics and cookies</h2><p>We use Google Analytics to understand how visitors use the site, such as which pages are viewed, how long visits last, the general location (city or region) and the type of device and browser. Google Analytics uses cookies and similar technologies, and Google may process this data under its own privacy policy. We do not use this data to identify you personally. You can block cookies in your browser settings or use the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener nofollow">Google Analytics opt-out browser add-on</a>. We do not sell your personal information and we do not use third-party advertising networks.</p>
+    <h2>Analytics and cookies</h2><p>We use Google Analytics to understand how visitors use the site, such as which pages are viewed, how long visits last, the general location (city or region) and the type of device and browser. Google Analytics uses cookies and similar technologies, and Google may process this data under its own privacy policy. We do not use this data to identify you personally. You can block cookies in your browser settings or use the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener nofollow">Google Analytics opt-out browser add-on</a>. We do not sell your personal information.</p>
+    <h2>Advertising</h2><p>Some pages on this site show ads served by Google AdSense. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visits to this site and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" rel="noopener nofollow">Google Ads Settings</a>, or opt out of some third-party vendors' use of cookies for personalized advertising at <a href="https://www.aboutads.info/choices/" rel="noopener nofollow">aboutads.info</a>. Learn more in <a href="https://policies.google.com/technologies/ads" rel="noopener nofollow">how Google uses information from sites that use its services</a>.</p>
     <h2>Sponsors and links</h2><p>Some placements on the site are paid sponsorships and are labeled as advertisements. This site links to other websites, including businesses we list. We are not responsible for the privacy practices of other sites.</p>
     <h2>How long we keep information</h2><p>We keep submissions as long as needed to operate the directory and respond to you. You can ask us to update or delete a listing or your submission at any time.</p>
     <h2>Children</h2><p>This site is intended for a general audience and is not directed to children under 13. We do not knowingly collect personal information from children.</p>
