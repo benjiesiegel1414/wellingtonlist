@@ -2722,5 +2722,89 @@
         "url": "https://gotowncrier.com/2026/09/loxahatchee-groves-council-wrangles-over-budget-details-at-first-hearing/"
       }
     ]
+  },
+  {
+    "slug": "palm-beach-county-license-plate-readers-privacy-rules",
+    "title": "Palm Beach County Takes a Closer Look at License Plate Readers",
+    "h1": "Palm Beach County Takes a Closer Look at License Plate Readers",
+    "seoTitle": "Palm Beach County License Plate Readers: Rules and Privacy Debate",
+    "description": "Palm Beach County commissioners asked PBSO for answers on how license plate readers collect and protect data. How the county's permit rules work, and both sides of the privacy debate.",
+    "category": "Government",
+    "published": "2026-10-29",
+    "updated": "2026-10-29",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic suburban South Florida four-lane road with a black traffic camera on a gray metal pole, palm trees, passing cars, midday sun, no text, no logos, no signage, no readable license plates",
+    "faq": [
+      {
+        "q": "How many license plate readers has Palm Beach County approved?",
+        "a": "About 50 locations in county rights-of-way have license plate reader approvals that are either in place or approved for installation, according to a county staff presentation in September 2026."
+      },
+      {
+        "q": "Who can get a permit for a license plate reader in county rights-of-way?",
+        "a": "Only public police or sheriff's departments, and only to support their official law enforcement duties."
+      },
+      {
+        "q": "What happens if a permit holder breaks the county's rules?",
+        "a": "The permit holder has 30 days to remove the license plate readers or faces a fine of $1,000 per day."
+      },
+      {
+        "q": "Has PBSO found misuse of its license plate reader system?",
+        "a": "PBSO Major Thomas Fresneda told commissioners the agency runs weekly random audits and has identified no misuse within the system."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Commissioners Wary Of How County Uses License Plate Readers (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/commissioners-wary-of-how-county-uses-license-plate-readers/"
+      }
+    ]
+  },
+  {
+    "slug": "early-voting-locations-near-wellington-2026",
+    "title": "Where to Vote Early Near Wellington for the Nov. 3, 2026 Election",
+    "h1": "Where to Vote Early Near Wellington for the Nov. 3, 2026 Election",
+    "seoTitle": "Early Voting Near Wellington, FL: 2026 Sites, Hours and Tips",
+    "description": "Early voting in Palm Beach County runs through Sunday, Nov. 1, 7 a.m. to 7 p.m. The sites closest to Wellington, what ID to bring, vote-by-mail deadlines and Election Day info.",
+    "category": "Community",
+    "published": "2026-10-29",
+    "updated": "2026-10-29",
+    "readMins": 3,
+    "coverPrompt": "Photorealistic modern single-story public library in suburban South Florida, short line of adult voters outside seen from a distance, palm trees, sunny morning, no text, no logos, no signage, no flags",
+    "faq": [
+      {
+        "q": "When is early voting in Palm Beach County for the 2026 general election?",
+        "a": "Monday, Oct. 19 through Sunday, Nov. 1, 2026, from 7 a.m. to 7 p.m. each day."
+      },
+      {
+        "q": "Where can I vote early in Wellington?",
+        "a": "The Wellington Branch Library at 1951 Royal Fern Dr. is an early voting site. Nearby sites include the Royal Palm Beach Branch Library, the PBSC Loxahatchee Groves Campus, the Acreage Branch Library and the Greenacres Community Center. Any registered Palm Beach County voter can use any of the county's 28 early voting sites."
+      },
+      {
+        "q": "Can I drop off my vote-by-mail ballot at an early voting site?",
+        "a": "Yes. Completed vote-by-mail ballots can be dropped off at any early voting location during early voting hours. Mail ballots must be received by the Supervisor of Elections Main Office by 7 p.m. on Election Day."
+      },
+      {
+        "q": "Where do I vote on Election Day?",
+        "a": "On Nov. 3, you must vote at the polling place assigned to your precinct, open 7 a.m. to 7 p.m. Find it on your Voter Information Card, sample ballot, the Precinct Finder at votepalmbeach.gov, or by calling (561) 656-6200."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Palm Beach County Supervisor of Elections: Early Voting",
+        "url": "https://www.votepalmbeach.gov/167/Early-Voting"
+      },
+      {
+        "name": "Palm Beach County Supervisor of Elections: Early Voting Locations",
+        "url": "https://vls.vrswebapps.com/#county=palmbeach"
+      },
+      {
+        "name": "Palm Beach County Supervisor of Elections: Vote by Mail",
+        "url": "https://www.votepalmbeach.gov/166/Vote-by-Mail"
+      },
+      {
+        "name": "Palm Beach County Supervisor of Elections: Election Day Voting",
+        "url": "https://www.votepalmbeach.gov/168/Election-Day-Voting"
+      }
+    ]
   }
 ]
