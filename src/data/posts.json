@@ -2475,7 +2475,7 @@
     "description": "Wellington annexed the 446-acre Artistry Lakes site on Southern Blvd., where Kolter Homes plans 579 homes. Palm Beach County objects and rejected a settlement. What happened, both sides, and what's next.",
     "category": "Development",
     "published": "2026-10-26",
-    "updated": "2026-10-26",
+    "updated": "2026-10-30",
     "readMins": 5,
     "coverPrompt": "Photorealistic aerial view of flat undeveloped South Florida land with a lake, scattered pines and a highway along the edge, suburban homes in the distance, soft morning light, no text, no logos, no signage",
     "faq": [
@@ -2804,6 +2804,86 @@
       {
         "name": "Palm Beach County Supervisor of Elections: Election Day Voting",
         "url": "https://www.votepalmbeach.gov/168/Election-Day-Voting"
+      }
+    ]
+  },
+  {
+    "slug": "palm-beach-county-e-bike-scooter-ordinance-age-14",
+    "title": "Palm Beach County's Proposed E-Bike Rules: Age 14, Photo ID and Speed Limits",
+    "h1": "Palm Beach County's Proposed E-Bike Rules: Age 14, Photo ID and Speed Limits",
+    "seoTitle": "Palm Beach County E-Bike and Scooter Ordinance 2026 Explained",
+    "description": "Palm Beach County gave first approval to e-bike and scooter rules: minimum age 14, photo ID, 15 mph on paths and a $64.50 fine. What's in it, how it compares with Wellington, and both sides.",
+    "category": "Traffic",
+    "published": "2026-10-30",
+    "updated": "2026-10-30",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic paved multi-use path beside a suburban South Florida road with a parked e-bike and electric scooter, palm trees, late-afternoon light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the minimum age to ride an e-bike under Palm Beach County's proposed ordinance?",
+        "a": "14, and riders must carry a government-issued photo ID. School IDs don't count because they don't prove age. The ordinance passed its first reading Oct. 20, 2026 and still needs a second reading."
+      },
+      {
+        "q": "What are the speed limits in the county's e-bike ordinance?",
+        "a": "15 mph on sidewalks, bike lanes, bike paths and pedestrian areas, and 10 mph when a pedestrian is within 50 feet."
+      },
+      {
+        "q": "What is the fine for breaking the county's e-bike rules?",
+        "a": "A pedestrian citation of $64.50, though county officials said the focus will be on education and egregious cases."
+      },
+      {
+        "q": "Does the county ordinance apply in Wellington?",
+        "a": "The county rules cover unincorporated areas and county-controlled roads. Wellington has its own rules, passed in August 2026, with a minimum age of 15."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Proposed County Ordinance Aims For Stricter Rules On Micromobility Devices (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/proposed-county-ordinance-aims-for-stricter-rules-on-micromobility-devices/"
+      },
+      {
+        "name": "News4JAX: Here's why Florida Gov. DeSantis vetoed e-bike speed limits (July 2026)",
+        "url": "https://www.news4jax.com/news/local/2026/07/07/heres-why-florida-gov-desantis-vetoed-e-bike-speed-limits/"
+      },
+      {
+        "name": "Florida Bicycle Association: Governor Vetoes Statewide Micromobility Legislation",
+        "url": "https://floridabicycle.org/news/governor-vetoes-statewide-micromobility-legislation"
+      }
+    ]
+  },
+  {
+    "slug": "artistry-lakes-wellington-county-new-agreement",
+    "title": "Wellington and the County Reach a Narrower Deal on Artistry Lakes",
+    "h1": "Wellington and the County Reach a Narrower Deal on Artistry Lakes",
+    "seoTitle": "Artistry Lakes: What's in Wellington's New Agreement With the County",
+    "description": "Wellington and Palm Beach County negotiated a narrower boundary agreement covering only Artistry Lakes, dropping Arden. What's in the deal, the housing money, and the concerns that shaped it.",
+    "category": "Development",
+    "published": "2026-10-30",
+    "updated": "2026-10-30",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic aerial view of undeveloped green pasture and scrub land beside a straight divided highway with canals in western Palm Beach County, distant neighborhood, clear day, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the new Artistry Lakes agreement?",
+        "a": "A revised Interlocal Service Boundary Agreement between Wellington and Palm Beach County that covers only the 446-acre Artistry Lakes site. Wellington approved it Oct. 13, 2026, and the County Commission is expected to vote Nov. 10."
+      },
+      {
+        "q": "Does the new agreement include Arden?",
+        "a": "No. The revised agreement drops Arden and nearby land. Any future annexation request would be considered separately, and areas with residents would need a referendum to join Wellington."
+      },
+      {
+        "q": "How many homes will be built at Artistry Lakes?",
+        "a": "Kolter Homes plans a gated community with 579 single-family homes, and the agreement caps density at 1.4 units per acre."
+      },
+      {
+        "q": "What does the developer contribute under the deal?",
+        "a": "$1 million to Wellington's first-time homebuyer program, $2 million to the county's Workforce Housing Trust Fund, right-of-way for a future Okeechobee Blvd. extension, a utility easement and a four-acre site for a fire station."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: New Wellington Agreement With County Could Solve Artistry Lakes Dispute (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/new-wellington-agreement-with-county-could-solve-artistry-lakes-dispute/"
       }
     ]
   }
