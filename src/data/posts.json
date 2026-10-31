@@ -2171,7 +2171,7 @@
     "description": "Palm Beach County approved a one-year moratorium on large AI data centers after the Project Tango fight near 20-Mile Bend and Arden. What it covers, what's still possible on the Tango site, and both sides.",
     "category": "Development",
     "published": "2026-10-23",
-    "updated": "2026-10-23",
+    "updated": "2026-10-31",
     "readMins": 6,
     "coverPrompt": "Photorealistic large modern windowless data center campus at dusk on flat open land in rural South Florida, rows of cooling units on the roof, power lines and a substation nearby, palm trees and a distant suburban neighborhood, no people, no text, no logos, no signage",
     "faq": [
@@ -2884,6 +2884,78 @@
       {
         "name": "Town-Crier: New Wellington Agreement With County Could Solve Artistry Lakes Dispute (Oct. 30, 2026)",
         "url": "https://gotowncrier.com/2026/10/new-wellington-agreement-with-county-could-solve-artistry-lakes-dispute/"
+      }
+    ]
+  },
+  {
+    "slug": "westlake-new-elementary-school-boundary-plan",
+    "title": "Westlake's New Elementary School: Who Will Attend and Why It Matters",
+    "h1": "Westlake's New Elementary School: Who Will Attend and Why It Matters",
+    "seoTitle": "Westlake New Elementary School Boundary Plan (Opens 2027)",
+    "description": "A school district committee voted 10-0 to send all Westlake students, including future homes, to the new elementary school opening in August 2027. What changes for families and the debate over capacity.",
+    "category": "Schools",
+    "published": "2026-10-31",
+    "updated": "2026-10-31",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic newly built modern three-story elementary school in a growing South Florida suburb, covered walkways, young palm trees, construction in background, morning sun, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "When does Westlake's new elementary school open?",
+        "a": "August 2027. The three-story, 96,000-square-foot school at Persimmon Blvd. and Green Lane, called West Community Elementary for now, has 970 seats."
+      },
+      {
+        "q": "Which students will attend the new Westlake elementary school?",
+        "a": "Under the boundary plan the district's Advisory Boundary Committee chose 10-0 on Oct. 22, 2026, students from all of Westlake, including future homes west of Seminole Pratt Whitney Road. About 350 students would move from Golden Grove Elementary and 120 from Loxahatchee Groves Elementary."
+      },
+      {
+        "q": "Can current students stay at their old school?",
+        "a": "Students entering fifth grade in 2027-28, and their siblings, including incoming kindergartners, can choose to stay at their current school."
+      },
+      {
+        "q": "What middle school will the new Westlake elementary feed into?",
+        "a": "Osceola Creek Middle School."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Likely Boundary Plan Puts All Westlake Students At New Elementary School (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/likely-boundary-plan-puts-all-westlake-students-at-new-elementary-school/"
+      }
+    ]
+  },
+  {
+    "slug": "project-tango-data-center-staff-approval-arden-challenge",
+    "title": "Project Tango Data Center Gets Staff Approval, and Arden Plans a Challenge",
+    "h1": "Project Tango Data Center Gets Staff Approval, and Arden Plans a Challenge",
+    "seoTitle": "Project Tango Data Center Approved by County Staff: What's Next",
+    "description": "Palm Beach County staff approved more than 700,000 square feet of data center at the Project Tango site under its 2016 rights. The Arden HOA is preparing a challenge. What happened and both sides.",
+    "category": "Development",
+    "published": "2026-10-31",
+    "updated": "2026-10-31",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic aerial view of a large cleared construction site with long gray industrial buildings in rural western Palm Beach County, pine flatwoods and canal, distant neighborhood, hazy afternoon light, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What did Palm Beach County staff approve for Project Tango?",
+        "a": "On Oct. 7, 2026, staff approved a modification allowing more than 700,000 square feet of data center at the Central Park Commerce Center site, up from about 200,000 square feet, based on the site's 2016 approval."
+      },
+      {
+        "q": "Why didn't the data center moratorium stop Project Tango?",
+        "a": "The county's one-year moratorium didn't apply to projects with existing approvals, and PBA Holdings applied for the modification before the moratorium took effect."
+      },
+      {
+        "q": "Can the Arden HOA challenge the approval?",
+        "a": "The HOA has 30 days from the Oct. 7 ruling to file an objection and has been meeting with attorneys to plan a challenge."
+      },
+      {
+        "q": "How close is Project Tango to homes and schools?",
+        "a": "The site is within about 1,500 feet of some Arden homes and Saddle View Elementary School, according to the Town-Crier."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Arden HOA Fighting Clock And County Staff To Stall Data Center Project (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/arden-hoa-fighting-clock-and-county-staff-to-stall-data-center-project/"
       }
     ]
   }
