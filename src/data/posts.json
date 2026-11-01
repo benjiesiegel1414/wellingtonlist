@@ -2075,7 +2075,7 @@
     "description": "Wellington's Equestrian Preserve Committee backed letting Rustic Ranches owners keep up to four RVs as grooms' housing. What's proposed, the rules, and both sides of the debate.",
     "category": "Equestrian",
     "published": "2026-10-22",
-    "updated": "2026-10-22",
+    "updated": "2026-11-01",
     "readMins": 5,
     "coverPrompt": "Photorealistic South Florida equestrian property at golden hour, a modern horse barn with paddocks and white fencing, a travel trailer RV parked discreetly behind a hedge near the barn, palm trees and open pasture, no people, no text, no logos, no signage",
     "faq": [
@@ -2956,6 +2956,90 @@
       {
         "name": "Town-Crier: Arden HOA Fighting Clock And County Staff To Stall Data Center Project (Oct. 30, 2026)",
         "url": "https://gotowncrier.com/2026/10/arden-hoa-fighting-clock-and-county-staff-to-stall-data-center-project/"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-roundabouts-lake-worth-road-120th-avenue-village-park",
+    "title": "Wellington's New Roundabouts: Lake Worth Road and Village Park",
+    "h1": "Wellington's New Roundabouts: Lake Worth Road and Village Park",
+    "seoTitle": "Wellington Roundabouts: Lake Worth Rd & 120th Ave, Village Park (2026)",
+    "description": "Wellington is building roundabouts at Lake Worth Road and 120th Avenue South and at the Village Park entrance on Pierson Road. Costs, timelines, and what the safety research says on both sides.",
+    "category": "Traffic",
+    "published": "2026-11-01",
+    "updated": "2026-11-01",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic aerial view of a new single-lane roundabout with a palm-planted center island at a suburban South Florida intersection, cars circulating, canals nearby, sunny afternoon, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "When will the Lake Worth Road and 120th Avenue South roundabout be finished?",
+        "a": "Work began in June 2026. The south leg of 120th Avenue South is expected to reopen in December, with the rest of the $4.29 million project finished in summer 2027."
+      },
+      {
+        "q": "Is a roundabout being built at Village Park in Wellington?",
+        "a": "Yes. An $826,000 single-lane roundabout will replace the three-way stop at the main entrance to Village Park on Pierson Road, with completion expected in the first quarter of 2027."
+      },
+      {
+        "q": "Are roundabouts safer than stop signs?",
+        "a": "According to the Insurance Institute for Highway Safety, U.S. studies of intersections converted from signals or stop signs to roundabouts found 72 to 80 percent fewer injury crashes and 35 to 47 percent fewer crashes overall."
+      },
+      {
+        "q": "How do you drive through a roundabout?",
+        "a": "Slow down, yield to traffic already in the circle and to pedestrians, enter when there's a safe gap, travel counterclockwise and signal before you exit."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Wellington Engineer: New Roundabouts Will Improve Traffic And Safety In Village (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/wellington-engineer-new-roundabouts-will-improve-traffic-and-safety-in-village/"
+      },
+      {
+        "name": "Town-Crier: Wellington Council Moves Forward With Lake Worth Road Roundabout (March 2025)",
+        "url": "https://gotowncrier.com/2025/03/wellington-council-moves-forward-with-lake-worth-road-roundabout/"
+      },
+      {
+        "name": "Insurance Institute for Highway Safety: Roundabouts",
+        "url": "https://www.iihs.org/research-areas/roundabouts"
+      }
+    ]
+  },
+  {
+    "slug": "loxahatchee-groves-rv-rules-2026",
+    "title": "Loxahatchee Groves Keeps Reworking Its RV Rules: What's in the Latest Draft",
+    "h1": "Loxahatchee Groves Keeps Reworking Its RV Rules: What's in the Latest Draft",
+    "seoTitle": "Loxahatchee Groves RV Ordinance 2026: Latest Rules Explained",
+    "description": "Loxahatchee Groves' latest RV draft would require 4.5 acres for two occupied RVs, cap occupancy at 179 days a year and add inspections. What's proposed and both sides of the debate.",
+    "category": "Government",
+    "published": "2026-11-01",
+    "updated": "2026-11-01",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic rural South Florida property with a white travel trailer RV beside a small horse barn and paddock, horse grazing, oak trees, golden-hour light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How many RVs can you have in Loxahatchee Groves?",
+        "a": "The rules are still being revised. The draft reviewed on Oct. 20, 2026 would allow two occupied RVs only on properties of 4.5 acres or more, and owners couldn't combine allowances from neighboring parcels."
+      },
+      {
+        "q": "How long can someone live in an RV in Loxahatchee Groves?",
+        "a": "The latest draft would limit occupancy to 179 days in any consecutive 12-month period, replacing a six-month limit."
+      },
+      {
+        "q": "Do RVs in Loxahatchee Groves need utility connections?",
+        "a": "Yes. Drafts require permitted electrical, water and wastewater connections, and the latest version adds a site plan sketch with the application and recommends annual utility inspections at certain agricultural RV sites, with a possible $150 fee."
+      },
+      {
+        "q": "When will Loxahatchee Groves vote on the RV ordinance?",
+        "a": "The council plans to consider the revised ordinance at a future meeting through the normal approval process. No date had been set as of late October 2026."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Lox Council Again Reviews New RV Rules (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/lox-council-again-reviews-new-rv-rules/"
+      },
+      {
+        "name": "Town-Crier: Lox Groves Council Tries Again To Simplify RV Program Rules (Aug. 21, 2026)",
+        "url": "https://gotowncrier.com/2026/08/lox-groves-council-tries-again-to-simplify-rv-program-rules/"
       }
     ]
   }
