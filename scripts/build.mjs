@@ -342,12 +342,14 @@ ${newsletter}`;
 // ---------- Directory (all) ----------
 function directoryPage({ urlPath, crumbs, h1, sub, title, description, list, showFilters = true, intro = "" }) {
   const cats = CATS.filter(c => list.some(p => p.cat === c.id));
-  const body = pageHead(crumbs, h1, sub) + `<div class="wrap">${sponsor()}</div>
-<section class="wrap" style="padding-bottom:40px">
+  const heroExtra = `<div class="search page-search"><label for="dir-q" style="flex:1;display:flex"><span class="sr">Search the directory</span><input id="dir-q" type="search" placeholder="Search by name, cuisine or type"></label><span class="page-search-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span></div>
+  <div class="head-stats"><span><b>${list.length}</b> places</span>${cats.length > 1 ? `<span><b>${cats.length}</b> categories</span>` : ""}<span>Free to list</span></div>`;
+  const body = pageHead(crumbs, h1, sub, heroExtra) + `<div class="wrap">${sponsor()}</div>
+<section class="wrap dir-body">
   ${intro}
-  ${showFilters ? `<div class="dir-tools"><label class="sr" for="dir-q">Search the directory</label><input id="dir-q" type="search" placeholder="Search by name, cuisine or type">
-  <div class="filters" role="group" aria-label="Filter by category"><button aria-pressed="true" data-f="all">All</button>${cats.map(c => `<button aria-pressed="false" data-f="${c.id}">${c.label}</button>`).join("")}</div></div>
-  <p class="count-note" id="count-note" role="status">${list.length} places</p>` : ""}
+  ${showFilters && cats.length > 1 ? `<div class="dir-tools">
+  <div class="filters" role="group" aria-label="Filter by category"><button aria-pressed="true" data-f="all">All</button>${cats.map(c => `<button aria-pressed="false" data-f="${c.id}">${c.label}</button>`).join("")}</div></div>` : ""}
+  <p class="count-note" id="count-note" role="status">${list.length} places</p>
   <div class="listings" data-filter-grid>${list.map(listingCard).join("")}</div>
   <div class="claim" style="margin-top:36px">Own a Wellington business that should be here? <a href="/add-your-business/">Add it to Wellington List for free</a>.</div>
 </section>
@@ -371,7 +373,7 @@ directoryPage({
   title: "Best Restaurants in Wellington, FL (2026 Local Guide)",
   description: "A local guide to the best restaurants in Wellington, Florida: Italian, Argentine, sushi, Greek, burgers, breakfast spots and dessert, updated for 2026.",
   list: places.filter(p => p.cat === "restaurants"),
-  intro: listIntro(`<p>Wellington's dining scene stretches from the Wellington Green area near State Road 7 to the plazas along Wellington Trace and the restaurants near the showgrounds on South Shore Boulevard. Below are the spots locals talk about most, grouped so you can filter by type. With <a href="/blog/village-landing-wellington-k-park/">Village Landing</a> adding about 100,000 square feet of restaurant space by 2028, expect this list to grow.</p>`)
+  intro: listIntro(`<p>Wellington's dining scene stretches from the Wellington Green area near State Road 7 to the plazas along Wellington Trace and the restaurants near the showgrounds on South Shore Boulevard. Below are the spots locals talk about most, and you can search by cuisine or type above. With <a href="/blog/village-landing-wellington-k-park/">Village Landing</a> adding about 100,000 square feet of restaurant space by 2028, expect this list to grow.</p>`)
 });
 directoryPage({
   urlPath: "/things-to-do/", crumbs: [["Home", "/"], ["Things to do", "/things-to-do/"]],
