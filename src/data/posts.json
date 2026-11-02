@@ -3048,7 +3048,7 @@
     "title": "Greenacres Plane Crash: What We Know About the Learjet Crash on Military Trail",
     "h1": "Greenacres Plane Crash: What We Know About the Learjet Crash on Military Trail",
     "seoTitle": "Greenacres Plane Crash Nov. 1, 2026: What We Know (Military Trail)",
-    "description": "A Learjet 60 with nine aboard crashed near Military Trail and 10th Avenue North in Greenacres, Palm Beach County, on Nov. 1, 2026. Verified facts, road closures, evacuations and the NTSB investigation.",
+    "description": "A Learjet 60 with nine aboard crashed near Military Trail in Greenacres, Palm Beach County, on Nov. 1, 2026. The NTSB timeline, icing and turbulence reports, road closures, evacuations and the investigation.",
     "category": "Community",
     "published": "2026-11-02",
     "updated": "2026-11-02",
@@ -3061,7 +3061,11 @@
       },
       {
         "q": "How many people died in the Greenacres plane crash?",
-        "a": "All nine people aboard the Learjet 60 were killed. Officials said no one on the ground was reported hurt."
+        "a": "All nine people aboard the Learjet 60, two crew members and seven passengers, were killed. The NTSB said one person on the ground, a man in a vehicle leaving the area, suffered a leg injury."
+      },
+      {
+        "q": "What did the pilots report before the crash?",
+        "a": "According to the NTSB, at about 12:47 p.m. the crew reported light clear ice and moderate turbulence at 35,000 feet, then precipitation, and asked to climb to 37,000 feet. Less than 30 seconds after approval, the plane announced it was descending, followed by a mayday call. At about 12:48 p.m. a transmission said it was in an overspeed condition."
       },
       {
         "q": "Where was the plane going?",
@@ -3073,7 +3077,7 @@
       },
       {
         "q": "Who is investigating the crash?",
-        "a": "The National Transportation Safety Board is leading the investigation with help from the FAA. The cause has not been determined."
+        "a": "The National Transportation Safety Board is leading the investigation with help from the FAA. NTSB Member Tom Chapman said weather is a major focus and there is some evidence the plane began breaking apart before impact, but the cause has not been determined."
       },
       {
         "q": "Where did evacuated residents go?",
@@ -3092,6 +3096,14 @@
       {
         "name": "NBC6 South Florida: Live updates on the Palm Beach County Learjet 60 crash (Nov. 1, 2026)",
         "url": "https://www.nbcmiami.com/news/local/officials-respond-to-fiery-aircraft-incident-in-palm-beach-county/3881532/"
+      },
+      {
+        "name": "CBS12: NTSB: Learjet crew reported ice, turbulence before deadly Greenacres crash (Nov. 2, 2026)",
+        "url": "https://cbs12.com/news/local/national-transportation-safety-board-share-new-details-palm-beach-county-learjet-60-emergency-operation-center-crash-greenacres-south-military-trail-co-pilot-identified-nathalia-filgueiras-florida-news"
+      },
+      {
+        "name": "WPTV: NTSB: Learjet 60 crew reported icing, turbulence shortly before deadly Palm Beach County crash (Nov. 2, 2026)",
+        "url": "https://www.wptv.com/news/palm-beach-county/region-c-palm-beach-county/ntsb-news-conference-learjet-60-crash-in-palm-beach-county/11-2-26"
       }
     ]
   },
