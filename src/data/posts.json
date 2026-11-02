@@ -3094,5 +3094,89 @@
         "url": "https://www.nbcmiami.com/news/local/officials-respond-to-fiery-aircraft-incident-in-palm-beach-county/3881532/"
       }
     ]
+  },
+  {
+    "slug": "palm-beach-county-data-center-rules-consultant",
+    "title": "Who Should Write Palm Beach County's Data Center Rules?",
+    "h1": "Who Should Write Palm Beach County's Data Center Rules?",
+    "seoTitle": "Palm Beach County Data Center Rules: Consultant Debate Explained",
+    "description": "Palm Beach County staff recommended hiring consultant VHB for about $225,000 to write permanent data center rules before the moratorium ends. Commissioners asked for more options. Both sides of the debate.",
+    "category": "Development",
+    "published": "2026-11-02",
+    "updated": "2026-11-02",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic large modern windowless data center with rooftop cooling units on flat land beside pine trees, cloudy Florida sky, chain-link fence, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "When does Palm Beach County's data center moratorium end?",
+        "a": "In September 2027. If permanent rules aren't adopted by then, new applications would be judged under the county's existing code. The moratorium can be extended under specific circumstances."
+      },
+      {
+        "q": "Which consultant did county staff recommend?",
+        "a": "VHB, a planning, engineering and environmental firm, for $199,900 plus up to $25,000 in additional services, or $224,900 total. It was one of the lowest of six offers, which ranged from about $200,000 to $2 million."
+      },
+      {
+        "q": "Why didn't commissioners hire VHB?",
+        "a": "After initially approving the firm, commissioners narrowly passed a reconsideration on Oct. 22, 2026 and asked staff to bring back proposals from other consultants, after concerns about cost, the firm's private data center clients and a lack of information."
+      },
+      {
+        "q": "Does the moratorium apply to Project Tango?",
+        "a": "No. The moratorium exempts projects with existing approvals, including Project Tango's 2016 approvals near 20-Mile Bend."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Commissioners Ask For More Data Center Consultant Options (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/commissioners-ask-for-more-data-center-consultant-options/"
+      }
+    ]
+  },
+  {
+    "slug": "state-road-7-extension-northlake-what-to-know",
+    "title": "The State Road 7 Extension to Northlake: Where It Stands and Why It's Still Debated",
+    "h1": "The State Road 7 Extension to Northlake: Where It Stands and Why It's Still Debated",
+    "seoTitle": "State Road 7 Extension to Northlake Blvd: 2026 Status, Timeline, Debate",
+    "description": "FDOT says construction on the State Road 7 extension from Okeechobee Blvd. to Northlake Blvd. could start in 2028. West Palm Beach is still appealing over Grassy Waters. Timeline, cost and both sides.",
+    "category": "Traffic",
+    "published": "2026-11-02",
+    "updated": "2026-11-02",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic aerial view of a road ending at the edge of a Florida wetland preserve with sawgrass marsh and cypress, canal, golf community with lakes in distance, clear day, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "When will the State Road 7 extension be built?",
+        "a": "FDOT's schedule calls for Phase 1 (Okeechobee Blvd. to 60th Street) construction from spring 2028 to spring 2031, and Phase 2 (60th Street to Northlake Blvd.) from fall 2028 to fall 2031, if permits and legal challenges allow."
+      },
+      {
+        "q": "How much will the State Road 7 extension cost?",
+        "a": "About $137.6 million in total, according to FDOT: about $43.4 million for Phase 1 and $94.2 million for Phase 2."
+      },
+      {
+        "q": "Why does West Palm Beach oppose the State Road 7 extension?",
+        "a": "The city has argued the road could harm Grassy Waters Preserve, which stores its drinking water supply, through flooding or pollution. A judge ruled against the city in May 2025, and the city appealed to the Fourth District Court of Appeal."
+      },
+      {
+        "q": "What changes did FDOT make to the design?",
+        "a": "FDOT added a conservation easement on more than 200 acres, wildlife fencing and crossings, about 709 acres of wetland restoration, no direct stormwater outfalls to the Ibis lakes or Grassy Waters, a narrower median, noise abatement and a shared-use path."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: FDOT Plans More Environmentally Friendly Extension Of State Road 7 (March 6, 2026)",
+        "url": "https://gotowncrier.com/2026/03/fdot-plans-a-more-environmentally-friendly-extension-of-state-road-7/"
+      },
+      {
+        "name": "WLRN: City of West Palm Beach loses environmental fight over State Road 7 extension (May 2025)",
+        "url": "https://www.wlrn.org/transportation/2025-05-06/city-of-west-palm-beach-loses-environmental-fight-over-state-road-7-extension"
+      },
+      {
+        "name": "WPTV: State Road 7 extension gets updates as FDOT pushes forward (Feb. 2026)",
+        "url": "https://www.wptv.com/traffic/traffic-news/state-road-7-extension-gets-updates-as-fdot-pushes-forward-despite-ongoing-legal-challenges"
+      },
+      {
+        "name": "Stet News: West Palm challenges State Road 7 decision, permit fight continues (Aug. 2025)",
+        "url": "https://stetnews.org/2025/08/04/west-palm-challenges-state-road-7-decision-permit-fight-continues/"
+      }
+    ]
   }
 ]
