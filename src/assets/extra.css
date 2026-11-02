@@ -169,3 +169,4 @@
   .dir-body .filters{margin:0}
   .dir-body .count-note{margin:14px 0 22px}
   @media (max-width:640px){.page-head .wrap{padding-top:44px;padding-bottom:48px}.page-head .page-search{flex-direction:row}}
+  .prose .update,.update{background:#FFF7E8;border-left:4px solid #C9A24A;padding:12px 16px;border-radius:6px;font-size:15px;margin:0 0 22px}

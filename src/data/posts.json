@@ -3042,5 +3042,57 @@
         "url": "https://gotowncrier.com/2026/08/lox-groves-council-tries-again-to-simplify-rv-program-rules/"
       }
     ]
+  },
+  {
+    "slug": "greenacres-plane-crash-learjet-military-trail",
+    "title": "Greenacres Plane Crash: What We Know About the Learjet Crash on Military Trail",
+    "h1": "Greenacres Plane Crash: What We Know About the Learjet Crash on Military Trail",
+    "seoTitle": "Greenacres Plane Crash Nov. 1, 2026: What We Know (Military Trail)",
+    "description": "A Learjet 60 with nine aboard crashed near Military Trail and 10th Avenue North in Greenacres, Palm Beach County, on Nov. 1, 2026. Verified facts, road closures, evacuations and the NTSB investigation.",
+    "category": "Community",
+    "published": "2026-11-02",
+    "updated": "2026-11-02",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic wide suburban South Florida road closed with orange and white barricades on wet pavement, overcast rainy sky, palm trees, no vehicles or people, no wreckage, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Where did the plane crash in Palm Beach County?",
+        "a": "Near Military Trail and 10th Avenue North in the Greenacres area of Palm Beach County, about 7 miles southwest of West Palm Beach, on Sunday, Nov. 1, 2026."
+      },
+      {
+        "q": "How many people died in the Greenacres plane crash?",
+        "a": "All nine people aboard the Learjet 60 were killed. Officials said no one on the ground was reported hurt."
+      },
+      {
+        "q": "Where was the plane going?",
+        "a": "The jet departed Austin-Bergstrom International Airport in Texas and was headed to North Eleuthera Airport in the Bahamas, according to the FAA."
+      },
+      {
+        "q": "Is Military Trail closed after the plane crash?",
+        "a": "Yes. Military Trail is closed between Cresthaven Boulevard and 10th Avenue North, and officials said the closure could last for weeks while investigators work and the damaged road is assessed."
+      },
+      {
+        "q": "Who is investigating the crash?",
+        "a": "The National Transportation Safety Board is leading the investigation with help from the FAA. The cause has not been determined."
+      },
+      {
+        "q": "Where did evacuated residents go?",
+        "a": "About 600 residents of a nearby mobile home community were evacuated, and evacuees were moved to the Greenacres Community Center at 501 Swain Blvd."
+      }
+    ],
+    "sources": [
+      {
+        "name": "PBS NewsHour / Associated Press: All 9 people aboard a jet that crashed in Florida have died (Nov. 1, 2026)",
+        "url": "https://www.pbs.org/newshour/nation/all-9-people-aboard-a-jet-that-crashed-in-florida-have-died-transportation-secretary-says"
+      },
+      {
+        "name": "CBS12: NTSB to brief on deadly Florida jet crash as 600 residents remain displaced (Nov. 2, 2026)",
+        "url": "https://cbs12.com/news/local/ntsb-to-brief-on-deadly-greenacres-jet-crash-as-600-residents-remain-displacedgreenacres-plane-crash-greenacres-jet-crash-learjet-60-crash-military-trail-crash-10th-avenue-north-crash-palm-beach-county-plane-crash-nine-killed-in-plane-crash-600-re"
+      },
+      {
+        "name": "NBC6 South Florida: Live updates on the Palm Beach County Learjet 60 crash (Nov. 1, 2026)",
+        "url": "https://www.nbcmiami.com/news/local/officials-respond-to-fiery-aircraft-incident-in-palm-beach-county/3881532/"
+      }
+    ]
   }
 ]
