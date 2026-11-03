@@ -2231,7 +2231,7 @@
     "description": "Florida's Infill Redevelopment Act could turn closed golf courses like Wellington's Polo West into homes without public hearings, and Royal Palm Beach's Village Golf Club is next in line. How it works and both sides.",
     "category": "Development",
     "published": "2026-10-23",
-    "updated": "2026-10-23",
+    "updated": "2026-11-03",
     "readMins": 5,
     "coverPrompt": "Photorealistic golf course fairway in suburban South Florida with a row of new single-family homes under construction along its edge, palm trees, a lake, construction fencing, bright midday light, no people, no text, no logos, no signage",
     "faq": [
@@ -2249,6 +2249,10 @@
       }
     ],
     "sources": [
+      {
+        "name": "Town-Crier: RPB Looking Into Ways To Challenge Golf Course's Potential Redevelopment (Oct. 30, 2026)",
+        "url": "https://gotowncrier.com/2026/10/rpb-looking-into-ways-to-challenge-golf-courses-potential-redevelopment/"
+      },
       {
         "name": "Town-Crier: New State Law Could Bring Homes To RPB Golf Course (Oct. 16, 2026)",
         "url": "https://gotowncrier.com/2026/10/new-state-law-could-bring-homes-to-rpb-golf-course/"
@@ -3172,6 +3176,110 @@
       {
         "name": "Stet News: West Palm challenges State Road 7 decision, permit fight continues (Aug. 2025)",
         "url": "https://stetnews.org/2025/08/04/west-palm-challenges-state-road-7-decision-permit-fight-continues/"
+      }
+    ]
+  },
+  {
+    "slug": "pine-crest-school-west-palm-beach-campus-stephen-ross",
+    "title": "Pine Crest School Plans a West Palm Beach Campus With $100 Million From Stephen Ross",
+    "h1": "Pine Crest School Plans a West Palm Beach Campus With $100 Million From Stephen Ross",
+    "seoTitle": "Pine Crest School West Palm Beach Campus: $100M Stephen Ross Gift, 57 Acres",
+    "description": "Pine Crest School plans a pre-K–12 campus on 57 acres of city land on Roebuck Road in West Palm Beach, backed by a $100 million Stephen M. Ross Foundation gift. What's planned, the land deal and the questions raised.",
+    "category": "Schools",
+    "published": "2026-11-03",
+    "updated": "2026-11-03",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic aerial view of a large undeveloped green tract with pines and wetlands beside a highway in suburban South Florida, distant school campus with athletic fields, sunny day, no text, no logos, no signage, no people",
+    "faq": [
+      {
+        "q": "Where will Pine Crest's West Palm Beach campus be?",
+        "a": "On about 57 acres of city-owned land on Roebuck Road near Florida's Turnpike in West Palm Beach. The West Palm Beach City Commission approved a tentative $6.6 million sale on July 20, 2026; a final agreement still needs approval."
+      },
+      {
+        "q": "How much did Stephen Ross give to Pine Crest?",
+        "a": "Pine Crest confirmed a $100 million commitment from the Stephen M. Ross Foundation in September 2026, supporting the new campus and programs across all three campuses."
+      },
+      {
+        "q": "What grades will Pine Crest West Palm Beach serve?",
+        "a": "Pre-K through 12th grade are planned. Pine Crest says details on grade levels, admissions, staffing and the opening timeline are still being finalized."
+      },
+      {
+        "q": "Will it be Pine Crest's largest campus?",
+        "a": "Yes. At about 57 acres, it would be larger than the Fort Lauderdale (48 acres) and Boca Raton (28 acres) campuses."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Pine Crest School: Growing Together (West Palm Beach campus updates)",
+        "url": "https://www.pinecrest.edu/growing-together"
+      },
+      {
+        "name": "The Palm Beach Post via AOL: West Palm makes way for Pine Crest School to build its largest campus (July 22, 2026)",
+        "url": "https://www.aol.com/articles/west-palm-makes-way-pine-141214000.html"
+      },
+      {
+        "name": "Lifestyles Magazine: $100 million gift as a vote of confidence: Stephen M. Ross brings Pine Crest to West Palm Beach (Sept. 2026)",
+        "url": "https://lifestylesmagazine.com/latest-news/100-million-gift-as-a-vote-of-confidence-stephen-m-ross-brings-pine-crest-to-west-palm-beach/"
+      },
+      {
+        "name": "Wikipedia: Related Ross",
+        "url": "https://en.wikipedia.org/wiki/Related_Ross"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-aquatics-center-hours-prices-guide",
+    "title": "Wellington Aquatics Center: Hours, Prices, Memberships and What's Inside",
+    "h1": "Wellington Aquatics Center: Hours, Prices, Memberships and What's Inside",
+    "seoTitle": "Wellington Aquatics Center Hours, Prices and Memberships (2026)",
+    "description": "Wellington Aquatics Center at Village Park: current hours, resident and non-resident prices, annual and summer memberships, the NinjaCross course, and the debate over the nearly $28 million pool.",
+    "category": "Things to Do",
+    "published": "2026-11-03",
+    "updated": "2026-11-03",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic wide view of a modern outdoor public aquatics center in suburban South Florida, Olympic-size competition pool with lane lines and diving boards beside a family recreation pool with a splash play structure, umbrellas, palm trees, blue sky, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Where is the Wellington Aquatics Center?",
+        "a": "The Wellington Aquatics Center is at 3410 120th Ave. S., Wellington, FL 33414, at the southwest side of Village Park. It opened on Jan. 3, 2026, and replaced the old Wellington Aquatics Complex on Forest Hill Blvd., which closed permanently on Dec. 31, 2025."
+      },
+      {
+        "q": "What are the Wellington Aquatics Center hours?",
+        "a": "From Labor Day to Memorial Day, it is open Monday through Saturday from 9 a.m. to 7 p.m. and Sunday from noon to 7 p.m. From Memorial Day to Labor Day, it is open Monday through Saturday from 8 a.m. to 8 p.m. and Sunday from noon to 8 p.m. NinjaCross and the diving boards have shorter hours, and the pool closes if the water drops below 75 degrees or for bad weather."
+      },
+      {
+        "q": "How much does the Wellington Aquatics Center cost?",
+        "a": "Daily admission for Wellington residents is $7 for adults, $5 for children ages 3 to 17 and $4 for seniors 55 and up. Non-residents pay $10, $8 and $7. Tax is included. Annual and summer memberships are also available and must be bought in person."
+      },
+      {
+        "q": "What is NinjaCross at the Wellington Aquatics Center?",
+        "a": "NinjaCross is a retractable obstacle course of rings, bars and platforms hung over the recreation pool, which the village says was the first in Florida. Guests must be at least 48 inches tall and pass a swim test to use it."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Wellington Aquatics Center (hours, features)",
+        "url": "https://www.wellingtonfl.gov/230/Aquatics-Center"
+      },
+      {
+        "name": "Village of Wellington: Aquatics Center Admission & Passes",
+        "url": "https://www.wellingtonfl.gov/631/Admission-Passes"
+      },
+      {
+        "name": "Town-Crier: New Wellington Aquatics Center Proving Popular With Residents (May 29, 2026)",
+        "url": "https://gotowncrier.com/2026/05/new-wellington-aquatics-center-proving-popular-with-residents/"
+      },
+      {
+        "name": "Town-Crier: State-Of-The-Art Pools At The New Wellington Aquatics Center (Jan. 9, 2026)",
+        "url": "https://gotowncrier.com/2026/01/state-of-the-art-pools-at-the-new-wellington-aquatics-center/"
+      },
+      {
+        "name": "Town-Crier: Wellington To Celebrate Opening Of New Aquatics Center Jan. 3 (Dec. 26, 2025)",
+        "url": "https://gotowncrier.com/2025/12/wellington-to-celebrate-opening-of-new-aquatics-center-jan-3/"
+      },
+      {
+        "name": "Palm Beach Post via Yahoo: Village approves $27.9 million aquatic center for Village Park (April 2024)",
+        "url": "https://www.yahoo.com/news/wellington-growing-village-approves-27-091716839.html"
       }
     ]
   }
