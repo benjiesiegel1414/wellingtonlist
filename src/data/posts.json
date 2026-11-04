@@ -3378,5 +3378,81 @@
         "url": "https://gotowncrier.com/2026/05/new-wellington-aquatics-center-proving-popular-with-residents/"
       }
     ]
+  },
+  {
+    "slug": "florida-amendment-3-passed-homestead-exemption-palm-beach-county",
+    "title": "Florida Amendment 3 Passed: What the $250,000 Homestead Exemption Means for You",
+    "h1": "Florida Amendment 3 Passed: What the $250,000 Homestead Exemption Means for You",
+    "seoTitle": "Florida Amendment 3 Passed: New Homestead Exemption Explained (2026)",
+    "description": "Florida Amendment 3 passed Nov. 3, 2026. The homestead exemption rises to $150,000 in 2027 and $250,000 in 2028 for non-school taxes. When it starts, how to estimate your savings, and what it means for Palm Beach County and Wellington.",
+    "category": "News",
+    "published": "2026-11-04",
+    "updated": "2026-11-04",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic suburban South Florida single-family home with a tile roof, palm trees and a manicured lawn at golden hour, residential street, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Did Florida Amendment 3 pass in 2026?",
+        "a": "Yes. Amendment 3 was approved on Nov. 3, 2026, with about 62% of the statewide vote in unofficial returns, above the 60% required. In Palm Beach County it received 60.00% yes, according to unofficial results from the Supervisor of Elections."
+      },
+      {
+        "q": "What does Florida Amendment 3 do?",
+        "a": "It raises the homestead exemption for non-school property taxes from $50,000 to $150,000 in 2027 and $250,000 in 2028, then adjusts it for inflation. It also lowers the yearly assessment cap on non-homestead property from 10% to 5% and directs local governments to spend property tax revenue on purposes such as public safety, education and infrastructure."
+      },
+      {
+        "q": "When does the Amendment 3 homestead exemption take effect?",
+        "a": "The $150,000 exemption applies to the 2027 tax year and the $250,000 exemption to 2028. Most homeowners will first see it on the property tax bill that arrives in November 2027."
+      },
+      {
+        "q": "Does Amendment 3 lower school property taxes?",
+        "a": "No. The larger exemption applies only to non-school property taxes. School district taxes are not affected."
+      },
+      {
+        "q": "How can I estimate my Amendment 3 savings in Palm Beach County?",
+        "a": "The Palm Beach County Property Appraiser's Office offers an Amendment 3 calculator on pbcpao.gov where homestead owners enter their address. Savings depend on your assessed value and local non-school millage rates, which can change each year."
+      },
+      {
+        "q": "I'm moving to Florida. Do I get the new exemption?",
+        "a": "People who were not Florida residents on Dec. 31, 2026 get the current exemption when they first qualify, and the larger exemption starting in their fifth year, according to News4Jax."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Bay News 9: Florida voters approve Amendment 3, providing property tax relief for homeowners (Nov. 4, 2026)",
+        "url": "https://baynews9.com/fl/tampa/news/2026/11/04/florida-voters-approve-amendment--providing-property-tax-relief-for-homeowners"
+      },
+      {
+        "name": "CBS12: Amendment 3 passes with 62% of the vote; what it means for homeowners and local services",
+        "url": "https://cbs12.com/news/local/florida-amendment-3-what-a-yes-or-no-vote-means-for-homeowners-and-local-services"
+      },
+      {
+        "name": "News4Jax: Florida voters decide on property taxes, state reserves and farm equipment exemptions (Nov. 3, 2026)",
+        "url": "https://www.news4jax.com/news/local/2026/11/03/florida-voters-to-decide-on-property-taxes-state-reserves-and-farm-equipment-exemptions/"
+      },
+      {
+        "name": "Palm Beach County Supervisor of Elections: 2026 General Election unofficial results",
+        "url": "https://enr.electionsfl.org/PAL/4131/Summary/"
+      },
+      {
+        "name": "CBS12: Amendment 3, what could change in Palm Beach County (Aug. 31, 2026)",
+        "url": "https://cbs12.com/news/cbs12-news-i-team/amendment-3-property-tax-exemption-lost-revenue-service-cuts-palm-beach-county-administrator-joseph-abruzzo-250-million-at-risk-florida-news"
+      },
+      {
+        "name": "WPTV: Palm Beach County launching Amendment 3 calculator (Sept. 22, 2026)",
+        "url": "https://wptv.com/money/real-estate-news/palm-beach-county-launching-amendment-3-calculator-to-help-homeowners-estimate-impact-before-november-vote"
+      },
+      {
+        "name": "Palm Beach County Property Appraiser: Amendment 3 calculator",
+        "url": "https://pbcpao.gov/calc-amend3-tax.htm"
+      },
+      {
+        "name": "WLRN: 4 things to know about Palm Beach County's $175 million library bond (Oct. 19, 2026)",
+        "url": "https://www.wlrn.org/government-politics/2026-10-19/4-things-to-know-about-palm-beach-countys-175-million-library-bond-on-the-nov-3-ballot"
+      },
+      {
+        "name": "Town-Crier: Wellington Village Council May Lower Tax Rate, But Not This Year (Oct. 2, 2026)",
+        "url": "https://gotowncrier.com/2026/10/wellington-village-council-may-lower-tax-rate-but-not-this-year/"
+      }
+    ]
   }
 ]
