@@ -1923,7 +1923,7 @@
     "description": "Wellington cut its budget by $5.5 million but kept the tax rate at 2.47 mills. Why the council voted 4-1 to wait, what Amendment 3 could cost the Village, and what both sides say.",
     "category": "Community",
     "published": "2026-10-20",
-    "updated": "2026-10-20",
+    "updated": "2026-11-04",
     "readMins": 6,
     "coverPrompt": "Photorealistic upscale South Florida suburban street of single-family homes with tile roofs, manicured lawns and palm trees, a stack of mail with an envelope on a front porch table in the foreground, soft morning light, no people, no text, no logos",
     "faq": [
@@ -2771,7 +2771,7 @@
     "description": "Early voting in Palm Beach County runs through Sunday, Nov. 1, 7 a.m. to 7 p.m. The sites closest to Wellington, what ID to bring, vote-by-mail deadlines and Election Day info.",
     "category": "Community",
     "published": "2026-10-29",
-    "updated": "2026-10-29",
+    "updated": "2026-11-04",
     "readMins": 3,
     "coverPrompt": "Photorealistic modern single-story public library in suburban South Florida, short line of adult voters outside seen from a distance, palm trees, sunny morning, no text, no logos, no signage, no flags",
     "faq": [
@@ -3280,6 +3280,102 @@
       {
         "name": "Palm Beach Post via Yahoo: Village approves $27.9 million aquatic center for Village Park (April 2024)",
         "url": "https://www.yahoo.com/news/wellington-growing-village-approves-27-091716839.html"
+      }
+    ]
+  },
+  {
+    "slug": "palm-beach-county-election-results-2026-wellington",
+    "title": "Palm Beach County Election Results 2026: Wellington and the Western Communities",
+    "h1": "Palm Beach County Election Results 2026: Wellington and the Western Communities",
+    "seoTitle": "Palm Beach County Election Results 2026: District 6, ITID, House 93 and 94",
+    "description": "Unofficial Nov. 3, 2026 results for Wellington, Royal Palm Beach, The Acreage, Loxahatchee Groves and Westlake: County Commission District 6, State House 93 and 94, ITID seats, amendments and county questions.",
+    "category": "News",
+    "published": "2026-11-04",
+    "updated": "2026-11-04",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic exterior of a suburban South Florida community center at dusk with warm window light, palm trees and a pink sky, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Who won the Palm Beach County Commission District 6 race in 2026?",
+        "a": "In unofficial results from the Palm Beach County Supervisor of Elections, Katherine Waldron (DEM) received 58.21% (50,844 votes) and Sara Baxter (REP) received 41.79% (36,509 votes). District 6 includes the western communities, and the Town-Crier reported Waldron is set to take office Nov. 17."
+      },
+      {
+        "q": "What was Palm Beach County's turnout in the Nov. 3, 2026 election?",
+        "a": "Unofficial turnout was 64.81%, with 576,527 ballots cast out of 889,577 registered voters, according to the Supervisor of Elections."
+      },
+      {
+        "q": "Who represents Wellington in the Florida House after the 2026 election?",
+        "a": "In State House District 93, which the Town-Crier says includes Wellington, August Mangeney (DEM) received 56.19% and Anne Gerwig (REP) 43.81% in unofficial results. District 94, covering The Acreage, Loxahatchee Groves, Westlake and parts of Royal Palm Beach, went 50.34% for Elizabeth Holmes (DEM) and 47.98% for Megan Weinberger (REP)."
+      },
+      {
+        "q": "Are the 2026 Palm Beach County election results final?",
+        "a": "Not yet. As of the morning of Nov. 4, results were unofficial, with all 814 precincts reporting but vote-by-mail still partially reported until after the signature cure and overseas ballot deadlines. Results become official after certification."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Palm Beach County Supervisor of Elections: 2026 General Election unofficial results",
+        "url": "https://enr.electionsfl.org/PAL/4131/Summary/"
+      },
+      {
+        "name": "Town-Crier: Election Brings New County Commissioner, State Reps To Western Communities (Nov. 4, 2026)",
+        "url": "https://gotowncrier.com/2026/11/election-brings-new-county-commissioner-state-reps-to-western-communities/"
+      },
+      {
+        "name": "Florida Division of Elections: Election Results",
+        "url": "https://results.elections.myflorida.com/"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-school-zone-speed-cameras-how-they-work",
+    "title": "Wellington School Zone Speed Cameras: Fines, Hours, Where the Money Goes",
+    "h1": "Wellington School Zone Speed Cameras: Fines, Hours, Where the Money Goes",
+    "seoTitle": "Wellington School Zone Speed Cameras: $100 Fines, Hours and the Debate",
+    "description": "How Wellington's school zone speed cameras work: the $100 fine, all-day enforcement, where the money goes, what the data shows, and the debate over safety, revenue and a court challenge.",
+    "category": "Community",
+    "published": "2026-11-04",
+    "updated": "2026-11-04",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic suburban South Florida school zone road with a pole-mounted speed camera, a yellow flashing beacon, crosswalk, palm trees and a low school building, bright morning light, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How much is a school zone speed camera ticket in Wellington, FL?",
+        "a": "A notice of violation is $100, mailed to the registered owner. Of that, $50 goes to the Village of Wellington, $23 to the Florida Department of Revenue, $12 to the school district, $10 to the camera vendor and $5 to the Sheriff's Office, according to the village."
+      },
+      {
+        "q": "When are Wellington's school zone speed cameras on?",
+        "a": "They operate on school days from about a half hour before school starts until a half hour after it ends, not only when the yellow lights flash. Drivers going 11 mph or more over the speed limit in effect at that moment can get a notice."
+      },
+      {
+        "q": "How many schools have speed cameras in Wellington?",
+        "a": "Eleven school zones where the village has authority, including Somerset Academy. Palm Beach Central High is excluded because of jurisdiction issues on Forest Hill Blvd., the Town-Crier reported."
+      },
+      {
+        "q": "Can I contest a Wellington speed camera ticket?",
+        "a": "Yes. Drivers have 30 days to pay or contest a notice, typically through a hearing before a village magistrate."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Wellington Data: Cameras Led To Drop In Speeding Near Schools (July 24, 2026)",
+        "url": "https://gotowncrier.com/2026/07/wellington-data-cameras-led-to-drop-in-speeding-near-schools/"
+      },
+      {
+        "name": "WFLX: Wellington speed cameras issue 14,000+ citations in 4 months as officials defend school zone program (Jan. 2026)",
+        "url": "https://www.wflx.com/2026/01/21/wellington-speed-cameras-issue-14000-citations-4-months-officials-defend-school-zone-program/"
+      },
+      {
+        "name": "Town-Crier: Cameras To Be Operational Throughout The School Day This Fall In Wellington (June 27, 2025)",
+        "url": "https://gotowncrier.com/2025/06/cameras-to-be-operational-throughout-the-school-day-this-fall-in-wellington/"
+      },
+      {
+        "name": "Town-Crier: Court Ruling Complicates County Plan For School Speed Cameras (April 17, 2026)",
+        "url": "https://gotowncrier.com/2026/04/court-ruling-complicates-county-plan-for-school-speed-cameras/"
+      },
+      {
+        "name": "Town-Crier: New Wellington Aquatics Center Proving Popular With Residents (May 29, 2026), workshop data",
+        "url": "https://gotowncrier.com/2026/05/new-wellington-aquatics-center-proving-popular-with-residents/"
       }
     ]
   }
