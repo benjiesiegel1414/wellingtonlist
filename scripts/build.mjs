@@ -150,7 +150,9 @@ const sponsorShowcase = `
 // Display ad spaces: one banner near the bottom of each page and one sidebar box. Each links to /advertise/.
 const adBanner = `<a class="ad-space ad-banner" href="/advertise/"><span class="ad-label">Advertisement</span><span class="ad-main"><b>Your business here</b><span>Reach Wellington residents on Wellington List.</span></span><span class="ad-cta">Advertise here &rarr;</span></a>`;
 const adBox = `<a class="ad-space ad-box" href="/advertise/"><span class="ad-label">Advertisement</span><b>Your business here</b><span>Put your Wellington business in front of local readers.</span><span class="ad-cta">Advertise here &rarr;</span></a>`;
-const sponsor = (variant = "top") => variant === "rect" ? `<div class="sp-side">${adBox}</div>` : variant === "bottom" ? adBanner : "";
+// Ad placeholders are switched off while the site is under AdSense review (set SHOW_AD_SPACES = true to bring them back).
+const SHOW_AD_SPACES = false;
+const sponsor = (variant = "top") => !SHOW_AD_SPACES ? "" : variant === "rect" ? `<div class="sp-side">${adBox}</div>` : variant === "bottom" ? adBanner : "";
 const newsletter = ""; // email signup removed for now
 
 const footer = `
@@ -322,9 +324,8 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
   <div class="re-grid">
     <ul class="hoods">${["Olympia", "Palm Beach Polo", "Grand Isles", "Village Walk", "Equestrian Preserve", "Saddle Trail", "Wellington Shores", "Black Diamond"].map(h => `<li>${h}</li>`).join("")}</ul>
     <div>
-      <div class="agent"><span class="pill spons">Featured agent</span><div class="avatar">You</div>
-        <div><h3 class="h4" style="font-family:var(--serif);font-weight:500;font-size:24px;margin:0">Your name here</h3><p>The featured agent spot appears across Wellington List's real estate and neighborhood coverage.</p><a class="btn btn-ghost" href="/advertise/">Claim this spot</a></div></div>
-      <p class="advert-note">Local business? Reach Wellington residents with a display ad on Wellington List. <a href="/advertise/">See advertising options</a></p>
+      <p>Wellington is a village of about 60,000 people in western Palm Beach County, known for its equestrian season, parks and highly rated public schools. Our guides cover <a href="/blog/schools-in-wellington-fl-guide/">schools</a>, <a href="/blog/best-parks-wellington-fl/">parks</a>, new development and the decisions shaping the village.</p>
+      <p class="advert-note">Local business? <a href="/advertise/">Advertise on Wellington List</a></p>
     </div>
   </div>
 </div></section>
@@ -584,9 +585,17 @@ for (const p of places) {
     offers: { "@type": "Offer", url: e.url || SITE + "/events/#" + e.slug, availability: "https://schema.org/InStock", validFrom: e.start, ...(e.price !== undefined ? { price: String(e.price), priceCurrency: "USD" } : {}) } }));
   const body = pageHead(crumbs, "Events in Wellington, FL", "Horse shows, polo, festivals and community events happening in and around Wellington.") + `<div class="wrap">${sponsor()}</div>
 <div class="wrap body-grid"><div>
+  <div class="prose" style="margin:28px 0 8px"><p>Wellington's calendar is busiest from January through April, when the <a href="/blog/winter-equestrian-festival-2027-guide/">Winter Equestrian Festival</a>, polo at the National Polo Center and the Global Dressage Festival bring riders and visitors from around the world. The rest of the year, free concerts and movie nights at the <a href="/blog/wellington-amphitheater-events-guide/">Wellington Amphitheater</a>, holiday events and village festivals fill the schedule. Below are upcoming events we've confirmed with organizers; dates can change, so check the event link before you go.</p></div>
   <ul class="event-list">${events.map(e => `<li class="event-item" id="${e.slug}"><div class="date">${dateChip(e, true)}</div>
     <div><h3>${esc(e.title)}</h3><div class="when">${e.dateNote ? esc(e.dateNote) : fmtDate(e.start) + (e.end && e.end !== e.start ? " to " + fmtDate(e.end) : "")}</div>
     <p>${esc(e.desc)}</p><p><strong>${e.venueSlug ? `<a href="/places/${e.venueSlug}/">${esc(e.venue)}</a>` : esc(e.venue)}</strong>${e.address ? ", " + esc(e.address) : ""}</p>${e.url ? `<p><a href="${esc(e.url)}" rel="noopener" target="_blank">Event details</a></p>` : ""}</div></li>`).join("")}</ul>
+  <div class="prose" style="margin-top:28px"><h2>More ways to plan your weekend</h2><ul>
+    <li><a href="/blog/wellington-amphitheater-events-guide/">Wellington Amphitheater schedule</a>: free concerts, movies and food trucks</li>
+    <li><a href="/blog/winter-equestrian-festival-2027-guide/">Winter Equestrian Festival 2027 guide</a>: dates, tickets, parking and Saturday Night Lights</li>
+    <li><a href="/blog/mall-at-wellington-green-directory-stores-hours/#holidays">Holiday events at The Mall at Wellington Green</a>: Santa photos and seasonal events</li>
+    <li><a href="/blog/things-to-do-with-kids-wellington-fl/">Things to do with kids in Wellington</a></li>
+    <li><a href="/things-to-do/">Parks, attractions and things to do</a></li>
+  </ul></div>
   <div class="claim" style="margin-top:32px">Hosting something in Wellington? <a href="/submit-event/">Submit your event</a> and we will add it to the calendar for free.</div>
 </div><aside><div class="sticky-rail">${sponsor("rect")}</div></aside></div>
 <div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
@@ -636,7 +645,7 @@ for (const p of places) {
 const formPage = ({ urlPath, crumb, h1, sub, title, description, form, side }) => {
   const crumbs = [["Home", "/"], [crumb, urlPath]];
   const body = pageHead(crumbs, h1, sub) + `<div class="wrap body-grid"><div>${form}</div><aside><div class="sticky-rail">${side || sponsor("rect")}</div></aside></div>${newsletter}`;
-  add(urlPath, layout({ title, description, urlPath, body, jsonld: [crumbsLD(crumbs)] }), "0.5");
+  write(urlPath.slice(1) + "index.html", layout({ title, description, urlPath, body, jsonld: [crumbsLD(crumbs)], noindex: true }));
 };
 const hp = `<span class="hp"><label>Leave blank<input name="website_url_hp" tabindex="-1" autocomplete="off"></label></span>`;
 const catOptions = CATS.filter(c => c.id !== "coming-soon" && c.id !== "nearby").map(c => `<option>${c.label}</option>`).join("");
@@ -655,7 +664,7 @@ formPage({
     <label>Short description <span class="hint">Two or three sentences about what you do</span><textarea name="description" maxlength="600"></textarea></label>
     <label><span><input type="checkbox" name="interested_in_featured" value="yes"> I'm interested in a featured or sponsored placement</span></label>
     ${hp}<button class="btn btn-primary" type="submit">Submit listing</button><div class="status" role="status"></div></form>`,
-  side: `<div class="info-card"><strong>What happens next</strong><ul class="tips"><li>We verify the business is in or serves Wellington</li><li>Your listing goes live with its own page</li><li>Want to stand out? Ask about featured placement</li></ul><a class="btn btn-ghost" href="/advertise/">See sponsorship options</a></div>`
+  side: `<div class="info-card"><strong>What happens next</strong><ul class="tips"><li>We verify the business is in or serves Wellington</li><li>Your listing goes live with its own page</li><li>Business owners can update or correct a listing any time</li></ul></div>`
 });
 formPage({
   urlPath: "/submit-event/", crumb: "Submit an event", h1: "Submit a Wellington event",
