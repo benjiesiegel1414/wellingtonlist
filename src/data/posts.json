@@ -3450,5 +3450,57 @@
         "url": "https://gotowncrier.com/2026/10/wellington-village-council-may-lower-tax-rate-but-not-this-year/"
       }
     ]
+  },
+  {
+    "slug": "mall-at-wellington-green-directory-stores-hours",
+    "title": "The Mall at Wellington Green Directory: Stores, Restaurants and Hours (2026)",
+    "h1": "The Mall at Wellington Green Directory: Every Store, Restaurant and Hours",
+    "seoTitle": "Mall at Wellington Green Directory 2026: Stores, Restaurants & Hours",
+    "description": "The Mall at Wellington Green store directory for 2026: every store, restaurant and attraction by category, plus mall hours, Santa photo dates and visiting tips. 10300 Forest Hill Blvd, Wellington, FL.",
+    "category": "Shopping",
+    "published": "2026-11-05",
+    "updated": "2026-11-05",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic interior of a bright two-level suburban shopping mall concourse in South Florida with skylights, palm planters, escalators and shoppers in the distance, no text, no logos, no signage, no store names",
+    "faq": [
+      {
+        "q": "What stores are at The Mall at Wellington Green?",
+        "a": "The mall's official directory lists about 150 stores, restaurants and attractions, including department stores Dillard's, JCPenney and Macy's, City Furniture, Ashley Homestore, the Apple Store, H&M, American Eagle, Hollister, Bath & Body Works, Victoria's Secret, Pandora and Foot Locker, plus CMX Cinemas Wellington 10, Palm Beach Improv and Copper Blues."
+      },
+      {
+        "q": "What are The Mall at Wellington Green hours?",
+        "a": "Mall hours are Monday through Saturday from 10 a.m. to 8 p.m. and Sunday from 11 a.m. to 6 p.m., according to the mall's website. Restaurants, department stores and the movie theater may keep different hours, and extended holiday hours are posted each season."
+      },
+      {
+        "q": "Where is The Mall at Wellington Green?",
+        "a": "The mall is at 10300 Forest Hill Blvd., Wellington, FL 33414, at the corner of Forest Hill Blvd. and State Road 7. The mall office phone number is (561) 227-6900."
+      },
+      {
+        "q": "When is Santa at The Mall at Wellington Green in 2026?",
+        "a": "The mall's events calendar lists photos with Santa starting Nov. 13, 2026, with Santa's arrival celebration on Nov. 14, pet photos with Santa on Nov. 30 and Dec. 7, and a Sensory Santa visit on Dec. 6. Photo packages can be reserved online through the mall's website."
+      },
+      {
+        "q": "Is there a movie theater at The Mall at Wellington Green?",
+        "a": "Yes. CMX Cinemas Wellington 10 is inside the mall."
+      },
+      {
+        "q": "What happened to Nordstrom at The Mall at Wellington Green?",
+        "a": "The Nordstrom store has been closed since 2019. A developer has proposed replacing the space with about 620 apartments."
+      }
+    ],
+    "sources": [
+      {
+        "name": "The Mall at Wellington Green: Directory of Stores (checked Nov. 5, 2026)",
+        "url": "https://shopwellingtongreen.com/directory/"
+      },
+      {
+        "name": "The Mall at Wellington Green: Upcoming Events",
+        "url": "https://shopwellingtongreen.com/events/"
+      },
+      {
+        "name": "Wellington List: Mall at Wellington Green Nordstrom site apartments",
+        "url": "https://wellingtonlist.com/blog/mall-at-wellington-green-nordstrom-apartments/"
+      }
+    ]
   }
 ]
