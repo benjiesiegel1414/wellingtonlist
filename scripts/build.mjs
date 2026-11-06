@@ -147,8 +147,10 @@ const sponsorShowcase = `
   <div class="sp-show-head"><div><h2 id="sp-show-h">Wellington's local sponsors</h2><p>The local businesses that help keep Wellington List free.</p></div><a class="sp-count" href="/advertise/">${spLeft} &middot; $${SP_PRICE}/month &rarr;</a></div>
   <div class="sp-grid">${SP_SLOTS.map(spCard).join("")}${spAdCard}</div>
 </div></section>`;
-// In-page sponsor placements: the wide banners are retired; sidebars show the Advertise card.
-const sponsor = (variant = "leader") => variant === "rect" ? `<div class="sp-side">${spAdCard}</div>` : "";
+// Display ad spaces: one banner near the bottom of each page and one sidebar box. Each links to /advertise/.
+const adBanner = `<a class="ad-space ad-banner" href="/advertise/"><span class="ad-label">Advertisement</span><span class="ad-main"><b>Your business here</b><span>Reach Wellington residents on Wellington List.</span></span><span class="ad-cta">Advertise here &rarr;</span></a>`;
+const adBox = `<a class="ad-space ad-box" href="/advertise/"><span class="ad-label">Advertisement</span><b>Your business here</b><span>Put your Wellington business in front of local readers.</span><span class="ad-cta">Advertise here &rarr;</span></a>`;
+const sponsor = (variant = "top") => variant === "rect" ? `<div class="sp-side">${adBox}</div>` : variant === "bottom" ? adBanner : "";
 const newsletter = ""; // email signup removed for now
 
 const footer = `
@@ -159,9 +161,9 @@ const footer = `
       <div><h2 class="foot-h">Read</h2><ul><li><a href="/blog/">News and guides</a></li><li><a href="/events/">Events</a></li><li><a href="/equestrian/">Equestrian</a></li><li><a href="/things-to-do/">Things to do</a></li></ul></div>
       <div><h2 class="foot-h">Find</h2><ul><li><a href="/restaurants/">Restaurants</a></li><li><a href="/directory/?cat=parks">Parks</a></li><li><a href="/directory/?cat=shopping">Shopping</a></li><li><a href="/directory/">Full directory</a></li></ul></div>
       <div><h2 class="foot-h">Popular guides</h2><ul><li><a href="/blog/best-dentists-wellington-fl/">Best dentists</a></li><li><a href="/blog/schools-in-wellington-fl-guide/">Schools and grades</a></li><li><a href="/blog/hospitals-urgent-care-wellington-fl/">ER and urgent care</a></li><li><a href="/blog/best-coffee-shops-wellington-fl/">Coffee shops</a></li><li><a href="/blog/lotis-wellington-restaurants-guide/">Lotis restaurants</a></li><li><a href="/blog/winter-equestrian-festival-2027-guide/">WEF 2027 dates</a></li></ul></div>
-      <div><h2 class="foot-h">Work with us</h2><ul><li><a href="/add-your-business/">Add your business</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/submit-event/">Submit an event</a></li><li><a href="/about/">About</a></li></ul></div>
+      <div><h2 class="foot-h">Work with us</h2><ul><li><a href="/add-your-business/">Add your business</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/submit-event/">Submit an event</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></div>
     </div>
-    <div class="legal"><span>&copy; <span id="yr">${new Date().getFullYear()}</span> Wellington List. Independent and not affiliated with the Village of Wellington.</span><span><a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a> &nbsp; <a href="/privacy/">Privacy</a> &nbsp; <a href="/about/">About</a></span></div>
+    <div class="legal"><span>&copy; <span id="yr">${new Date().getFullYear()}</span> Wellington List. Independent and not affiliated with the Village of Wellington.</span><span><a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a> &nbsp; <a href="/about/">About</a> &nbsp; <a href="/contact/">Contact</a> &nbsp; <a href="/privacy/">Privacy</a> &nbsp; <a href="/terms/">Terms</a></span></div>
   </div>
 </footer>`;
 
@@ -214,11 +216,9 @@ ${sprite}
   <a class="btn btn-primary header-cta" href="/add-your-business/">Add your business</a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
 </div></header>
-${sponsors ? sponsorBar + "\n" + sponsorRails : ""}
 <main id="main">
 ${body}
 </main>
-${sponsors ? sponsorShowcase : ""}
 ${footer}
 <script src="/assets/config.js?v=${ASSET_V}"></script>
 <script src="/assets/main.js?v=${ASSET_V}" defer></script>
@@ -324,11 +324,11 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
     <div>
       <div class="agent"><span class="pill spons">Featured agent</span><div class="avatar">You</div>
         <div><h3 class="h4" style="font-family:var(--serif);font-weight:500;font-size:24px;margin:0">Your name here</h3><p>The featured agent spot appears across Wellington List's real estate and neighborhood coverage.</p><a class="btn btn-ghost" href="/advertise/">Claim this spot</a></div></div>
-      <p class="advert-note">Local business? Reach Wellington residents with a founding sponsor spot on every page for $${SP_PRICE}/month. <a href="/advertise/">See advertising options</a></p>
+      <p class="advert-note">Local business? Reach Wellington residents with a display ad on Wellington List. <a href="/advertise/">See advertising options</a></p>
     </div>
   </div>
 </div></section>
-<div class="wrap">${sponsor()}</div>
+<div class="wrap">${sponsor("bottom")}</div>
 ${newsletter}`;
   add("/", layout({ ads: true,
     title: "Wellington List | Wellington, FL News, Restaurants, Events and Local Directory",
@@ -353,7 +353,7 @@ function directoryPage({ urlPath, crumbs, h1, sub, title, description, list, sho
   <div class="listings" data-filter-grid>${list.map(listingCard).join("")}</div>
   <div class="claim" style="margin-top:36px">Own a Wellington business that should be here? <a href="/add-your-business/">Add it to Wellington List for free</a>.</div>
 </section>
-<div class="wrap">${sponsor()}</div>${newsletter}`;
+<div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
   const ld = [crumbsLD(crumbs), { "@context": "https://schema.org", "@type": "ItemList", name: h1, itemListElement: list.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/places/${p.slug}/`, name: p.name })) }];
   add(urlPath, layout({ title, description, urlPath, body, jsonld: ld }), "0.9");
 }
@@ -456,7 +456,7 @@ directoryPage({
   <h2>Equestrian venues in the directory</h2>
 </article><aside><div class="sticky-rail">${sponsor("rect")}</div></aside></div>
 <section class="wrap" style="padding-bottom:48px"><div class="listings">${eq.map(listingCard).join("")}</div></section>
-<div class="wrap">${sponsor()}</div>${newsletter}`;
+<div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
   add("/equestrian/", layout({ title: "Wellington Equestrian Season Guide 2026 to 2027: WEF, Polo and Dressage", description: "When and where to watch the Winter Equestrian Festival, Sunday polo and the Global Dressage Festival in Wellington, FL, plus spectator tips from locals.", urlPath: "/equestrian/", body, jsonld: [crumbsLD(crumbs)] }), "0.9");
 }
 
@@ -559,7 +559,7 @@ for (const p of places) {
     </div>
   </div></aside>
 </div>
-<div class="wrap">${sponsor()}</div>${newsletter}`;
+<div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
   const firstSentence = p.desc.split(/(?<=[a-z]{3}\.)\s/)[0];
   const cut = (t, n) => t.length <= n ? t : t.slice(0, n - 3).replace(/[\s,;:]+\S*$/, "") + "...";
   let tail = [street ? `${street.split(",")[0]}, ${city}.` : "", p.phone ? `Call ${p.phone}.` : ""].filter(Boolean).join(" ");
@@ -568,7 +568,9 @@ for (const p of places) {
   let desc = cut(firstSentence, budget);
   if ((desc + " " + tail).length <= 160) desc = (desc + " " + tail).trim();
   if (p.meta) desc = p.meta;
-  add(`/places/${p.slug}/`, layout({ title, description: desc, urlPath: `/places/${p.slug}/`, body, jsonld: [crumbsLD(crumbs), ldPlace, ldFaq] }), "0.6");
+  const placeholder = p.cat === "coming-soon" || /^(permanently closed|closed|coming soon|under construction|signed for|announced for)/i.test(p.status || "");
+  const html = layout({ title, description: desc, urlPath: `/places/${p.slug}/`, body, jsonld: [crumbsLD(crumbs), ldPlace, ldFaq], noindex: placeholder });
+  if (placeholder) write(`places/${p.slug}/index.html`, html); else add(`/places/${p.slug}/`, html, "0.6");
 }
 
 // ---------- Events ----------
@@ -587,7 +589,7 @@ for (const p of places) {
     <p>${esc(e.desc)}</p><p><strong>${e.venueSlug ? `<a href="/places/${e.venueSlug}/">${esc(e.venue)}</a>` : esc(e.venue)}</strong>${e.address ? ", " + esc(e.address) : ""}</p>${e.url ? `<p><a href="${esc(e.url)}" rel="noopener" target="_blank">Event details</a></p>` : ""}</div></li>`).join("")}</ul>
   <div class="claim" style="margin-top:32px">Hosting something in Wellington? <a href="/submit-event/">Submit your event</a> and we will add it to the calendar for free.</div>
 </div><aside><div class="sticky-rail">${sponsor("rect")}</div></aside></div>
-<div class="wrap">${sponsor()}</div>${newsletter}`;
+<div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
   add("/events/", layout({ title: "Wellington, FL Events Calendar 2026 to 2027: Horse Shows, Polo and Festivals", description: "Upcoming events in Wellington, Florida: the 2027 Winter Equestrian Festival, Palm Beach polo season, Global Dressage Festival and community events.", urlPath: "/events/", body, jsonld: [crumbsLD(crumbs), ...evLD] }), "0.9");
 }
 
@@ -596,7 +598,7 @@ for (const p of places) {
   const crumbs = [["Home", "/"], ["News", "/blog/"]];
   const body = pageHead(crumbs, "Wellington news and guides", "Development updates, new openings, schools, events and everything happening in Wellington, Florida.") + `<div class="wrap">${sponsor()}</div>
 <section class="wrap" style="padding:20px 0 48px"><div class="post-grid">${posts.map(postCard).join("")}</div></section>
-<div class="wrap">${sponsor()}</div>${newsletter}`;
+<div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
   add("/blog/", layout({ title: "Wellington, FL News and Local Guides | Wellington List", description: "Local news and guides for Wellington, Florida: Village Landing at K-Park, Wingrove Academy, new restaurants, events and more.", urlPath: "/blog/", body, jsonld: [crumbsLD(crumbs)] }), "0.9");
 
   for (const p of posts) {
@@ -605,7 +607,7 @@ for (const p of places) {
     const content = read(`content/blog/${p.slug}.html`);
     const toc = [...content.matchAll(/<h2 id="([^"]+)">(.*?)<\/h2>/g)];
     const others = relatedPosts(p, 6);
-    const body = pageHead(crumbsP, esc(p.h1), "", `<div class="article-meta"><span>By Wellington List staff</span><span>Published <time datetime="${p.published}">${fmtDate(p.published)}</time></span>${p.updated !== p.published ? `<span>Updated <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>` : ""}<span>${p.readMins} min read</span></div>`) + `<div class="wrap">${sponsor()}</div>
+    const body = pageHead(crumbsP, esc(p.h1), "", `<div class="article-meta"><span>By <a href="/about/#ben" style="color:inherit;text-decoration:underline">Ben Siegel</a></span><span>Published <time datetime="${p.published}">${fmtDate(p.published)}</time></span>${p.updated !== p.published ? `<span>Updated <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>` : ""}<span>${p.readMins} min read</span></div>`) + `<div class="wrap">${sponsor()}</div>
 <div class="wrap body-grid">
   <article class="prose">
     ${coverFile(p) ? `<figure class="cover">${coverImg(p, true)}</figure>` : ""}
@@ -613,7 +615,7 @@ for (const p of places) {
     <section class="faq" id="faq"><h2>Frequently asked questions</h2>${p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</section>
     <section class="sources"><h2 style="font-size:20px">Sources</h2><ul>${p.sources.map(s => `<li><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.name)}</a></li>`).join("")}</ul>
     <p>Details on developments and schools can change. We update this guide as new information is announced. Spot something out of date? <a href="/submit-event/">Send us a tip</a>.</p></section>
-    <div class="author-box"><span class="logo-tile"><svg width="36" height="36" viewBox="0 0 64 64"><use href="#logo"/></svg></span><span>Written by the Wellington List team, an independent local guide covering Wellington, Florida.</span></div>
+    <div class="author-box"><span class="logo-tile"><svg width="36" height="36" viewBox="0 0 64 64"><use href="#logo"/></svg></span><span><strong>By Ben Siegel.</strong> Ben is a Wellington resident and entrepreneur who founded Wellington List to bring local news, guides and businesses together in one place. <a href="/about/#ben">More about Ben</a> &middot; <a href="/about/#standards">Our editorial standards</a></span></div>
     ${others.length ? `<div class="related"><h2>Keep reading</h2><div class="post-grid">${others.map(postCard).join("")}</div></div>` : ""}
   </article>
   <aside><div class="sticky-rail">
@@ -621,10 +623,10 @@ for (const p of places) {
     <div style="margin-top:24px">${sponsor("rect")}</div>
   </div></aside>
 </div>
-<div class="wrap">${sponsor()}</div>${newsletter}`;
+<div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
     const ld = [crumbsLD(crumbsP),
       { "@context": "https://schema.org", "@type": "NewsArticle", headline: p.title.slice(0, 110), description: p.description, datePublished: p.published, dateModified: p.updated, mainEntityOfPage: SITE + urlPath, image: [SITE + (coverFile(p) || "/assets/og.jpg")],
-        author: { "@type": "Organization", name: "Wellington List", url: SITE + "/about/" }, publisher: { "@id": SITE + "/#org" }, about: { "@type": "Place", name: "Wellington, Florida" } },
+        author: { "@type": "Person", name: "Ben Siegel", url: SITE + "/about/#ben" }, publisher: { "@id": SITE + "/#org" }, about: { "@type": "Place", name: "Wellington, Florida" } },
       { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: p.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }];
     add(urlPath, layout({ title: p.seoTitle, description: p.description, urlPath, body, jsonld: ld, ogType: "article", article: p, image: coverFile(p), ads: true }), "0.8", p.updated);
   }
@@ -674,24 +676,21 @@ formPage({
 {
   const crumbs = [["Home", "/"], ["Advertise", "/advertise/"]];
   const st = SP.stats || {};
-  const href = SP_OPEN ? esc(SP_CHECKOUT) : "mailto:hello@wellingtonlist.com?subject=Sponsor%20waitlist";
-  const cta = (label, cls = "adv-btn") => `<a class="${cls}" href="${href}" rel="noopener" data-checkout>${SP_OPEN ? label : "Join the waitlist"}<span aria-hidden="true">&rarr;</span></a>`;
-  const left = SP_OPEN ? `${SP_OPEN} of ${SP_TOTAL} founding spots left` : "All spots taken";
+  const mail = "mailto:hello@wellingtonlist.com?subject=Advertising%20on%20Wellington%20List";
+  const cta = (label, cls = "adv-btn") => `<a class="${cls}" href="${mail}">${label}<span aria-hidden="true">&rarr;</span></a>`;
   const body = `
 <section class="adv-hero"><svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
   <div class="wrap adv-hero-grid">
     <div>
       ${crumbsHTML(crumbs)}
-      <span class="adv-pill"><span class="sp-bar-dot" aria-hidden="true"></span>${left}</span>
-      <h1>Put your business on every page of Wellington List</h1>
-      <p class="adv-sub">Reach Wellington residents every day for <strong>$${SP_PRICE}/month</strong>. Only ${SP_TOTAL} local sponsors at a time.</p>
-      ${cta(`Claim my spot for $${SP_PRICE}/month`)}
-      <p class="adv-fine">Secure checkout with Stripe &middot; Month to month &middot; Cancel anytime</p>
+      <h1>Advertise your business on Wellington List</h1>
+      <p class="adv-sub">Reach Wellington residents who are looking for local news, restaurants, services and things to do.</p>
+      ${cta("Ask about advertising")}
+      <p class="adv-fine">Email us at hello@wellingtonlist.com and we'll send current options and rates</p>
     </div>
     <div class="adv-preview" aria-hidden="true">
-      <span class="adv-preview-label">Your sponsor card</span>
-      <div class="sp-card adv-demo"><span class="sp-logo">Y</span><span class="sp-cat">Your category</span><span class="sp-name">Your Business Name</span><span class="sp-tag">Your one-line tagline goes here</span></div>
-      <span class="adv-preview-note">Shown on every page, linked to your website</span>
+      <span class="adv-preview-label">Example display ad</span>
+      <div class="ad-space ad-box" style="pointer-events:none"><span class="ad-label">Advertisement</span><b>Your business here</b><span>Your message and a link to your website.</span><span class="ad-cta">Learn more &rarr;</span></div>
     </div>
   </div>
 </section>
@@ -708,31 +707,22 @@ formPage({
 </div></section>
 
 <section class="adv-sec adv-alt"><div class="wrap">
-  <h2 class="adv-h">What you get for $${SP_PRICE}/month</h2>
+  <h2 class="adv-h">Ad spaces</h2>
   <div class="adv-gets">
-    <div><span class="adv-ico">1</span><b>Your card on every page</b><p>Logo, name, category and tagline, linked to your website, in the sidebars on desktop and the sponsor bar on phones.</p></div>
-    <div><span class="adv-ico">2</span><b>Only ${SP_TOTAL} sponsors</b><p>No crowded ad wall. You share the spotlight with just a few other local businesses.</p></div>
-    <div><span class="adv-ico">3</span><b>Founding price, locked in</b><p>The price for new sponsors goes up as traffic grows. Founding sponsors keep $${SP_PRICE}/month for as long as they stay.</p></div>
+    <div><span class="adv-ico">1</span><b>Banner ad</b><p>A wide display ad on pages across the site, including news stories, guides and directory pages, linked to your website.</p></div>
+    <div><span class="adv-ico">2</span><b>Sidebar ad</b><p>A display ad in the sidebar next to our news stories and guides, where readers spend the most time.</p></div>
+    <div><span class="adv-ico">3</span><b>Featured listing</b><p>Your business highlighted at the top of your category in the directory, such as dentists, restaurants or home services.</p></div>
   </div>
 </div></section>
 
 <section class="adv-sec"><div class="wrap">
-  <h2 class="adv-h">Live in three steps</h2>
-  <ol class="adv-steps">
-    <li><b>Claim your spot</b><span>Check out with Stripe in about a minute</span></li>
-    <li><b>Send your logo and tagline</b><span>Email them to hello@wellingtonlist.com</span></li>
-    <li><b>Go live</b><span>Your card goes up across the site, usually within one business day</span></li>
-  </ol>
   <div class="adv-final">
-    <span class="adv-pill adv-pill-light"><span class="sp-bar-dot" aria-hidden="true"></span>${left}</span>
-    <h2>Lock in $${SP_PRICE}/month before the price goes up</h2>
-    ${cta("Claim my spot", "adv-btn adv-btn-white")}
+    <h2>Let's talk about your business</h2>
+    ${cta("Email us about advertising", "adv-btn adv-btn-white")}
   </div>
-  <p class="adv-q">Questions first? Email us at <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
-</div></section>
-
-<div class="adv-sticky" aria-hidden="true"><div class="wrap"><span class="adv-sticky-txt"><span class="sp-bar-dot"></span><b class="adv-long">${left}</b><b class="adv-short">${SP_OPEN ? `${SP_OPEN} of ${SP_TOTAL} spots left` : "All spots taken"}</b><span class="adv-sticky-price"> &middot; $${SP_PRICE}/month</span></span>${cta("Claim my spot", "adv-btn adv-btn-sm")}</div></div>`;
-  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List Sponsorships", description: `Become a founding sponsor of Wellington List: your business on every page of the site for $${SP_PRICE}/month. Only ${SP_TOTAL} spots.`, urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)], sponsors: false, bodyClass: "adv-page" }), "0.6");
+  <p class="adv-q">Questions? Email us at <a href="${mail}">hello@wellingtonlist.com</a></p>
+</div></section>`;
+  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List", description: "Advertise your business on Wellington List, the independent local guide to Wellington, Florida. Banner ads, sidebar ads and featured directory listings.", urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)], sponsors: false, bodyClass: "adv-page" }), "0.6");
 
   // Post-checkout thank-you page (Stripe redirects here). Not in the sitemap.
   const tcrumbs = [["Home", "/"], ["Advertise", "/advertise/"], ["Thank you", "/advertise/thanks/"]];
@@ -755,9 +745,18 @@ formPage({
     body: pageHead(crumbs, "About Wellington List", "") + `<div class="wrap" style="padding:44px 0"><div class="prose prose-narrow">
     <p class="lede">Wellington List is an independent local guide to Wellington, Florida, built by a Wellington resident for the people who live, work and visit here.</p>
     <p>Wellington has world class equestrian venues, beautiful parks and a growing list of places to eat, but there has never been one place that brings it all together. That is what we are building: local news in plain English, honest guides, an events calendar and a directory of the businesses that make Wellington work.</p>
-    <h2>Our standards</h2><p>We link to our sources, label sponsored content clearly and update our guides when facts change. Sponsors never pay for coverage in our news and guides.</p>
-    <h2>Get in touch</h2><p>Have a news tip, an event or a correction? <a href="/submit-event/">Send it here</a>. Own a business? <a href="/add-your-business/">Add your listing</a>. Interested in sponsoring? <a href="/advertise/">See advertising options</a>.</p>
-    <p>Prefer email? Reach us anytime at <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
+    <h2 id="ben">Who runs Wellington List</h2>
+    <p>Wellington List was founded by <strong>Ben Siegel</strong>, an entrepreneur who lives in Wellington. Ben is self-taught and has spent years building and running his own online businesses, including a network of independent websites. He started Wellington List because he wanted one place where neighbors could keep up with what's happening in town, from new restaurants and roundabouts to school boundaries and county decisions, and find the local businesses they need.</p>
+    <p>Ben writes and edits the news stories and guides on the site and oversees the business directory.</p>
+    <h2 id="standards">Our editorial standards</h2>
+    <ul>
+      <li><strong>Sourced facts.</strong> News stories and guides are based on official sources such as the Village of Wellington, Palm Beach County and the school district, plus public records and local news reporting. We link to our sources at the end of every story.</li>
+      <li><strong>Both sides.</strong> When there's a local debate, we explain what supporters and critics say, using their own words where we can, and we don't take sides.</li>
+      <li><strong>Corrections.</strong> When facts change or we get something wrong, we update the story and add a dated update note at the top. Send corrections to <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></li>
+      <li><strong>Directory listings.</strong> Business details are checked against the business's own website or reliable public listings, and each page shows when it was last checked. Businesses can claim or correct their listing at any time.</li>
+      <li><strong>Advertising.</strong> Ads are clearly labeled. Advertisers never pay for coverage in our news stories or guides.</li>
+    </ul>
+    <h2>Get in touch</h2><p>Have a news tip, an event or a correction? <a href="/contact/">Contact us</a>. Own a business? <a href="/add-your-business/">Add your listing</a>. Interested in advertising? <a href="/advertise/">See advertising options</a>.</p>
     <p>Wellington List is independent and is not affiliated with the Village of Wellington.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.4");
 }
 {
@@ -774,6 +773,33 @@ formPage({
     <h2>How long we keep information</h2><p>We keep submissions as long as needed to operate the directory and respond to you. You can ask us to update or delete a listing or your submission at any time.</p>
     <h2>Children</h2><p>This site is intended for a general audience and is not directed to children under 13. We do not knowingly collect personal information from children.</p>
     <h2>Your choices and contact</h2><p>To correct or remove a listing, or to ask about the information we hold about you, email <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a> We may update this policy from time to time, and the date at the top shows the latest version.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.2");
+}
+{
+  const crumbs = [["Home", "/"], ["Contact", "/contact/"]];
+  add("/contact/", layout({ title: "Contact Wellington List | Wellington, FL", description: "Contact Wellington List with news tips, corrections, business listing updates, events or advertising questions.", urlPath: "/contact/",
+    body: pageHead(crumbs, "Contact us", "News tips, corrections, listings and advertising.") + `<div class="wrap" style="padding:44px 0"><div class="prose prose-narrow">
+    <p class="lede">The best way to reach Wellington List is by email at <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a> We read every message and usually reply within a few business days.</p>
+    <h2>News tips and corrections</h2><p>Know about something happening in Wellington, or spot a mistake in one of our stories? Email us with the details and any links or documents that help us check it. We note corrections at the top of the story.</p>
+    <h2>Business listings</h2><p>To add your business for free, use the <a href="/add-your-business/">add your business form</a>. To update or remove an existing listing, use the "Claim this listing" link at the bottom of your business's page or email us.</p>
+    <h2>Events</h2><p>Submit community events, fundraisers and grand openings with our <a href="/submit-event/">event form</a>.</p>
+    <h2>Advertising</h2><p>See our <a href="/advertise/">advertising options</a> or email us to ask about current rates.</p>
+    <p>Wellington List is independent and is not affiliated with the Village of Wellington. For village services, contact the Village of Wellington directly.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.3");
+}
+{
+  const crumbs = [["Home", "/"], ["Terms of use", "/terms/"]];
+  add("/terms/", layout({ title: "Terms of Use | Wellington List", description: "The terms that apply when you use WellingtonList.com.", urlPath: "/terms/",
+    body: pageHead(crumbs, "Terms of use", "") + `<div class="wrap" style="padding:44px 0"><div class="prose prose-narrow">
+    <p>Last updated ${fmtDate(BUILD_DATE)}. These terms apply to your use of WellingtonList.com ("Wellington List," "we," "us"). By using the site, you agree to them. If you don't agree, please don't use the site.</p>
+    <h2>Information on the site</h2><p>Wellington List publishes local news, guides, events and a business directory for general information only. We work to keep it accurate and link to our sources, but details such as business hours, phone numbers, prices, event dates and government decisions can change. Please confirm important details with the business, organizer or agency before relying on them. Nothing on the site is legal, financial, medical or professional advice.</p>
+    <h2>Business listings</h2><p>Listings are based on information from businesses, their websites and public sources. A listing is not an endorsement. Business owners can ask us to correct or remove a listing at any time by emailing <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
+    <h2>Your submissions</h2><p>When you submit a business, event, tip or other content, you confirm that the information is accurate and that you have the right to share it, and you give us permission to edit and publish it on the site and related channels. We may decline or remove any submission.</p>
+    <h2>Advertising and links</h2><p>Advertisements are labeled. The site links to other websites, including listed businesses and our sources. We don't control those sites and aren't responsible for their content, products or privacy practices.</p>
+    <h2>Use of our content</h2><p>The text, design and original images on Wellington List belong to us unless noted otherwise. You're welcome to share links to our pages and quote short excerpts with credit and a link. Please don't copy whole articles or scrape the directory without permission.</p>
+    <h2>Acceptable use</h2><p>Don't use the site or its forms to send spam, false information, or anything unlawful or harmful, and don't try to interfere with how the site works.</p>
+    <h2>No warranty and limitation of liability</h2><p>The site is provided "as is," without warranties of any kind. To the fullest extent allowed by law, Wellington List is not liable for any loss or damage arising from your use of the site or reliance on its content.</p>
+    <h2>Changes and governing law</h2><p>We may update these terms from time to time, and the date at the top shows the latest version. These terms are governed by the laws of the State of Florida.</p>
+    <h2>Contact</h2><p>Questions about these terms? Email <a href="mailto:hello@wellingtonlist.com">hello@wellingtonlist.com</a></p>
+    <p>See also our <a href="/privacy/">privacy policy</a>.</p></div></div>`, jsonld: [crumbsLD(crumbs)] }), "0.2");
 }
 write("404.html", layout({ title: "Page not found | Wellington List", description: "This page could not be found.", urlPath: "/404.html", noindex: true,
   body: pageHead([["Home", "/"], ["Not found", "/404.html"]], "We couldn't find that page", "Try the directory, the latest news, or head back home.") + `<div class="wrap" style="padding:44px 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-primary" href="/">Home</a><a class="btn btn-ghost" href="/directory/">Directory</a><a class="btn btn-ghost" href="/blog/">News</a></div>` }));

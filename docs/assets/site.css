@@ -399,6 +399,19 @@
   @media (max-width:640px){.page-head .wrap{padding-top:44px;padding-bottom:48px}.page-head .page-search{flex-direction:row}}
   .prose .update,.update{background:#FFF7E8;border-left:4px solid #C9A24A;padding:12px 16px;border-radius:6px;font-size:15px;margin:0 0 22px}
   .pl-section .small{font-size:14px;color:#5b6b63;margin-top:6px}
+  /* Display ad spaces */
+  .ad-space{display:flex;align-items:center;gap:18px;border:1px solid var(--line);border-radius:12px;background:#F7F5EE;color:var(--ink);text-decoration:none!important;position:relative;transition:border-color .15s}
+  .ad-space:hover{border-color:var(--green-500)}
+  .ad-label{position:absolute;top:6px;right:10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#8a8f86}
+  .ad-banner{padding:22px 24px;margin:28px 0}
+  .ad-banner .ad-main{display:flex;flex-direction:column;gap:2px;flex:1}
+  .ad-banner .ad-main b{font-family:var(--serif);font-weight:500;font-size:20px}
+  .ad-banner .ad-main span{font-size:14px;color:#5b6b63}
+  .ad-cta{font-weight:600;font-size:14px;color:var(--green-700,#1D5631);white-space:nowrap}
+  .ad-box{flex-direction:column;align-items:flex-start;gap:6px;padding:26px 18px 18px;min-height:200px;justify-content:center}
+  .ad-box b{font-family:var(--serif);font-weight:500;font-size:20px}
+  .ad-box span:not(.ad-label):not(.ad-cta){font-size:14px;color:#5b6b63}
+  @media (max-width:640px){.ad-banner{flex-direction:column;align-items:flex-start;gap:8px}}
 
 /* ---------- Local sponsor spots (10 sitewide) ---------- */
 .sp-card{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 10px;color:var(--ink);text-decoration:none!important;transition:border-color .15s,box-shadow .15s,transform .15s;min-height:0;overflow:hidden}
