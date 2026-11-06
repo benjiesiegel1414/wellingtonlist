@@ -482,6 +482,7 @@ const CAT_TIPS = {
   pets: ["Call ahead to confirm new patient availability", "Bring your pet's vaccination and medical records to the first visit", "Ask about after-hours and emergency options"],
   realestate: ["Ask which Wellington neighborhoods the agent knows best", "Equestrian and seasonal rental properties often need a specialist", "Ask for recent comparable sales before pricing or making an offer"]
 };
+const listJoin = (a) => a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
 const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
 for (const p of places) {
   const listUrl = p.cat === "restaurants" ? "/restaurants/" : `/directory/?cat=${p.cat}`;
@@ -498,7 +499,8 @@ for (const p of places) {
   const tips = (p.tips && p.tips.length ? p.tips : CAT_TIPS[p.cat] || []);
   const faq = [
     { q: `Where is ${p.name} located?`, a: p.address ? `${p.name} is located at ${p.address}, ${areaText}.` : `${p.name} is ${areaText}. Use the directions button for the exact location.` },
-    ...(p.cat === "restaurants" ? [{ q: `What kind of food does ${p.name} serve?`, a: `${p.name} is a ${p.type.toLowerCase()} spot in ${city}. ${p.desc}` }] : [{ q: `What does ${p.name} offer?`, a: `${p.name} is listed under ${catLabel(p.cat).toLowerCase()} (${p.type.toLowerCase()}). ${p.desc}` }]),
+    ...(p.cat === "restaurants" ? [{ q: `What kind of food does ${p.name} serve?`, a: `${p.name} is a ${p.type.toLowerCase()} spot in ${city}. ${p.desc}${p.offerings && p.offerings.length ? " Highlights include " + listJoin(p.offerings.slice(0, 5).map(o => o.toLowerCase())) + "." : ""}` }] : [{ q: `What does ${p.name} offer?`, a: p.offerings && p.offerings.length ? `${p.name} offers ${listJoin(p.offerings.slice(0, 6).map(o => o.toLowerCase()))}. ${p.desc}` : `${p.name} is listed under ${catLabel(p.cat).toLowerCase()} (${p.type.toLowerCase()}). ${p.desc}` }]),
+    ...(p.website ? [{ q: `Does ${p.name} have a website?`, a: `Yes. The official website for ${p.name} is ${hostOf(p.website)}.` }] : []),
     { q: `What are ${p.name}'s hours?`, a: p.hours ? `${p.name} hours: ${p.hours}. Hours can change on holidays and during season, so ${p.phone ? "call " + p.phone : "check ahead"} to confirm.` : p.website ? `Hours can change seasonally, so check ${hostOf(p.website)} or call ahead before visiting.` : `Hours can change seasonally, so call ahead or check the business's official listing before visiting.` },
     ...(p.phone ? [{ q: `What is the phone number for ${p.name}?`, a: `You can reach ${p.name} at ${p.phone}.` }] : [])
   ];
@@ -535,14 +537,18 @@ for (const p of places) {
     <section class="pl-section"><h2>About ${esc(p.name)}</h2>
       ${p.status ? `<p class="pl-lede" style="border-left:4px solid #c9a227;padding-left:12px"><strong>Status:</strong> ${esc(p.status)}</p>` : ""}
       <p class="pl-lede">${esc(p.desc)}</p>
+      ${p.about ? `<p>${esc(p.about)}</p>` : ""}
       <p>${esc(p.name)} is ${areaText}. ${p.cat === "restaurants" ? `It is one of ${places.filter(x => x.cat === "restaurants").length} places to eat and drink in our <a href="/restaurants/">Wellington restaurant guide</a>${p.cuisine ? `, and part of the village's ${esc(p.cuisine)} dining scene` : ""}.` : `Browse more ${esc(catLabel(p.cat).toLowerCase())} in our <a href="${listUrl}">Wellington directory</a>.`}</p>
       ${p.link ? `<p><a href="${p.link}">Read our full guide</a></p>` : ""}
     </section>
+    ${p.offerings && p.offerings.length ? `<section class="pl-section"><h2>${p.cat === "restaurants" ? "What to try" : "Services and highlights"}</h2><ul class="tips">${p.offerings.map(o => `<li>${esc(o)}</li>`).join("")}</ul></section>` : ""}
+    ${p.hours ? `<section class="pl-section"><h2>Hours</h2><p>${esc(p.hours)}</p><p class="small">Hours can change on holidays and during the winter season. ${p.phone ? `Call <a href="${telHref}">${esc(p.phone)}</a> to confirm before you go.` : "Confirm with the business before you go."}</p></section>` : ""}
     ${(postsByPlace[p.slug] || []).length ? `<section class="pl-section"><h2>Featured in our Wellington guides</h2><ul class="tips">${postsByPlace[p.slug].slice(0, 6).map(x => `<li><a href="/blog/${x.slug}/">${esc(x.h1)}</a></li>`).join("")}</ul></section>` : ""}
     ${tips.length ? `<section class="pl-section"><h2>Good to know</h2><ul class="tips">${tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></section>` : ""}
     <section class="pl-section"><h2>Frequently asked questions</h2><div class="faq" style="margin-top:0">${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</div></section>
     ${miniList(p.cuisine ? `More ${esc(p.cuisine)} spots in Wellington` : `Similar ${esc(catLabel(p.cat).toLowerCase())}`, sameType.concat(more))}
     ${miniList(`Also ${p.area && !isNearby ? "on " + esc(p.area) : "nearby"}`, nearby)}
+    ${p.checked ? `<p class="small">Listing details last checked ${esc(p.checked)}${p.sources && p.sources.length ? ` using ${p.sources.slice(0, 2).map(u => esc(hostOf(u))).join(" and ")}` : ""}. Spot something out of date? Let us know below.</p>` : ""}
     <div class="claim">Own or manage ${esc(p.name)}? <a href="/add-your-business/?claim=${p.slug}">Claim this listing</a> to add photos, hours and your menu or services, or <a href="/add-your-business/?claim=${p.slug}">suggest an edit</a>.</div>
   </article>
   <aside><div class="sticky-rail">
