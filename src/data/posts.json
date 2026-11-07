@@ -379,11 +379,11 @@
     "slug": "wellington-amphitheater-events-guide",
     "title": "Wellington Amphitheater Guide: Free Concerts, Food Trucks and Movie Nights",
     "h1": "Wellington Amphitheater Guide: Free Concerts, Food Trucks, Movies and Parking",
-    "seoTitle": "Wellington Amphitheater Schedule Nov 2026: Free Concerts, Food Trucks & Parking",
-    "description": "Wellington Amphitheater schedule: ELO tribute Oct 29, Eagles tribute Nov 14, Tribute to The Cure Nov 21 and Thursday night concerts at 12100 Forest Hill Blvd. Times, parking and what to bring.",
+    "seoTitle": "Wellington Amphitheater Schedule Nov-Dec 2026: Free Concerts & Events",
+    "description": "Wellington Amphitheater schedule: Heart tribute Nov 12, Eagles tribute Nov 14, Tribute to The Cure Nov 21, Dec 3 tree lighting and holiday events at 12100 Forest Hill Blvd. Times, parking, tips.",
     "category": "Things to Do",
     "published": "2026-10-06",
-    "updated": "2026-10-27",
+    "updated": "2026-11-07",
     "readMins": 4,
     "coverPrompt": "Photorealistic outdoor amphitheater stage at dusk beside a lake in South Florida, families on blankets and lawn chairs on the grass, food trucks with string lights in the background, palm trees, warm purple sunset sky, no text, no logos",
     "faq": [
@@ -432,6 +432,10 @@
       {
         "name": "Village of Wellington: Amphitheater calendar, November 2026",
         "url": "https://www.wellingtonfl.gov/calendar.aspx?CID=28&month=11&year=2026&view=list"
+      },
+      {
+        "name": "Village of Wellington: Events",
+        "url": "https://www.wellingtonfl.gov/392/Events"
       }
     ]
   },
@@ -3960,6 +3964,134 @@
       {
         "name": "Palm Beach Improv: palmbeachimprov.com",
         "url": "https://www.palmbeachimprov.com/"
+      }
+    ]
+  },
+  {
+    "slug": "best-gyms-fitness-studios-wellington-fl",
+    "title": "13 Best Gyms and Fitness Studios in Wellington, FL",
+    "h1": "13 Best Gyms and Fitness Studios in Wellington, FL",
+    "seoTitle": "13 Best Gyms in Wellington FL (2026): Gyms, Pilates, CrossFit & More",
+    "description": "The best gyms and fitness studios in Wellington, FL: Crunch, YouFit, Planet Fitness, Orangetheory, CrossFit, Club Pilates, JETSET, 9Round, the Aquatics Center and more, with hours and addresses.",
+    "category": "Living in Wellington",
+    "published": "2026-11-07",
+    "updated": "2026-11-07",
+    "readMins": 7,
+    "coverPrompt": "Photorealistic bright modern gym interior with rows of treadmills and free weights near large windows, morning sunlight, palm trees visible outside, clean and empty, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What is the biggest gym in Wellington, FL?",
+        "a": "Crunch Fitness in Wellington Plaza, 12799 Forest Hill Blvd, is about 30,000 square feet, with a HIIT Zone, a hot yoga studio, a cycling studio, dry saunas and HydroMassage beds."
+      },
+      {
+        "q": "Is there a 24-hour gym near Wellington, FL?",
+        "a": "Planet Fitness on Southern Blvd in Royal Palm Beach is open 24 hours on weekdays, from 5 a.m. Monday to 10 p.m. Friday. YouFit on Wellington Trace is open until 11:59 p.m. Monday through Thursday."
+      },
+      {
+        "q": "Where did LA Fitness members in Wellington go?",
+        "a": "The LA Fitness on State Road 7 in Wellington closed. Nearby options include Crunch Fitness on Forest Hill Blvd, YouFit on Wellington Trace and Planet Fitness in Royal Palm Beach, plus class studios like Orangetheory and Club Pilates."
+      },
+      {
+        "q": "Where can I do Pilates in Wellington?",
+        "a": "Club Pilates on Forest Hill Blvd and JETSET Pilates on South State Road 7 teach reformer Pilates. Rooted Wellness Club on Forest Hill Blvd teaches mat Pilates, including pelvic floor and core classes."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Crunch Fitness Wellington: gotowncrier.com",
+        "url": "https://gotowncrier.com/?p=803328"
+      },
+      {
+        "name": "YouFit Gyms: wellhub.com",
+        "url": "https://wellhub.com/en-us/search/partners/youfit-wellington-wellington-trace-wellington"
+      },
+      {
+        "name": "Planet Fitness Royal Palm Beach: yellowpages.com",
+        "url": "https://www.yellowpages.com/royal-palm-beach-fl/mip/planet-fitness-8016326"
+      },
+      {
+        "name": "Orangetheory Fitness Wellington: wellingtonchamber.com",
+        "url": "https://wellingtonchamber.com/business_category/health-fitness-weight-loss"
+      },
+      {
+        "name": "Thoroughbred CrossFit: crossfit.com",
+        "url": "https://crossfit.com/gym/30295/thoroughbred-crossfit"
+      },
+      {
+        "name": "Cat 5 Fitness: wellhub.com",
+        "url": "https://wellhub.com/en-us/search/partners/cat-5-fitness/"
+      },
+      {
+        "name": "9Round Kickboxing Fitness: 9round.com",
+        "url": "https://9round.com/wellington-trace"
+      },
+      {
+        "name": "Club Pilates Wellington: wellhub.com",
+        "url": "https://wellhub.com/en-us/search/partners/club-pilates-wellington/"
+      },
+      {
+        "name": "JETSET Pilates Wellington: classpass.be",
+        "url": "https://classpass.be/search/wellington/fitness-classes/3pKhtUxxaCw"
+      },
+      {
+        "name": "Rooted Wellness Club: wellhub.com",
+        "url": "https://wellhub.com/en-us/search/partners/rooted-wellness-club/"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-branch-library-guide",
+    "title": "Wellington Branch Library: Hours, Library Card, Programs and Meeting Rooms",
+    "h1": "Wellington Branch Library Guide: Hours, Library Card, Programs and Meeting Rooms",
+    "seoTitle": "Wellington Library Hours, Card & Programs (2026 Guide)",
+    "description": "Wellington Branch Library guide: hours, holiday closures, how to get a free Palm Beach County library card, programs, meeting and study rooms, and free services.",
+    "category": "Living in Wellington",
+    "published": "2026-11-07",
+    "updated": "2026-11-07",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic bright modern public library interior with tall bookshelves, reading tables and large windows letting in Florida sunlight, potted palms, calm and inviting, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "What are the Wellington library hours?",
+        "a": "The Wellington Branch Library at 1951 Royal Fern Dr. is open Monday through Thursday 10 a.m. to 9 p.m., Friday 10 a.m. to 6 p.m., Saturday 10 a.m. to 5 p.m. and Sunday noon to 5 p.m."
+      },
+      {
+        "q": "How do I get a library card in Wellington, FL?",
+        "a": "Wellington residents can get a free Palm Beach County Library System card online, in person at any branch, or by video chat. Bring a photo ID and proof of your current address, such as a Florida driver's license, voter registration card, lease or vehicle registration."
+      },
+      {
+        "q": "Does the Palm Beach County library charge late fees?",
+        "a": "No. The Palm Beach County Library System stopped charging overdue fines on Oct. 1, 2019, though lost items can still be charged."
+      },
+      {
+        "q": "Can I reserve a meeting room at the Wellington library?",
+        "a": "Library members can reserve meeting rooms for government, nonprofit and other non-commercial groups through pbclibrary.libcal.com. Study rooms are first come, first served for two hours."
+      },
+      {
+        "q": "Is the Wellington library closed on Veterans Day?",
+        "a": "Yes. All Palm Beach County Library System locations are closed Wednesday, Nov. 11, 2026 for Veterans Day. The branch also closes Nov. 26 and 27 for Thanksgiving and closes early at 5 p.m. on Nov. 25."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Palm Beach County Library System: Wellington Branch",
+        "url": "https://www.pbclibrary.org/locations/wellington/"
+      },
+      {
+        "name": "Palm Beach County Library System: Get a Library Card",
+        "url": "https://www.pbclibrary.org/librarycard/"
+      },
+      {
+        "name": "Palm Beach County Library System: Meeting Rooms & Study Rooms FAQs",
+        "url": "https://www.pbclibrary.org/faq/meeting-rooms/"
+      },
+      {
+        "name": "WLRN: Palm Beach County libraries end overdue fines Oct. 1",
+        "url": "https://www.wlrn.org/news/2019-10-01/read-to-your-hearts-content-palm-beach-county-libraries-end-overdue-fines-oct-1"
+      },
+      {
+        "name": "Town-Crier: Wellington library",
+        "url": "https://gotowncrier.com/?p=751681"
       }
     ]
   }
