@@ -641,7 +641,7 @@ for (const p of places) {
     ${others.length ? `<div class="related"><h2>Keep reading</h2><div class="post-grid">${others.map(postCard).join("")}</div></div>` : ""}
   </article>
   <aside><div class="sticky-rail">
-    ${toc.length ? `<nav class="toc" aria-label="In this article"><h2>In this article</h2><ol>${toc.map(m => `<li><a href="#${m[1]}">${m[2]}</a></li>`).join("")}<li><a href="#faq">FAQ</a></li></ol></nav>` : ""}
+    ${toc.length ? `<nav class="toc" aria-label="In this article"><h2>In this article</h2><ol>${toc.map(m => `<li><a href="#${m[1]}">${m[2].replace(/^\d+\.\s+/, "")}</a></li>`).join("")}<li><a href="#faq">FAQ</a></li></ol></nav>` : ""}
     <div style="margin-top:24px">${sponsor("rect")}</div>
   </div></aside>
 </div>
