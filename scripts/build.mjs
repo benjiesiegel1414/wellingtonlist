@@ -341,7 +341,7 @@ ${newsletter}`;
 }
 
 // ---------- Directory (all) ----------
-function directoryPage({ urlPath, crumbs, h1, sub, title, description, list, showFilters = true, intro = "" }) {
+function directoryPage({ urlPath, crumbs, h1, sub, title, description, list, showFilters = true, intro = "", noindex = false }) {
   const cats = CATS.filter(c => list.some(p => p.cat === c.id));
   const heroExtra = `<div class="search page-search"><label for="dir-q" style="flex:1;display:flex"><span class="sr">Search the directory</span><input id="dir-q" type="search" placeholder="Search by name, cuisine or type"></label><span class="page-search-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span></div>
   <div class="head-stats"><span><b>${list.length}</b> places</span>${cats.length > 1 ? `<span><b>${cats.length}</b> categories</span>` : ""}<span>Free to list</span></div>`;
@@ -356,6 +356,7 @@ function directoryPage({ urlPath, crumbs, h1, sub, title, description, list, sho
 </section>
 <div class="wrap">${sponsor("bottom")}</div>${newsletter}`;
   const ld = [crumbsLD(crumbs), { "@context": "https://schema.org", "@type": "ItemList", name: h1, itemListElement: list.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/places/${p.slug}/`, name: p.name })) }];
+  if (noindex) { write(urlPath.slice(1) + "index.html", layout({ title, description, urlPath, body, jsonld: ld, noindex: true })); return; }
   add(urlPath, layout({ title, description, urlPath, body, jsonld: ld }), "0.9");
 }
 
@@ -441,7 +442,9 @@ for (const sp of SERVICE_PAGES) {
     h1: `Best ${sp.noun} in Wellington, FL`, sub: `Local ${sp.noun.toLowerCase()} serving Wellington and the western communities: ${sp.blurb}.`,
     title: `Best ${sp.noun} in Wellington, FL (${new Date(BUILD_DATE).getFullYear()} Guide)`,
     description: `Find the best ${sp.noun.toLowerCase()} in Wellington, Florida: ${list.length} local options for ${sp.blurb}, with addresses, phone numbers and hiring tips.`,
-    list, showFilters: false, intro
+    list, showFilters: false, intro,
+    // AdSense quality: small service pages (under 5 listings) stay live for visitors but are kept out of Google's index.
+    noindex: list.length < 5
   });
 }
 const serviceLinks = `<div class="prose prose-narrow" style="margin-bottom:24px"><h2 style="font-family:var(--serif);font-weight:500;font-size:24px">Browse by service</h2><p>${SERVICE_PAGES.filter(sp => places.filter(p => (sp.cats || SVC_CATS).includes(p.cat) && sp.re.test(p.type + " " + p.name)).length >= 2).map(sp => `<a href="/services/${sp.slug}/">${sp.noun}</a>`).join(" &middot; ")}</p></div>`;
@@ -582,7 +585,10 @@ for (const p of places) {
   let desc = cut(firstSentence, budget);
   if ((desc + " " + tail).length <= 160) desc = (desc + " " + tail).trim();
   if (p.meta) desc = p.meta;
-  const placeholder = p.cat === "coming-soon" || /^(permanently closed|closed|coming soon|under construction|signed for|announced for)/i.test(p.status || "");
+  // AdSense quality (Nov 2026): individual listing pages are templated directory pages, so they stay live for visitors
+  // but are kept out of Google's index and the sitemap. Set INDEX_PLACE_PAGES = true to index them again.
+  const INDEX_PLACE_PAGES = false;
+  const placeholder = !INDEX_PLACE_PAGES || p.cat === "coming-soon" || /^(permanently closed|closed|coming soon|under construction|signed for|announced for)/i.test(p.status || "");
   const html = layout({ title, description: desc, urlPath: `/places/${p.slug}/`, body, jsonld: [crumbsLD(crumbs), ldPlace, ldFaq], noindex: placeholder });
   if (placeholder) write(`places/${p.slug}/index.html`, html); else add(`/places/${p.slug}/`, html, "0.6");
 }
