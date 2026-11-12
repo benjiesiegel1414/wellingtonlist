@@ -4630,5 +4630,105 @@
         "url": "https://www.wellingtonfl.gov/198/Activity-Registration"
       }
     ]
+  },
+  {
+    "slug": "palm-beach-county-school-choice-2027-28-wellington",
+    "title": "Palm Beach County School Choice 2027-28: Dec. 4 Deadline and How to Apply",
+    "h1": "Palm Beach County School Choice 2027-28: Dec. 4 Deadline and How Wellington Families Can Apply",
+    "seoTitle": "PBC School Choice 2027-28: Dec 4 Deadline & How to Apply",
+    "description": "Palm Beach County School Choice applications for 2027-28 are open Oct. 8 - Dec. 4, 2026. Key dates, how to apply at mypbchoiceapp.com, the lottery and Wellington-area choice programs.",
+    "category": "Living in Wellington",
+    "published": "2026-11-12",
+    "updated": "2026-11-12",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic bright modern public school hallway with colorful lockers and sunlight streaming through windows, backpacks on a bench, South Florida palm trees visible outside, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "When is the Palm Beach County school choice deadline for 2027-28?",
+        "a": "The Choice program application for the 2027-28 school year is open Oct. 8 through Dec. 4, 2026. Dec. 4 is the final deadline for all programs."
+      },
+      {
+        "q": "How do I apply for a choice program in Palm Beach County?",
+        "a": "Apply online at mypbchoiceapp.com. You need a Palm Beach County Student ID number and a Family Dashboard account, and you must submit a separate application for each child in one sitting."
+      },
+      {
+        "q": "When are Palm Beach County choice lottery results released?",
+        "a": "Assignment notifications for the 2027-28 school year are released to families between Feb. 15 and Feb. 26, 2027."
+      },
+      {
+        "q": "What choice programs are at Wellington schools?",
+        "a": "Recent district listings include an arts program at Wellington Elementary, an International Spanish Academy at New Horizons Elementary, pre-engineering and IT programs at Polo Park, Wellington Landings and Emerald Cove middle schools, and academies including Equine and Pre-Veterinary at Wellington High. Confirm 2027-28 offerings in the district's Choice booklet."
+      },
+      {
+        "q": "What is Controlled Open Enrollment in Palm Beach County?",
+        "a": "Controlled Open Enrollment lets families apply for a seat at a school outside their zone. The 2027-28 application window is March 1-5, 2027, followed by a lottery, and the district keeps accepting applications into the spring."
+      }
+    ],
+    "sources": [
+      {
+        "name": "School District of Palm Beach County: School Choice",
+        "url": "https://www.palmbeachschools.org/studentsparents/school-choice"
+      },
+      {
+        "name": "SDPBC 2027-28 Choice booklet: Application and deadline dates",
+        "url": "https://www2.palmbeachschools.org/ebooks/choice_2027/files/basic-html/page6.html"
+      },
+      {
+        "name": "SDPBC Choice application portal",
+        "url": "https://www.mypbchoiceapp.com"
+      },
+      {
+        "name": "SDPBC: Showcase of Schools announcement",
+        "url": "https://www.palmbeachschools.org/about-us/news-stories/news-details/~board/palm-beach-county-school-district-news/post/power-your-future-at-the-showcase-of-schools-on-october-6"
+      }
+    ]
+  },
+  {
+    "slug": "holiday-lights-events-near-wellington-2026",
+    "title": "Holiday Lights Near Wellington, FL 2026: Light Shows, Tree Lightings and More",
+    "h1": "Holiday Lights Near Wellington, FL 2026: Light Shows, Tree Lightings and More",
+    "seoTitle": "Holiday Lights Near Wellington FL 2026: Light Shows & Events",
+    "description": "Holiday lights near Wellington, FL for 2026: Wellington tree lighting and boat parade, Lights 4 Hope at Okeeheelee Park, ILUMINA at Mounts, Zoo Lights, Sandi the sand tree and more.",
+    "category": "Things to Do",
+    "published": "2026-11-12",
+    "updated": "2026-11-12",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic South Florida holiday lights at night, palm trees wrapped in warm white and colorful string lights along a lakeside walkway, glowing lanterns, festive and magical, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Where can I see holiday lights near Wellington, FL?",
+        "a": "Close to Wellington, Okeeheelee Park on Forest Hill Blvd. hosts the Lights 4 Hope drive-through light show each season. Wellington's own tree lighting is Dec. 3 at the Wellington Amphitheater and its Holiday Boat Parade is Dec. 12 on Lake Wellington."
+      },
+      {
+        "q": "When is Zoo Lights at the Palm Beach Zoo in 2026?",
+        "a": "Zoo Lights runs on select nights from Nov. 20, 2026 to Jan. 3, 2027, according to Discover The Palm Beaches."
+      },
+      {
+        "q": "When does Sandi the sand tree light up in 2026?",
+        "a": "Sandi, the 35-foot holiday sand tree on the West Palm Beach waterfront, lights up Dec. 3, 2026, with nightly music-and-light shows through Dec. 31."
+      },
+      {
+        "q": "Is there ice skating near Wellington for the holidays?",
+        "a": "Winter Wonderland at The Ben in downtown West Palm Beach has an outdoor real-ice skating rink from Nov. 1, 2026 to Jan. 3, 2027, open daily from 10 a.m. to 9 p.m."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Discover The Palm Beaches: Holiday Happenings 2026 (PR Newswire)",
+        "url": "https://www.prnewswire.com/news-releases/holiday-happenings-in-the-palm-beaches-festive-events-coastal-celebrations-and-seasonal-getaways-302932967.html"
+      },
+      {
+        "name": "Village of Wellington: Events",
+        "url": "https://www.wellingtonfl.gov/392/Events"
+      },
+      {
+        "name": "Town-Crier: Lights 4 Hope supports local families",
+        "url": "https://gotowncrier.com/?p=798878"
+      },
+      {
+        "name": "WPTV: Lights 4 Hope drive-thru light show at Okeeheelee Park",
+        "url": "https://www.wptv.com/shining-a-light/the-lights-4-hope-holiday-drive-thru-light-show-at-okeeheelee-park-in-west-palm-beach"
+      }
+    ]
   }
 ]
