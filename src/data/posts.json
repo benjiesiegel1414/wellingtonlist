@@ -2231,7 +2231,7 @@
     "description": "Florida's Infill Redevelopment Act could turn closed golf courses like Wellington's Polo West into homes without public hearings, and Royal Palm Beach's Village Golf Club is next in line. How it works and both sides.",
     "category": "Development",
     "published": "2026-10-23",
-    "updated": "2026-11-03",
+    "updated": "2026-11-13",
     "readMins": 5,
     "coverPrompt": "Photorealistic golf course fairway in suburban South Florida with a row of new single-family homes under construction along its edge, palm trees, a lake, construction fencing, bright midday light, no people, no text, no logos, no signage",
     "faq": [
@@ -5064,6 +5064,122 @@
       {
         "name": "Lazy Dog: Dog menu and patio rules",
         "url": "https://lazydogrestaurants.com/dog-menu"
+      }
+    ]
+  },
+  {
+    "slug": "village-golf-club-royal-palm-beach-sold-gl-homes-closing",
+    "title": "Village Golf Club in Royal Palm Beach Sold to GL Homes, Set to Close Dec. 6",
+    "h1": "Village Golf Club in Royal Palm Beach Sold to GL Homes, Set to Close Dec. 6",
+    "seoTitle": "Village Golf Club Sold to GL Homes, Closing Dec. 6 (2026)",
+    "description": "GL Homes bought Royal Palm Beach's Village Golf Club for $14.5 million, and golf is set to end Dec. 6, 2026. What the infill law allows, both sides of the debate, and what golfers should know.",
+    "category": "Development",
+    "published": "2026-11-13",
+    "updated": "2026-11-13",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic empty public golf course fairway in South Florida at golden hour, palm trees, a lake and a flag on the green, long shadows, quiet and slightly melancholy mood, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Is the Village Golf Club in Royal Palm Beach closing?",
+        "a": "Yes. The club says it is winding down golf operations, with an anticipated final day of Sunday, Dec. 6, 2026, subject to change."
+      },
+      {
+        "q": "Who bought the Village Golf Club?",
+        "a": "Homebuilder GL Homes bought the roughly 175-acre course for $14.5 million, according to the Town-Crier. The deal closed Nov. 3, 2026, according to the South Florida Business Journal and Traded."
+      },
+      {
+        "q": "Will homes be built on the Village Golf Club?",
+        "a": "No plan has been submitted or approved. Royal Palm Beach officials are concerned that Florida's Infill Redevelopment Act could allow a qualifying project to be approved administratively, but a course must be out of operation for at least a year to qualify."
+      },
+      {
+        "q": "Will my Village Golf Club gift card or Gold Card be honored?",
+        "a": "The club says Gold Card complimentary rounds, range cards, gift cards and other prepaid golf benefits will be honored during the remaining operations, subject to their existing terms."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Village Golf Club set to close after sale to developer",
+        "url": "https://gotowncrier.com/2026/11/village-golf-club-set-to-close-after-sale-to-developer/"
+      },
+      {
+        "name": "Village Golf Club: closing announcement",
+        "url": "https://villagegolf.club/"
+      },
+      {
+        "name": "Best Clubhouse: GL Homes buys Village Golf Club for $14.5 million",
+        "url": "https://www.bestclubhouse.com/village-golf-club-gl-homes-14-5-million-royal-palm-beach/"
+      },
+      {
+        "name": "Town-Crier: RPB looking into ways to challenge golf course's potential redevelopment",
+        "url": "https://gotowncrier.com/2026/10/rpb-looking-into-ways-to-challenge-golf-courses-potential-redevelopment/"
+      },
+      {
+        "name": "Palm Beach County Parks: Okeeheelee Park",
+        "url": "https://discover.pbc.gov/parks/Locations/Okeeheelee.aspx"
+      }
+    ]
+  },
+  {
+    "slug": "mall-at-wellington-green-holiday-hours-black-friday-2026",
+    "title": "Mall at Wellington Green Holiday Hours 2026: Black Friday, Santa and Events",
+    "h1": "Mall at Wellington Green Holiday Hours 2026: Black Friday, Santa and Events",
+    "seoTitle": "Mall at Wellington Green Holiday Hours 2026 & Black Friday",
+    "description": "The Mall at Wellington Green 2026 holiday hours: closed Thanksgiving, Black Friday 8 a.m.-9 p.m., Christmas Eve hours, plus Santa photo times, Sensory Santa, pet photos and Small Business Saturday.",
+    "category": "Shopping",
+    "published": "2026-11-13",
+    "updated": "2026-11-13",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic bright modern shopping mall interior decorated for the holidays, tall Christmas tree with warm lights, garlands and ornaments, glass skylights, festive and inviting, no people, no text, no logos, no signage, no store names",
+    "faq": [
+      {
+        "q": "Is The Mall at Wellington Green open on Thanksgiving 2026?",
+        "a": "No. The mall is closed on Thanksgiving Day, Thursday, Nov. 26, 2026."
+      },
+      {
+        "q": "What time does The Mall at Wellington Green open on Black Friday?",
+        "a": "The mall is open 8 a.m. to 9 p.m. on Black Friday, Nov. 27, 2026. Individual stores may set their own hours."
+      },
+      {
+        "q": "What are the mall's Christmas Eve hours?",
+        "a": "The Mall at Wellington Green is open 8 a.m. to 6 p.m. on Christmas Eve and closed on Christmas Day."
+      },
+      {
+        "q": "When is Santa at The Mall at Wellington Green?",
+        "a": "Santa is at the mall from Nov. 13 through Christmas Eve. Reservations are encouraged. Sensory Santa is Dec. 6 from 10 to 11 a.m., and pet photos with Santa are Nov. 30 and Dec. 7 from 5 to 7 p.m."
+      },
+      {
+        "q": "When is the Hanukkah celebration at The Mall at Wellington Green?",
+        "a": "Sunday, Dec. 6, 2026, from 3 to 6 p.m. in District Court, in partnership with Chabad of Wellington."
+      }
+    ],
+    "sources": [
+      {
+        "name": "The Mall at Wellington Green: Holiday Hours",
+        "url": "https://shopwellingtongreen.com/event/%E2%9C%A8-holiday-hours-%E2%9C%A8/"
+      },
+      {
+        "name": "The Mall at Wellington Green: Events",
+        "url": "https://shopwellingtongreen.com/events/"
+      },
+      {
+        "name": "The Mall at Wellington Green: Black Friday",
+        "url": "https://shopwellingtongreen.com/event/black-friday/"
+      },
+      {
+        "name": "The Mall at Wellington Green: Small Business Saturday",
+        "url": "https://shopwellingtongreen.com/event/small-business-saturday/"
+      },
+      {
+        "name": "The Mall at Wellington Green: Photos with Santa",
+        "url": "https://shopwellingtongreen.com/event/photos-w-santa-/"
+      },
+      {
+        "name": "The Mall at Wellington Green: Sensory Santa",
+        "url": "https://shopwellingtongreen.com/event/sensory-santa/"
+      },
+      {
+        "name": "The Mall at Wellington Green: Hanukkah Celebration",
+        "url": "https://shopwellingtongreen.com/event/hanukkah-celebration/"
       }
     ]
   }
