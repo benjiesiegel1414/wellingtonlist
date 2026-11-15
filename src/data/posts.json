@@ -3291,7 +3291,7 @@
     "description": "Unofficial Nov. 3, 2026 results for Wellington, Royal Palm Beach, The Acreage, Loxahatchee Groves and Westlake: County Commission District 6, State House 93 and 94, ITID seats, amendments and county questions.",
     "category": "News",
     "published": "2026-11-04",
-    "updated": "2026-11-04",
+    "updated": "2026-11-15",
     "readMins": 4,
     "coverPrompt": "Photorealistic exterior of a suburban South Florida community center at dusk with warm window light, palm trees and a pink sky, no people, no text, no logos, no signage",
     "faq": [
@@ -5304,6 +5304,102 @@
       {
         "name": "Village of Wellington: Aquatics Center Rentals",
         "url": "https://www.wellingtonfl.gov/633/Rentals"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-holiday-break-camps-2026",
+    "title": "Wellington Thanksgiving and Winter Break Camps 2026: Dates, Ages and Prices",
+    "h1": "Wellington Thanksgiving and Winter Break Camps 2026: Dates, Ages and Prices",
+    "seoTitle": "Wellington Winter Break Camps 2026: Dates & Prices",
+    "description": "Every Wellington, FL Thanksgiving and winter break camp for 2026: tennis, soccer, volleyball, lacrosse and TumbleKids, with dates, ages, hours and prices, plus 2026-27 school break dates and spring break camps.",
+    "category": "Family",
+    "published": "2026-11-15",
+    "updated": "2026-11-15",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic sunny outdoor youth tennis court at a South Florida park in winter morning light, tennis balls in a basket, small orange cones on the court, palm trees and a few holiday decorations on the fence, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "When is winter break for Palm Beach County schools in 2026?",
+        "a": "Winter break runs Dec. 21, 2026 through Jan. 1, 2027, and students return Jan. 5, 2027, according to the School District of Palm Beach County. Thanksgiving break is Nov. 23-27, 2026."
+      },
+      {
+        "q": "What winter break camps does Wellington offer?",
+        "a": "The village catalog lists tennis camps (Dec. 21-23 and Dec. 28-30, $150), holiday soccer camps ($140 per session), a winter volleyball camp ($125), a lacrosse camp ($150) and TumbleKids Kamp for ages 3 to 5 ($125-$165)."
+      },
+      {
+        "q": "Are there Thanksgiving camps in Wellington?",
+        "a": "Yes. Tennis ($150), volleyball ($125 residents, $156 non-residents) and TumbleKids ($125) camps run Monday through Wednesday, Nov. 23-25, 2026."
+      },
+      {
+        "q": "How do I register for Wellington camps?",
+        "a": "Register online through the village's CivicRec catalog at wellingtonfl.gov/CivicRec under Camps and Academies, or call Parks and Recreation at (561) 791-4005."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Online recreation catalog",
+        "url": "https://secure.rec1.com/FL/village-of-wellington/catalog"
+      },
+      {
+        "name": "Village of Wellington: Camps and Academies",
+        "url": "https://www.wellingtonfl.gov/620/Camps-Academies"
+      },
+      {
+        "name": "Village of Wellington: Tennis Programs",
+        "url": "https://www.wellingtonfl.gov/653/Tennis-Programs"
+      },
+      {
+        "name": "School District of Palm Beach County: 2026-2027 Key Dates",
+        "url": "https://www.palmbeachschools.org/studentsparents/school-calendar/2026-2027-key-dates"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-senior-adult-classes-free-programs",
+    "title": "Free and Low-Cost Classes for Seniors and Adults in Wellington, FL",
+    "h1": "Free and Low-Cost Classes for Seniors and Adults in Wellington, FL",
+    "seoTitle": "Senior & Adult Classes in Wellington FL: Free Programs",
+    "description": "Free and low-cost classes for seniors and adults in Wellington, FL: tai chi, Walk With Ease, AARP Smart Driver, tech help, monthly senior luncheons, Zumba Gold, Strong in 30, line dancing and more, with prices.",
+    "category": "Living in Wellington",
+    "published": "2026-11-15",
+    "updated": "2026-11-15",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic bright community center fitness room with yoga mats, light hand weights and chairs arranged for a gentle exercise class, large windows looking out on a lake and palm trees, morning light, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Does Wellington have free classes for seniors?",
+        "a": "Yes. Tai Chi, the Arthritis Foundation's Walk With Ease, the AARP Smart Driver course, a technology class, Feel Good Fridays, Lunch and Learn seminars and monthly senior special events are listed as free in the village's catalog."
+      },
+      {
+        "q": "What are Wellington's senior special events?",
+        "a": "Monthly events for residents 50 and older at 11:30 a.m. in the Wellington Community Center's Grande Ballroom, with free lunch and music. Register through the village catalog."
+      },
+      {
+        "q": "Where is the AARP Smart Driver course in Wellington?",
+        "a": "The village lists the AARP Smart Driver course for ages 50 and up as a free program in its online recreation catalog. Completing it may qualify you for an insurance discount."
+      },
+      {
+        "q": "How much are Zumba classes in Wellington?",
+        "a": "The village lists Zumba Gold at $40, Zumba A.M. at $40-$50, Zumba Step at $30 and Zumba Toning at $40 per session."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Online recreation catalog",
+        "url": "https://secure.rec1.com/FL/village-of-wellington/catalog"
+      },
+      {
+        "name": "Village of Wellington: Community Center",
+        "url": "https://www.wellingtonfl.gov/239/Community-Center"
+      },
+      {
+        "name": "Village of Wellington: Classes and Programs",
+        "url": "https://www.wellingtonfl.gov/364/Classes-Programs"
+      },
+      {
+        "name": "The Mall at Wellington Green: Free Zumba",
+        "url": "https://shopwellingtongreen.com/event/zumba-w-jaime"
       }
     ]
   }
