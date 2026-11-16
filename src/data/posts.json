@@ -1923,7 +1923,7 @@
     "description": "Wellington cut its budget by $5.5 million but kept the tax rate at 2.47 mills. Why the council voted 4-1 to wait, what Amendment 3 could cost the Village, and what both sides say.",
     "category": "Community",
     "published": "2026-10-20",
-    "updated": "2026-11-04",
+    "updated": "2026-11-16",
     "readMins": 6,
     "coverPrompt": "Photorealistic upscale South Florida suburban street of single-family homes with tile roofs, manicured lawns and palm trees, a stack of mail with an envelope on a front porch table in the foreground, soft morning light, no people, no text, no logos",
     "faq": [
@@ -2279,7 +2279,7 @@
     "description": "Results: Palm Beach County voters passed all three Nov. 3, 2026 county questions. School tax renewal 77% yes, $280 million parks bonds 66%, $175 million library bonds 64%. What each costs and funds.",
     "category": "Government",
     "published": "2026-10-24",
-    "updated": "2026-11-04",
+    "updated": "2026-11-16",
     "readMins": 5,
     "coverPrompt": "Photorealistic sunny South Florida suburban scene with a modern public library, a community park with a sports field and palm trees, and a school building in the background, no people, no text, no logos, no signage",
     "faq": [
@@ -3288,28 +3288,28 @@
     "title": "Palm Beach County Election Results 2026: Wellington and the Western Communities",
     "h1": "Palm Beach County Election Results 2026: Wellington and the Western Communities",
     "seoTitle": "Palm Beach County Election Results 2026: District 6, ITID, House 93 and 94",
-    "description": "Unofficial Nov. 3, 2026 results for Wellington, Royal Palm Beach, The Acreage, Loxahatchee Groves and Westlake: County Commission District 6, State House 93 and 94, ITID seats, amendments and county questions.",
+    "description": "Official Nov. 3, 2026 results for Wellington, Royal Palm Beach, The Acreage, Loxahatchee Groves and Westlake: County Commission District 6, State House 93 and 94, ITID seats, amendments and county questions.",
     "category": "News",
     "published": "2026-11-04",
-    "updated": "2026-11-15",
+    "updated": "2026-11-16",
     "readMins": 4,
     "coverPrompt": "Photorealistic exterior of a suburban South Florida community center at dusk with warm window light, palm trees and a pink sky, no people, no text, no logos, no signage",
     "faq": [
       {
         "q": "Who won the Palm Beach County Commission District 6 race in 2026?",
-        "a": "In unofficial results from the Palm Beach County Supervisor of Elections, Katherine Waldron (DEM) received 58.21% (50,844 votes) and Sara Baxter (REP) received 41.79% (36,509 votes). District 6 includes the western communities, and the Town-Crier reported Waldron is set to take office Nov. 17."
+        "a": "In official results from the Palm Beach County Supervisor of Elections, Katherine Waldron (DEM) received 58.22% (50,913 votes) and Sara Baxter (REP) received 41.78% (36,542 votes). District 6 includes the western communities, and the Town-Crier reported Waldron is set to take office Nov. 17."
       },
       {
         "q": "What was Palm Beach County's turnout in the Nov. 3, 2026 election?",
-        "a": "Unofficial turnout was 64.81%, with 576,527 ballots cast out of 889,577 registered voters, according to the Supervisor of Elections."
+        "a": "Official turnout was 64.90%, with 577,333 ballots cast out of 889,577 registered voters, according to the Supervisor of Elections."
       },
       {
         "q": "Who represents Wellington in the Florida House after the 2026 election?",
-        "a": "In State House District 93, which the Town-Crier says includes Wellington, August Mangeney (DEM) received 56.19% and Anne Gerwig (REP) 43.81% in unofficial results. District 94, covering The Acreage, Loxahatchee Groves, Westlake and parts of Royal Palm Beach, went 50.34% for Elizabeth Holmes (DEM) and 47.98% for Megan Weinberger (REP)."
+        "a": "In State House District 93, which the Town-Crier says includes Wellington, August Mangeney (DEM) received 56.21% and Anne Gerwig (REP) 43.79% in official results. District 94, covering The Acreage, Loxahatchee Groves, Westlake and parts of Royal Palm Beach, went 50.36% for Elizabeth Holmes (DEM) and 47.96% for Megan Weinberger (REP)."
       },
       {
         "q": "Are the 2026 Palm Beach County election results final?",
-        "a": "Not yet. As of the morning of Nov. 4, results were unofficial, with all 814 precincts reporting but vote-by-mail still partially reported until after the signature cure and overseas ballot deadlines. Results become official after certification."
+        "a": "Yes. The Palm Beach County Supervisor of Elections posted official results on Nov. 16, 2026, with all 814 precincts and all vote-by-mail ballots counted. No race outcome changed from election night."
       }
     ],
     "sources": [
@@ -3387,13 +3387,13 @@
     "description": "Florida Amendment 3 passed Nov. 3, 2026. The homestead exemption rises to $150,000 in 2027 and $250,000 in 2028 for non-school taxes. When it starts, how to estimate your savings, and what it means for Palm Beach County and Wellington.",
     "category": "News",
     "published": "2026-11-04",
-    "updated": "2026-11-04",
+    "updated": "2026-11-16",
     "readMins": 6,
     "coverPrompt": "Photorealistic suburban South Florida single-family home with a tile roof, palm trees and a manicured lawn at golden hour, residential street, no people, no text, no logos, no signage",
     "faq": [
       {
         "q": "Did Florida Amendment 3 pass in 2026?",
-        "a": "Yes. Amendment 3 was approved on Nov. 3, 2026, with about 62% of the statewide vote in unofficial returns, above the 60% required. In Palm Beach County it received 60.00% yes, according to unofficial results from the Supervisor of Elections."
+        "a": "Yes. Amendment 3 was approved on Nov. 3, 2026, with about 62% of the statewide vote in unofficial returns, above the 60% required. In Palm Beach County it received 60.00% yes in official county results from the Supervisor of Elections."
       },
       {
         "q": "What does Florida Amendment 3 do?",
@@ -5400,6 +5400,106 @@
       {
         "name": "The Mall at Wellington Green: Free Zumba",
         "url": "https://shopwellingtongreen.com/event/zumba-w-jaime"
+      }
+    ]
+  },
+  {
+    "slug": "swim-lessons-wellington-fl-prices-levels",
+    "title": "Swim Lessons in Wellington, FL: Levels, Schedule and Prices",
+    "h1": "Swim Lessons in Wellington, FL: Levels, Schedule and Prices",
+    "seoTitle": "Swim Lessons in Wellington FL: Levels, Times & Prices",
+    "description": "Swim lessons in Wellington, FL: Wellington Aquatics Center levels, class times, $60 resident sessions, adult and adaptive lessons, lifeguard training, plus private swim schools compared.",
+    "category": "Family",
+    "published": "2026-11-16",
+    "updated": "2026-11-16",
+    "readMins": 4,
+    "coverPrompt": "Photorealistic bright outdoor community swimming pool in South Florida with lane lines, colorful kickboards and pool noodles stacked on the deck, palm trees and blue sky, sparkling clear water, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How much are swim lessons at the Wellington Aquatics Center?",
+        "a": "Group lessons are $60 per session for Wellington residents and $75 for non-residents. Each session is eight classes, Monday through Thursday for two weeks. One-on-one In-Between lessons are $105 for residents and $120 for non-residents."
+      },
+      {
+        "q": "What ages can take swim lessons in Wellington?",
+        "a": "Preschool levels serve ages 3 to 10, Levels 1-3 serve ages 6 to 13, there's an adult class for ages 14 and up, and Adaptive Aquatics serves ages 3 to 12."
+      },
+      {
+        "q": "How do I register for Wellington swim lessons?",
+        "a": "Register online through CivicRec or in person at the Aquatics Center by the Friday before a session starts. You need two forms of ID for residency and a birth certificate for the child."
+      },
+      {
+        "q": "Does Wellington offer lifeguard certification?",
+        "a": "Yes. Lifeguard certification for ages 15 and up costs $290, and summer Junior Lifeguard sessions for ages 10 to 14 cost $90 for residents and $113 for non-residents."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Swim Lessons",
+        "url": "https://www.wellingtonfl.gov/629/Swim-Lessons"
+      },
+      {
+        "name": "Village of Wellington: Aquatics Center Admission Passes",
+        "url": "https://www.wellingtonfl.gov/631/Admission-Passes"
+      },
+      {
+        "name": "Village of Wellington: Lifeguard Training Certification",
+        "url": "https://www.wellingtonfl.gov/630/Swim-Team"
+      },
+      {
+        "name": "Village of Wellington: Aquatics Center",
+        "url": "https://www.wellingtonfl.gov/230/Aquatics-Center"
+      },
+      {
+        "name": "Village of Wellington: Online recreation catalog",
+        "url": "https://secure.rec1.com/FL/village-of-wellington/catalog"
+      },
+      {
+        "name": "Goldfish Swim School Royal Palm Beach",
+        "url": "https://goldfishswimschool.com/royal-palm-beach/"
+      }
+    ]
+  },
+  {
+    "slug": "who-represents-wellington-after-2026-election",
+    "title": "Who Represents Wellington Now: New Officials After the 2026 Election",
+    "h1": "Who Represents Wellington Now: New Officials After the 2026 Election",
+    "seoTitle": "Who Represents Wellington FL After the 2026 Election",
+    "description": "Wellington's new county commissioner, state representatives, state senator and member of Congress after the official 2026 results: Waldron, Mangeney, Holmes, Silvers and Dandiya, what they plan and when they take office.",
+    "category": "Government",
+    "published": "2026-11-16",
+    "updated": "2026-11-16",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic Florida county government building exterior with columns and flags on a sunny morning, palm trees and manicured landscaping, wide steps, blue sky, no people, no text, no logos, no signage, no seals",
+    "faq": [
+      {
+        "q": "Who is Wellington's new county commissioner?",
+        "a": "Katherine Waldron (D), a Wellington resident, won the Palm Beach County Commission District 6 seat with 58.22% in official results and takes office Nov. 17, 2026, replacing Sara Baxter (R)."
+      },
+      {
+        "q": "Who represents Wellington in the Florida House?",
+        "a": "August Mangeney (D) won Florida House District 93, which includes most of Wellington, with 56.21% over incumbent Anne Gerwig (R). He's sworn in Nov. 17, 2026."
+      },
+      {
+        "q": "Who won Florida Senate District 26 in 2026?",
+        "a": "Former State Rep. David Silvers (D) won with 58.06% over Rick Roth (R), replacing retiring Sen. Lori Berman."
+      },
+      {
+        "q": "When is Wellington's next Village Council election?",
+        "a": "Wellington's municipal elections are held in March; the next one is in March 2027."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Palm Beach County Supervisor of Elections: 2026 General Election official results",
+        "url": "https://enr.electionsfl.org/PAL/4131/Summary/"
+      },
+      {
+        "name": "Town-Crier: Waldron defeats Baxter to claim District 6 county seat",
+        "url": "https://gotowncrier.com/2026/11/waldron-defeats-baxter-to-claim-district-6-seat/"
+      },
+      {
+        "name": "Town-Crier: Mangeney, Holmes unseat incumbents to win local state House elections",
+        "url": "https://gotowncrier.com/2026/11/mangeney-holmes-unseat-incumbents-to-win-local-state-house-elections/"
       }
     ]
   }
