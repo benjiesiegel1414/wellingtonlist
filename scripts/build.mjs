@@ -844,6 +844,26 @@ write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 ${pages.map(([u, m, pr]) => `  <url><loc>${SITE}${u}</loc><lastmod>${m}</lastmod><priority>${pr}</priority></url>`).join("\n")}
 </urlset>
 `);
+// TEMPORARY (AdSense, Nov 17 2026): list every noindexed page in a separate sitemap so Google
+// recrawls them sooner, sees the noindex tag and drops them from its index. Remove once they're out.
+const RECRAWL_NOINDEX = true;
+if (RECRAWL_NOINDEX) {
+  const noidx = [];
+  (function walk(dir, rel) {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) { if (e.name !== "assets") walk(path.join(dir, e.name), rel + e.name + "/"); continue; }
+      if (e.name !== "index.html") continue;
+      if (/<meta name="robots" content="noindex">/.test(fs.readFileSync(path.join(dir, e.name), "utf8"))) noidx.push("/" + rel);
+    }
+  })(OUT, "");
+  const today = new Date().toISOString().slice(0, 10);
+  write("sitemap-recrawl.xml", `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${noidx.sort().map(u => `  <url><loc>${SITE}${u}</loc><lastmod>${today}</lastmod></url>`).join("\n")}
+</urlset>
+`);
+  console.log(`Recrawl sitemap: ${noidx.length} noindexed pages.`);
+}
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 write("feed.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel><title>Wellington List</title><link>${SITE}/</link><description>Local news and guides for Wellington, Florida</description>
