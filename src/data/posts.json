@@ -5618,5 +5618,121 @@
         "url": "https://www.sfwmd.gov/community-residents/landscape-irrigation"
       }
     ]
+  },
+  {
+    "slug": "wellington-trash-recycling-bulk-pickup-guide",
+    "title": "Wellington Trash Pickup Guide: Garbage, Recycling, Yard Waste and Bulk Rules",
+    "h1": "Wellington Trash Pickup Guide: Garbage, Recycling, Yard Waste and Bulk Rules",
+    "seoTitle": "Wellington FL Trash, Recycling & Bulk Pickup Guide",
+    "description": "How trash pickup works in Wellington, FL: garbage twice a week, recycling, yard waste and bulk weekly, what goes in each bin, size and weight limits, holiday schedule, hurricane debris and how to report a missed pickup.",
+    "category": "Living in Wellington",
+    "published": "2026-11-18",
+    "updated": "2026-11-18",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic suburban South Florida driveway in early morning with a gray wheeled garbage cart, a blue recycling bin and a yellow recycling bin neatly placed at the curb, manicured lawn, palm trees and a ranch-style home, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How often is trash picked up in Wellington, FL?",
+        "a": "Garbage is collected twice a week, and recycling, yard waste (vegetation) and bulk trash are each collected once a week. Use the village's Garbage Collection Zone Lookup map to find your days."
+      },
+      {
+        "q": "When can I put my trash out in Wellington?",
+        "a": "Carts can go out no earlier than 6 p.m. the night before collection and must be stored by 11 p.m. on collection day. Bulk trash can go out no more than 24 hours ahead."
+      },
+      {
+        "q": "What can go in bulk trash pickup in Wellington?",
+        "a": "Appliances, furniture, mattresses, toilets, water heaters, cut carpet and wood under 6 feet, plus up to 4 cubic yards of minor home-repair debris. Concrete and rock aren't collected."
+      },
+      {
+        "q": "Is there trash pickup on Thanksgiving in Wellington?",
+        "a": "No. There's no garbage, recycling or vegetation collection on Thanksgiving Day or Christmas Day; service resumes on your next regular day."
+      },
+      {
+        "q": "How do I report a missed trash pickup in Wellington?",
+        "a": "Submit a request through SeeClickFix, the village's service request system, or call Wellington Solid Waste at (561) 791-4003."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Solid Waste and Recycling",
+        "url": "https://www.wellingtonfl.gov/216/Solid-Waste-Recycling"
+      },
+      {
+        "name": "Village of Wellington: Garbage",
+        "url": "https://www.wellingtonfl.gov/718/Garbage"
+      },
+      {
+        "name": "Village of Wellington: Recycling",
+        "url": "https://www.wellingtonfl.gov/255/Recycling"
+      },
+      {
+        "name": "Village of Wellington: Bulk Collection",
+        "url": "https://www.wellingtonfl.gov/715/Bulk-Collection"
+      },
+      {
+        "name": "Village of Wellington: Vegetation Collection",
+        "url": "https://www.wellingtonfl.gov/720/Vegetation-Collection"
+      },
+      {
+        "name": "Village of Wellington: Solid Waste Guidelines",
+        "url": "https://www.wellingtonfl.gov/947/Solid-Waste-Guidelines"
+      },
+      {
+        "name": "Village of Wellington: Electronics and Household Hazardous Waste",
+        "url": "https://www.wellingtonfl.gov/719/Electronics-Household-Hazardous-Waste"
+      },
+      {
+        "name": "Village of Wellington: Hurricane Debris Management",
+        "url": "https://www.wellingtonfl.gov/703/Hurricane-Debris-Management"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-building-permits-guide-fees-exemptions",
+    "title": "How to Get a Building Permit in Wellington, FL: Steps, Fees and the New $7,500 Exemption",
+    "h1": "How to Get a Building Permit in Wellington, FL: Steps, Fees and the New $7,500 Exemption",
+    "seoTitle": "Wellington FL Building Permits: Steps, Fees & HB 803 Exemption",
+    "description": "How building permits work in Wellington, FL: the online ProjectDox process step by step, permit fee tiers and other fees, and the new House Bill 803 exemption for small single-family projects under $7,500.",
+    "category": "Living in Wellington",
+    "published": "2026-11-18",
+    "updated": "2026-11-18",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic home renovation in progress at a South Florida house, new wooden framing for a room addition, a stack of lumber, rolled architectural blueprints and a hard hat on a sawhorse, palm trees and blue sky, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How do I apply for a building permit in Wellington, FL?",
+        "a": "Email your completed application to the Building Division at buildingdocs@wellingtonfl.gov, then upload plans through the village's ProjectDox system and pay fees in the Citizen Self Service portal."
+      },
+      {
+        "q": "How much is a building permit in Wellington?",
+        "a": "The minimum permit fee is $150 for work up to $7,500, with higher-value work charged by percentage tiers (2.00% up to $100,000), plus a plan review fee of 50% (minimum $75) and state surcharges."
+      },
+      {
+        "q": "What is the House Bill 803 permit exemption?",
+        "a": "Since July 1, 2026, owners of single-family homes can apply for an exemption from building permits for certain non-trade work under $7,500. It doesn't cover electrical, gas, plumbing, mechanical, structural, pool barrier or flood-zone work."
+      },
+      {
+        "q": "What happens if I do work without a permit in Wellington?",
+        "a": "The village's fee schedule sets the penalty for failure to obtain a permit at four times the building permit fee, subject to review by the Building Official."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Building Permits",
+        "url": "https://www.wellingtonfl.gov/252/Building-Permits"
+      },
+      {
+        "name": "Village of Wellington: Guide to Permitting",
+        "url": "https://www.wellingtonfl.gov/269/Guide-to-Permitting"
+      },
+      {
+        "name": "Village of Wellington: Permit Fee Schedule",
+        "url": "https://www.wellingtonfl.gov/282/Permit-Fee-Schedule"
+      },
+      {
+        "name": "Village of Wellington: House Bill 803 Permit Exemption",
+        "url": "https://www.wellingtonfl.gov/2412/House-Bill-803---Permit-Exemption"
+      }
+    ]
   }
 ]
