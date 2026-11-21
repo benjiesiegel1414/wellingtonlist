@@ -226,7 +226,17 @@ ${sprite}
   <nav class="main" id="mainnav" aria-label="Main">${NAV.map(([h, l]) => `<a href="${h}"${urlPath.startsWith(h) ? ' aria-current="page"' : ""}>${l}</a>`).join("")}</nav>
   <a class="btn btn-primary header-cta" href="/add-your-business/">Add your business</a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
-</div></header>
+</div>
+<div class="topsearch"><div class="wrap">
+  <form class="ts-form" role="search" action="/directory/" method="get" autocomplete="off">
+    <svg class="ts-ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <label class="sr" for="ts-q">Search Wellington List</label>
+    <input id="ts-q" name="q" type="search" data-v="${ASSET_V}-${posts.length}-${places.length}" placeholder="Search businesses, restaurants, news and guides..." role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ts-list">
+    <button class="ts-btn" type="submit">Search</button>
+    <ul id="ts-list" class="ts-list" role="listbox" hidden></ul>
+  </form>
+</div></div>
+</header>
 <main id="main">
 ${body}
 </main>
@@ -846,6 +856,17 @@ write("404.html", layout({ title: "Page not found | Wellington List", descriptio
 
 // ---------- Assets, sitemap, robots, feed ----------
 fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
+// Search index for the sticky predictive search bar: [type, title, url, subtitle, extra keywords]
+{
+  const isGone = p => /^(permanently closed|closed)/i.test(p.status || "");
+  const idx = [];
+  for (const sp of servicePagesBuilt) idx.push(["Service", sp.noun + " in Wellington", `/services/${sp.slug}/`, sp.count + " local providers", ""]);
+  for (const [u, t] of [["/restaurants/", "Restaurants in Wellington"], ["/things-to-do/", "Things to do in Wellington"], ["/equestrian/", "Equestrian season guide: WEF, polo, dressage"], ["/events/", "Wellington events calendar"], ["/services/", "Local services directory"], ["/directory/", "Full Wellington directory"], ["/blog/", "Wellington news and guides"], ["/add-your-business/", "Add your business (free listing)"], ["/submit-event/", "Submit an event"]]) idx.push(["Guide", t, u, "", ""]);
+  for (const e of events) idx.push(["Event", e.title, `/events/#${e.slug}`, e.venue || "", ""]);
+  for (const p of places) if (!isGone(p)) idx.push(["Place", p.name, `/places/${p.slug}/`, [p.type, p.area].filter(Boolean).join(" · "), (CATS.find(c => c.id === p.cat) || {}).label || ""]);
+  for (const p of posts) idx.push(["News", p.h1 || p.title, `/blog/${p.slug}/`, p.category || "", ""]);
+  fs.writeFileSync(path.join(OUT, "assets/search.json"), JSON.stringify(idx));
+}
 fs.writeFileSync(path.join(OUT, "assets/site.css"), read("assets/base.css") + read("assets/extra.css") + read("assets/sponsors.css") +"\n.foot-h{font-size:14px;color:#fff;margin:0 0 14px;font-weight:600;font-family:var(--sans)}\n.h4{font-family:var(--serif);font-weight:500;font-size:22px;margin:2px 0 0;line-height:1.2}\n");
 for (const f of ["main.js", "config.js"]) fs.copyFileSync(path.join(SRC, "assets", f), path.join(OUT, "assets", f));
 for (const f of fs.readdirSync(path.join(SRC, "static"))) fs.copyFileSync(path.join(SRC, "static", f), path.join(OUT, f.startsWith("asset-") ? "assets/" + f.slice(6) : f));

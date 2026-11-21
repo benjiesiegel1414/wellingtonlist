@@ -10,7 +10,7 @@
   .crumbs span[aria-hidden]{opacity:.6}
   .body-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;padding-top:48px;padding-bottom:48px}
   .body-grid aside .ad{margin-top:0}
-  .sticky-rail{position:sticky;top:96px}
+  .sticky-rail{position:sticky;top:150px}
   @media (max-width:1024px){.body-grid{grid-template-columns:1fr}.sticky-rail{position:static}}
 
   /* Sponsor slot (house ads until a sponsor is sold) */
@@ -29,7 +29,7 @@
   .article-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;color:#D7E8DD;margin-top:16px}
   .prose{font-size:18px;line-height:1.7;max-width:720px}
   .prose .lede{font-size:21px;line-height:1.55;color:var(--ink)}
-  .prose h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.15;letter-spacing:-.01em;margin:44px 0 12px;scroll-margin-top:96px}
+  .prose h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.15;letter-spacing:-.01em;margin:44px 0 12px;scroll-margin-top:150px}
   .prose h3{font-size:19px;margin:28px 0 8px}
   .prose p,.prose ul,.prose ol{margin:0 0 18px}
   .prose li{margin-bottom:8px}
@@ -211,3 +211,27 @@
   .hn-submit a{color:var(--green-700);font-weight:600}
   @media (max-width:860px){.hn-top{grid-template-columns:1fr;gap:28px}.hn-more{grid-template-columns:repeat(2,1fr)}.hn-guides{grid-template-columns:1fr}.hero .wrap{padding-top:44px;padding-bottom:48px}section.block{padding:36px 0}}
   @media (max-width:600px){.hn-side li{grid-template-columns:110px 1fr;gap:12px}.hn-more{grid-template-columns:1fr 1fr;gap:20px 14px}.hn-side h4,.hn-card h4{font-size:17px}.hn-events{grid-template-columns:1fr}#directory .listings .listing:nth-child(n+7){display:none}}
+
+  /* Sticky predictive search bar (inside the sticky header) */
+  .topsearch{border-top:1px solid var(--line);background:var(--green-50)}
+  header.site .topsearch .wrap{display:block;height:auto;padding-top:8px;padding-bottom:8px}
+  .ts-form{position:relative;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:0 6px 0 14px;max-width:760px;margin:0 auto}
+  .ts-form:focus-within{border-color:var(--green-700);box-shadow:0 0 0 3px var(--green-100)}
+  .ts-ico{flex:none;color:var(--muted)}
+  .ts-form input{flex:1;min-width:0;border:0;background:transparent;font:400 16px var(--sans);color:var(--ink);padding:10px 4px}
+  .ts-form input:focus{outline:none}
+  .ts-form input::-webkit-search-cancel-button{cursor:pointer}
+  .ts-btn{flex:none;font:600 14px var(--sans);background:var(--green-700);color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
+  .ts-btn:hover{background:var(--green-900)}
+  .ts-list{position:absolute;left:-1px;right:-1px;top:calc(100% + 6px);margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px -14px rgba(10,40,18,.35);max-height:min(70vh,460px);overflow:auto;z-index:30}
+  .ts-list li{border-radius:6px}
+  .ts-list li a{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;padding:9px 10px;color:var(--ink);text-decoration:none}
+  .ts-list li a b{font-weight:600;font-size:15px;line-height:1.25}
+  .ts-list li a b mark{background:var(--green-100);color:inherit;border-radius:2px;padding:0 1px}
+  .ts-list li a span{grid-column:1;font-size:13px;color:var(--muted)}
+  .ts-list li a em{grid-row:1/span 2;grid-column:2;font:600 11.5px var(--sans);color:var(--green-700);background:var(--green-50);border:1px solid var(--green-100);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  .ts-list li[aria-selected="true"],.ts-list li:hover{background:var(--green-50)}
+  .ts-list .ts-all a{display:block;font-weight:600;color:var(--green-700);border-top:1px solid var(--line);border-radius:0;margin-top:4px;padding-top:11px}
+  .ts-list .ts-none{padding:12px 10px;color:var(--muted);font-size:14.5px}
+  @media (max-width:860px){nav.main.open{z-index:31}header.site .topsearch .wrap{padding-top:7px;padding-bottom:7px}.ts-btn{display:none}.ts-form{padding-right:10px}}
+  html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 140px)}

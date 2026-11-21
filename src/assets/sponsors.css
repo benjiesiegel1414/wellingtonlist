@@ -65,7 +65,7 @@
 @media (max-width:900px){.sp-offer{grid-template-columns:1fr}}
 .sp-rail-label{align-self:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:var(--green-900)!important;box-shadow:0 4px 12px -8px rgba(12,43,25,.4)}
 .sp-bar-item.open-item .sp-logo{background:#fff;border:1px dashed #B7CBBE;font:400 16px/1 var(--sans)}
-#sponsor-spots,#claim{scroll-margin-top:96px}
+#sponsor-spots,#claim{scroll-margin-top:150px}
 @media (max-width:600px){.sp-bar-label{display:inline;font-size:9.5px}}
 
 /* ---------- Advertise card (10th position) ---------- */
