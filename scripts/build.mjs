@@ -267,7 +267,7 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
 {
   const featured = places.filter(p => p.featured).slice(0, 9);
   const counts = Object.fromEntries(CATS.map(c => [c.id, places.filter(p => p.cat === c.id).length]));
-  const lead = posts[0], rest = posts.slice(1, 10);
+  const lead = posts[0], rest = posts.slice(1, 11);
   const body = `
 <section class="hero"><svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
   <div class="wrap">
@@ -285,25 +285,28 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
 
 <section class="block" id="news"><div class="wrap">
   <div class="sec-head"><h2>Wellington news</h2><a href="/blog/">All news</a></div>
-  <div class="news-grid"><div class="news-main">
+  <div class="hn-top">
     <article class="lead-story">
       <a class="img" href="/blog/${lead.slug}/" style="display:grid;place-items:center" aria-label="${esc(lead.h1)}">${coverImg(lead, true) || '<svg viewBox="0 0 64 64" width="34%" style="color:#fff" aria-hidden="true"><use href="#logo"/></svg>'}</a>
       <div class="tag">${esc(lead.category)}</div>
       <h3><a href="/blog/${lead.slug}/">${esc(lead.h1)}</a></h3>
       <p>${esc(lead.description)}</p><div class="byline">${fmtDate(lead.published)} &middot; ${lead.readMins} min read</div>
     </article>
-    <ul class="story-list">
-      ${rest.map(p => `<li><div class="tag">${esc(p.category)}</div><h4><a href="/blog/${p.slug}/">${esc(p.h1)}</a></h4><div class="byline">${fmtDate(p.published)}</div></li>`).join("")}
-      <li><div class="tag">Guide</div><h4><a href="/things-to-do/">The best things to do in Wellington, FL</a></h4><div class="byline">Guide</div></li>
-      <li><div class="tag">Eat and Drink</div><h4><a href="/restaurants/">Wellington's most popular restaurants</a></h4><div class="byline">Guide</div></li>
-      <li><div class="tag">Equestrian</div><h4><a href="/equestrian/">A local's guide to Wellington's equestrian season</a></h4><div class="byline">Guide</div></li>
+    <ul class="hn-side">
+      ${rest.slice(0, 4).map(p => `<li><a class="hn-thumb" href="/blog/${p.slug}/" tabindex="-1" aria-hidden="true">${coverImg(p) || '<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>'}</a><div><div class="tag">${esc(p.category)}</div><h4><a href="/blog/${p.slug}/">${esc(p.h1)}</a></h4><div class="byline">${fmtDate(p.published)}</div></div></li>`).join("")}
     </ul>
   </div>
-  <aside class="rail" id="events"><div><h3>Coming up</h3>
-    <ul class="events">${events.slice(0, 4).map(e => `<li><div class="date">${dateChip(e)}</div><div><strong><a href="/events/#${e.slug}">${esc(e.title)}</a></strong><span>${esc(e.venue)}</span></div></li>`).join("")}</ul>
-    <a class="btn btn-ghost" href="/submit-event/">Submit an event</a></div>
-    ${sponsor("rect")}
-  </aside></div>
+  <div class="hn-more">
+    ${rest.slice(4, 10).map(p => `<article class="hn-card"><a class="hn-thumb" href="/blog/${p.slug}/" tabindex="-1" aria-hidden="true">${coverImg(p) || '<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>'}</a><div class="tag">${esc(p.category)}</div><h4><a href="/blog/${p.slug}/">${esc(p.h1)}</a></h4><div class="byline">${fmtDate(p.published)}</div></article>`).join("")}
+  </div>
+  <div class="hn-guides"><a href="/things-to-do/"><span>Guide</span>The best things to do in Wellington, FL</a><a href="/restaurants/"><span>Eat and Drink</span>Wellington's most popular restaurants</a><a href="/equestrian/"><span>Equestrian</span>A local's guide to Wellington's equestrian season</a></div>
+</div></section>
+
+<section class="block block-tint" id="events"><div class="wrap">
+  <div class="sec-head"><h2>Coming up</h2><a href="/events/">All events</a></div>
+  <ul class="events hn-events">${events.slice(0, 4).map(e => `<li><div class="date">${dateChip(e)}</div><div><strong><a href="/events/#${e.slug}">${esc(e.title)}</a></strong><span>${esc(e.venue)}</span></div></li>`).join("")}</ul>
+  <p class="hn-submit">Hosting something in Wellington? <a href="/submit-event/">Submit an event</a></p>
+  ${sponsor("rect")}
 </div></section>
 
 <section class="block" id="directory"><div class="wrap">
