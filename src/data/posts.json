@@ -6006,5 +6006,117 @@
         "url": "https://fema.gov/flood-insurance/rules-legislation/community-rating-system"
       }
     ]
+  },
+  {
+    "slug": "wellington-tree-trimming-season-rules-storm-debris",
+    "title": "Wellington Tree Trimming Season Starts Dec. 1: Rules, Permits and Storm Debris Pickup",
+    "h1": "Wellington Tree Trimming Season Starts Dec. 1: Rules, Permits and Storm Debris Pickup",
+    "seoTitle": "Wellington FL Tree Trimming Rules: Dec. 1-April 30, Permits",
+    "description": "Wellington, FL asks residents to do major tree trimming and removal from Dec. 1 to April 30. The 25% trimming limit, when a removal permit is required, pruning mistakes to avoid, curbside limits and how storm debris pickup works.",
+    "category": "Home",
+    "published": "2026-11-21",
+    "updated": "2026-11-21",
+    "readMins": 7,
+    "coverPrompt": "Photorealistic pruned live oak in the front yard of a South Florida home, tidy pile of cut branches and palm fronds at the curb, pole saw against the trunk, royal palms, bright winter morning, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "When should I trim trees in Wellington, FL?",
+        "a": "The village asks residents to do all major tree cutting and removal between Dec. 1 and April 30, and no major cutting from June 1 through Nov. 30, which is hurricane season."
+      },
+      {
+        "q": "Do I need a permit to trim or remove a tree in Wellington?",
+        "a": "You can trim up to 25% of a tree or palm without a permit. Removing a tree or palm, including a fruit tree, requires a Tree/Vegetation Removal permit from the village."
+      },
+      {
+        "q": "Will Wellington pick up tree branches at the curb?",
+        "a": "Yes, on your weekly yard waste day if pieces are under 6 feet long and 50 pounds and limbs are under 10 inches in diameter. Tree removals, trunks and stumps aren't collected, and contractors must haul away their own debris."
+      },
+      {
+        "q": "How long does storm debris pickup take in Wellington?",
+        "a": "Collection starts almost immediately after a storm, but the village says it may be 3 to 6 weeks before your first pickup, and full cleanup generally takes 45 to 120 days."
+      },
+      {
+        "q": "Is it OK to cut green palm fronds before a hurricane?",
+        "a": "No. The village says removing healthy green fronds weakens the palm and can cause the trunk to snap in high winds. Only remove brown and yellow fronds hanging below horizontal."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Hurricane Debris Management",
+        "url": "https://www.wellingtonfl.gov/703/Hurricane-Debris-Management"
+      },
+      {
+        "name": "Village of Wellington: Emergency Management FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=25"
+      },
+      {
+        "name": "Village of Wellington: Tree Care Tips",
+        "url": "https://www.wellingtonfl.gov/2106/Tree-Care-Tips"
+      },
+      {
+        "name": "Village of Wellington: Landscape Regulations FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=52"
+      },
+      {
+        "name": "Village of Wellington: Tree Removal",
+        "url": "https://www.wellingtonfl.gov/627/Tree-Removal"
+      },
+      {
+        "name": "Village of Wellington: Solid Waste and Recycling",
+        "url": "https://www.wellingtonfl.gov/216/Solid-Waste-Recycling"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-mosquito-control-spraying-guide",
+    "title": "Mosquito Control in Wellington: When Trucks Spray, the Do-Not-Spray List and How to Protect Your Yard",
+    "h1": "Mosquito Control in Wellington: When Trucks Spray, the Do-Not-Spray List and How to Protect Your Yard",
+    "seoTitle": "Wellington FL Mosquito Control: Spraying, Hotline, Do-Not-Spray",
+    "description": "How mosquito control works in Wellington, FL: how the village decides when to spray, the five zones, the 561-791-4001 hotline, spray safety for kids and pets, the do-not-spray list, and drain-and-cover tips for your yard.",
+    "category": "Home",
+    "published": "2026-11-21",
+    "updated": "2026-11-21",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic South Florida backyard at dusk with a screened patio, stone birdbath and potted plants, calm canal and tall grasses, golden sunset, palm trees, no people, no insects, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Who do I call about mosquitoes in Wellington, FL?",
+        "a": "Call the Village of Wellington's Mosquito Control Hotline at 561-791-4001 to report a problem or ask about spraying in your area."
+      },
+      {
+        "q": "When does Wellington spray for mosquitoes?",
+        "a": "There is no fixed schedule. The village decides daily based on trap and surveillance data, and treats an area no more than once a week during the June to November peak season."
+      },
+      {
+        "q": "Is Wellington's mosquito spray safe for pets and children?",
+        "a": "The village says harm is not likely because the pesticide is designed for use around warm-blooded animals, but breathing it could cause a reaction in people with chronic respiratory illnesses such as asthma."
+      },
+      {
+        "q": "How do I get on Wellington's do-not-spray list?",
+        "a": "Beekeepers, farmers and any Wellington resident can request to be added through the village's GoWellington self-service portal."
+      },
+      {
+        "q": "What kills mosquito larvae in standing water?",
+        "a": "Mosquito dunks, a biological larvicide the village says is non-toxic to fish, birds, wildlife and pets, last up to 30 days and cover about 100 square feet. Mosquitofish can eat as many as 100 larvae a day in ponds."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Mosquito Control",
+        "url": "https://www.wellingtonfl.gov/191/Mosquito-Control"
+      },
+      {
+        "name": "Village of Wellington: Mosquito Control FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=17"
+      },
+      {
+        "name": "Village of Wellington: Mosquito Dunks and Mosquitofish",
+        "url": "https://www.wellingtonfl.gov/209/Mosquito-Dunks-Mosquitofish"
+      },
+      {
+        "name": "Florida Department of Health: Mosquito Bite Prevention (Drain and Cover)",
+        "url": "https://www.floridahealth.gov/diseases-and-conditions/mosquito-borne-diseases/prevention.html"
+      }
+    ]
   }
 ]
