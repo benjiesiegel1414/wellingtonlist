@@ -87,6 +87,15 @@ for (const r of sheetEvents) {
   events.push({ slug: slugify(r.event_name + "-" + r.start_date), title: r.event_name, start: r.start_date, end: r.end_date || r.start_date, venue: r.venue || "", address: r.address || "", desc: r.description || "", url: r.link || "" });
 }
 const todayISO = BUILD_DATE;
+// Drop duplicate event submissions (same title and start date, or same slug).
+{
+  const seen = new Set();
+  events = events.filter(e => {
+    const key = (e.title || "").toLowerCase().replace(/[^a-z0-9]+/g, "") + "|" + e.start;
+    if (seen.has(key) || seen.has(e.slug)) return false;
+    seen.add(key); seen.add(e.slug); return true;
+  });
+}
 events = events.filter(e => (e.end || e.start) >= todayISO).sort((a, b) => a.start.localeCompare(b.start));
 
 const CATS = [
