@@ -544,7 +544,7 @@ for (const p of places) {
     ...(p.phone ? [{ q: `What is the phone number for ${p.name}?`, a: `You can reach ${p.name} at ${p.phone}.` }] : [])
   ];
   const ldPlace = {
-    "@context": "https://schema.org", "@type": p.schema || "LocalBusiness", name: p.name, description: p.desc, url: `${SITE}/places/${p.slug}/`,
+    "@context": "https://schema.org", "@type": p.schema || "LocalBusiness", name: p.name, description: p.desc, url: `${SITE}/places/${p.slug}/`, ...(p.photos && p.photos.length ? { image: p.photos.map(ph => `${SITE}/assets/photos/${p.slug}/${ph.file}`) } : {}),
     ...(addrParts ? { address: { "@type": "PostalAddress", streetAddress: addrParts[1], addressLocality: addrParts[2], addressRegion: "FL", postalCode: addrParts[3], addressCountry: "US" } } : { address: { "@type": "PostalAddress", addressLocality: isNearby ? city : "Wellington", addressRegion: "FL", addressCountry: "US" } }),
     ...(p.phone ? { telephone: p.phone } : {}), ...(p.openingHours ? { openingHours: p.openingHours } : {}), ...(p.priceRange ? { priceRange: p.priceRange } : {}), ...(p.cuisine ? { servesCuisine: p.cuisine } : {}), ...(p.website ? { sameAs: [p.website] } : {})
   };
@@ -580,6 +580,7 @@ for (const p of places) {
       <p>${esc(p.name)} is ${areaText}. ${p.cat === "restaurants" ? `It is one of ${places.filter(x => x.cat === "restaurants").length} places to eat and drink in our <a href="/restaurants/">Wellington restaurant guide</a>${p.cuisine ? `, and part of the village's ${esc(p.cuisine)} dining scene` : ""}.` : `Browse more ${esc(catLabel(p.cat).toLowerCase())} in our <a href="${listUrl}">Wellington directory</a>.`}</p>
       ${p.link ? `<p><a href="${p.link}">Read our full guide</a></p>` : ""}
     </section>
+    ${p.photos && p.photos.length ? `<section class="pl-section"><h2>Photos of ${esc(p.name)}</h2><div class="pl-photos">${p.photos.map(ph => `<figure><a href="/assets/photos/${p.slug}/${ph.file}" target="_blank" rel="noopener"><img src="/assets/photos/${p.slug}/${ph.file}" alt="${esc(ph.alt)}" width="${ph.w}" height="${ph.h}" loading="lazy" decoding="async"></a><figcaption>${esc(ph.caption)}</figcaption></figure>`).join("")}</div><p class="small">Photos by WellingtonList${p.photoDate ? ", " + esc(p.photoDate) : ""}. Menus and prices can change.</p></section>` : ""}
     ${p.offerings && p.offerings.length ? `<section class="pl-section"><h2>${p.cat === "restaurants" ? "What to try" : "Services and highlights"}</h2><ul class="tips">${p.offerings.map(o => `<li>${esc(o)}</li>`).join("")}</ul></section>` : ""}
     ${p.hours ? `<section class="pl-section"><h2>Hours</h2><p>${esc(p.hours)}</p><p class="small">Hours can change on holidays and during the winter season. ${p.phone ? `Call <a href="${telHref}">${esc(p.phone)}</a> to confirm before you go.` : "Confirm with the business before you go."}</p></section>` : ""}
     ${(postsByPlace[p.slug] || []).length ? `<section class="pl-section"><h2>Featured in our Wellington guides</h2><ul class="tips">${postsByPlace[p.slug].slice(0, 6).map(x => `<li><a href="/blog/${x.slug}/">${esc(x.h1)}</a></li>`).join("")}</ul></section>` : ""}
@@ -871,6 +872,7 @@ fs.writeFileSync(path.join(OUT, "assets/site.css"), read("assets/base.css") + re
 for (const f of ["main.js", "config.js"]) fs.copyFileSync(path.join(SRC, "assets", f), path.join(OUT, "assets", f));
 for (const f of fs.readdirSync(path.join(SRC, "static"))) fs.copyFileSync(path.join(SRC, "static", f), path.join(OUT, f.startsWith("asset-") ? "assets/" + f.slice(6) : f));
 
+if (fs.existsSync(path.join(SRC, "photos"))) fs.cpSync(path.join(SRC, "photos"), path.join(OUT, "assets/photos"), { recursive: true });
 if (fs.existsSync(path.join(SRC, "covers"))) { fs.mkdirSync(path.join(OUT, "assets/covers"), { recursive: true }); for (const f of fs.readdirSync(path.join(SRC, "covers"))) fs.copyFileSync(path.join(SRC, "covers", f), path.join(OUT, "assets/covers", f)); }
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
