@@ -6118,5 +6118,117 @@
         "url": "https://www.floridahealth.gov/diseases-and-conditions/mosquito-borne-diseases/prevention.html"
       }
     ]
+  },
+  {
+    "slug": "wellington-school-zone-camera-hours-by-school-pay-contest",
+    "title": "Wellington School Zone Camera Hours at Every School, and How to Pay or Contest a $100 Notice",
+    "h1": "Wellington School Zone Camera Hours at Every School, and How to Pay or Contest a $100 Notice",
+    "seoTitle": "Wellington School Zone Camera Hours by School, Pay or Contest",
+    "description": "The exact speed camera enforcement hours for every Wellington, FL school zone, what speed triggers a $100 notice, why lights don't have to be flashing, and step-by-step how to pay, contest or file an affidavit within 30 days.",
+    "category": "Traffic",
+    "published": "2026-11-22",
+    "updated": "2026-11-22",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic school zone on a tree-lined South Florida road in the morning, yellow school crossing sign with flashing amber beacon, small gray speed camera on a pole, crosswalk, school building in the background, no people, no cars, no text, no logos",
+    "faq": [
+      {
+        "q": "What hours are Wellington school zone speed cameras active?",
+        "a": "Cameras run from up to 30 minutes before school starts until 30 minutes after it ends. At most elementary schools the 20 mph limit is enforced 7:00-8:05 a.m. and 1:50-2:35 p.m., with the regular posted limit enforced in between. Middle schools run 8:35-9:35 a.m. and 3:35-4:35 p.m."
+      },
+      {
+        "q": "How fast do you have to go to get a school zone camera ticket in Wellington?",
+        "a": "11 mph or more over the limit in effect. During 20 mph arrival and dismissal windows, that means 31 mph or faster."
+      },
+      {
+        "q": "Can I get a camera ticket when the school zone lights aren't flashing?",
+        "a": "Yes. The village says the regular posted speed limit is photo-enforced all school day, and Florida law allows school zones to be enforced by posted sign hours without flashing beacons."
+      },
+      {
+        "q": "How do I pay a Wellington school zone camera fine?",
+        "a": "Pay the $100 online at trafficsafetycitations.com, by phone at 1-833-965-3001, or by mail with a check payable to the Village of Wellington, within 30 days of the notice date."
+      },
+      {
+        "q": "What happens if I don't pay a Wellington school zone camera notice?",
+        "a": "After 30 days with no response, it becomes a $206 Uniform Traffic Citation handled by the Palm Beach County Clerk of Court, and ignoring that can lead to a driver's license suspension."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: School Zone Safety Program",
+        "url": "https://www.wellingtonfl.gov/2350/School-Zone-Safety-Program"
+      },
+      {
+        "name": "Village of Wellington: School Zone Safety Camera Program FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=48"
+      },
+      {
+        "name": "Florida Senate: HB 657 (2023), Enforcement of School Zone Speed Limits",
+        "url": "https://www.flsenate.gov/Session/Bill/2023/657"
+      },
+      {
+        "name": "Traffic Safety Citations payment portal",
+        "url": "https://www.trafficsafetycitations.com"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-water-meter-replacement-water-bill-guide",
+    "title": "Wellington Is Replacing Water Meters: What to Expect, Plus How Your Water Bill Works",
+    "h1": "Wellington Is Replacing Water Meters: What to Expect, Plus How Your Water Bill Works",
+    "seoTitle": "Wellington FL Water Meter Replacement & Water Bill Explained",
+    "description": "Wellington, FL is replacing water meters village-wide with wireless ones. What happens on installation day, how to spot a real Envocore installer, how your water bill is calculated, why it spikes and every way to pay.",
+    "category": "Home",
+    "published": "2026-11-22",
+    "updated": "2026-11-22",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic open in-ground residential water meter box in a green lawn near a sidewalk in a South Florida neighborhood, new brass water meter with small wireless transmitter, lid set aside, wrench on the grass, homes and palms blurred behind, no people, no text, no logos",
+    "faq": [
+      {
+        "q": "Is Wellington replacing water meters?",
+        "a": "Yes. The Village of Wellington began replacing water meters in June 2026 with meters that send readings wirelessly. The village expects the project to take 12 to 18 months."
+      },
+      {
+        "q": "Do I have to pay for the new water meter in Wellington?",
+        "a": "No. The village says there is no direct charge on your bill for the meter replacement."
+      },
+      {
+        "q": "How long will my water be off during the meter replacement?",
+        "a": "About 15 to 30 minutes. You don't need to be home. Afterward, run a tub faucet or outside spigot for 2 to 3 minutes to clear air from the line."
+      },
+      {
+        "q": "Why do I get a Wellington water bill when I'm not using water?",
+        "a": "The village charges a fixed monthly base fee, set by meter size, to keep service available at your address regardless of usage or occupancy."
+      },
+      {
+        "q": "How do I pay my Wellington water bill?",
+        "a": "Pay online or set up auto pay through the Pay My Water Bill page at wellingtonfl.gov, by phone at 561-791-4010, by mail to the Tampa P.O. box on your bill, or in person or by drop box at Village Hall, 12300 Forest Hill Blvd."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Water Meter Replacement Program",
+        "url": "https://www.wellingtonfl.gov/2403/Water-Meter-Replacement-Program"
+      },
+      {
+        "name": "Village of Wellington: Water Meter Replacement Project FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=51"
+      },
+      {
+        "name": "Village of Wellington: Billing Information",
+        "url": "https://www.wellingtonfl.gov/825/Billing-Information"
+      },
+      {
+        "name": "Village of Wellington: Utility Bill FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=38"
+      },
+      {
+        "name": "Village of Wellington: Pay My Water Bill",
+        "url": "https://www.wellingtonfl.gov/824/Pay-My-Water-Bill"
+      },
+      {
+        "name": "Village of Wellington: Current Utility Rates/Fees",
+        "url": "https://www.wellingtonfl.gov/2262/Current-Utility-RatesFees"
+      }
+    ]
   }
 ]
