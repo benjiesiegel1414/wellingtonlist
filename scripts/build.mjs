@@ -773,7 +773,7 @@ formPage({
   </div>
   <p class="adv-q">Questions? Email us at <a href="${mail}">hello@wellingtonlist.com</a></p>
 </div></section>`;
-  add("/advertise/", layout({ title: "Advertise in Wellington, FL | Wellington List", description: "Advertise your business on Wellington List, the independent local guide to Wellington, Florida. Banner ads, sidebar ads and featured directory listings.", urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)], sponsors: false, bodyClass: "adv-page" }), "0.6");
+  write("advertise/index.html", layout({ title: "Advertise in Wellington, FL | Wellington List", description: "Advertise your business on Wellington List, the independent local guide to Wellington, Florida. Banner ads, sidebar ads and featured directory listings.", urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)], sponsors: false, bodyClass: "adv-page", noindex: true }));
 
   // Post-checkout thank-you page (Stripe redirects here). Not in the sitemap.
   const tcrumbs = [["Home", "/"], ["Advertise", "/advertise/"], ["Thank you", "/advertise/thanks/"]];
