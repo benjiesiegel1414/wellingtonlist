@@ -3563,7 +3563,7 @@
     "description": "Every confirmed 2026 holiday event in Wellington, FL: the Dec. 3 tree lighting, Grand Menorah lighting, Holiday Boat Parade on Lake Wellington, the 42nd Holiday Parade on Dec. 13 and Santa photos at the mall.",
     "category": "Things to Do",
     "published": "2026-11-06",
-    "updated": "2026-11-06",
+    "updated": "2026-11-23",
     "readMins": 4,
     "coverPrompt": "Photorealistic South Florida town center at dusk during the holidays, a tall decorated Christmas tree glowing with lights beside an outdoor amphitheater lawn, palm trees wrapped in string lights, families in the distance, no text, no logos, no signage",
     "faq": [
@@ -6228,6 +6228,146 @@
       {
         "name": "Village of Wellington: Current Utility Rates/Fees",
         "url": "https://www.wellingtonfl.gov/2262/Current-Utility-RatesFees"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-holiday-toy-drive-volunteer-give-back",
+    "title": "Wellington Holiday Toy Drive 2026: Drop-Off Locations, Deadline and More Ways to Give Back",
+    "h1": "Wellington Holiday Toy Drive 2026: Drop-Off Locations, Deadline and More Ways to Give Back",
+    "seoTitle": "Wellington Holiday Toy Drive 2026: Drop-Off Spots & Volunteering",
+    "description": "Wellington, FL's Holiday Toy Drive collects new, unwrapped toys through Dec. 11, 2026. The five drop-off locations, who it helps, plus Volunteer Wellington, Adopt-A-Street and the commemorative tree program.",
+    "category": "Community",
+    "published": "2026-11-23",
+    "updated": "2026-11-23",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic plain cardboard donation box filled with loose toys: teddy bears, wooden blocks, toy dump truck, soccer ball, basketball, doll and wooden train, in a sunny South Florida community center lobby with a Christmas tree, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "Where can I donate toys in Wellington, FL?",
+        "a": "Drop new, unwrapped toys at Village Hall, Village Park, the Wellington Community Center, the Wellington Tennis Center, or at Thursday Nights in Wellington at the amphitheater."
+      },
+      {
+        "q": "When does the Wellington Holiday Toy Drive end?",
+        "a": "The 2026 drive runs through Friday, Dec. 11. Runners in the Dec. 20 Jingle Bell Run 5K are also encouraged to bring an unwrapped toy."
+      },
+      {
+        "q": "Who receives the toys from Wellington's toy drive?",
+        "a": "The village says the drive serves more than 500 families. Registered families choose their own toys at a distribution event, with toys and gift cards for children up to 18."
+      },
+      {
+        "q": "How do I volunteer with the Village of Wellington?",
+        "a": "Fill out the Volunteer Wellington Form on the village website or call 561-791-4102 with questions."
+      },
+      {
+        "q": "How much does Wellington's Adopt-A-Street program cost?",
+        "a": "It's free for nonprofit groups and $250 for for-profit groups, which covers the signs. Sponsors commit to at least four litter pickups a year for two years."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Holiday Toy Drive",
+        "url": "https://www.wellingtonfl.gov/2189/Holiday-Toy-Drive"
+      },
+      {
+        "name": "Village of Wellington: Holiday Toy Drive Distribution sponsorships",
+        "url": "https://www.wellingtonfl.gov/2221/Holiday-Toy-Drive-Distribution"
+      },
+      {
+        "name": "Village of Wellington: Family-Friendly Holiday Events in Wellington (Nov. 23, 2026)",
+        "url": "https://www.wellingtonfl.gov/CivicAlerts.aspx?AID=816"
+      },
+      {
+        "name": "Village of Wellington: Volunteer Wellington",
+        "url": "https://www.wellingtonfl.gov/193/Volunteer-Wellington"
+      },
+      {
+        "name": "Village of Wellington: Adopt-A-Street Program",
+        "url": "https://www.wellingtonfl.gov/2091/Adopt-A-Street-Program"
+      },
+      {
+        "name": "Village of Wellington: Commemorative Tree Program",
+        "url": "https://www.wellingtonfl.gov/833/Commemorative-Tree-Program"
+      },
+      {
+        "name": "Village of Wellington: Holiday Food Drive",
+        "url": "https://www.wellingtonfl.gov/238/Holiday-Food-Drive"
+      },
+      {
+        "name": "Village of Wellington: Donate / Contribute",
+        "url": "https://www.wellingtonfl.gov/397/Donate-Contribute"
+      }
+    ]
+  },
+  {
+    "slug": "who-to-call-in-wellington-fl-phone-numbers-report-problem",
+    "title": "Who to Call in Wellington, FL: Phone Numbers for Potholes, Water, Trash, Code and More",
+    "h1": "Who to Call in Wellington, FL: Phone Numbers for Potholes, Water, Trash, Code and More",
+    "seoTitle": "Who to Call in Wellington FL: Village Phone Numbers & Reporting",
+    "description": "A one-page directory of who to call in Wellington, FL: potholes, street lights, water emergencies, missed trash, code complaints, barking dogs, mosquitoes, permits and records, plus how to report problems online.",
+    "category": "Living in Wellington",
+    "published": "2026-11-23",
+    "updated": "2026-11-23",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic two-story municipal village hall in South Florida with a clock tower, white stucco walls, barrel tile roof, entrance plaza with royal palms and a flagpole, blue sky, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How do I report a pothole or broken street light in Wellington, FL?",
+        "a": "Submit a request through the village's GoWellington self-service portal (Report a Concern on wellingtonfl.gov), or call Village Hall at 561-791-4000."
+      },
+      {
+        "q": "Who do I call for a water emergency in Wellington?",
+        "a": "Call Wellington Utilities at 561-791-4010 on weekdays, or the after-hours emergency line at 561-791-4037. Homes east of State Road 7 call Palm Beach County Utilities at 561-740-4600."
+      },
+      {
+        "q": "Who do I call about a barking dog in Wellington?",
+        "a": "Animal complaints go to Palm Beach County Animal Care and Control at 561-233-1200, not the village."
+      },
+      {
+        "q": "What is the Wellington Code Compliance phone number?",
+        "a": "561-753-2560. Under Florida law, code complaints generally can't be anonymous."
+      },
+      {
+        "q": "Does Wellington have its own police department?",
+        "a": "No. The Palm Beach County Sheriff's Office provides law enforcement in Wellington, and Palm Beach County Fire Rescue handles fire and medical calls. Call 911 in an emergency."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Staff Directory",
+        "url": "https://www.wellingtonfl.gov/550/Phone-Directory"
+      },
+      {
+        "name": "Village of Wellington: Report A Utility Problem",
+        "url": "https://www.wellingtonfl.gov/268/Report-A-Utility-Problem"
+      },
+      {
+        "name": "Village of Wellington: Public Works FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=30"
+      },
+      {
+        "name": "Village of Wellington: Code Compliance",
+        "url": "https://www.wellingtonfl.gov/353/Code-Compliance"
+      },
+      {
+        "name": "Village of Wellington: Graffiti Information",
+        "url": "https://www.wellingtonfl.gov/172/Graffiti-Information"
+      },
+      {
+        "name": "Village of Wellington: Canals and Swales",
+        "url": "https://www.wellingtonfl.gov/610/Canals-Swales"
+      },
+      {
+        "name": "Village of Wellington: Animal Complaints",
+        "url": "https://www.wellingtonfl.gov/375/Animal-Complaints"
+      },
+      {
+        "name": "Village of Wellington: Mosquito Control FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=17"
+      },
+      {
+        "name": "Village of Wellington: Public Information Requests",
+        "url": "https://www.wellingtonfl.gov/167/Public-Information-Requests"
       }
     ]
   }
