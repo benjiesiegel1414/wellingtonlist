@@ -242,3 +242,7 @@
   .pl-photos a{display:block;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--green-50)}
   .pl-photos img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
   .pl-photos figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+
+  /* Suggestions on the in-page search boxes */
+  .ts-list-page{position:absolute;right:auto;text-align:left;font-family:var(--sans);z-index:15}
+  .ts-list-page li a{color:var(--ink)}

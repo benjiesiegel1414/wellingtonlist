@@ -471,6 +471,10 @@
   .pl-photos img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
   .pl-photos figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.4}
 
+  /* Suggestions on the in-page search boxes */
+  .ts-list-page{position:absolute;right:auto;text-align:left;font-family:var(--sans);z-index:15}
+  .ts-list-page li a{color:var(--ink)}
+
 /* ---------- Local sponsor spots (10 sitewide) ---------- */
 .sp-card{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 10px;color:var(--ink);text-decoration:none!important;transition:border-color .15s,box-shadow .15s,transform .15s;min-height:0;overflow:hidden}
 .sp-card:hover{border-color:var(--green-500);box-shadow:0 10px 24px -16px rgba(12,43,25,.45);transform:translateY(-1px)}

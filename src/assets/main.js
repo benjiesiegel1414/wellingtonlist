@@ -42,26 +42,28 @@
 
   // Sticky predictive search (index is fetched the first time the box is used)
   var tsq = document.getElementById("ts-q"), tsl = document.getElementById("ts-list");
-  if (tsq && tsl) {
-    var IDX = null, loading = false, sel = -1, items = [];
+  var SEARCH_V = tsq ? (tsq.dataset.v || "1") : "1";
+  {
+    var IDX = null, loading = false, waiting = [];
     var norm = function(s){ return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ").trim(); };
     var escH = function(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); };
     var load = function(cb){
       if (IDX) return cb();
+      waiting.push(cb);
       if (loading) return; loading = true;
-      fetch("/assets/search.json?v=" + (tsq.dataset.v || "1")).then(function(r){ return r.json(); }).then(function(d){
+      fetch("/assets/search.json?v=" + SEARCH_V).then(function(r){ return r.json(); }).then(function(d){
         IDX = d.map(function(r){ return { t: r[0], n: r[1], u: r[2], s: r[3], k: norm(r[1]), x: norm(r[3] + " " + r[4]) }; });
-        cb();
-      }).catch(function(){ loading = false; });
+        var w = waiting; waiting = []; w.forEach(function(fn){ fn(); });
+      }).catch(function(){ loading = false; waiting = []; });
     };
     var TYPE_W = { Service: 6, Guide: 5, Event: 4, Place: 3, News: 0 };
     var score = function(e, q, toks){
       var k = e.k, words = k.split(" "), sc = 0;
-      if (k === q) sc += 100; else if (k.indexOf(q) === 0) sc += 60; else if ((" " + k).indexOf(" " + q) !== -1) sc += 40; else if (q.length >= 4 && k.indexOf(q) !== -1) sc += 20;
+      if (k === q) sc += 100; else if (k.indexOf(q) === 0) sc += 60; else if ((" " + k).indexOf(" " + q) !== -1) sc += 40; else if (q.length >= 5 && k.indexOf(q) !== -1) sc += 20;
       for (var i = 0; i < toks.length; i++) {
         var t = toks[i], hit = 0;
         for (var j = 0; j < words.length; j++) { if (words[j].indexOf(t) === 0) { hit = 12; break; } }
-        if (!hit && t.length >= 4 && k.indexOf(t) !== -1) hit = 6;
+        if (!hit && t.length >= 5 && k.indexOf(t) !== -1) hit = 6;
         if (!hit && (" " + e.x).indexOf(" " + t) !== -1) hit = 4;
         if (!hit) return 0;
         sc += hit;
@@ -76,48 +78,65 @@
       });
       return out;
     };
-    var close = function(){ tsl.hidden = true; tsq.setAttribute("aria-expanded", "false"); sel = -1; };
-    var mark = function(){
-      items.forEach(function(li, i){ li.setAttribute("aria-selected", i === sel ? "true" : "false"); });
-      if (sel >= 0 && items[sel]) { tsq.setAttribute("aria-activedescendant", items[sel].id); items[sel].scrollIntoView({ block: "nearest" }); }
-      else tsq.removeAttribute("aria-activedescendant");
+    var attach = function(tsq, tsl, pfx, catSel){
+      var sel = -1, items = [];
+      var close = function(){ tsl.hidden = true; tsq.setAttribute("aria-expanded", "false"); sel = -1; };
+      var mark = function(){
+        items.forEach(function(li, i){ li.setAttribute("aria-selected", i === sel ? "true" : "false"); });
+        if (sel >= 0 && items[sel]) { tsq.setAttribute("aria-activedescendant", items[sel].id); items[sel].scrollIntoView({ block: "nearest" }); }
+        else tsq.removeAttribute("aria-activedescendant");
+      };
+      var render = function(){
+        var raw = tsq.value, q = norm(raw);
+        if (q.length < 2 || !IDX) return close();
+        var toks = q.split(" ");
+        var res = [];
+        for (var i = 0; i < IDX.length; i++) { var sc = score(IDX[i], q, toks); if (sc) res.push([sc, i]); }
+        res.sort(function(a, b){ return b[0] - a[0] || a[1] - b[1]; });
+        var top = [], news = 0;
+        for (var r = 0; r < res.length && top.length < 8; r++) {
+          var e = IDX[res[r][1]];
+          if (e.t === "News") { if (news >= 4) continue; news++; }
+          top.push(e);
+        }
+        var html = top.map(function(e, n){
+          return '<li role="option" id="' + pfx + n + '" aria-selected="false"><a href="' + escH(e.u) + '" tabindex="-1"><b>' + hl(e.n, toks) + '</b>' + (e.s ? '<span>' + escH(e.s) + '</span>' : '') + '<em>' + e.t + '</em></a></li>';
+        }).join("");
+        if (!top.length) html = '<li class="ts-none" role="presentation">No matches for "' + escH(raw.trim()) + '" yet. Try a shorter word.</li>';
+        html += '<li role="option" id="' + pfx + 'all" class="ts-all" aria-selected="false"><a href="/directory/?q=' + encodeURIComponent(raw.trim()) + (catSel && catSel.value && catSel.value !== "all" ? "&cat=" + encodeURIComponent(catSel.value) : "") + '" tabindex="-1">Search the directory for "' + escH(raw.trim()) + '"</a></li>';
+        tsl.innerHTML = html; tsl.hidden = false; tsq.setAttribute("aria-expanded", "true");
+        items = Array.prototype.slice.call(tsl.querySelectorAll('li[role="option"]')); sel = -1;
+      };
+      var kick = function(){ load(render); };
+      tsq.addEventListener("focus", kick);
+      tsq.addEventListener("input", kick);
+      tsq.addEventListener("keydown", function(ev){
+        if (tsl.hidden) { if (ev.key === "ArrowDown") kick(); return; }
+        if (ev.key === "ArrowDown") { ev.preventDefault(); sel = sel + 1 >= items.length ? 0 : sel + 1; mark(); }
+        else if (ev.key === "ArrowUp") { ev.preventDefault(); sel = sel <= 0 ? items.length - 1 : sel - 1; mark(); }
+        else if (ev.key === "Enter" && sel >= 0 && items[sel]) { ev.preventDefault(); location.href = items[sel].querySelector("a").getAttribute("href"); }
+        else if (ev.key === "Escape") { close(); }
+      });
+      tsl.addEventListener("mousedown", function(ev){ ev.preventDefault(); });
+      document.addEventListener("click", function(ev){ if (ev.target !== tsq && !tsl.contains(ev.target)) close(); });
     };
-    var render = function(){
-      var raw = tsq.value, q = norm(raw);
-      if (q.length < 2 || !IDX) return close();
-      var toks = q.split(" ");
-      var res = [];
-      for (var i = 0; i < IDX.length; i++) { var sc = score(IDX[i], q, toks); if (sc) res.push([sc, i]); }
-      res.sort(function(a, b){ return b[0] - a[0] || a[1] - b[1]; });
-      var top = [], news = 0;
-      for (var r = 0; r < res.length && top.length < 8; r++) {
-        var e = IDX[res[r][1]];
-        if (e.t === "News") { if (news >= 4) continue; news++; }
-        top.push(e);
-      }
-      var html = top.map(function(e, n){
-        return '<li role="option" id="ts-o' + n + '" aria-selected="false"><a href="' + escH(e.u) + '" tabindex="-1"><b>' + hl(e.n, toks) + '</b>' + (e.s ? '<span>' + escH(e.s) + '</span>' : '') + '<em>' + e.t + '</em></a></li>';
-      }).join("");
-      if (!top.length) html = '<li class="ts-none" role="presentation">No matches for "' + escH(raw.trim()) + '" yet. Try a shorter word.</li>';
-      html += '<li role="option" id="ts-oall" class="ts-all" aria-selected="false"><a href="/directory/?q=' + encodeURIComponent(raw.trim()) + '" tabindex="-1">Search the directory for "' + escH(raw.trim()) + '"</a></li>';
-      tsl.innerHTML = html; tsl.hidden = false; tsq.setAttribute("aria-expanded", "true");
-      items = Array.prototype.slice.call(tsl.querySelectorAll('li[role="option"]')); sel = -1;
-    };
-    var kick = function(){ load(render); };
-    tsq.addEventListener("focus", kick);
-    tsq.addEventListener("input", kick);
-    tsq.addEventListener("keydown", function(ev){
-      if (tsl.hidden) { if (ev.key === "ArrowDown") kick(); return; }
-      if (ev.key === "ArrowDown") { ev.preventDefault(); sel = sel + 1 >= items.length ? 0 : sel + 1; mark(); }
-      else if (ev.key === "ArrowUp") { ev.preventDefault(); sel = sel <= 0 ? items.length - 1 : sel - 1; mark(); }
-      else if (ev.key === "Enter" && sel >= 0 && items[sel]) { ev.preventDefault(); location.href = items[sel].querySelector("a").getAttribute("href"); }
-      else if (ev.key === "Escape") { close(); }
+    if (tsq && tsl) {
+      attach(tsq, tsl, "ts-o", null);
+      // On the directory page, keep the top box and the page filter in sync
+      var pq = new URLSearchParams(location.search).get("q");
+      if (pq && location.pathname.indexOf("/directory") === 0) tsq.value = pq;
+    }
+    // Every other search box on the site gets the same suggestions
+    Array.prototype.forEach.call(document.querySelectorAll('.hero form.search input[type="search"], #dir-q'), function(inp, n){
+      var box = inp.closest(".search"); if (!box) return;
+      var ul = document.createElement("ul");
+      ul.className = "ts-list ts-list-page"; ul.id = "ps-list" + n; ul.setAttribute("role", "listbox"); ul.hidden = true;
+      document.body.appendChild(ul);
+      var place = function(){ var r = box.getBoundingClientRect(); ul.style.top = (r.bottom + window.scrollY + 6) + "px"; ul.style.left = (r.left + window.scrollX) + "px"; ul.style.width = r.width + "px"; };
+      inp.addEventListener("focus", place); inp.addEventListener("input", place); window.addEventListener("resize", place);
+      inp.setAttribute("autocomplete", "off"); inp.setAttribute("role", "combobox"); inp.setAttribute("aria-autocomplete", "list"); inp.setAttribute("aria-expanded", "false"); inp.setAttribute("aria-controls", ul.id);
+      attach(inp, ul, "ps" + n + "-o", box.querySelector('select[name="cat"]'));
     });
-    tsl.addEventListener("mousedown", function(ev){ ev.preventDefault(); });
-    document.addEventListener("click", function(ev){ if (!ev.target.closest(".ts-form")) close(); });
-    // On the directory page, keep the top box and the page filter in sync
-    var pq = new URLSearchParams(location.search).get("q");
-    if (pq && location.pathname.indexOf("/directory") === 0) tsq.value = pq;
   }
 
   // Directory filtering (works on pre-rendered cards)
