@@ -3235,7 +3235,7 @@
     "description": "Wellington Aquatics Center at Village Park: current hours, resident and non-resident prices, annual and summer memberships, the NinjaCross course, and the debate over the nearly $28 million pool.",
     "category": "Things to Do",
     "published": "2026-11-03",
-    "updated": "2026-11-03",
+    "updated": "2026-11-24",
     "readMins": 5,
     "coverPrompt": "Photorealistic wide view of a modern outdoor public aquatics center in suburban South Florida, Olympic-size competition pool with lane lines and diving boards beside a family recreation pool with a splash play structure, umbrellas, palm trees, blue sky, no text, no logos, no signage",
     "faq": [
@@ -6368,6 +6368,142 @@
       {
         "name": "Village of Wellington: Public Information Requests",
         "url": "https://www.wellingtonfl.gov/167/Public-Information-Requests"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-equestrian-preserve-explained-bridle-trails-rules",
+    "title": "Wellington's Equestrian Preserve Explained: Bridle Trails, Rules and Why It Matters",
+    "h1": "Wellington's Equestrian Preserve Explained: Bridle Trails, Rules and Why It Matters",
+    "seoTitle": "Wellington Equestrian Preserve: Bridle Trails, Zoning & Rules",
+    "description": "What Wellington's 9,000-acre Equestrian Preserve is, who makes the rules, where the 15 bridle trails are, Florida's law on driving near horses, the manure rules, and the debate over development.",
+    "category": "Equestrian",
+    "published": "2026-11-24",
+    "updated": "2026-11-24",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic sandy bridle trail beside a canal in South Florida horse country at golden hour, white three-rail paddock fences, green pastures, royal palms, two horses grazing in the distance, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How big is Wellington's Equestrian Preserve?",
+        "a": "The Village of Wellington describes the Equestrian Preserve Area as about 9,000 to 9,200 acres in the western and southern parts of the village, almost 30% of Wellington's developable land."
+      },
+      {
+        "q": "How many miles of bridle trails does Wellington have?",
+        "a": "The village maintains 15 color-coded bridle paths. Its Equestrian Community FAQ cites more than 100 miles of public and private bridle trails, while its Equestrian Preserve page cites more than 57 miles."
+      },
+      {
+        "q": "What is the Equestrian Overlay Zoning District?",
+        "a": "The EOZD is zoning the Wellington council adopted in 2003 to regulate development and activities inside the Equestrian Preserve Area and protect its equestrian character."
+      },
+      {
+        "q": "What does Florida law say about driving near horses?",
+        "a": "Florida Statute 316.0825 requires drivers to use reasonable care when approaching or passing a person riding or leading an animal on a road or shoulder, and prohibits intentionally startling or injuring the animal."
+      },
+      {
+        "q": "Can I ride an e-bike on Wellington's bridle trails?",
+        "a": "No. Wellington's e-bike rules bar riding e-bikes on bridle and equestrian trails. The trails are open to walking, running, regular biking and horseback riding."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: Equestrian Preserve",
+        "url": "https://www.wellingtonfl.gov/478/Equestrian-Preserve"
+      },
+      {
+        "name": "Village of Wellington: About Equestrian Preserve",
+        "url": "https://www.wellingtonfl.gov/501/About-Equestrian-Community"
+      },
+      {
+        "name": "Village of Wellington: Equestrian Community FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=23"
+      },
+      {
+        "name": "Village of Wellington: Equestrian Trails",
+        "url": "https://www.wellingtonfl.gov/2139/Equestrian-Trails"
+      },
+      {
+        "name": "Village of Wellington: Equestrian Preserve Committee",
+        "url": "https://www.wellingtonfl.gov/331/Equestrian-Preserve-Committee"
+      },
+      {
+        "name": "Village of Wellington: Manure Regulations / Best Management Practices",
+        "url": "https://www.wellingtonfl.gov/515/Manure-Regulations-Best-Management-Pract"
+      },
+      {
+        "name": "Florida Statutes 316.0825: Vehicle approaching an animal",
+        "url": "https://flsenate.gov/Laws/Statutes/2025/0316.0825"
+      },
+      {
+        "name": "Florida Statutes Chapter 773: Equine activities (helmet requirements, s. 773.06)",
+        "url": "https://flsenate.gov/Laws/Statutes/2026/Chapter773/All"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-hazardous-waste-electronics-paint-battery-drop-off",
+    "title": "Where to Take Old Paint, Batteries and Electronics in Wellington: Free Hazardous Waste Drop-Off Guide",
+    "h1": "Where to Take Old Paint, Batteries and Electronics in Wellington: Free Hazardous Waste Drop-Off Guide",
+    "seoTitle": "Wellington Hazardous Waste Drop-Off: Paint, Batteries, Electronics",
+    "description": "Paint, batteries, electronics, propane tanks and pool chemicals can't go in Wellington carts. Here's the free drop-off center in Royal Palm Beach, its hours, what's accepted, limits, and where to donate usable items.",
+    "category": "Home",
+    "published": "2026-11-24",
+    "updated": "2026-11-24",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic tidy home garage shelf with plain unlabeled metal paint cans, a cardboard box of loose household batteries, a coiled extension cord and an old laptop, soft daylight, no text, no logos, no brand names, no labels",
+    "faq": [
+      {
+        "q": "Where can Wellington residents drop off hazardous waste?",
+        "a": "The nearest Solid Waste Authority Home Chemical and Recycling Center is at 9743 Weisman Way, Royal Palm Beach, FL 33411, open Monday to Friday 7 a.m. to 5 p.m. and Saturday 7 a.m. to 3 p.m. It is one of seven centers in Palm Beach County."
+      },
+      {
+        "q": "Is hazardous waste drop-off free in Palm Beach County?",
+        "a": "Yes. The Solid Waste Authority says Palm Beach County residents can drop off household hazardous waste at no cost. Small businesses pay a fee."
+      },
+      {
+        "q": "Can I put batteries in the trash in Wellington?",
+        "a": "The Solid Waste Authority says ordinary alkaline batteries can go in the garbage, but lithium, button and rechargeable batteries must be taken to a Home Chemical and Recycling Center or a retailer drop-off because they can cause fires."
+      },
+      {
+        "q": "Does Wellington pick up paint or electronics at the curb?",
+        "a": "No. There is no curbside collection for household hazardous waste in Palm Beach County. Paint, electronics, chemicals and propane tanks must be dropped off."
+      },
+      {
+        "q": "Where do I dispose of prescription medication?",
+        "a": "The drop-off centers don't accept medications. The Solid Waste Authority directs residents to the PBC Pill Drop program for medication drop box locations."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Solid Waste Authority of Palm Beach County: Hazardous Waste",
+        "url": "https://www.swa.org/168/Hazardous-Waste"
+      },
+      {
+        "name": "Solid Waste Authority: Home Chemical & Recycling Center, Royal Palm Beach",
+        "url": "https://www.swa.org/Facilities/Facility/Details/Home-Chemical-Recycling-Center-Royal-Pal-5"
+      },
+      {
+        "name": "Solid Waste Authority: Locations & Hours",
+        "url": "https://www.swa.org/261/Locations-Hours"
+      },
+      {
+        "name": "Solid Waste Authority: Transfer Stations and Home Chemical & Recycling Centers",
+        "url": "https://www.swa.org/860/Transfer-Stations-and-Home-Chemical-Recy"
+      },
+      {
+        "name": "Solid Waste Authority: Lithium Battery Information",
+        "url": "https://www.swa.org/777/Lithium-Battery-Information"
+      },
+      {
+        "name": "Village of Wellington: Electronics & Household Hazardous Waste",
+        "url": "https://www.wellingtonfl.gov/719/Electronics-Household-Hazardous-Waste"
+      },
+      {
+        "name": "Village of Wellington: Unwanted Items",
+        "url": "https://www.wellingtonfl.gov/437/Unwanted-Items"
+      },
+      {
+        "name": "PBC Pill Drop",
+        "url": "https://pbcbhc.org/pill-drop/"
       }
     ]
   }
