@@ -6075,7 +6075,7 @@
     "description": "How mosquito control works in Wellington, FL: how the village decides when to spray, the five zones, the 561-791-4001 hotline, spray safety for kids and pets, the do-not-spray list, and drain-and-cover tips for your yard.",
     "category": "Home",
     "published": "2026-11-21",
-    "updated": "2026-11-21",
+    "updated": "2026-11-25",
     "readMins": 6,
     "coverPrompt": "Photorealistic South Florida backyard at dusk with a screened patio, stone birdbath and potted plants, calm canal and tall grasses, golden sunset, palm trees, no people, no insects, no text, no logos, no signage",
     "faq": [
@@ -6093,7 +6093,7 @@
       },
       {
         "q": "How do I get on Wellington's do-not-spray list?",
-        "a": "Beekeepers, farmers and any Wellington resident can request to be added through the village's GoWellington self-service portal."
+        "a": "Beekeepers, farmers and any Wellington resident can request to be added through SeeClickFix Wellington, the village's service request app."
       },
       {
         "q": "What kills mosquito larvae in standing water?",
@@ -6307,13 +6307,13 @@
     "description": "A one-page directory of who to call in Wellington, FL: potholes, street lights, water emergencies, missed trash, code complaints, barking dogs, mosquitoes, permits and records, plus how to report problems online.",
     "category": "Living in Wellington",
     "published": "2026-11-23",
-    "updated": "2026-11-23",
+    "updated": "2026-11-25",
     "readMins": 5,
     "coverPrompt": "Photorealistic two-story municipal village hall in South Florida with a clock tower, white stucco walls, barrel tile roof, entrance plaza with royal palms and a flagpole, blue sky, no people, no text, no logos, no signage",
     "faq": [
       {
         "q": "How do I report a pothole or broken street light in Wellington, FL?",
-        "a": "Submit a request through the village's GoWellington self-service portal (Report a Concern on wellingtonfl.gov), or call Village Hall at 561-791-4000."
+        "a": "Submit a request through SeeClickFix Wellington, the village's free service request app (wellingtonfl.gov/seeclickfix), or call Village Hall at 561-791-4000."
       },
       {
         "q": "Who do I call for a water emergency in Wellington?",
@@ -6504,6 +6504,118 @@
       {
         "name": "PBC Pill Drop",
         "url": "https://pbcbhc.org/pill-drop/"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-seeclickfix-app-replaces-gowellington-report-problems",
+    "title": "Wellington Replaces GoWellington With SeeClickFix: How to Report Potholes, Missed Trash and More",
+    "h1": "Wellington Replaces GoWellington With SeeClickFix: How to Report Potholes, Missed Trash and More",
+    "seoTitle": "SeeClickFix Wellington: New App to Report Problems (Replaces GoWellington)",
+    "description": "Wellington's new SeeClickFix app replaced GoWellington on Nov. 1, 2026. How to set it up, what you can report, how fast the village responds, what it isn't for, and tips for getting problems fixed.",
+    "category": "News",
+    "published": "2026-11-25",
+    "updated": "2026-11-25",
+    "readMins": 5,
+    "coverPrompt": "Photorealistic close-up of a hand holding a smartphone with a blank glowing screen, pointed at a pothole on a suburban South Florida street lined with palm trees, shallow depth of field, daylight, no text, no logos, no brand names, no app interface",
+    "faq": [
+      {
+        "q": "What is SeeClickFix Wellington?",
+        "a": "It's the Village of Wellington's free app and website for reporting non-emergency problems such as potholes, missed trash pickup, street light outages, drainage concerns, graffiti and code issues. It replaced the GoWellington app on Nov. 1, 2026."
+      },
+      {
+        "q": "How do I download SeeClickFix for Wellington?",
+        "a": "Download SeeClickFix free from the Apple App Store or Google Play, search for Wellington, then tap Profile at the bottom right to create an account. You can also use it on a computer from wellingtonfl.gov/seeclickfix."
+      },
+      {
+        "q": "How fast does Wellington respond to SeeClickFix requests?",
+        "a": "The village told the Town-Crier it typically acknowledges requests in about two hours and closes them in less than a day, based on its first weeks using the app."
+      },
+      {
+        "q": "Can I report a code violation anonymously in Wellington?",
+        "a": "No. Under Section 162.06, Florida Statutes, effective July 1, 2021, code inspectors can't investigate anonymous complaints, so you must give your name and address."
+      },
+      {
+        "q": "Does Wellington remove live animals?",
+        "a": "No. The village's Public Works FAQ refers residents to the Florida Fish and Wildlife Conservation Commission at (561) 625-5122 or a private trapper. Dead animals on the road or village right-of-way can be reported through SeeClickFix or at (561) 791-4000."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Village of Wellington: SeeClickFix",
+        "url": "https://www.wellingtonfl.gov/2420/SeeClickFix"
+      },
+      {
+        "name": "Village of Wellington: Public Works FAQ",
+        "url": "https://www.wellingtonfl.gov/FAQ.aspx?TID=30"
+      },
+      {
+        "name": "Town-Crier: Wellington Rolls Out New App To Report And Track Maintenance Issues (Nov. 13, 2026)",
+        "url": "https://gotowncrier.com/2026/11/wellington-rolls-out-new-app-to-report-and-track-maintenance-issues/"
+      },
+      {
+        "name": "Florida Statutes 162.06",
+        "url": "https://www.flsenate.gov/Laws/Statutes/2025/162.06"
+      }
+    ]
+  },
+  {
+    "slug": "amendment-3-nonprofits-childrens-services-council-palm-beach-county",
+    "title": "What Amendment 3 Means for Palm Beach County Nonprofits and the Children's Services Council",
+    "h1": "What Amendment 3 Means for Palm Beach County Nonprofits and the Children's Services Council",
+    "seoTitle": "Amendment 3 Impact on Palm Beach County Nonprofits & Children's Services Council",
+    "description": "Amendment 3's bigger homestead exemption saves homeowners money but cuts funding for agencies like the Children's Services Council, which projects a $26 million drop. The numbers, timeline and both sides.",
+    "category": "News",
+    "published": "2026-11-25",
+    "updated": "2026-11-25",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic community center activity room in South Florida with empty child-size tables, stacked art supplies and a bookshelf, warm afternoon light through tall windows, potted palms, no people, no text, no logos, no signage",
+    "faq": [
+      {
+        "q": "How does Amendment 3 affect the Children's Services Council of Palm Beach County?",
+        "a": "The CSC, which gets about 90% of its budget from property taxes, projects a 14% budget reduction of about $26 million by 2028-29, its CEO told the Town-Crier."
+      },
+      {
+        "q": "When will Palm Beach County nonprofits feel Amendment 3?",
+        "a": "Health and human services funding is unaffected until the current budget cycle ends on Oct. 1, 2027, so the real pinch is expected in the 2028 budget cycle, the Town-Crier reported."
+      },
+      {
+        "q": "How much does Amendment 3 save homeowners?",
+        "a": "The non-school homestead exemption rises to $150,000 in 2027 and $250,000 in 2028. Florida Realtors estimated average savings of about $1,000 in 2027 and $1,800 in 2028; actual savings depend on home value and local tax rates."
+      },
+      {
+        "q": "What percentage did Amendment 3 get?",
+        "a": "Amendment 3 received 61.98% of the statewide vote (4,922,400 votes), above the 60% needed to pass, the Town-Crier reported."
+      },
+      {
+        "q": "Does Amendment 3 affect school taxes?",
+        "a": "No. The larger exemption applies to non-school property taxes, so school district taxes are not affected."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Town-Crier: Amendment 3 Will Likely Have Significant Impact On Nonprofits (Nov. 13, 2026)",
+        "url": "https://gotowncrier.com/2026/11/amendment-3-will-likely-have-significant-impact-on-nonprofits/"
+      },
+      {
+        "name": "WPTV: Palm Beach County nonprofits warn Amendment 3 property tax relief could come at a cost",
+        "url": "https://www.wptv.com/news/palm-beach-county/palm-beach-county-nonprofits-warn-amendment-3-property-tax-relief-could-come-at-a-cost"
+      },
+      {
+        "name": "CBS12: Amendment 3: What could change in Palm Beach County",
+        "url": "https://cbs12.com/news/local/amendment-3-property-tax-exemption-lost-revenue-service-cuts-palm-beach-county-administrator-joseph-abruzzo-250-million-at-risk-florida-news"
+      },
+      {
+        "name": "CBS12: Amendment 3 backers say tax relief could help Florida homeowners stay put",
+        "url": "https://cbs12.com/news/local/amendment-3-backers-say-tax-relief-could-help-florida-homeowners-stay-put-florida-news-amendment-3-news-local-news-homeowners"
+      },
+      {
+        "name": "WLRN: Florida Realtors pour millions of dollars into Amendment 3 push",
+        "url": "https://www.wlrn.org/government-politics/2026-09-21/florida-realtors-pour-millions-of-dollars-into-amendment-3-push-as-opponents-warn-of-budget-cuts"
+      },
+      {
+        "name": "Nonprofit Chamber for Health and Human Services",
+        "url": "https://nonprofitchamberpbc.org"
       }
     ]
   }
