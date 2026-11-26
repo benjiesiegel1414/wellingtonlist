@@ -5467,7 +5467,7 @@
     "description": "Wellington's new county commissioner, state representatives, state senator and member of Congress after the official 2026 results: Waldron, Mangeney, Holmes, Silvers and Dandiya, what they plan and when they take office.",
     "category": "Government",
     "published": "2026-11-16",
-    "updated": "2026-11-16",
+    "updated": "2026-11-26",
     "readMins": 5,
     "coverPrompt": "Photorealistic Florida county government building exterior with columns and flags on a sunny morning, palm trees and manicured landscaping, wide steps, blue sky, no people, no text, no logos, no signage, no seals",
     "faq": [
@@ -5500,6 +5500,10 @@
       {
         "name": "Town-Crier: Mangeney, Holmes unseat incumbents to win local state House elections",
         "url": "https://gotowncrier.com/2026/11/mangeney-holmes-unseat-incumbents-to-win-local-state-house-elections/"
+      },
+      {
+        "name": "Town-Crier: John McGovern Joins School Board (Nov. 26, 2026)",
+        "url": "https://gotowncrier.com/2026/11/john-mcgovern-joins-school-board/"
       }
     ]
   },
