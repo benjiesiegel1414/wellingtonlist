@@ -939,8 +939,8 @@ formPage({
     ["Do I have to advertise to be listed?", "No. Basic listings are always free. Advertising is for businesses that want more visibility than a standard listing."],
     ["How fast can a campaign go live?", "Featured listings usually go live within the hour after you finish the setup page. Other sponsorships usually go live within a few business days of receiving your artwork, copy and link."]
   ];
-  const body = pageHead(crumbs, "Advertise on Wellington List", "Put your business in front of people actively searching for Wellington restaurants, services, things to do and events.",
-    `<div class="ad-hero-cta"><a class="btn btn-primary ad-hero-btn" href="#featured-spots">Get Featured from $19/month</a> ${mailBtn("btn btn-ghost-light ad-hero-btn")}</div>
+  const body0 = pageHead(crumbs, "Advertise on Wellington List", "Put your business in front of people actively searching for Wellington restaurants, services, things to do and events.",
+    `${BIZ_ANIM}<div class="ad-hero-cta"><a class="btn btn-primary ad-hero-btn" href="#featured-spots">Get Featured from $19/month</a> ${mailBtn("btn btn-ghost-light ad-hero-btn")}</div>
   <div class="head-stats"><span><b>${nPlaces}</b> local listings</span><span><b>${CATS.filter(c => places.some(p => p.cat === c.id)).length}</b> categories</span><span><b>${posts.length}</b> local guides</span>${nEvents ? `<span><b>${nEvents}</b> upcoming events</span>` : ""}</div>`) + `
 <section class="wrap ad-sec">
   <div class="ad-intro"><p class="lede">Wellington List is the independent local guide to Wellington, Florida. When someone looks up the best sushi near the mall, a pool service in Olympia or what's happening at the Town Center this weekend, they land on our pages. Sponsoring Wellington List puts your business right where those decisions get made.</p></div>
@@ -997,6 +997,7 @@ formPage({
   <div class="ad-faq">${faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join("")}</div>
   <p class="ad-note" style="margin-top:28px">Just want a free listing? <a href="/add-your-business/">Add your business here</a>.</p>
 </section>`;
+  const body = body0.replace(/<svg class="hero-mark"[\s\S]*?<\/svg>/, "").replace('<section class="page-head">', '<section class="page-head has-anim">');
   const ld = [crumbsLD(crumbs), { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
   // Kept out of Google's index for now (same as before) while the AdSense review is pending.
   write("advertise/index.html", layout({ title: "Advertise on Wellington List | Sponsor the Wellington, FL Directory", description: "Get Featured on Wellington List from $19/month ($49 lifetime founding price), or sponsor the directory and reach people searching for Wellington, Florida restaurants, businesses, services and events.", urlPath: "/advertise/", body, jsonld: ld, sponsors: false, noindex: true }));
