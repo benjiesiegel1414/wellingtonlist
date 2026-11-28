@@ -2027,7 +2027,7 @@
     "description": "Wellington's first Live Local Act apartments are planned on Van Gogh Road and Velazquez Blvd near Southern and Seminole Pratt, with rents of about $1,249 to $2,310. How the state law works and the fee-waiver debate.",
     "category": "Development",
     "published": "2026-10-21",
-    "updated": "2026-10-21",
+    "updated": "2026-11-28",
     "readMins": 6,
     "coverPrompt": "Photorealistic newly built three-story garden-style apartment buildings in suburban South Florida, light stucco with tile roofs, palm trees, a landscaped courtyard and parking lot, open land in the distance, late afternoon light, no people, no text, no logos, no signage",
     "faq": [
@@ -2064,6 +2064,10 @@
       {
         "name": "WGCU: Former Senate President Kathleen Passidomo keeps eye on housing",
         "url": "https://news.wgcu.org/government-politics/2024-12-12/former-senate-president-kathleen-passidomo-keeps-eye-on-housing"
+      },
+      {
+        "name": "Town-Crier: Wellington Rejects Fee Waiver For Affordable Housing Project (Nov. 27, 2026)",
+        "url": "https://gotowncrier.com/2026/11/wellington-rejects-fee-waiver-for-affordable-housing-project/"
       }
     ]
   },
@@ -2935,7 +2939,7 @@
     "description": "Palm Beach County staff approved more than 700,000 square feet of data center at the Project Tango site under its 2016 rights. The Arden HOA is preparing a challenge. What happened and both sides.",
     "category": "Development",
     "published": "2026-10-31",
-    "updated": "2026-10-31",
+    "updated": "2026-11-28",
     "readMins": 4,
     "coverPrompt": "Photorealistic aerial view of a large cleared construction site with long gray industrial buildings in rural western Palm Beach County, pine flatwoods and canal, distant neighborhood, hazy afternoon light, no text, no logos, no signage",
     "faq": [
@@ -2960,6 +2964,10 @@
       {
         "name": "Town-Crier: Arden HOA Fighting Clock And County Staff To Stall Data Center Project (Oct. 30, 2026)",
         "url": "https://gotowncrier.com/2026/10/arden-hoa-fighting-clock-and-county-staff-to-stall-data-center-project/"
+      },
+      {
+        "name": "Town-Crier: County Commission Creates Data Center Advisory Committee (Nov. 27, 2026)",
+        "url": "https://gotowncrier.com/2026/11/county-commission-creates-data-center-advisory-committee/"
       }
     ]
   },
@@ -5467,7 +5475,7 @@
     "description": "Wellington's new county commissioner, state representatives, state senator and member of Congress after the official 2026 results: Waldron, Mangeney, Holmes, Silvers and Dandiya, what they plan and when they take office.",
     "category": "Government",
     "published": "2026-11-16",
-    "updated": "2026-11-26",
+    "updated": "2026-11-28",
     "readMins": 5,
     "coverPrompt": "Photorealistic Florida county government building exterior with columns and flags on a sunny morning, palm trees and manicured landscaping, wide steps, blue sky, no people, no text, no logos, no signage, no seals",
     "faq": [
@@ -5504,6 +5512,10 @@
       {
         "name": "Town-Crier: John McGovern Joins School Board (Nov. 26, 2026)",
         "url": "https://gotowncrier.com/2026/11/john-mcgovern-joins-school-board/"
+      },
+      {
+        "name": "Town-Crier: Waldron Joins County Commission At Reorganizational Meeting (Nov. 27, 2026)",
+        "url": "https://gotowncrier.com/2026/11/waldron-joins-county-commission-at-reorganizational-meeting/"
       }
     ]
   },
@@ -6736,6 +6748,110 @@
       {
         "name": "FWC: Tips to safely co-exist with alligators (March 20, 2024)",
         "url": "https://content.govdelivery.com/accounts/FLFFWCC/bulletins/39195a8"
+      }
+    ]
+  },
+  {
+    "slug": "palm-beach-county-school-bus-stop-arm-cameras-fines-2027",
+    "title": "Palm Beach County School Bus Cameras: $225 Fines Start Jan. 5, 2027. When You Must Stop and How Tickets Work",
+    "h1": "Palm Beach County School Bus Cameras: $225 Fines Start Jan. 5, 2027",
+    "seoTitle": "Palm Beach County School Bus Cameras: $225 Fines Start Jan. 5",
+    "description": "Every Palm Beach County school bus is getting stop-arm cameras. Warnings began Nov. 16; $225 fines start Jan. 5, 2027. When you must stop on Wellington roads, how notices work, the AlertBus video, penalties and the debate.",
+    "category": "Traffic",
+    "published": "2026-11-28",
+    "updated": "2026-11-28",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic yellow school bus stopped on a sunny suburban South Florida road with its red stop arm extended and red lights flashing, palm trees and green lawns, a car waiting behind it, seen from a distance, no people visible, no text, no logos, no license plates",
+    "faq": [
+      {
+        "q": "When do school bus camera fines start in Palm Beach County?",
+        "a": "Warning notices began Nov. 16, 2026. Starting Jan. 5, 2027, drivers caught illegally passing a stopped school bus get a $225 civil penalty."
+      },
+      {
+        "q": "Does a school bus camera ticket add points to my license?",
+        "a": "No. CBS12 reports the $225 camera penalty adds no points. A ticket written by an officer is a moving violation with a minimum $265 fine and 4 points."
+      },
+      {
+        "q": "Do I have to stop for a school bus on the other side of a divided road in Florida?",
+        "a": "Only if the road is divided by painted lines or a paved median. If there's a raised barrier or at least 5 feet of unpaved space, traffic going the opposite direction doesn't have to stop, but should slow down and watch for children."
+      },
+      {
+        "q": "How can I see the video of my school bus violation?",
+        "a": "Go to AlertBus.com and enter the violation and license plate numbers on your notice. The notice also explains how to contest it or transfer it to the driver."
+      },
+      {
+        "q": "Where does the $225 fine go?",
+        "a": "The school district receives $85 of each fine for school safety, and vendor BusPatrol receives $140."
+      }
+    ],
+    "sources": [
+      {
+        "name": "CBS12: Palm Beach County school bus camera warning period begins Monday (Nov. 16, 2026)",
+        "url": "https://cbs12.com/news/local/palm-beach-county-school-bus-camera-warning-period-begins-monday"
+      },
+      {
+        "name": "CBS12: Palm Beach County schools launch cameras to curb illegal passing of school buses",
+        "url": "https://cbs12.com/news/local/palm-beach-county-schools-launch-program-to-curb-illegal-passing-of-school-buses-crashes-speeding-florida-law-saftey-concern"
+      },
+      {
+        "name": "Town-Crier (Nov. 27, 2026 edition)",
+        "url": "https://gotowncrier.com/"
+      },
+      {
+        "name": "Florida Statutes 316.172: Traffic to stop for school bus",
+        "url": "https://flsenate.gov/Laws/Statutes/2024/0316.172"
+      },
+      {
+        "name": "FLHSMV: School Bus Safety",
+        "url": "https://flhsmv.gov/safety-center/child-safety/school-bus-safety"
+      },
+      {
+        "name": "WLRN: Miami-Dade schools relaunches controversial school bus camera program (May 4, 2026)",
+        "url": "https://www.wlrn.org/news-in-brief/2026-05-04/miami-dade-schools-bus-camera-program"
+      },
+      {
+        "name": "WKMG: Brevard school bus cameras caught nearly 18K vehicles illegally passing in first year",
+        "url": "https://clickorlando.com/news/local/2026/08/05/brevard-school-bus-cameras-caught-nearly-18k-vehicles-illegally-passing-in-first-year"
+      }
+    ]
+  },
+  {
+    "slug": "wellington-community-foundation-seniors-children-veterans",
+    "title": "Wellington Community Foundation: How It Helps Seniors, Children and Veterans, Scholarships and How to Help",
+    "h1": "Wellington Community Foundation: Helping Seniors, Children and Veterans",
+    "seoTitle": "Wellington Community Foundation: Programs, Scholarship, How to Help",
+    "description": "The Wellington Community Foundation just won a $20,000 Quantum grant. What the local nonprofit does for seniors, children and veterans, the $1,500 Arle & Ken Adams Scholarship, its events, and how to donate, volunteer or get help.",
+    "category": "Community",
+    "published": "2026-11-28",
+    "updated": "2026-11-28",
+    "readMins": 6,
+    "coverPrompt": "Photorealistic warm scene of helping hands: a volunteer's hands installing a grab bar handrail beside a bright front porch of a modest South Florida home with tropical plants, toolbox on the step, soft morning light, no faces, no text, no logos",
+    "faq": [
+      {
+        "q": "What is the Wellington Community Foundation?",
+        "a": "A 501(c)(3) nonprofit that helps Wellington's seniors, children and veterans in need. It began in 2009 as the village's community service arm and is now run by a community board."
+      },
+      {
+        "q": "What grant did the Wellington Community Foundation receive in 2026?",
+        "a": "A $20,000 Quantum in the Community grant, presented at the Quantum Foundation's breakfast on Nov. 17, 2026, the Town-Crier reported."
+      },
+      {
+        "q": "How do I apply for the Arle & Ken Adams Scholarship?",
+        "a": "High school seniors who live or attend school in Wellington can apply for the one-time $1,500 award. The 2026 round ran Jan. 1 to April 24; watch the foundation's website for the next round."
+      },
+      {
+        "q": "How can I get help from the Wellington Community Foundation?",
+        "a": "Call the foundation at (561) 603-9931 or the village's Community Services Department at (561) 791-4000, which helps identify residents who qualify."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Wellington Community Foundation",
+        "url": "https://www.wellingtoncommunityfoundation.org/"
+      },
+      {
+        "name": "Town-Crier (Nov. 26-27, 2026 edition): Quantum in the Community grants",
+        "url": "https://gotowncrier.com/"
       }
     ]
   }
