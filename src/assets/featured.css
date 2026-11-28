@@ -142,3 +142,33 @@ button[disabled]{opacity:.6;cursor:progress}
 .pl-title .pill.feat{margin-right:6px}
 @media (max-width:860px){.fl-row,.fl-post .fl-row{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.fl-row,.fl-post .fl-row{grid-template-columns:1fr}.hours-grid{grid-template-columns:repeat(3,1fr)}.photo-previews{grid-template-columns:repeat(3,1fr)}.pl-logo{width:64px;height:64px;margin-right:12px}}
+
+/* Advertise link in the main nav (gold, like AlpharettaList) */
+nav.main a.nav-ad{font-weight:700;color:#9A7426}
+nav.main a.nav-ad:hover,nav.main a.nav-ad[aria-current="page"]{border-color:#C9A24A}
+nav.main a,.header-cta{white-space:nowrap}
+@media (max-width:1440px) and (min-width:861px){nav.main{gap:18px;font-size:14.5px}}
+@media (max-width:1180px) and (min-width:861px){nav.main{gap:12px;font-size:13.5px}.header-cta{padding-left:14px;padding-right:14px;font-size:13.5px}}
+@media (max-width:1000px) and (min-width:861px){nav.main a[href="/equestrian/"]{display:none}}
+
+/* Add your business hero: people pointing at "Your business" */
+.page-head.has-anim .wrap{padding-right:470px}
+.biz-anim{position:absolute;right:0;top:50%;transform:translateY(-50%);width:440px;height:auto;overflow:visible;z-index:1}
+.biz-anim .ba-name{font-family:var(--serif);font-size:21px;fill:#0C2B19}
+.biz-anim .ba-pill{font:700 10px var(--sans);letter-spacing:.12em;fill:#0C2B19}
+.biz-anim .ba-stars{font-size:13px;fill:#C9A24A;letter-spacing:2px}
+.biz-anim .ba-cap{font:500 13px var(--sans);fill:#E6EFE8;opacity:.9}
+.biz-anim .ba-card{filter:drop-shadow(0 10px 24px rgba(0,0,0,.28))}
+.biz-anim .ba-ring{fill:none;stroke:#C9A24A;stroke-width:3;transform-box:fill-box;transform-origin:center;animation:baRing 2.2s ease-out infinite}
+.biz-anim .ba-fig{opacity:0;transform-box:fill-box;transform-origin:center bottom;animation:baFig 7s ease-out infinite}
+.biz-anim .ba-arr{stroke:#E3C988;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:var(--l);stroke-dashoffset:var(--l);animation:baArr 7s ease-out infinite}
+.biz-anim .ba-head{fill:#E3C988;opacity:0;animation:baHead 7s ease-out infinite}
+@keyframes baRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.32);opacity:0}}
+@keyframes baFig{0%{opacity:0;transform:scale(.4)}6%{opacity:1;transform:scale(1.08)}9%{transform:scale(1)}78%{opacity:1;transform:scale(1)}88%,100%{opacity:0;transform:scale(1)}}
+@keyframes baArr{0%,7%{stroke-dashoffset:var(--l);opacity:1}17%{stroke-dashoffset:0;opacity:1}78%{stroke-dashoffset:0;opacity:1}88%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes baHead{0%,15%{opacity:0}18%,78%{opacity:1}88%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.biz-anim *{animation:none!important}.biz-anim .ba-fig,.biz-anim .ba-head{opacity:1}.biz-anim .ba-arr{stroke-dashoffset:0}}
+@media (max-width:1100px){.page-head.has-anim .wrap{padding-right:390px}.biz-anim{width:370px}}
+@media (max-width:860px){.page-head.has-anim .wrap{padding-right:0}.biz-anim{position:static;transform:none;display:block;width:100%;max-width:380px;margin:22px auto 0}}
+@media (max-width:960px) and (min-width:861px){nav.main{gap:10px;font-size:13px}.header-cta{padding-left:10px;padding-right:10px;font-size:13px}}
+@media (max-width:900px) and (min-width:861px){nav.main{gap:8px;font-size:12.5px}}
