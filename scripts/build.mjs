@@ -14,7 +14,7 @@ const SITE = "https://wellingtonlist.com";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 // Cache-busting version for CSS/JS: changes whenever their source changes.
 const ASSET_V = (() => { const h = (str) => { let x = 5381; for (let i = 0; i < str.length; i++) x = ((x * 33) ^ str.charCodeAt(i)) >>> 0; return x.toString(36); };
-  return h(["assets/base.css", "assets/extra.css", "assets/sponsors.css", "assets/main.js", "assets/config.js"].map(f => fs.readFileSync(path.join(SRC, f), "utf8")).join("")); })();
+  return h(["assets/base.css", "assets/extra.css", "assets/sponsors.css", "assets/featured.css", "assets/main.js", "assets/config.js"].map(f => fs.readFileSync(path.join(SRC, f), "utf8")).join("")); })();
 
 const read = (p) => fs.readFileSync(path.join(SRC, p), "utf8");
 const json = (p) => JSON.parse(read(p));
@@ -73,13 +73,54 @@ async function sheet(url) {
   } catch (e) { console.warn("Sheet fetch failed:", url, e.message); return []; }
 }
 const CAT_MAP = { "pets and vets": "pets", pets: "pets", restaurant: "restaurants", restaurants: "restaurants", "home services": "home", health: "health", "health and medical": "health", equestrian: "equestrian", "real estate": "realestate", shopping: "shopping", pets: "pets", "kids and schools": "kids", "fitness": "fitness", "things to do": "things-to-do", "professional services": "services", "beauty and wellness": "beauty" };
+const CATS_IDS = ["restaurants", "things-to-do", "parks", "equestrian", "shopping", "nearby", "home", "health", "realestate", "pets", "fitness", "beauty", "schools", "services", "coming-soon"];
+const CAT_LABEL_IDS = { "parks and nature": "parks", "shopping": "shopping", "nearby day trips": "nearby", "home services": "home", "health and medical": "health", "real estate": "realestate", "pets and vets": "pets", "fitness and gyms": "fitness", "beauty and spas": "beauty", "schools": "schools", "local services": "services" };
+// Accepts a category id, its label or an older alias, and falls back to Local services.
+const catOf = (v) => { const k = String(v || "").toLowerCase().trim(); return CATS_IDS.includes(k) ? k : CAT_LABEL_IDS[k] || CAT_MAP[k] || "services"; };
 const sheetBiz = await sheet(process.env.SHEET_BUSINESSES_CSV);
 for (const r of sheetBiz) {
   const name = r.business_name || r.name; if (!name) continue;
   const slug = slugify(name);
   if (places.some(p => p.slug === slug)) continue;
-  places.push({ slug, name, cat: CAT_MAP[(r.category || "").toLowerCase()] || "services", type: r.subcategory || r.category || "Local business", schema: "LocalBusiness",
-    address: r.address || "", area: r.area || "Wellington", desc: r.description || "", website: r.website || "", phone: r.phone || "", featured: /yes/i.test(r.featured || ""), sponsored: /yes/i.test(r.sponsored || ""), verified: true });
+  places.push({ slug, name, cat: catOf(r.category), type: r.subcategory || r.category || "Local business", schema: "LocalBusiness",
+    address: r.address || "", area: r.area || "Wellington", desc: r.description || "", website: r.website || "", phone: r.phone || "", hours: r.hours || "", featured: /yes/i.test(r.featured || ""), sponsored: /yes/i.test(r.sponsored || ""), verified: true });
+}
+// Paid Featured listings (from the "Featured Public" tab of the submissions sheet): upgrade an existing listing or create a new one.
+// Published "Featured Public" tab of the WellingtonList Submissions sheet (approved rows only, no contact info).
+const sheetFeatured = await sheet(process.env.SHEET_FEATURED_CSV || "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVSfVBKjMO5lsjKySaqc9ERRBZ8mLLTOckDurHsypIdDkb8W-ZJkCQTl3uYyizTCLYrO3iyHYObGAl/pub?gid=1074886340&single=true&output=csv");
+const PREMIUM_DIR = path.join(SRC, "premium");
+const paras = (t) => String(t || "").split(/\n\s*\n|\r?\n/).map(x => x.trim()).filter(Boolean);
+for (const r of sheetFeatured) {
+  const name = r.business_name; if (!name) continue;
+  const fromLink = (String(r.existing_listing || "").match(/\/places\/([a-z0-9-]+)/) || [])[1];
+  let p = places.find(x => x.slug === fromLink) || places.find(x => x.slug === slugify(name));
+  if (!p) { p = { slug: slugify(name), name, schema: "LocalBusiness", area: "Wellington" }; places.push(p); }
+  const about = paras(r.description);
+  Object.assign(p, {
+    name, cat: r.category ? catOf(r.category) : p.cat || "services",
+    type: r.subcategory || p.type || "Local business",
+    address: r.address || p.address || "", phone: r.phone || p.phone || "", website: r.website || p.website || "", hours: r.hours || p.hours || "",
+    ...(about.length ? (() => { const full = about.join("\n\n"), d = about[0].split(/(?<=[.!?])\s/)[0].slice(0, 220); return { desc: d, about: full.startsWith(d) ? full.slice(d.length).trim() : full }; })() : {}),
+    premium: true, deals: r.deals || "", booking: r.booking_url || "", facebook: r.facebook || "", instagram: r.instagram || "",
+    mentions: String(r.mention_in || "").split(/\s*,\s*/).filter(Boolean), checked: BUILD_DATE, logo: "", pphotos: [], verified: true
+  });
+  // Photos uploaded on the setup page live in Google Drive; cache them in src/premium/ so they're committed once.
+  fs.mkdirSync(PREMIUM_DIR, { recursive: true });
+  const grab = async (id) => {
+    if (!/^[A-Za-z0-9_-]{10,}$/.test(id)) return "";
+    const file = path.join(PREMIUM_DIR, id + ".jpg");
+    if (!fs.existsSync(file)) {
+      try {
+        const res = await fetch(`https://drive.google.com/uc?export=download&id=${id}`);
+        const buf = Buffer.from(await res.arrayBuffer());
+        if (!res.ok || buf.length < 2000 || !/^image\//.test(res.headers.get("content-type") || "")) throw new Error("not an image");
+        fs.writeFileSync(file, buf);
+      } catch (e) { console.warn("Featured photo download failed", id, e.message); return ""; }
+    }
+    return `/assets/premium/${id}.jpg`;
+  };
+  if (r.logo_id) p.logo = await grab(r.logo_id.trim());
+  for (const id of String(r.photo_ids || "").split(",").map(x => x.trim()).filter(Boolean).slice(0, 10)) { const u = await grab(id); if (u) p.pphotos.push(u); }
 }
 const sheetEvents = await sheet(process.env.SHEET_EVENTS_CSV);
 for (const r of sheetEvents) {
@@ -255,8 +296,8 @@ const pageHead = (crumbs, h1, sub, extra = "") => `
 </section>`;
 
 const listingCard = (p) => `
-<article class="listing${p.sponsored ? " sponsored" : ""}" data-cat="${p.cat}" data-search="${esc((p.name + " " + p.type + " " + (p.cuisine || "") + " " + p.desc + " " + (p.area || "") + " " + catLabel(p.cat)).toLowerCase())}">
-  <div class="listing-top"><span>${esc(p.type)}</span>${p.sponsored ? '<span class="pill spons">Sponsored</span>' : p.verified ? '<span class="pill ver">Verified</span>' : ""}</div>
+<article class="listing${p.sponsored ? " sponsored" : ""}${p.premium ? " premium" : ""}" data-cat="${p.cat}" data-search="${esc((p.name + " " + p.type + " " + (p.cuisine || "") + " " + p.desc + " " + (p.area || "") + " " + catLabel(p.cat)).toLowerCase())}">
+  <div class="listing-top"><span>${esc(p.type)}</span>${p.premium ? '<span class="pill feat">Featured</span>' : p.sponsored ? '<span class="pill spons">Sponsored</span>' : p.verified ? '<span class="pill ver">Verified</span>' : ""}</div>${p.premium && p.pphotos && p.pphotos[0] ? `<img class="listing-photo" src="${p.pphotos[0]}" alt="${esc(p.name)}" loading="lazy">` : ""}
   <h3 class="h4"><a href="/places/${p.slug}/">${esc(p.name)}</a></h3>
   <p>${esc(p.desc)}</p>
   <div class="meta"><span>${esc(p.area || "Wellington")}</span><a href="/places/${p.slug}/">Details</a></div>
@@ -319,6 +360,11 @@ const add = (urlPath, html, priority = "0.7", lastmod = BUILD_DATE) => { write(u
   ${sponsor("rect")}
 </div></section>
 
+<section class="block fl-sec" id="featured"><div class="wrap">
+  <div class="sec-head"><h2>Featured local businesses</h2><a href="/advertise/#featured-spots">Get Featured</a></div>
+  <div class="fl-row">${places.filter(p => p.premium).slice(0, 4).map(p => `<a class="m-fc" href="/places/${p.slug}/">${p.logo ? `<img class="m-fc-logo" src="${p.logo}" alt="" loading="lazy" width="44" height="44">` : ""}<span class="bd">Featured</span><strong>${esc(p.name)}</strong><span>${esc(p.type)} &middot; ${esc(p.area || "Wellington")}</span></a>`).join("")}${Array.from({ length: Math.max(0, 4 - places.filter(p => p.premium).length) }, () => `<a class="m-fc you" href="/advertise/#featured-spots"><span class="bd">Open spot</span><strong>Your business here</strong><span>Top of your category, with photos.</span><em>$19/month</em></a>`).join("")}</div>
+</div></section>
+
 <section class="block" id="directory"><div class="wrap">
   <div class="sec-head"><h2>The Wellington directory</h2><a href="/directory/">Browse everything</a></div>
   <div class="cats">${CATS.filter(c => counts[c.id]).slice(0, 7).map(c => `<a class="cat" href="/directory/?cat=${c.id}"><svg viewBox="0 0 64 64"><use href="#logo"/></svg><div><strong>${c.label}</strong><span>${counts[c.id]} places</span></div></a>`).join("")}<a class="cat" href="/add-your-business/"><svg viewBox="0 0 64 64"><use href="#logo"/></svg><div><strong>Add your business</strong><span>Free listing</span></div></a></div>
@@ -364,6 +410,7 @@ ${newsletter}`;
 
 // ---------- Directory (all) ----------
 function directoryPage({ urlPath, crumbs, h1, sub, title, description, list, showFilters = true, intro = "", noindex = false }) {
+  list = [...list.filter(p => p.premium), ...list.filter(p => !p.premium)]; // paid Featured listings are pinned to the top
   const cats = CATS.filter(c => list.some(p => p.cat === c.id));
   const heroExtra = `<div class="search page-search"><label for="dir-q" style="flex:1;display:flex"><span class="sr">Search the directory</span><input id="dir-q" type="search" placeholder="Search by name, cuisine or type"></label><span class="page-search-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span></div>
   <div class="head-stats"><span><b>${list.length}</b> places</span>${cats.length > 1 ? `<span><b>${cats.length}</b> categories</span>` : ""}<span>Free to list</span></div>`;
@@ -544,13 +591,13 @@ for (const p of places) {
     ...(p.phone ? [{ q: `What is the phone number for ${p.name}?`, a: `You can reach ${p.name} at ${p.phone}.` }] : [])
   ];
   const ldPlace = {
-    "@context": "https://schema.org", "@type": p.schema || "LocalBusiness", name: p.name, description: p.desc, url: `${SITE}/places/${p.slug}/`, ...(p.photos && p.photos.length ? { image: p.photos.map(ph => `${SITE}/assets/photos/${p.slug}/${ph.file}`) } : {}),
+    "@context": "https://schema.org", "@type": p.schema || "LocalBusiness", name: p.name, description: p.desc, url: `${SITE}/places/${p.slug}/`, ...(p.photos && p.photos.length ? { image: p.photos.map(ph => `${SITE}/assets/photos/${p.slug}/${ph.file}`) } : p.pphotos && p.pphotos.length ? { image: p.pphotos.map(u => SITE + u) } : {}),
     ...(addrParts ? { address: { "@type": "PostalAddress", streetAddress: addrParts[1], addressLocality: addrParts[2], addressRegion: "FL", postalCode: addrParts[3], addressCountry: "US" } } : { address: { "@type": "PostalAddress", addressLocality: isNearby ? city : "Wellington", addressRegion: "FL", addressCountry: "US" } }),
     ...(p.phone ? { telephone: p.phone } : {}), ...(p.openingHours ? { openingHours: p.openingHours } : {}), ...(p.priceRange ? { priceRange: p.priceRange } : {}), ...(p.cuisine ? { servesCuisine: p.cuisine } : {}), ...(p.website ? { sameAs: [p.website] } : {})
   };
   const ldFaq = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
   const telHref = p.phone ? "tel:+1" + p.phone.replace(/\D/g, "").replace(/^1/, "") : "";
-  const actions = `<div class="pl-actions"><a class="btn btn-primary" href="${mapsLink(p)}" rel="noopener" target="_blank">Get directions</a>${p.phone ? `<a class="btn btn-ghost" href="${telHref}">Call ${esc(p.phone)}</a>` : ""}${p.website ? `<a class="btn btn-ghost" href="${esc(p.website)}" rel="noopener nofollow" target="_blank">Visit website</a>` : ""}</div>`;
+  const actions = `<div class="pl-actions"><a class="btn btn-primary" href="${mapsLink(p)}" rel="noopener" target="_blank">Get directions</a>${p.phone ? `<a class="btn btn-ghost" href="${telHref}">Call ${esc(p.phone)}</a>` : ""}${p.website ? `<a class="btn btn-ghost" href="${esc(p.website)}" rel="noopener nofollow" target="_blank">Visit website</a>` : ""}${p.premium && p.booking ? `<a class="btn btn-gold" href="${esc(p.booking)}" rel="noopener" target="_blank">Book now</a>` : ""}</div>`;
   const facts = `<dl class="pl-facts">
       <div><dt>Category</dt><dd><a href="${listUrl}">${esc(catLabel(p.cat))}</a></dd></div>
       <div><dt>Type</dt><dd>${esc(p.type)}</dd></div>
@@ -567,7 +614,7 @@ for (const p of places) {
   const body = `
 <section class="pl-head"><div class="wrap">
   ${crumbsHTML(crumbs)}
-  <div class="pl-title"><div><span class="pill ver" style="background:rgba(255,255,255,.14);color:#fff">${esc(catLabel(p.cat))}</span><h1>${esc(p.name)}</h1><p>${esc(p.type)}${p.area ? " &middot; " + esc(p.area) : ""}</p></div></div>
+  <div class="pl-title">${p.premium && p.logo ? `<img class="pl-logo" src="${p.logo}" alt="${esc(p.name)} logo" width="88" height="88">` : ""}<div>${p.premium ? '<span class="pill feat">Featured</span> ' : ""}<span class="pill ver" style="background:rgba(255,255,255,.14);color:#fff">${esc(catLabel(p.cat))}</span><h1>${esc(p.name)}</h1><p>${esc(p.type)}${p.area ? " &middot; " + esc(p.area) : ""}</p></div></div>
   ${actions}
 </div></section>
 <div class="wrap">${sponsor()}</div>
@@ -576,10 +623,13 @@ for (const p of places) {
     <section class="pl-section"><h2>About ${esc(p.name)}</h2>
       ${p.status ? `<p class="pl-lede" style="border-left:4px solid #c9a227;padding-left:12px"><strong>Status:</strong> ${esc(p.status)}</p>` : ""}
       <p class="pl-lede">${esc(p.desc)}</p>
-      ${p.about ? `<p>${esc(p.about)}</p>` : ""}
+      ${p.about ? String(p.about).split(/\n\s*\n/).map(x => `<p>${esc(x)}</p>`).join("") : ""}
       <p>${esc(p.name)} is ${areaText}. ${p.cat === "restaurants" ? `It is one of ${places.filter(x => x.cat === "restaurants").length} places to eat and drink in our <a href="/restaurants/">Wellington restaurant guide</a>${p.cuisine ? `, and part of the village's ${esc(p.cuisine)} dining scene` : ""}.` : `Browse more ${esc(catLabel(p.cat).toLowerCase())} in our <a href="${listUrl}">Wellington directory</a>.`}</p>
       ${p.link ? `<p><a href="${p.link}">Read our full guide</a></p>` : ""}
     </section>
+    ${p.premium && p.deals ? `<section class="pl-section pl-deal"><h2>Current special</h2><p>${esc(p.deals)}</p>${p.booking ? `<a class="btn btn-primary" href="${esc(p.booking)}" rel="noopener" target="_blank">Book now</a>` : ""}</section>` : ""}
+    ${p.premium && p.pphotos && p.pphotos.length ? `<section class="pl-section"><h2>Photos of ${esc(p.name)}</h2><div class="pl-gallery">${p.pphotos.map((u, i) => `<a href="${u}" target="_blank" rel="noopener"><img src="${u}" alt="${esc(p.name)} photo ${i + 1}" loading="lazy" decoding="async"></a>`).join("")}</div><p class="small">Photos provided by ${esc(p.name)}.</p></section>` : ""}
+    ${p.premium && (p.facebook || p.instagram) ? `<section class="pl-section"><h2>Follow ${esc(p.name)}</h2><p class="pl-social">${p.facebook ? `<a href="${esc(p.facebook)}" rel="noopener nofollow" target="_blank">Facebook</a>` : ""}${p.instagram ? `<a href="${esc(p.instagram)}" rel="noopener nofollow" target="_blank">Instagram</a>` : ""}</p></section>` : ""}
     ${p.photos && p.photos.length ? `<section class="pl-section"><h2>Photos of ${esc(p.name)}</h2><div class="pl-photos">${p.photos.map(ph => `<figure><a href="/assets/photos/${p.slug}/${ph.file}" target="_blank" rel="noopener"><img src="/assets/photos/${p.slug}/${ph.file}" alt="${esc(ph.alt)}" width="${ph.w}" height="${ph.h}" loading="lazy" decoding="async"></a><figcaption>${esc(ph.caption)}</figcaption></figure>`).join("")}</div><p class="small">Photos by WellingtonList${p.photoDate ? ", " + esc(p.photoDate) : ""}.${p.cat === "restaurants" ? " Menus and prices can change." : ""}</p></section>` : ""}
     ${p.offerings && p.offerings.length ? `<section class="pl-section"><h2>${p.cat === "restaurants" ? "What to try" : "Services and highlights"}</h2><ul class="tips">${p.offerings.map(o => `<li>${esc(o)}</li>`).join("")}</ul></section>` : ""}
     ${p.hours ? `<section class="pl-section"><h2>Hours</h2><p>${esc(p.hours)}</p><p class="small">Hours can change on holidays and during the winter season. ${p.phone ? `Call <a href="${telHref}">${esc(p.phone)}</a> to confirm before you go.` : "Confirm with the business before you go."}</p></section>` : ""}
@@ -644,6 +694,26 @@ for (const p of places) {
   add("/events/", layout({ title: "Wellington, FL Events Calendar 2026 to 2027: Horse Shows, Polo and Festivals", description: "Upcoming events in Wellington, Florida: the 2027 Winter Equestrian Festival, Palm Beach polo season, Global Dressage Festival and community events.", urlPath: "/events/", body, jsonld: [crumbsLD(crumbs), ...evLD] }), "0.9");
 }
 
+// ---------- Featured mentions in related guides ----------
+// Featured businesses pick the guides they want to appear in on the setup page; each option maps to a set of articles.
+const MENTION_OPTIONS = [
+  ["Restaurant and food guides", (p) => p.category === "Food and Drink"],
+  ["Holiday and seasonal guides", (p) => /holiday|christmas|thanksgiving|halloween|easter|fourth-of-july|new-year|valentine|winterfest|black-friday|lights/.test(p.slug)],
+  ["Kids and family guides", (p) => p.category === "Family" || /kids|family|camp|birthday|playground/.test(p.slug)],
+  ["Pet and dog-friendly guides", (p) => p.category === "Pets" || /dog|pet/.test(p.slug)],
+  ["Equestrian and polo guides", (p) => p.category === "Equestrian" || /polo|equestrian|horse/.test(p.slug)],
+  ["Home and homeowner guides", (p) => p.category === "Home"],
+  ["Health and wellness guides", (p) => p.category === "Health"],
+  ["Things to do guides", (p) => p.category === "Things to Do"],
+  ["Events roundups", (p) => /events/.test(p.slug)],
+  ["Our related services page", () => false]
+];
+const featuredForPost = (post) => {
+  const picks = places.filter(pl => pl.premium && (pl.mentions || []).some(m => { const o = MENTION_OPTIONS.find(x => x[0] === m); return o && o[1](post); })).slice(0, 3);
+  if (!picks.length) return "";
+  return `<aside class="fl-post" aria-label="Featured local businesses"><div class="fl-post-h">Featured local businesses <span>Paid placements</span></div><div class="fl-row fl-row-${picks.length}">${picks.map(pl => `<a class="m-fc" href="/places/${pl.slug}/">${pl.logo ? `<img class="m-fc-logo" src="${pl.logo}" alt="" loading="lazy" width="44" height="44">` : ""}<span class="bd">Featured</span><strong>${esc(pl.name)}</strong><span>${esc(pl.type)}${pl.deals ? " &middot; " + esc(pl.deals.slice(0, 60)) : ""}</span></a>`).join("")}</div></aside>`;
+};
+
 // ---------- Blog ----------
 {
   const crumbs = [["Home", "/"], ["News", "/blog/"]];
@@ -663,6 +733,7 @@ for (const p of places) {
   <article class="prose">
     ${coverFile(p) ? `<figure class="cover">${coverImg(p, true)}</figure>` : ""}
     ${content}
+    ${featuredForPost(p)}
     <section class="faq" id="faq"><h2>Frequently asked questions</h2>${p.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</section>
     <section class="sources"><h2 style="font-size:20px">Sources</h2><ul>${p.sources.map(s => `<li><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.name)}</a></li>`).join("")}</ul>
     <p>Details on developments and schools can change. We update this guide as new information is announced. Spot something out of date? <a href="/submit-event/">Send us a tip</a>.</p></section>
@@ -692,22 +763,149 @@ const formPage = ({ urlPath, crumb, h1, sub, title, description, form, side }) =
 const hp = `<span class="hp"><label>Leave blank<input name="website_url_hp" tabindex="-1" autocomplete="off"></label></span>`;
 const catOptions = CATS.filter(c => c.id !== "coming-soon" && c.id !== "nearby").map(c => `<option>${c.label}</option>`).join("");
 
-formPage({
-  urlPath: "/add-your-business/", crumb: "Add your business", h1: "Add your business to Wellington List",
-  sub: "Free listings for Wellington businesses. Submit your details and we will review and publish your listing, usually within a few days.",
-  title: "Add Your Business to Wellington List | Free Wellington, FL Business Listing",
-  description: "Get your Wellington, Florida business listed free on Wellington List, the local directory for Wellington residents. Claim or update an existing listing.",
-  form: `<form class="form" data-wl-form="Businesses" data-success="Thanks! We received your listing and will review it shortly.">
-    <input type="hidden" name="claim_listing" value="">
-    <div class="row"><label>Business name<input name="business_name" required></label><label>Category<select name="category" required><option value="">Choose one</option>${catOptions}</select></label></div>
-    <div class="row"><label>Type of business <span class="hint">For example: sushi, pool service, pediatrics</span><input name="subcategory"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
-    <label>Street address<input name="address" placeholder="12345 Forest Hill Blvd, Wellington, FL 33414"></label>
-    <div class="row"><label>Website<input name="website" type="url" placeholder="https://"></label><label>Your email <span class="hint">Not published</span><input name="email" type="email" required autocomplete="email"></label></div>
-    <label>Short description <span class="hint">Two or three sentences about what you do</span><textarea name="description" maxlength="600"></textarea></label>
-    <label><span><input type="checkbox" name="interested_in_featured" value="yes"> I'm interested in a featured or sponsored placement</span></label>
-    ${hp}<button class="btn btn-primary" type="submit">Submit listing</button><div class="status" role="status"></div></form>`,
-  side: `<div class="info-card"><strong>What happens next</strong><ul class="tips"><li>We verify the business is in or serves Wellington</li><li>Your listing goes live with its own page</li><li>Business owners can update or correct a listing any time</li></ul></div>`
-});
+// ---------- Add your business: Free vs Featured, free self-serve form, Stripe checkout ----------
+const MAIL = "hello@wellingtonlist.com";
+const STRIPE_MONTHLY = "https://buy.stripe.com/14A00k5wpe4S2vJ9kQ1Fe0p";
+const STRIPE_LIFETIME = "https://buy.stripe.com/00w5kEcYR7Gu5HVfJe1Fe0q";
+const hoursInputs = () => `<fieldset class="hours-fields"><legend>Hours <span class="hint">Use a format like 9am-5pm, or type closed</span></legend><div class="hours-grid">${["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(d => `<label><span>${d}</span><input name="h_${d}" placeholder="${d === "Sun" ? "closed" : "9am-5pm"}" autocomplete="off"></label>`).join("")}</div><input type="hidden" name="hours"></fieldset>`;
+const bizCoreFields = (descHint, minWords) => `
+  <div class="row"><label>Business name *<input name="business_name" required maxlength="80"></label>
+  <label>Category *<select name="category" required><option value="">Choose one</option>${CATS.filter(c => !["coming-soon", "nearby"].includes(c.id)).map(c => `<option value="${c.id}">${c.label}</option>`).join("")}</select></label></div>
+  <div class="row"><label>Type of business *<input name="subcategory" required maxlength="60" placeholder="e.g. Sushi restaurant, Pool service, Pediatric dentist"></label>
+  <label>Phone *<input name="phone" type="tel" required placeholder="(561) 555-0123"></label></div>
+  <label>Street address *<input name="address" required placeholder="12345 Forest Hill Blvd, Wellington, FL 33414"><span class="hint">In Wellington or nearby in Palm Beach County. Include the ZIP code.</span></label>
+  <label>Website<input name="website" type="url" placeholder="https://"></label>
+  ${hoursInputs()}
+  <label>Description * <span class="hint">${descHint} <span class="wc" data-min="${minWords}">0 words</span></span><textarea name="description" required data-minwords="${minWords}"></textarea></label>`;
+const tick = '<svg class="ck" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.6 4.3 10.3l-1.2 1.2 4.5 4.5 9.4-9.4-1.2-1.2z"/></svg>';
+
+{
+  const urlPath = "/add-your-business/";
+  const crumbs = [["Home", "/"], ["Add your business", urlPath]];
+  const nPlaces = places.length;
+  const nGuides = posts.length;
+  const no = '<span class="nx" aria-hidden="true">&ndash;</span>';
+  const rows = [
+    ["Your own listing page", tick, tick],
+    ["Name, address, phone and hours", tick, tick],
+    ["Description of your business", "Up to 150 words", "Up to 600 words"],
+    ["Placement in your category and service pages", "Standard order", "<strong>Pinned to the top</strong>"],
+    ["Featured badge on every card and page", no, tick],
+    ["Logo on your listing", no, tick],
+    ["Photo gallery", no, "<strong>Up to 10 photos</strong>"],
+    ["Deals and specials box", no, tick],
+    ["Book now / reservation button", no, tick],
+    ["Facebook and Instagram links", no, tick],
+    ["Mentions in related guides (restaurants, holidays, kids, equestrian and more)", no, tick],
+    ["Priority updates whenever your hours or info change", no, tick],
+    ["Review before going live", "Automatic checks", "Personal setup by our team"]
+  ];
+  const faqs = [
+    { q: "Is the free listing really free?", a: "Yes. A basic listing with your name, address, phone, hours and a short description is free. Fill out the form on this page and, if it passes our checks, it usually goes live within the hour." },
+    { q: "What do I get with a Featured listing?", a: "Your business is pinned to the top of its category and service pages with a Featured badge, and your page gets your logo, up to 10 photos, a deals box, a booking button, social links, a longer write-up and mentions in related Wellington guides." },
+    { q: "How does Lifetime work?", a: "Lifetime is a single $49 payment at our founding price. Your listing stays Featured for as long as Wellington List runs, with no monthly bill. The founding price will go up as the site grows." },
+    { q: "Can I cancel the monthly plan?", a: "Yes, anytime. Your listing goes back to a free listing at the end of the billing period, and nothing else changes." },
+    { q: "What happens after I pay?", a: "Stripe takes you straight to a setup page where you upload your logo and photos and fill in your details. Your Featured listing goes through quick automatic checks and usually goes live within the hour." },
+    { q: "My business is already listed. Can I upgrade it?", a: "Yes. Choose Featured, and on the setup page paste the link to your current listing. We upgrade that page instead of creating a new one." },
+    { q: "Which businesses qualify?", a: "Businesses located in Wellington, or service businesses that regularly serve Wellington homes and companies, including nearby Royal Palm Beach, Loxahatchee, Lake Worth, Greenacres and the rest of western Palm Beach County. We do not list adult businesses, gambling, or anything misleading." }
+  ];
+  const body = pageHead(crumbs, "Get your business found in Wellington", "People search Wellington List every day for restaurants, services and things to do. List your business free, or get Featured and stand out from day one.",
+    `<div class="head-stats"><span><b>${nPlaces}</b> local listings</span><span><b>${nGuides}</b> local guides</span><span>Free basic listings</span><span>Featured from <b>$19</b>/mo</span></div>`) + `
+<section class="wrap biz-sec">
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">Free listing</div>
+      <div class="plan-price"><b>$0</b></div>
+      <p class="plan-sub">The basics, so locals can find you.</p>
+      <ul class="plan-list"><li>${tick}<span>Your own listing page</span></li><li>${tick}<span>Name, address, phone and hours</span></li><li>${tick}<span>Short description</span></li><li>${tick}<span>Listed in your category</span></li></ul>
+      <a class="btn btn-ghost plan-btn" href="#free-form">Create a free listing</a>
+    </div>
+    <div class="plan plan-featured">
+      <div class="plan-flag">Founding price &middot; Most popular</div>
+      <div class="plan-name">Featured listing</div>
+      <div class="plan-price"><b>$19</b><span>/month</span><em>or $49 once for lifetime</em></div>
+      <p class="plan-sub">Everything in Free, plus top placement and a page that sells for you.</p>
+      <ul class="plan-list">${["<strong>Pinned to the top</strong> of your category", "Featured badge everywhere you appear", "Logo plus <strong>up to 10 photos</strong>", "Book now button and social links", "Deals and specials box", "Mentions in related Wellington guides", "Longer write-up, up to 600 words"].map(t => `<li>${tick}<span>${t}</span></li>`).join("")}</ul>
+      <a class="btn btn-primary plan-btn" href="${STRIPE_MONTHLY}" rel="noopener">Get Featured for $19/month</a>
+      <a class="btn btn-gold-ghost plan-btn" href="${STRIPE_LIFETIME}" rel="noopener">Or pay $49 once, Featured for life</a>
+      <p class="plan-fine">Secure checkout by Stripe. Monthly plan cancels anytime. After checkout you'll upload your logo and photos.</p>
+    </div>
+  </div>
+
+  <h2 class="biz-h">Why businesses go Featured</h2>
+  <div class="plan-why">
+    <div><b>Top of the list</b><span>Featured listings show first in your category, ahead of the other ${nPlaces}+ businesses on Wellington List.</span></div>
+    <div><b>Logo, photos, booking</b><span>Up to 10 photos, your logo and a Book now button turn your listing into a mini website.</span></div>
+    <div><b>$49 one time</b><span>Pay once and stay Featured for as long as the site runs. No renewals, no contract.</span></div>
+  </div>
+
+  <h2 class="biz-h">Free vs. Featured, side by side</h2>
+  <div class="table-wrap"><table class="compare-table plan-table"><thead><tr><th></th><th>Free</th><th>Featured</th></tr></thead><tbody>${rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}<tr><td><strong>Price</strong></td><td>$0</td><td><strong>$19/month</strong> or <strong>$49 lifetime</strong></td></tr></tbody></table></div>
+  <div class="plan-cta-row"><a class="btn btn-primary" href="${STRIPE_MONTHLY}" rel="noopener">Get Featured for $19/month</a><a class="btn btn-gold-ghost" href="${STRIPE_LIFETIME}" rel="noopener">$49 lifetime</a><span>Founding price. It goes up as the site grows, so lock it in now.</span></div>
+</section>
+
+<section class="wrap body-grid biz-form-wrap" id="free-form">
+  <div>
+    <h2 class="biz-h" style="margin-top:0">Create your free listing</h2>
+    <p class="lede" style="margin-top:0">Takes about two minutes. Listings that pass our checks usually go live within the hour. Want photos, your logo and top placement? <a href="${STRIPE_MONTHLY}" rel="noopener">Go Featured</a> instead.</p>
+    <form class="form biz-form" data-wl-form="Businesses" data-success="Thanks! Your listing is in. If it passes our checks it will usually go live within the hour, and we'll email you if we have any questions.">
+      ${bizCoreFields("25 to 150 words. What you do, who you serve, what makes you different.", 25)}
+      <div class="row"><label>Your name<input name="contact_name" autocomplete="name"></label>
+      <label>Your email * <span class="hint">Never published</span><input name="email" type="email" required autocomplete="email"></label></div>
+      <input type="hidden" name="claim_listing">
+      ${hp}
+      <label class="check"><input type="checkbox" required> I own or manage this business, and the details are accurate.</label>
+      <button class="btn btn-primary" type="submit">Submit free listing</button>
+      <p class="status" role="status"></p>
+    </form>
+    <div class="prose" style="margin-top:40px"><h2 style="font-family:var(--serif);font-weight:500;font-size:26px">Frequently asked questions</h2>${faqs.map(f => `<h3 style="font-size:17px;margin:18px 0 4px">${f.q}</h3><p>${f.a}</p>`).join("")}</div>
+  </div>
+  <aside><div class="sticky-rail"><div class="info-card plan-side"><strong>Want to stand out?</strong><p>Featured businesses are pinned above every free listing in their category, with photos, a logo and a booking button.</p><a class="btn btn-primary" href="${STRIPE_MONTHLY}" rel="noopener">$19/month</a><a class="btn btn-gold-ghost" href="${STRIPE_LIFETIME}" rel="noopener">$49 lifetime</a><p class="plan-fine">Already listed? You can upgrade your existing page.</p></div></div></aside>
+</section>${newsletter}`;
+  // Kept out of Google's index for now (same as before) while the AdSense review is pending.
+  write("add-your-business/index.html", layout({
+    title: "Add Your Business to Wellington List | Free & Featured Listings in Wellington, FL",
+    description: "List your Wellington, FL business free, or get Featured from $19/month ($49 lifetime founding price): top placement, logo, 10 photos, booking button and guide mentions.",
+    urlPath, body, noindex: true,
+    jsonld: [crumbsLD(crumbs), { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+      { "@context": "https://schema.org", "@type": "Product", name: "Wellington List Featured Listing", description: "Featured business listing on WellingtonList.com", brand: { "@type": "Brand", name: "Wellington List" },
+        offers: [{ "@type": "Offer", price: "19.00", priceCurrency: "USD", url: STRIPE_MONTHLY, availability: "https://schema.org/InStock" }, { "@type": "Offer", price: "49.00", priceCurrency: "USD", url: STRIPE_LIFETIME, availability: "https://schema.org/InStock" }] }]
+  }));
+}
+
+// ---------- Featured setup page (after Stripe checkout, noindex) ----------
+{
+  const urlPath = "/featured/setup/";
+  const body = pageHead([["Home", "/"], ["Featured setup", urlPath]], "Set up your Featured listing", "Thank you for going Featured! Fill this out once and we'll build your listing. It usually goes live within the hour.") + `
+<section class="wrap body-grid">
+  <div>
+    <div class="setup-paid" id="setup-paid" hidden><strong>Payment received.</strong> <span id="setup-plan"></span> Keep this page open until you hit submit.</div>
+    <div class="setup-unpaid" id="setup-unpaid" hidden>Haven't checked out yet? <a href="${STRIPE_MONTHLY}">Get Featured for $19/month</a> or <a href="${STRIPE_LIFETIME}">$49 lifetime</a> first, then come back here.</div>
+    <form class="form biz-form" id="featured-form" data-featured-form>
+      <label>Already listed? Paste your current listing link <span class="hint">Optional. We'll upgrade that page.</span><input name="existing_listing" placeholder="https://wellingtonlist.com/places/..."></label>
+      ${bizCoreFields("60 to 600 words. Tell customers your story, services, specialties and what to expect.", 60)}
+      <h3 class="setup-h">Logo and photos</h3>
+      <label>Logo <span class="hint">PNG or JPG, square works best</span><input type="file" name="logo_file" accept="image/png,image/jpeg,image/webp"></label>
+      <label>Photos <span class="hint">Up to 10. Storefront, interior, team, products, food. We resize them for fast loading.</span><input type="file" name="photo_files" accept="image/png,image/jpeg,image/webp" multiple></label>
+      <div class="photo-previews" id="photo-previews"></div>
+      <h3 class="setup-h">Extras</h3>
+      <label>Current deal or special <span class="hint">e.g. 10% off your first visit</span><input name="deals" maxlength="200"></label>
+      <label>Booking or reservation link<input name="booking_url" type="url" placeholder="https://"></label>
+      <div class="row"><label>Facebook page<input name="facebook" type="url" placeholder="https://facebook.com/..."></label>
+      <label>Instagram<input name="instagram" type="url" placeholder="https://instagram.com/..."></label></div>
+      <fieldset class="mention-fields"><legend>Where should we mention you? <span class="hint">Pick any that fit your business</span></legend>${MENTION_OPTIONS.map(m => `<label class="check"><input type="checkbox" name="mention_in" value="${m[0]}"> ${m[0]}</label>`).join("")}</fieldset>
+      <h3 class="setup-h">Your contact info <span class="hint">Never published</span></h3>
+      <div class="row"><label>Your name *<input name="contact_name" required autocomplete="name"></label>
+      <label>Email you used at checkout *<input name="email" type="email" required autocomplete="email"></label></div>
+      ${hp}
+      <button class="btn btn-primary" type="submit" id="featured-submit">Submit my Featured listing</button>
+      <p class="status" role="status" id="featured-status"></p>
+    </form>
+  </div>
+  <aside><div class="sticky-rail"><div class="info-card"><strong>What happens next</strong><ul class="tips"><li>Quick automatic checks on your details and photos</li><li>Your Featured listing goes live, usually within the hour</li><li>You're pinned to the top of your category</li><li>Need a change later? Email <a href="mailto:${MAIL}">${MAIL}</a></li></ul></div></div></aside>
+</section>`;
+  write("featured/setup/index.html", layout({ title: "Set Up Your Featured Listing | Wellington List", description: "Finish setting up your Featured listing on Wellington List.", urlPath, body, noindex: true, sponsors: false }));
+}
 formPage({
   urlPath: "/submit-event/", crumb: "Submit an event", h1: "Submit a Wellington event",
   sub: "Community events, fundraisers, grand openings, shows and classes in or near Wellington. Free to submit.",
@@ -726,55 +924,81 @@ formPage({
 // ---------- Advertise ----------
 {
   const crumbs = [["Home", "/"], ["Advertise", "/advertise/"]];
-  const st = SP.stats || {};
-  const mail = "mailto:hello@wellingtonlist.com?subject=Advertising%20on%20Wellington%20List";
-  const cta = (label, cls = "adv-btn") => `<a class="${cls}" href="${mail}">${label}<span aria-hidden="true">&rarr;</span></a>`;
-  const body = `
-<section class="adv-hero"><svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
-  <div class="wrap adv-hero-grid">
-    <div>
-      ${crumbsHTML(crumbs)}
-      <h1>Advertise your business on Wellington List</h1>
-      <p class="adv-sub">Reach Wellington residents who are looking for local news, restaurants, services and things to do.</p>
-      ${cta("Ask about advertising")}
-      <p class="adv-fine">Email us at hello@wellingtonlist.com and we'll send current options and rates</p>
+  const spotsOpen = Math.max(0, 4 - places.filter(p => p.premium).length);
+  const nPlaces = places.length, nEvents = events.length;
+  const subj = encodeURIComponent("Advertising on Wellington List");
+  const mailBtn = (cls = "btn btn-primary") => `<a class="${cls}" href="mailto:${MAIL}?subject=${subj}">Email ${MAIL}</a>`;
+  const card = (t, d) => `<div class="ad-card"><svg class="ad-ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg><h3>${t}</h3><p>${d}</p></div>`;
+  const faq = [
+    ["Who reads Wellington List?", "People searching for Wellington, Florida businesses, restaurants, things to do and events: residents, families who just moved to the village, seasonal equestrian visitors and people planning a trip to the Mall at Wellington Green, the Town Center or the showgrounds."],
+    ["How much does it cost?", "A Featured listing is $19/month, or $49 once for lifetime at our founding price, and you can buy it online. For a directory, category, guide or events sponsorship, rates depend on the placement and how long you want to run. Email us with what you have in mind and we'll send current availability and pricing."],
+    ["Are sponsored placements labeled?", "Yes. Every paid placement is clearly marked as Featured or sponsored, so readers can trust the rest of the guide and your brand gets the credibility of appearing alongside it."],
+    ["Do I have to advertise to be listed?", "No. Basic listings are always free. Advertising is for businesses that want more visibility than a standard listing."],
+    ["How fast can a campaign go live?", "Featured listings usually go live within the hour after you finish the setup page. Other sponsorships usually go live within a few business days of receiving your artwork, copy and link."]
+  ];
+  const body = pageHead(crumbs, "Advertise on Wellington List", "Put your business in front of people actively searching for Wellington restaurants, services, things to do and events.",
+    `<div class="ad-hero-cta"><a class="btn btn-primary ad-hero-btn" href="#featured-spots">Get Featured from $19/month</a> ${mailBtn("btn btn-ghost-light ad-hero-btn")}</div>
+  <div class="head-stats"><span><b>${nPlaces}</b> local listings</span><span><b>${CATS.filter(c => places.some(p => p.cat === c.id)).length}</b> categories</span><span><b>${posts.length}</b> local guides</span>${nEvents ? `<span><b>${nEvents}</b> upcoming events</span>` : ""}</div>`) + `
+<section class="wrap ad-sec">
+  <div class="ad-intro"><p class="lede">Wellington List is the independent local guide to Wellington, Florida. When someone looks up the best sushi near the mall, a pool service in Olympia or what's happening at the Town Center this weekend, they land on our pages. Sponsoring Wellington List puts your business right where those decisions get made.</p></div>
+  <div class="spot-box" id="featured-spots">
+    <div class="spot-copy">
+      <div class="spot-kicker">${spotsOpen > 0 ? `${spotsOpen} of 4 spots open` : "All 4 spots taken"} &middot; Buy online</div>
+      <h2>Homepage Featured spots</h2>
+      <p class="spot-price"><b>$19</b><span>/month</span><em>Cancel anytime</em></p>
+      <p><strong>What it is:</strong> one of only four business cards in the &ldquo;Featured local businesses&rdquo; row on the Wellington List homepage. Your card shows your business name, what you do and your area, and links to your own Featured page.</p>
+      <p><strong>Where it is:</strong> on the <a href="/#featured">homepage</a>, right under the latest news and the &ldquo;Coming up&rdquo; events, above the Wellington directory. It is the first place on the site where visitors see local businesses.</p>
+      <ul class="spot-list">${["A homepage spot, one of only four", "<strong>Pinned to the top</strong> of your category in the directory", "Your own page with logo and <strong>up to 10 photos</strong>", "Book now button, social links and a specials box", "Mentions in related Wellington guides"].map(t => `<li>${t}</li>`).join("")}</ul>
+      <a class="btn btn-gold spot-btn" href="${STRIPE_MONTHLY}" rel="noopener">Claim a Featured spot for $19/month</a>
+      <p class="spot-alt">Or <a href="${STRIPE_LIFETIME}" rel="noopener">pay $49 once and stay Featured for life</a> at the founding price.</p>
+      <p class="spot-fine">Secure checkout by Stripe. Right after checkout you'll add your details, logo and photos, and your listing usually goes live within the hour. ${spotsOpen > 0 ? "Homepage spots are first come, first served." : "The four homepage spots are full right now, so new Featured businesses get everything else and the next homepage spot that opens."}</p>
     </div>
-    <div class="adv-preview" aria-hidden="true">
-      <span class="adv-preview-label">Example display ad</span>
-      <div class="ad-space ad-box" style="pointer-events:none"><span class="ad-label">Advertisement</span><b>Your business here</b><span>Your message and a link to your website.</span><span class="ad-cta">Learn more &rarr;</span></div>
+    <div class="spot-map" aria-hidden="true">
+      <div class="sm-bar"></div>
+      <div class="sm-hero"><i></i><b></b></div>
+      <div class="sm-label">Latest news</div>
+      <div class="sm-news"><span></span><span></span></div>
+      <div class="sm-label">Coming up</div>
+      <div class="sm-row"><span></span><span></span><span></span><span></span></div>
+      <div class="sm-feat"><em>Featured local businesses</em><div><span>Your business</span><span></span><span></span><span></span></div></div>
+      <div class="sm-label">The Wellington directory</div>
+      <div class="sm-areas"><span></span><span></span><span></span></div>
+      <p>Where your card appears on the homepage</p>
     </div>
   </div>
-</section>
-
-<section class="adv-sec"><div class="wrap">
-  <h2 class="adv-h">Wellington is finding us on Google</h2>
-  <div class="adv-stats">
-    <div><b>${esc(st.impressions28 || "")}</b><span>Google search impressions in the last 28 days</span></div>
-    <div><b>${esc(st.impressions7 || "")}</b><span>in the last 7 days alone, and climbing</span></div>
-    <div><b>${places.length}</b><span>Wellington businesses and places listed</span></div>
-    <div><b>${posts.length}</b><span>local news stories and guides, with new ones every day</span></div>
+  <h2 class="ad-h">Why sponsor Wellington List</h2>
+  <div class="ad-grid">
+    ${card("High-intent local readers", "Our visitors aren't scrolling past. They're looking for a place to eat, a service to hire or something to do in Wellington, right now.")}
+    ${card("100% Wellington focused", "No wasted reach across all of South Florida. Every page is about Wellington and the western communities, from the Town Center to the showgrounds to Royal Palm Beach.")}
+    ${card("A trusted, uncluttered guide", "We keep the site clean, with no pop-ups and no wall of banner ads. A sponsor stands out instead of getting lost.")}
   </div>
-  <p class="adv-src">Search data from Google Search Console as of ${esc(st.asOf || "")}</p>
-</div></section>
-
-<section class="adv-sec adv-alt"><div class="wrap">
-  <h2 class="adv-h">Ad spaces</h2>
-  <div class="adv-gets">
-    <div><span class="adv-ico">1</span><b>Banner ad</b><p>A wide display ad on pages across the site, including news stories, guides and directory pages, linked to your website.</p></div>
-    <div><span class="adv-ico">2</span><b>Sidebar ad</b><p>A display ad in the sidebar next to our news stories and guides, where readers spend the most time.</p></div>
-    <div><span class="adv-ico">3</span><b>Featured listing</b><p>Your business highlighted at the top of your category in the directory, such as dentists, restaurants or home services.</p></div>
+  <h2 class="ad-h">Ways to sponsor</h2>
+  <div class="ad-grid ad-grid-2">
+    ${card("Directory sponsor", "Become the presenting sponsor of the Wellington List directory or one category, like Eat and Drink, Home services or Health and medical, with your brand at the top of the page.")}
+    ${card("Featured listing", "Pin your business to the top of its category with your logo, photos and a booking button. $19/month, and you can <a href=\"#featured-spots\">buy it online</a> in two minutes.")}
+    ${card("Sponsored guide", "A dedicated, clearly labeled article about your business, menu, opening or offer, written for local readers and promoted across the site.")}
+    ${card("Events calendar sponsor", "Promote your event or venue at the top of the Wellington events calendar, one of the most-visited pages for things to do.")}
   </div>
-</div></section>
-
-<section class="adv-sec"><div class="wrap">
-  <div class="adv-final">
-    <h2>Let's talk about your business</h2>
-    ${cta("Email us about advertising", "adv-btn adv-btn-white")}
+  <p class="ad-note">Have something else in mind? Grand openings, seasonal promotions and multi-location packages are welcome. Just ask.</p>
+  <h2 class="ad-h">How it works</h2>
+  <ol class="ad-steps">
+    <li><strong>Pick your placement</strong><span>Buy a Featured listing online, or email us about a directory, guide or events sponsorship.</span></li>
+    <li><strong>Send your details</strong><span>Featured businesses fill out a quick setup page with their logo and photos. For sponsorships, we'll reply with rates and open dates, usually within one business day.</span></li>
+    <li><strong>Go live</strong><span>Featured listings usually go live within the hour. Sponsorships launch within a few business days.</span></li>
+  </ol>
+  <div class="ad-contact">
+    <div><h2>Let's get your business in front of Wellington</h2><p>Email us at <a href="mailto:${MAIL}?subject=${subj}">${MAIL}</a> and include your business name, website, the placement you're interested in and your ideal start date</p></div>
+    ${mailBtn("btn btn-gold ad-hero-btn")}
   </div>
-  <p class="adv-q">Questions? Email us at <a href="${mail}">hello@wellingtonlist.com</a></p>
-</div></section>`;
-  write("advertise/index.html", layout({ title: "Advertise in Wellington, FL | Wellington List", description: "Advertise your business on Wellington List, the independent local guide to Wellington, Florida. Banner ads, sidebar ads and featured directory listings.", urlPath: "/advertise/", body, jsonld: [crumbsLD(crumbs)], sponsors: false, bodyClass: "adv-page", noindex: true }));
-
+  <h2 class="ad-h">Questions</h2>
+  <div class="ad-faq">${faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join("")}</div>
+  <p class="ad-note" style="margin-top:28px">Just want a free listing? <a href="/add-your-business/">Add your business here</a>.</p>
+</section>`;
+  const ld = [crumbsLD(crumbs), { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+  // Kept out of Google's index for now (same as before) while the AdSense review is pending.
+  write("advertise/index.html", layout({ title: "Advertise on Wellington List | Sponsor the Wellington, FL Directory", description: "Get Featured on Wellington List from $19/month ($49 lifetime founding price), or sponsor the directory and reach people searching for Wellington, Florida restaurants, businesses, services and events.", urlPath: "/advertise/", body, jsonld: ld, sponsors: false, noindex: true }));
+}
+{
   // Post-checkout thank-you page (Stripe redirects here). Not in the sitemap.
   const tcrumbs = [["Home", "/"], ["Advertise", "/advertise/"], ["Thank you", "/advertise/thanks/"]];
   const tbody = pageHead(tcrumbs, "You're a Wellington List sponsor!", "Thank you for supporting independent local news in Wellington.") + `
@@ -868,11 +1092,12 @@ fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
   for (const p of posts) idx.push(["News", p.h1 || p.title, `/blog/${p.slug}/`, p.category || "", ""]);
   fs.writeFileSync(path.join(OUT, "assets/search.json"), JSON.stringify(idx));
 }
-fs.writeFileSync(path.join(OUT, "assets/site.css"), read("assets/base.css") + read("assets/extra.css") + read("assets/sponsors.css") +"\n.foot-h{font-size:14px;color:#fff;margin:0 0 14px;font-weight:600;font-family:var(--sans)}\n.h4{font-family:var(--serif);font-weight:500;font-size:22px;margin:2px 0 0;line-height:1.2}\n");
+fs.writeFileSync(path.join(OUT, "assets/site.css"), read("assets/base.css") + read("assets/extra.css") + read("assets/sponsors.css") + read("assets/featured.css") +"\n.foot-h{font-size:14px;color:#fff;margin:0 0 14px;font-weight:600;font-family:var(--sans)}\n.h4{font-family:var(--serif);font-weight:500;font-size:22px;margin:2px 0 0;line-height:1.2}\n");
 for (const f of ["main.js", "config.js"]) fs.copyFileSync(path.join(SRC, "assets", f), path.join(OUT, "assets", f));
 for (const f of fs.readdirSync(path.join(SRC, "static"))) fs.copyFileSync(path.join(SRC, "static", f), path.join(OUT, f.startsWith("asset-") ? "assets/" + f.slice(6) : f));
 
 if (fs.existsSync(path.join(SRC, "photos"))) fs.cpSync(path.join(SRC, "photos"), path.join(OUT, "assets/photos"), { recursive: true });
+if (fs.existsSync(PREMIUM_DIR)) fs.cpSync(PREMIUM_DIR, path.join(OUT, "assets/premium"), { recursive: true });
 if (fs.existsSync(path.join(SRC, "covers"))) { fs.mkdirSync(path.join(OUT, "assets/covers"), { recursive: true }); for (const f of fs.readdirSync(path.join(SRC, "covers"))) fs.copyFileSync(path.join(SRC, "covers", f), path.join(OUT, "assets/covers", f)); }
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
